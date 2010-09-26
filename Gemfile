@@ -1,0 +1,10 @@
+source :rubygems
+  gem "sinatra"
+  gem "datamapper"
+  gem "dm-sqlite-adapter"
+  gem "dm-serializer"
+  gem "activesupport"
+  gem "grit"
+  gem "jeweler"
+  gem "shoulda"
+  gem "mocha"

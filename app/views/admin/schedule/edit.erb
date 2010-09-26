@@ -1,0 +1,27 @@
+<h2>Editing schedule "<%= @schedule.name %>"?</h2>
+<form action="/api/schedule/edit" method="post">
+	<input type="hidden" name="_method" value="put" />
+	<input type="hidden" name="id" value="<%= @schedule.id %>" />
+	<p><input name="name" type="text" value="<%= @schedule.name %>" /></p>
+	<p><input type="submit" value="Edit &larr;" /></p>
+</form>
+<h3>Periods</h3>
+<ul>
+<% @periods.each do |@period| %>
+	<li>
+	<%= @period.string %> (<%= @period.start_time.strftime("%I:%M") %>&ndash;<%= @period.end_time.strftime("%I:%M") %>)
+	<ul>
+		<li><a href="/admin/schedule/<%= @schedule.id %>/period/<%= @period.id %>/edit">Edit</a></li>
+		<li><a href="/admin/schedule/<%= @schedule.id %>/period/<%= @period.id %>/delete">Delete</a></li>
+	</ul>
+	</li>
+	<% end %>
+</ul>
+<form action="/api/schedule/period/new" method="post">
+	<p><input name="number" type="text" value="#" /></p>
+	<p><input name="string" type="text" value="String" /></p>
+	<p><input name="start_time" type="text" value="Start Time" /></p>
+	<p><input name="end_time" type="text" value="End Time" /></p>
+	<input type="hidden" name="schedule_id" value="<%= @schedule.id %>" />
+	<p><input type="submit" value="Create" /></p>
+</form>

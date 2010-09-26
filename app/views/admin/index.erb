@@ -1,0 +1,36 @@
+<section>
+	<h2>Schedules</h2>
+	<ul>
+		<% @schedules.each do |@schedule| %>
+		<li>
+			<%= @schedule.name %>
+			<ul>
+				<li><a href="/admin/schedule/<%= @schedule.id %>/edit">Edit</a></li>
+				<li><a href="/admin/schedule/<%= @schedule.id %>/delete">Delete</a></li>
+			</ul>
+		</li>
+		<% end %>
+	</ul>
+	<form action="/api/schedule/new" method="post">
+		<p><input name="name" type="text" value="Name of Schedule" /></p>
+		<p><input id="next" type="submit" value="Continue &rarr;" /></p>
+	</form>
+</section>
+<section>
+	<h2>Marquee</h2>
+	<ul>
+		<% @marquees.each do |@marquee| %>
+		<li>
+			<%= @marquee.string %>
+			<ul>
+				<li><a href="/admin/marquee/<%= @marquee.id %>/edit">Edit</a></li>
+				<li><a href="/admin/marquee/<%= @marquee.id %>/delete">Delete</a></li>
+			</ul>
+		</li>
+		<% end %>
+	</ul>
+	<form action="/api/marquee/new" method="post">
+		<p><input name="string" type="text" value="String" /></p>
+		<p><input type="submit" value="Create &rarr;" /></p>
+	</form>
+</section>

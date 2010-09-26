@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FHS Clock</title>
+		<link href="stylesheet.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="contain">
+			<div id="marquee">
+				<marquee>
+					<% @marquees.each do |@marquee| %>
+					&nbsp;&mdash;&nbsp;<%= @marquee.string %>&nbsp;&mdash;&nbsp;
+					<% end %>
+				</marquee><!-- AH! THE INVALIDITY! -->
+			</div>
+			<div id="schedule">
+				<% @periods.each do |@period| %>
+				<div class="period <%= @period.id %>"><%= @period.string %>: <%= @period.start_time.strftime("%I:%M") %>&ndash;<%= @period.end_time.strftime("%I:%M") %></div>
+				<% end %>
+			</div>
+			<div id="clock">
+				<p><%= Clock.time.strftime("%A, %B %d, %Y") %></p>
+				<p><%= Clock.time.strftime("%I:%M:%S %p") %></p>
+			</div>
+		</div>
+		<script src="javascript.js"></script>
+	</body>
+</html>

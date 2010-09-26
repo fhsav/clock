@@ -1,0 +1,9 @@
+<h2>Editing period "<%= @period.string %>" on schedule "<%= @schedule.name %>"</h2>
+<form action="/api/schedule/period/edit" method="post">
+	<input type="hidden" name="_method" value="put" />
+	<input type="hidden" name="id" value="<%= @period.id %>" />
+	<p><input name="string" type="text" value="<%= @period.string %>" /></p>
+	<p><input name="start_time" type="text" value="<%= @period.start_time.strftime("%I:%M") %>" /></p>
+	<p><input name="end_time" type="text" value="<%= @period.end_time.strftime("%I:%M") %>" /></p>
+	<p><input type="submit" value="Edit" /></p>
+</form>
