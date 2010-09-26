@@ -1,0 +1,90 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.0.0)
+    addressable (2.2.1)
+    data_objects (0.10.2)
+      addressable (~> 2.1)
+    datamapper (1.0.2)
+      dm-aggregates (= 1.0.2)
+      dm-constraints (= 1.0.2)
+      dm-core (= 1.0.2)
+      dm-migrations (= 1.0.2)
+      dm-serializer (= 1.0.2)
+      dm-timestamps (= 1.0.2)
+      dm-transactions (= 1.0.2)
+      dm-types (= 1.0.2)
+      dm-validations (= 1.0.2)
+    diff-lcs (1.1.2)
+    dm-aggregates (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-constraints (1.0.2)
+      dm-core (~> 1.0.2)
+      dm-migrations (~> 1.0.2)
+    dm-core (1.0.2)
+      addressable (~> 2.2)
+      extlib (~> 0.9.15)
+    dm-do-adapter (1.0.2)
+      data_objects (~> 0.10.2)
+      dm-core (~> 1.0.2)
+    dm-migrations (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-serializer (1.0.2)
+      dm-core (~> 1.0.2)
+      fastercsv (~> 1.5.3)
+      json_pure (~> 1.4)
+    dm-sqlite-adapter (1.0.2)
+      dm-do-adapter (~> 1.0.2)
+      do_sqlite3 (~> 0.10.2)
+    dm-timestamps (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-transactions (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-types (1.0.2)
+      dm-core (~> 1.0.2)
+      fastercsv (~> 1.5.3)
+      json_pure (~> 1.4)
+      stringex (~> 1.1.0)
+      uuidtools (~> 2.1.1)
+    dm-validations (1.0.2)
+      dm-core (~> 1.0.2)
+    do_sqlite3 (0.10.2)
+      data_objects (= 0.10.2)
+    extlib (0.9.15)
+    fastercsv (1.5.3)
+    gemcutter (0.6.1)
+    git (1.2.5)
+    grit (2.2.0)
+      diff-lcs (~> 1.1)
+      mime-types (~> 1.15)
+    jeweler (1.4.0)
+      gemcutter (>= 0.1.0)
+      git (>= 1.2.5)
+      rubyforge (>= 2.0.0)
+    json_pure (1.4.6)
+    mime-types (1.16)
+    mocha (0.9.8)
+      rake
+    rack (1.2.1)
+    rake (0.8.7)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    shoulda (2.11.3)
+    sinatra (1.0)
+      rack (>= 1.0)
+    stringex (1.1.0)
+    uuidtools (2.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  datamapper
+  dm-serializer
+  dm-sqlite-adapter
+  grit
+  jeweler
+  mocha
+  shoulda
+  sinatra
