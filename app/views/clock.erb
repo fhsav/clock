@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>FHS Clock</title>
-		<link href="stylesheet.css" rel="stylesheet" />
+		<link href="/css/stylesheet.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div id="contain">
@@ -20,9 +20,11 @@
 			</div>
 			<div id="clock">
 				<p><%= Clock.time.strftime("%A, %B %d, %Y") %></p>
-				<p><%= Clock.time.strftime("%I:%M:%S %p") %></p>
+				<p><span id="time"></span></p>
 			</div>
 		</div>
-		<script src="javascript.js"></script>
+		<script src="/jsc/jquery.js"></script>
+		<script src="/jsc/jclock.js"></script>
+		<script src="/jsc/application.js"></script>
 	</body>
 </html>
