@@ -6,7 +6,8 @@ directory = File.expand_path(File.dirname(__FILE__))
 
 configure do
   # Setup the database.
-  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/database.db")
+  #DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/database.db")
+  DataMapper.setup(:default, 'sqlite::memory:')
 
   # Make a struct.
   Clock = OpenStruct.new(
