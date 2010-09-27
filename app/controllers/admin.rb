@@ -47,3 +47,4 @@ get '/admin/marquee/:id/delete' do
 
   erb :'admin/marquee/delete'
 end
+

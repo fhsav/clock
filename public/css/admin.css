@@ -1,0 +1,125 @@
+/* 
+	FHS Clock
+		file: /css/admin.css
+*/
+
+/* Reset */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}:focus{outline:0}body{line-height:1;color:black;background:white}ol,ul{list-style:none}table{border-collapse:separate;border-spacing:0}caption,th,td{text-align:left;font-weight:normal}blockquote:before,blockquote:after,q:before,q:after{content:""}blockquote,q{quotes:""""}.floated:after{clear: both;content: ".";display: block;height: 0;visibility: hidden;}* html .floated{height: 1%;}
+
+header:after, #body:after{
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+header, nav, aside, section, footer{
+	display: block;
+}
+
+/* Fonts */
+@import url('http://fonts.googleapis.com/css?family=Droid+Serif');
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans');
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans+Mono');
+
+/* Universal */
+body{
+	color: #666;
+	font: 11px "Droid Serif", Georgia, serif;
+	margin: 80px auto;
+	width: 760px;
+}
+
+a{
+	color: #803434;
+	text-decoration: none;
+}
+a:hover{
+	color: #333;
+}
+
+h1{
+	font-size: 18px;
+}
+h1 a{
+	color: #333;
+}
+h1 a:hover{
+	color: #666;
+}
+
+h2{
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+h3{
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+p{
+	line-height: 1.5em;
+	margin-bottom: 10px;
+}
+
+form input{
+	font: 11px "Droid Sans", Helvetica, Arial, sans-serif;
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+
+/* Header */
+header{
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+header p{
+	float: right;
+	margin-top: -22px;
+}
+header p a{
+	background: #803434;
+	color: #fff;
+	display: block;
+	padding: 7px 5px 5px 5px;
+}
+header p a:hover{
+	background: #a54343;
+	color: #fff;
+}
+
+/* Body */
+#body ul li{
+	margin-left: 20px;
+	padding-left: 5px;
+	list-style-type: disc;
+}
+#body ul li > ul{
+	margin-top: -10px;
+}
+#body ul li p{
+	font-weight: bold;
+}
+
+#body form{
+	margin-top: 10px;
+}
+
+/* Footer */
+footer{
+	border-top: 1px solid #eee;
+	padding-top: 10px;
+	margin-top: 20px;
+}
+
+footer ul{
+	float: right;
+	text-align: right;
+	margin-top: -20px;	
+}
+

@@ -45,7 +45,7 @@ put '/api/schedule/edit' do
   @schedule.update(:name => params[:name])
   @schedule.save
   
-  redirect '/admin'
+  redirect '/admin/schedule' + @schedule.id.to_s + '/edit'
 end
 delete '/api/schedule/delete' do
   @schedule = Schedule.first(:id => params[:id])

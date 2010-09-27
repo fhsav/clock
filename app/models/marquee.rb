@@ -5,5 +5,5 @@ class Marquee
   include DataMapper::Resource
   
   property :id, Serial
-  property :string, String
+  property :string, Text
 end

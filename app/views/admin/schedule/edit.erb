@@ -2,15 +2,15 @@
 <form action="/api/schedule/edit" method="post">
 	<input type="hidden" name="_method" value="put" />
 	<input type="hidden" name="id" value="<%= @schedule.id %>" />
-	<p><input name="name" type="text" value="<%= @schedule.name %>" /></p>
-	<p><input type="submit" value="Edit &larr;" /></p>
+	<p><input name="name" type="text" value="<%= @schedule.name %>" />
+	<input type="submit" value="Edit &rarr;" /></p>
 </form>
 <h3>Periods</h3>
 <ul>
 <% @periods.each do |@period| %>
-	<li>
-	<%= @period.string %> (<%= @period.start_time.strftime("%I:%M") %>&ndash;<%= @period.end_time.strftime("%I:%M") %>)
-	<ul>
+	<li id="first">
+	<p><%= @period.string %> (<%= @period.start_time.strftime("%I:%M") %>&ndash;<%= @period.end_time.strftime("%I:%M") %>)</p>
+	<ul id="second">
 		<li><a href="/admin/schedule/<%= @schedule.id %>/period/<%= @period.id %>/edit">Edit</a></li>
 		<li><a href="/admin/schedule/<%= @schedule.id %>/period/<%= @period.id %>/delete">Delete</a></li>
 	</ul>
