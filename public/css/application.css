@@ -45,7 +45,7 @@ body{
 	border-bottom: 1px solid #333;
 	padding: 10px;
 }
-#schedule #active{
+#schedule .active{
 	background: #333;
 	color: #fafafa;
 	padding: 25px 0 25px 25px;
