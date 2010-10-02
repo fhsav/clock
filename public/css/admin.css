@@ -123,3 +123,15 @@ footer ul{
 	margin-top: -20px;	
 }
 
+footer input{
+	background: none;
+	padding: 0;
+	margin: 0;
+	font: 11px "Droid Serif", Georgia, serif;
+	border: none;
+	color: #803434;
+	cursor: pointer;
+}
+footer input:hover{
+	text-decoration: underline;
+}

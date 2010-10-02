@@ -8,9 +8,14 @@ configure do
   # Setup the database.
   #DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/database.db")
   DataMapper.setup(:default, 'sqlite::memory:')
-
+  
+  # Get YAML.
+  @@yaml = YAML::load_file(Dir.pwd + '/db/config.yaml')
+  
   # Make a struct.
   Clock = OpenStruct.new(
+    :username => @@yaml['username'],
+    :password => @@yaml['password'],
     :time => DateTime.now
   )
   
@@ -19,6 +24,7 @@ configure do
   
   # Set options.
   set :environment, :development
+  enable :sessions
 end
 
 ### Load the helpers.

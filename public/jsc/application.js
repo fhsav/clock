@@ -4,25 +4,62 @@
 */
 
 /* Clock */
-$(function($){
-	var options = {
-		timeNotation: '12h',
-		am_pm: true,
-	}
-	$('#time').jclock(options);
-});
-
-var loop = setInterval(function() {
+function clock(){
 	var d = new Date();
-	var dh = d.getHours();
-	var cP = 16; 
-	/* make cP your earliest period
-	earlier than 1600, but that's for it to
-	work with the current time for me (8pm) 
-	each pass with increment by 1 hour.*/
-	$('.period').each(function() {
-		if (dh==cP) $(this).addClass('active'); // add active if current
-		else $(this).removeClass('active'); // otherwise remove it
-		cP++; // Add an hour each loop, assuming each period is 1hr
-	});
-}, 60000); // 60000 milliseconds = 1 minute update
+	
+	var day = d.getDay();
+	var month = d.getMonth();
+	var date = d.getDate();
+	var year = d.getFullYear();
+	
+	var hour = d.getHours();
+	var minute = d.getMinutes();
+	var second = d.getSeconds();
+	
+	var dayArray = new Array(
+		"Sunday",
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday"
+	);
+	
+	var monthArray = new Array(
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December"
+	);
+	
+	if(date < 10){
+		var date = '0' + date
+	}
+	
+	if(hour > 12){
+		am_pm = 'PM';
+	}
+	else if(hour < 12){
+		am_pm = 'AM';
+	}
+	
+	if(second < 10){
+		second = '0' + second
+	}
+	
+	var hour = ( hour > 12 ) ? hour - 12 : hour;
+	var hour = ( hour == 0 ) ? 12 : hour;
+	
+	$('span#date').html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
+	$('span#time').html(hour + ":" + minute + ":" + second + " " + am_pm)
+};
+setInterval("clock()", 0);

@@ -9,22 +9,27 @@
 			<div id="marquee">
 				<marquee>
 					<% @marquees.each do |@marquee| %>
-					&nbsp;&mdash;&nbsp;<%= @marquee.string %>&nbsp;&mdash;&nbsp;
-					<% end %>
+					&nbsp;&mdash;&nbsp;&nbsp;<%= @marquee.string %>
+					<% end %>&nbsp;&nbsp;&mdash;&nbsp;
 				</marquee><!-- AH! THE INVALIDITY! -->
 			</div>
 			<div id="schedule">
 				<% @periods.each do |@period| %>
-				<div class="period <%= @period.id %>"><%= @period.string %>: <%= @period.start_time.strftime("%I:%M") %>&ndash;<%= @period.end_time.strftime("%I:%M") %></div>
+				<div class="period <%= @period.id %>">
+					<%= @period.string %>: <%= @period.start_time.strftime("%I:%M") %>&ndash;<%= @period.end_time.strftime("%I:%M") %>
+					<span id="hidden" class="start_hour"><%= @period.start_time.strftime("%H") %></span>
+					<span id="hidden" class="start_min"><%= @period.start_time.strftime("%M") %></span>
+					<span id="hidden" class="end_hour"><%= @period.end_time.strftime("%H") %></span>
+					<span id="hidden" class="end_min"><%= @period.end_time.strftime("%M") %></span>
+				</div>
 				<% end %>
 			</div>
 			<div id="clock">
-				<p><%= Clock.time.strftime("%A, %B %d, %Y") %></p>
+				<p><span id="date"></span></p>
 				<p><span id="time"></span></p>
 			</div>
 		</div>
 		<script src="/jsc/jquery.js"></script>
-		<script src="/jsc/jclock.js"></script>
 		<script src="/jsc/application.js"></script>
 	</body>
 </html>
