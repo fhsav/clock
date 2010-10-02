@@ -2,7 +2,7 @@
 
 **Authors:** [Ethan Turkeltaub](http://ethan.heroku.com), Nick Silverman, Farmington High School Audio-Visual
 
-**Version:** 0.1.0
+**Version:** 0.1.1
 
 **License:** GPL
 
@@ -12,8 +12,6 @@ At my school, in (almost) every room, there is a TV. On that TV is a clock + sch
 
 ### To-Do
 
-* Password-protect administration.
-* Better administration styling.
 * Messaging system.
 * Highlighting of current period.
 * Shows if after school.
