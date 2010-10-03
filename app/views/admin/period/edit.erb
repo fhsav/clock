@@ -3,7 +3,7 @@
 	<input type="hidden" name="_method" value="put" />
 	<input type="hidden" name="id" value="<%= @period.id %>" />
 	<p><input name="string" type="text" value="<%= @period.string %>" /></p>
-	<p><input name="start_time" type="text" value="<%= @period.start_time.strftime("%I:%M") %>" /></p>
-	<p><input name="end_time" type="text" value="<%= @period.end_time.strftime("%I:%M") %>" /></p>
+	<p><input name="start_time" type="text" value="<%= @period.start_time.strftime("%H:%M") %>" /></p>
+	<p><input name="end_time" type="text" value="<%= @period.end_time.strftime("%H:%M") %>" /></p>
 	<p><input type="submit" value="Edit" /></p>
 </form>

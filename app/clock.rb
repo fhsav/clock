@@ -6,8 +6,8 @@ directory = File.expand_path(File.dirname(__FILE__))
 
 configure do
   # Setup the database.
-  #DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/database.db")
-  DataMapper.setup(:default, 'sqlite::memory:')
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/database.db")
+  #DataMapper.setup(:default, 'sqlite::memory:')
   
   # Get YAML.
   @@yaml = YAML::load_file(Dir.pwd + '/db/config.yaml')
@@ -24,6 +24,7 @@ configure do
   
   # Set options.
   set :environment, :development
+  set :port, 4242
   enable :sessions
 end
 

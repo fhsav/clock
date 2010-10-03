@@ -59,6 +59,16 @@ delete '/api/schedule/delete' do
   redirect '/admin'
 end
 
+post '/api/schedule/activate' do
+  @old = Schedule.first(:active => true)
+  @old.update(:active => false)
+  
+  @new = Schedule.first(:id => params[:id])
+  @new.update(:active => true)
+  
+  redirect '/admin'
+end
+
 ### Period
 post '/api/schedule/period/new' do
   @period = Period.new

@@ -52,6 +52,10 @@ function clock(){
 		am_pm = 'AM';
 	}
 	
+	if(minute < 10){
+		minute = '0' + minute
+	}
+	
 	if(second < 10){
 		second = '0' + second
 	}
