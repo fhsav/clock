@@ -1,0 +1,3 @@
+# FHS Clock
+
+Documentation on the way...
