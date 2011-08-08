@@ -1,0 +1,18 @@
+#inner.row
+  = partial 'partials/nav/notices'
+  %section#body
+    %section.row
+      =flash_tag :error
+      =flash_tag :notice
+      %form.row{:action => url(:notices, :modify), :method => "post"}
+        %section
+          %p
+            %input{:name => "notice[text]", :type => "text", :value => @notice.text}/
+            - if @notice.urgent
+              %input{:name => "urgent[]", :type => "checkbox", :checked => "checked"} Urgent?
+            - else
+              %input{:name => "urgent[]", :type => "checkbox"} Urgent?
+          %p
+            %input{:name => "id", :type => "hidden", :value => @notice.id}/
+            %input{:name => "_method", :type => "hidden", :value => "put"}/
+            %button.green{:type => "submit", :value => "Publish"} Publish

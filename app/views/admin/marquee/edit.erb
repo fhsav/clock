@@ -1,7 +1,0 @@
-<h2>Editing marquee item "<%= @marquee.string %>"?</h2>
-<form action="/api/marquee/edit" method="post">
-	<input type="hidden" name="_method" value="put" />
-	<input type="hidden" name="id" value="<%= @marquee.id %>" />
-	<p><input name="string" type="text" value="<%= @marquee.string %>" /></p>
-	<p><input type="submit" value="Edit &larr;" /></p>
-</form>

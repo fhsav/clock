@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title FHS Clock
+    %link{:href => "/css/application.css", :rel => "stylesheet"}/
+  %body
+    #contain
+      #marquee
+        %marquee
+          - @marquees.each do |marquee|
+            \ —  #{marquee.text}
+          \  — 
+      #schedule
+        - @periods.each do |period|
+          %div{:class => "period #{period.number}"}
+            ="#{period.text}: "
+            %time.start{:time => seconds(period.start)}="#{local(period.start)} &ndash; "
+            %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
+      #clock
+        %p
+          %span#date
+        %p
+          %span#time
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"}
+    %script{:src => "/jsc/application.js"}

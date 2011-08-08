@@ -1,6 +1,0 @@
-<h2>Are you sure you want to delete the period "<%= @period.string %>"?</h2>
-<form action="/api/schedule/period/delete" method="post">
-	<input type="hidden" name="_method" value="delete" />
-	<input type="hidden" name="id" value="<%= @period.id %>" />
-	<p><input type="submit" value="DESTROY" /></p>
-</form>

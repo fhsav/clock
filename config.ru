@@ -1,31 +1,9 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env rackup
+# encoding: utf-8
 
-### Clock.
-###   file: config.ru
+# This file can be used to start Padrino,
+# just execute it from the command line.
 
-### Set directory variable.
-directory = File.expand_path(File.dirname(__FILE__))
+require File.expand_path("../config/boot.rb", __FILE__)
 
-### Require system dependencies.
-require 'rubygems'
-require 'bundler/setup'
-
-### Require application depedencies.
-require 'sinatra'
-require 'datamapper'
-require 'dm-sqlite-adapter'
-require 'dm-serializer'
-require 'grit'
-require 'active_support'
-
-require 'shoulda'
-require 'mocha'
-require 'jeweler'
-
-require 'ostruct'
-
-### Require the application file.
-require File.join(directory, 'app', 'clock.rb')
-
-### Run the application.
-run Sinatra::Application
+run Padrino.application

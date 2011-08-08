@@ -1,21 +1,57 @@
-### Clock.
-###   file: app/models/schedule.rb
-
 class Schedule
-  include DataMapper::Resource
+  include MongoMapper::Document
+
+  # Keys
+  key :name, String
+  key :description, String
+  key :active, Boolean, :default => false
   
-  property :id, Serial
-  property :name, String # A human-readable name for the admin page.
-  property :active, Boolean # Only one can be true--will be shown on the clock page.
+  timestamps!
+  
+  # Associations
+  many :periods
+  
+  # Callbacks
+  before_save :activate
+  
+  # Methods
+  def active?
+    if self.active == true
+      return true
+    else
+      return false
+    end
+  end
+  
+  def activate!(id)
+    others = Schedule.all(:active => true)
+    
+    others.each do |other|
+      other.active = false
+    end
+    
+    new = Schedule.find(id)
+    new.active = true
+  end
+  
+  # Callbacks, cont.
+  def activate
+    others = Schedule.all(:active => true)
+    
+    others.each do |other|
+      other.active = false
+    end
+    
+    self.active = true
+  end
 end
 
 class Period
-  include DataMapper::Resource
+  include MongoMapper::Document
   
-  property :id, Serial
-  property :number, Integer # For ordering.
-  property :string, String # What is actually displayed.
-  property :start_time, Time
-  property :end_time, Time
-  property :belongs_to, Integer # Schedule ID.
+  # Keys
+  key :number, String
+  key :name, String
+  key :start, Time
+  key :finish, Time
 end

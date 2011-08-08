@@ -1,0 +1,63 @@
+#inner.row
+  = partial 'partials/nav/schedules'
+  %section#body
+    %section.row
+      =flash_tag :error
+      =flash_tag :notice
+      - if @schedule.active != true
+        %form.right.clearfix{:action => url(:schedules, :activate), :method => "post"}
+          %input{:name => "id", :type => "hidden", :value => @schedule.id}/
+          %button{:type => "submit"}
+            Activate
+      - else
+        .notice
+          %p
+            This is the active schedule.
+      %form.row{:action => url(:schedules, :modify), :method => "post"}
+        %section
+          %p
+            %input{:name => "schedule[name]", :type => "text", :value => @schedule.name}/
+          %p
+            %textarea{:name => "schedule[description]"}= @schedule.description
+          %p
+            %input{:name => "id", :type => "hidden", :value => @schedule.id}/
+            %input{:name => "_method", :type => "hidden", :value => "put"}/
+            %button.green{:type => "submit", :value => "Publish"} Publish
+
+      %section.meta
+        - if !@schedule.periods.blank?
+          %table
+            %thead
+              %tr
+                %th #
+                %th Text
+                %th Start/Finish Times
+                %th Actions
+            %tbody
+              - @schedule.periods.each do |period|
+                %tr
+                  %td= period.number
+                  %td= period.text
+                  %td= "#{local(period.start)} &ndash; #{local(period.finish)}"
+                  %td
+                    %a{:href => url(:periods, :edit, :id => period.id, :schedules_id => @schedule.id)} Edit
+                    &mdash;
+                    %form.inline{:action => url(:periods, :destroy, :schedules_id => @schedule.id), :method => "post"}
+                      %input{:name => "id", :type => "hidden", :value => period.id}/
+                      %input{:name => "s_id", :type => "hidden", :value => @schedule.id}/
+                      %input{:name => "_method", :type => "hidden", :value => "delete"}/
+                      %button.inline{:type => "submit", :value => "Delete"} Delete
+        - else
+          %p
+            No periods!
+      
+      %section.meta
+        %form{:action => url(:periods, :create, :schedules_id => @schedule.id), :method => "post"}
+          %p.inline
+            %input.tiny{:name => "period[number]", :placeholder => "#", :type => "text", :width => "5"}/
+            %input.medium{:name => "period[text]", :placeholder => "Descriptive text (Period 1), et cetera.", :type => "text"}/
+            %input.time{:name => "period[start]", :placeholder => "Start time (07:32)", :type => "text"}/
+            %input.time{:name => "period[finish]", :placeholder => "End time (14:23)", :type => "text"}/
+          %p
+            %input{:name => "id", :type => "hidden", :value => @schedule.id}/
+            %button.green{:type => "submit"} Create

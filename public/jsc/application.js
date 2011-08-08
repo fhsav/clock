@@ -65,5 +65,30 @@ function clock(){
 	
 	$('span#date').html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
 	$('span#time').html(hour + ":" + minute + ":" + second + " " + am_pm)
+	
+	$(document).ready(function(){
+
+	$('.period').each(function() {
+		var element = $(this);
+		
+		var start = element.find('time.start').attr('time');
+		var finish = element.find('time.finish').attr('time');
+		
+		d = new Date();
+		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+		
+		if (time >= start && time <= finish) {
+			element.attr('id', 'active');
+    	}
+    	
+    	else {
+    		element.attr('id', '');
+    	}
+
+	});
+
+});
 };
 setInterval("clock()", 0);
+
+

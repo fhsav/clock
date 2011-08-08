@@ -1,0 +1,36 @@
+#inner.row
+  = partial 'partials/nav/schedules'
+  %section#body
+    =flash_tag :notice
+    - if !@schedules.blank?
+      %table
+        %thead
+          %tr
+            %th Name
+            %th Description
+            %th Actions
+        %tbody
+          - @schedules.each do |schedule|
+            %tr{:class => schedule.active}
+              %td= schedule.name
+              %td= schedule.description
+              %td
+                %a{:href => url(:schedules, :edit, :id => schedule.id)} Edit
+                &mdash;
+                %form.inline{:action => url(:schedules, :destroy), :method => "post"}
+                  %input{:name => "id", :type => "hidden", :value => schedule.id}/
+                  %input{:name => "_method", :type => "hidden", :value => "delete"}/
+                  %button.inline{:type => "submit", :value => "Delete"} Delete
+                      
+    - else
+      %p
+        No schedules!
+    
+    %section.meta.row
+      %form{:action => url(:schedules, :create), :method => "post"}
+        %p
+          %input{:name => "schedule[name]", :placeholder => "Name", :type => "text"}/
+        %p
+          %textarea{:name => "schedule[description]", :placeholder => "A short description of the schedule describing what it's for."}
+        %p
+          %button.green{:type => "submit"} Create

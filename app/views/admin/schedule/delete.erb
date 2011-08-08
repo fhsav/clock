@@ -1,6 +1,0 @@
-<h2>Are you sure you want to delete the schedule "<%= @schedule.name %>" and all associated periods?</h2>
-<form action="/api/schedule/delete" method="post">
-	<input type="hidden" name="_method" value="delete" />
-	<input type="hidden" name="id" value="<%= @schedule.id %>" />
-	<p><input type="submit" value="DESTROY" /></p>
-</form>
