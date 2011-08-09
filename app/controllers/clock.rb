@@ -5,6 +5,7 @@ Clock.controllers do
     @schedule = Schedule.first(:active => true)
     @periods = @schedule.periods.sort(:number.asc)
     @marquees = Marquee.all
+    @notices = Notice.all
     
     render :clock
   end

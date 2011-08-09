@@ -2,6 +2,10 @@
   = partial 'partials/nav/periods'
   %section#body
     %section.row
+      %h2
+        Editing period 
+        ="&ldquo;#{@period.text}&rdquo; in schedule"
+        ="&ldquo;#{@schedule.name}&rdquo;"
       =flash_tag :error
       =flash_tag :notice
       %form.row{:action => url(:periods, :modify, :schedules_id => @schedule.id), :method => "post"}

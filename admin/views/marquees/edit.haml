@@ -2,6 +2,9 @@
   = partial 'partials/nav/marquees'
   %section#body
     %section.row
+      %h2
+        Editing marquee item 
+        ="&rdquo;#{@marquee.text}&ldquo;"
       =flash_tag :error
       =flash_tag :notice
       %form.row{:action => url(:marquees, :modify), :method => "post"}

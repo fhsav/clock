@@ -27,6 +27,7 @@
         No schedules!
     
     %section.meta.row
+      %a{:name => "periods", :style => "display: none"} Hello
       %form{:action => url(:schedules, :create), :method => "post"}
         %p
           %input{:name => "schedule[name]", :placeholder => "Name", :type => "text"}/

@@ -37,6 +37,11 @@ body {
 	font: 11px/1.5em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+h2 {
+	font-size: 1.25em;
+	margin-bottom: 1em;
+}
+
 p.inline input {
 	display: inline;
 }

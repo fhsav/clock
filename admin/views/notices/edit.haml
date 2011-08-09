@@ -2,6 +2,9 @@
   = partial 'partials/nav/notices'
   %section#body
     %section.row
+      %h2
+        Editing notice 
+        ="&rdquo;#{@notice.text}&ldquo;"
       =flash_tag :error
       =flash_tag :notice
       %form.row{:action => url(:notices, :modify), :method => "post"}

@@ -21,5 +21,9 @@
           %span#date
         %p
           %span#time
+      - if @notices
+        #notices
+          - @notices.each do |notice|
+            %p{:class => notice.urgent}= notice.text
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"}
     %script{:src => "/jsc/application.js"}

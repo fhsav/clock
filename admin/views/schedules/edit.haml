@@ -2,6 +2,9 @@
   = partial 'partials/nav/schedules'
   %section#body
     %section.row
+      %h2
+        Editing schedule 
+        ="&ldquo;#{@schedule.name}&rdquo;"
       =flash_tag :error
       =flash_tag :notice
       - if @schedule.active != true
