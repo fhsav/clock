@@ -3,6 +3,7 @@ source :rubygems
 # Server requirements
 # gem 'thin' or mongrel
 gem 'thin'
+gem 'passenger'
 
 # Project requirements
 gem 'rake'
