@@ -50,7 +50,7 @@ class Period
   include MongoMapper::Document
   
   # Keys
-  key :number, String
+  key :number, Integer
   key :name, String
   key :start, Time
   key :finish, Time

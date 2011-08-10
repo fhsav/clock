@@ -91,4 +91,12 @@ function clock(){
 };
 setInterval("clock()", 0);
 
+var periods = "/api/periods.json"
+var marquees = "/api/marquee.json"
+var notices = "/api/notices.json"
 
+$.getJSON(periods, function(json) {
+	$(json).each(function() {
+		
+	}
+});
