@@ -7,13 +7,9 @@ Admin.controllers :schedules do
   end
   
     post :activate do
+      Schedule.set({:active => true}, :active => false)
+    
       schedule = Schedule.find(params[:id])
-      
-      others = Schedule.all
-      others.each do |other|
-        other.active = false
-      end
-      
       schedule.active = true
       
       if schedule.save
@@ -27,7 +23,8 @@ Admin.controllers :schedules do
     
     post :create do
       schedule = Schedule.create(params[:schedule])
-      
+      schedule.active = false
+
       if schedule.save
         flash[:notice] = "The schedule #{schedule.name} has been created."
         redirect url(:schedules, :edit, :id => schedule.id)

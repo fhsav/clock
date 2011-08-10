@@ -1,29 +1,18 @@
 class Schedule
   include MongoMapper::Document
-
+  
   # Keys
   key :name, String
   key :description, String
-  key :active, Boolean, :default => false
+  key :active, Boolean
   
   timestamps!
   
   # Associations
   many :periods
   
-  # Validations
-  validate :only_one_active
-  
-  def only_one_active
-    count = Schedule.where(:active => true).count
-    
-    if count > 1
-      errors.add(:active, "More than one schedule is active.")
-    end
-  end
-  
   # Callbacks
-  before_save :activate
+  after_save :activate
   
   # Methods
   def active?
@@ -35,7 +24,7 @@ class Schedule
   end
   
   def activate!(id)
-    others = Schedule.all(:active => true)
+    others = Schedule.all
     
     others.each do |other|
       other.active = false

@@ -5,6 +5,8 @@
       %h2
         Editing schedule 
         ="&ldquo;#{@schedule.name}&rdquo;"
+        - if @schedule.active
+          %span{:style => "color: green"} (Active)
       =flash_tag :error
       =flash_tag :notice
       - if @schedule.active != true
@@ -12,16 +14,12 @@
           %input{:name => "id", :type => "hidden", :value => @schedule.id}/
           %button{:type => "submit"}
             Activate
-      - else
-        .notice
-          %p
-            This is the active schedule.
       %form.row{:action => url(:schedules, :modify), :method => "post"}
         %section
           %p
             %input{:name => "schedule[name]", :type => "text", :value => @schedule.name}/
           %p
-            %textarea{:name => "schedule[description]"}= @schedule.description
+            %input{:name => "schedule[description]", :type => "text", :value => @schedule.description}/
           %p
             %input{:name => "id", :type => "hidden", :value => @schedule.id}/
             %input{:name => "_method", :type => "hidden", :value => "put"}/
