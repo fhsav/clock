@@ -81,6 +81,10 @@ body {
 	border-right: 1px solid #333;
 }
 
+#schedule.after {
+	display: none;
+}
+
 /*
 	V. Clock
 */

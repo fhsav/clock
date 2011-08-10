@@ -11,11 +11,29 @@
             \ —  #{marquee.text}
           \  — 
       #schedule
-        - @periods.each do |period|
-          %div{:class => "period #{period.number}"}
-            ="#{period.text}: "
-            %time.start{:time => seconds(period.start)}="#{local(period.start)} &ndash; "
-            %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
+        .during
+          - @periods.each do |period|
+            %div.period
+              ="#{period.text}: "
+              %time.start{:time => seconds(period.start)}="#{local(period.start)} &ndash; "
+              %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
+        .after
+          %div.period
+          %div.period
+          %div.period
+          %div.period
+          %div.period
+          %div.period
+          %div.period
+          %div.period{:style => "text-align: center"}
+            It's after school!
+          %div.period
+          %div.period
+          %div.period
+          %div.period
+          %div.period
+          %div.period
+          %div.period
       #clock
         %p
           %span#date

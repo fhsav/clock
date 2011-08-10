@@ -67,8 +67,29 @@ function clock(){
 	$('span#time').html(hour + ":" + minute + ":" + second + " " + am_pm)
 	
 	$(document).ready(function(){
-
+	
+	var periods = 0;
+	
 	$('.period').each(function() {
+		periods = periods + 1
+		
+	});
+	
+	$('.period').each(function() {
+		var element = $(this);
+		var finish = element.find('time.finish').attr('time');
+		
+		d = new Date();
+		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+		
+		if (time > finish) {
+			$(".during").css("display", "none");
+			$(".after").css("display", "block");
+		}
+		
+	});
+	
+	$('.period').each(function(index) {
 		var element = $(this);
 		
 		var start = element.find('time.start').attr('time');
@@ -86,6 +107,8 @@ function clock(){
     	}
 
 	});
+	
+	
 
 });
 };
@@ -94,9 +117,3 @@ setInterval("clock()", 0);
 var periods = "/api/periods.json"
 var marquees = "/api/marquee.json"
 var notices = "/api/notices.json"
-
-$.getJSON(periods, function(json) {
-	$(json).each(function() {
-		
-	}
-});
