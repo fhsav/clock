@@ -11,6 +11,17 @@ class Schedule
   # Associations
   many :periods
   
+  # Validations
+  validate :only_one_active
+  
+  def only_one_active
+    count = Schedule.where(:active => true).count
+    
+    if count > 1
+      errors.add(:active, "More than one schedule is active.")
+    end
+  end
+  
   # Callbacks
   before_save :activate
   

@@ -33,7 +33,7 @@ Admin.controllers :schedules do
         redirect url(:schedules, :edit, :id => schedule.id)
       else
         flash[:error] = "Something went wrong and the schedule was not saved."
-        redirect url(:schedules, :new)
+        redirect url(:schedules, :index)
       end
     end
     

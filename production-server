@@ -1,0 +1,3 @@
+#!/bin/bash
+
+passenger start -p 4242
