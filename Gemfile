@@ -12,6 +12,7 @@ end
 # Project requirements
 gem 'rake'
 gem 'rack-flash'
+gem 'redis'
 
 # Component requirements
 gem 'haml'

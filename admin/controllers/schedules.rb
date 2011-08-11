@@ -1,11 +1,13 @@
 Admin.controllers :schedules do
   
+  # GET /admin/schedules
   get :index do
     @schedules = Schedule.all
     
     render 'schedules/index'
   end
   
+    # POST /admin/schedules/activate
     post :activate do
       Schedule.set({:active => true}, :active => false)
     
@@ -21,6 +23,7 @@ Admin.controllers :schedules do
       end
     end
     
+    # POST /admin/schedules/create
     post :create do
       schedule = Schedule.create(params[:schedule])
       schedule.active = false
@@ -34,12 +37,14 @@ Admin.controllers :schedules do
       end
     end
     
+  # GET /admin/schedules/edit/:id
   get :edit, :with => :id do
     @schedule = Schedule.find(params[:id])
     
     render 'schedules/edit'
   end
   
+    # PUT /admin/schedules/modify
     put :modify do
       schedule = Schedule.find(params[:id])
       
@@ -52,6 +57,7 @@ Admin.controllers :schedules do
       end
     end
     
+    # DELETE /admin/schedules/destroy
     delete :destroy do
       schedule = Schedule.find(params[:id])
       

@@ -1,5 +1,6 @@
 Admin.controllers :periods, :parent => :schedules do
   
+  # POST /admin/schedules/:schedule_id/periods/create
   post :create do
     schedule = Schedule.find(params[:id])
     
@@ -14,6 +15,7 @@ Admin.controllers :periods, :parent => :schedules do
     end
   end
   
+  # GET /admin/schedules/:schedule_id/periods/edit/:id
   get :edit, :with => :id do
     @period = Period.find(params[:id])
     @schedule = Schedule.find(params[:schedules_id])
@@ -21,6 +23,7 @@ Admin.controllers :periods, :parent => :schedules do
     render 'periods/edit'
   end
   
+    # PUT /admin/schedules/:schedule_id/periods/modify
     put :modify do
       period = Period.find(params[:id])
       
@@ -32,7 +35,8 @@ Admin.controllers :periods, :parent => :schedules do
         redirect url(:schedules, :edit, :id => params[:s_id])
       end
     end
-  
+    
+    # DELETE /admin/schedules/:schedule_id/periods/destroy
     delete :destroy do
       period = Period.find(params[:id])
       

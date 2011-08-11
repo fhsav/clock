@@ -1,11 +1,13 @@
 Admin.controllers :notices do
   
+  # GET /admin/notices
   get :index do
     @notices = Notice.all
     
     render 'notices/index'
   end
   
+    # POST /admin/notices/create
     post :create do
       notice = Notice.create(params[:notice])
       notice.urgent = params[:urgent] ? 1 : 0 
@@ -19,12 +21,14 @@ Admin.controllers :notices do
       end
     end
     
+  # GET /admin/notices/edit/:id
   get :edit, :with => :id do
     @notice = Notice.find(params[:id])
     
     render 'notices/edit'
   end
   
+    # PUT /admin/notices/modify
     put :modify do
       notice = Notice.find(params[:id])
       notice.urgent = params[:urgent] ? 1 : 0 
@@ -38,6 +42,7 @@ Admin.controllers :notices do
       end
     end
     
+    # DELETE /admin/notices/destroy
     delete :destroy do
       notice = Notice.find(params[:id])
       
