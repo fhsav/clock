@@ -1,3 +1,5 @@
 # FHS Clock
 
-Documentation on the way...
+The Farmington High School Clock is displayed on a television in each classroom. It displays the time and date, periods (and current period) of the day, marquee items, and notices for the school.
+
+It runs on [Padrino](http://padrinorb.com) and [MongoDB](http://mongodb.org) (via [MongoMapper](http://mongomapper.com)). Views (templates) are written in [Haml](http://haml-lang.com). Tests are written in [RSpec](http://rspec.info). The production server is [Phusion Passenger (standalone)](http://www.modrails.com/documentation/Users%20guide%20Standalone.html).
