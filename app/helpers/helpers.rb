@@ -1,6 +1,6 @@
 Clock.helpers do
   def local(time)
-    time = time.to_i - 14400
+    time = time - 14400
     time.strftime("%I:%M%P")
   end
   
