@@ -13,7 +13,7 @@ Admin.controllers do
   end
   
     post :authenticate do
-      if params[:password] == options.password
+      if encrypt(params[:password]) == options.password
         authenticate!
       end
       
