@@ -14,6 +14,7 @@ GEM
     diff-lcs (1.1.2)
     eventmachine (0.12.10)
     fastthread (1.0.7)
+    god (0.11.0)
     grit (2.4.1)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -106,6 +107,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext
+  god
   haml
   maruku
   mongo_mapper

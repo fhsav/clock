@@ -3,7 +3,11 @@ source :rubygems
 # Server requirements
 # gem 'thin' or mongrel
 gem 'thin'
-gem 'passenger'
+
+group :production do
+  gem 'passenger'
+  gem 'god'
+end
 
 # Project requirements
 gem 'rake'
