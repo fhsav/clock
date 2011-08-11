@@ -6,8 +6,9 @@ RSpec.configure do |conf|
 end
 
 def app
-  ##
-  # You can handle all padrino applications using instead:
-  #   Padrino.application
-  Clock.tap { |app|  }
+  Padrino.application
+end
+
+def session
+  last_request.env['rack.session']
 end
