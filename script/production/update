@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd /var/www/fhsclock
+
+./script/production/stop
+
+git pull
+
+./script/production/start
+

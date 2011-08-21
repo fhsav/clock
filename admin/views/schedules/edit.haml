@@ -17,9 +17,9 @@
       %form.row{:action => url(:schedules, :modify), :method => "post"}
         %section
           %p
-            %input{:name => "schedule[name]", :type => "text", :value => @schedule.name}/
+            %input{:name => "schedule[name]", :placeholder => "Name", :type => "text", :value => @schedule.name}/
           %p
-            %input{:name => "schedule[description]", :type => "text", :value => @schedule.description}/
+            %input{:name => "schedule[description]", :placeholder => "Description", :type => "text", :value => @schedule.description}/
           %p
             %input{:name => "id", :type => "hidden", :value => @schedule.id}/
             %input{:name => "_method", :type => "hidden", :value => "put"}/
