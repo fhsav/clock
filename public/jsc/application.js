@@ -3,7 +3,18 @@
 		file: /jsc/application.js
 */
 
-/* Clock */
+/*
+	= Appendix
+		I. Clock
+		II. Periods
+		III. Backgrounds
+		IV. API
+*/
+
+/*
+	I. Clock
+*/
+
 function clock(){
 	var d = new Date();
 	
@@ -66,53 +77,94 @@ function clock(){
 	$('span#date').html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
 	$('span#time').html(hour + ":" + minute + ":" + second + " " + am_pm)
 	
+	/*
+		II. Periods
+	*/
+	
 	$(document).ready(function(){
 	
-	var periods = 0;
+		var periods = 0;
 	
-	$('.period').each(function() {
-		periods = periods + 1
-		
-	});
+		$('.period').each(function() {
+			periods = periods + 1
+		});
 	
-	$('.period').each(function() {
-		var element = $(this);
-		var finish = element.find('time.finish').attr('time');
+		$('.period').each(function() {
+			var element = $(this);
+			var finish = element.find('time.finish').attr('time');
 		
-		d = new Date();
-		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+			d = new Date();
+			var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 		
-		if (time > finish) {
-			$(".during").css("display", "none");
-			$(".after").css("display", "block");
-		}
+			if (time > finish) {
+				$(".during").css("display", "none");
+				$(".after").css("display", "block");
+			}
 		
-	});
+		});
 	
-	$('.period').each(function(index) {
-		var element = $(this);
+		$('.period').each(function(index) {
+			var element = $(this);
 		
-		var start = element.find('time.start').attr('time');
-		var finish = element.find('time.finish').attr('time');
+			var start = element.find('time.start').attr('time');
+			var finish = element.find('time.finish').attr('time');
 		
-		d = new Date();
-		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+			d = new Date();
+			var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 		
-		if (time >= start && time <= finish) {
-			element.attr('id', 'active');
-    	}
-    	
-    	else {
-    		element.attr('id', '');
-    	}
+			if (time >= start && time <= finish) {
+				element.attr('id', 'active');
+			}
+			
+			else {
+				element.attr('id', '');
+			}
+
+		});
+	
+	
 
 	});
-	
-	
-
-});
 };
 setInterval("clock()", 0);
+
+/*
+	III. Backgrounds
+*/
+
+/* I will only enable if we think it's worth it.
+var change = false;
+
+var backgrounds = new Array(
+	"boat.jpg",
+	"cracked.jpg",
+	"galaxy.png",
+	"grass.png",
+	"grass2.jpg",
+	"wood.png",
+	"wood2.jpg"
+);
+
+
+$(document).ready(function(){
+
+	if (change == true) {
+		var background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+	
+		$("body").css("background", "url(../img/" + background + ") no-repeat")
+	}
+	
+	else {
+		$("body").css("background", "url(../img/wood2.jpg) no-repeat")
+	}
+
+});
+
+*/
+
+/*
+	IV. API
+*/
 
 var periods = "/api/periods.json"
 var marquees = "/api/marquee.json"
