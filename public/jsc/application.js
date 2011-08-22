@@ -155,6 +155,10 @@ function refresh(hours, minutes, seconds) {
 refresh(1,0,0);
 */
 
+$(document).ready(function(){
+	$('input').attr('tabindex', '0').focus();
+});
+
 /*
 	V. API
 */

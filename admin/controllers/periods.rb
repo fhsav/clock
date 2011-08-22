@@ -6,12 +6,6 @@ Admin.controllers :periods, :parent => :schedules do
     
     period = Period.create(params[:period])
     
-    period_params = params[:period]
-    
-    if period_params[:number].blank? or period_params[:text].blank? or period_params[:start].blank? or period_params[:finish].blank?
-      flash[:error] = "Something's blank!"
-    end
-    
     if period.save and schedule.periods << period
       flash[:notice] = "The period has been created."
       redirect url(:schedules, :edit, :id => schedule.id)
@@ -32,12 +26,6 @@ Admin.controllers :periods, :parent => :schedules do
     # PUT /admin/schedules/:schedule_id/periods/modify
     put :modify do
       period = Period.find(params[:id])
-      
-      period_params = params[:period]
-    
-      if period_params[:number].blank? or period_params[:text].blank? or period_params[:start].blank? or period_params[:finish].blank?
-        flash[:error] = "Something's blank!"
-      end
       
       if period.update_attributes(params[:period])
         flash[:notice] = "The period has been modified."

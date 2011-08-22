@@ -5,4 +5,7 @@ class Marquee
   key :text, String
   
   timestamps!
+  
+  # Validations
+  validates_presence_of :text
 end
