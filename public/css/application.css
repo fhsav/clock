@@ -27,15 +27,15 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 body {
-	background: url('/img/wood2.jpg') no-repeat;
+	background: url('/img/mosaic.png') repeat;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	overflow: hidden
+	overflow: hidden;
 }
 
 #contain {
 	height: 600px;
 	padding: 10px;
-	width: 800px;
+	width: 625px;
 }
 
 /*
@@ -52,7 +52,7 @@ body {
 	padding: 5px 0;
 	position: absolute;
 	top: 20px;
-	width: 800px !important;
+	width: 625px !important;
 }
 
 /*
@@ -90,12 +90,12 @@ body {
 */
 #clock {
 	color: #fafafa;
-	font-size: 38px;
+	font-size: 32px;
 	font-weight: bold;
 	line-height: 1.5em;
 	position: absolute;
 	top: 130px;
-	left: 400px;
+	left: 275px;
 	width: 350px !important;
 	text-align: center;
 }
@@ -113,8 +113,8 @@ body {
 */
 #notices  {
 	position: absolute;
-	left: 400px;
-	top: 300px;
+	left: 285px;
+	top: 350px;
 }
 
 #notices p {
@@ -124,7 +124,7 @@ body {
 	margin-bottom: 20px;
 	padding: 10px;
 	text-align: center;
-	width: 350px;
+	width: 300px;
 }
 
 #notices p.true  {

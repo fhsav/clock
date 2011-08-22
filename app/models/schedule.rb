@@ -11,10 +11,6 @@ class Schedule
   # Associations
   many :periods
   
-  # Validations
-  validates_presence_of :name
-  validates_presence_of :active
-  
   # Callbacks
   after_save :activate
   
@@ -59,10 +55,4 @@ class Period
   key :start, Time
   key :finish, Time
   
-  # Validations
-  validates_presence_of :number
-  validates_presence_of :name
-  validates_presence_of :start
-  validates_presence_of :finish
-  validates_numericality :number
 end

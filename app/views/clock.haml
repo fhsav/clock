@@ -12,11 +12,12 @@
           \  — 
       #schedule
         .during
-          - @periods.each do |period|
-            %div.period
-              ="#{period.text}: "
-              %time.start{:time => seconds(period.start)}="#{local(period.start)} &ndash; "
-              %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
+          - if @periods_exist
+            - @periods.each do |period|
+              %div.period
+                ="#{period.text}: "
+                %time.start{:time => seconds(period.start)}="#{local(period.start)} &ndash; "
+                %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
         .after
           %div.period
           %div.period

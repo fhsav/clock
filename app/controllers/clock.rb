@@ -4,11 +4,13 @@ Clock.controllers do
   get :index do
     @schedule = Schedule.first(:active => true)
     
-    if @schedule.blank?
-    	redirect "http://localhost/static"
+    if !@schedule.blank?
+      @periods_exist = true
+      @periods = @schedule.periods.sort(:number.asc)
+    else
+      @periods_exist = false
     end
     
-    @periods = @schedule.periods.sort(:number.asc)
     @marquees = Marquee.all
     @notices = Notice.all
     
