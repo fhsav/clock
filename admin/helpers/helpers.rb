@@ -2,8 +2,10 @@ require 'digest/sha1'
 
 Admin.helpers do
   def local(time)
-    time = time - 14400
-    time.strftime("%I:%M%P")
+  	if time != nil
+      time = time - 14400
+	  time.strftime("%I:%M%P")
+    end
   end
   
   def authenticate!

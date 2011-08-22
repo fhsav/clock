@@ -45,7 +45,7 @@ body {
 #marquee {
 	background: rgba(51,51,51,.8);
 	color: #fff;
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: bold;
 	float: left;
 	margin-top: 20px;
@@ -81,7 +81,7 @@ body {
 	border-right: 1px solid #333;
 }
 
-#schedule.after {
+#schedule .after {
 	display: none;
 }
 
@@ -92,6 +92,7 @@ body {
 	color: #fafafa;
 	font-size: 38px;
 	font-weight: bold;
+	line-height: 1.5em;
 	position: absolute;
 	top: 130px;
 	left: 400px;

@@ -134,6 +134,7 @@ setInterval("clock()", 0);
 	III. Reload
 */
 
+/*
 function refresh(hours, minutes, seconds) {
     var now = new Date();
     var then = new Date();
@@ -152,39 +153,6 @@ function refresh(hours, minutes, seconds) {
 }
 
 refresh(1,0,0);
-
-/*
-	IV. Backgrounds
-*/
-
-/* I will only enable if we think it's worth it.
-var change = false;
-
-var backgrounds = new Array(
-	"boat.jpg",
-	"cracked.jpg",
-	"galaxy.png",
-	"grass.png",
-	"grass2.jpg",
-	"wood.png",
-	"wood2.jpg"
-);
-
-
-$(document).ready(function(){
-
-	if (change == true) {
-		var background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-	
-		$("body").css("background", "url(../img/" + background + ") no-repeat")
-	}
-	
-	else {
-		$("body").css("background", "url(../img/wood2.jpg) no-repeat")
-	}
-
-});
-
 */
 
 /*
