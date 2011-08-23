@@ -4,7 +4,17 @@ Admin.controllers :periods, :parent => :schedules do
   post :create do
     schedule = Schedule.find(params[:id])
     
-    period = Period.create(params[:period])
+    parameters = params[:period]
+    
+    start = Time.parse(parameters[:start])
+    finish = Time.parse(parameters[:finish])
+    
+    period = Period.create(
+      :number => parameters[:number],
+      :name => parameters[:text],
+      :start => start,
+      :finish => finish
+    )
     
     if period.save and schedule.periods << period
       flash[:notice] = "The period has been created."
@@ -27,7 +37,17 @@ Admin.controllers :periods, :parent => :schedules do
     put :modify do
       period = Period.find(params[:id])
       
-      if period.update_attributes(params[:period])
+      parameters = params[:period]
+    
+      start = Time.parse(parameters[:start])
+      finish = Time.parse(parameters[:finish])
+      
+      if period.update_attributes(
+        :number => parameters[:number],
+        :name => parameters[:text],
+        :start => start,
+        :finish => finish
+      )
         flash[:notice] = "The period has been modified."
         redirect url(:schedules, :edit, :id => params[:s_id])
       else
