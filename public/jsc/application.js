@@ -134,7 +134,6 @@ setInterval("clock()", 0);
 	III. Reload
 */
 
-/*
 function refresh(hours, minutes, seconds) {
     var now = new Date();
     var then = new Date();
@@ -153,11 +152,7 @@ function refresh(hours, minutes, seconds) {
 }
 
 refresh(1,0,0);
-*/
 
-$(document).ready(function(){
-	$('input').attr('tabindex', '0').focus();
-});
 
 /*
 	V. API
