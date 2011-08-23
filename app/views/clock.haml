@@ -16,7 +16,8 @@
             - @periods.each do |period|
               %div.period
                 ="#{period.text}: "
-                %time.start{:time => seconds(period.start)}="#{local(period.start)} &ndash; "
+                %time.start{:time => seconds(period.start)}="#{local(period.start)}"
+                &ndash;
                 %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
         .after
           %div.period
