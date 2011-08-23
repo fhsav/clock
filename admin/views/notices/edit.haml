@@ -10,7 +10,7 @@
       %form.row{:action => url(:notices, :modify), :method => "post"}
         %section
           %p
-            %input{:name => "notice[text]", :type => "text", :value => @notice.text}/
+            %input{:name => "notice[text]", :placeholder => "What do you need to inform the school of?", :type => "text", :value => @notice.text}/
             - if @notice.urgent
               %input{:name => "urgent[]", :type => "checkbox", :checked => "checked"} Urgent?
             - else

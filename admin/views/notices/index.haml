@@ -27,7 +27,7 @@
     %section.meta.row
       %form{:action => url(:notices, :create), :method => "post"}
         %p
-          %input{:name => "notice[text]", :placeholder => "Text", :type => "text"}/
+          %input{:name => "notice[text]", :placeholder => "What do you need to inform the school of?", :type => "text"}/
           %input{:name => "urgent[]", :type => "checkbox"} Urgent?
         %p
           %button.green{:type => "submit"} Create
