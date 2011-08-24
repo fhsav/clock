@@ -85,19 +85,20 @@ function clock(){
 	$(document).ready(function(){
 		
 		// Displays "It's after school" if after last period's finish time.
+		/*
 		var periods = $('.period').length();
 		
 		var element = $('.period:eq(' + periods + ')');
-		var finish = element.find('time.finish').attr('time');
+		var final_time = element.find('time.finish').attr('time');
 	
 		d = new Date();
 		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 	
-		if (time > finish) {
+		if (time > final_time) {
 			$(".during").css("display", "none");
 			$(".after").css("display", "block");
 		}
-		
+		*/
 		
 		// Shows which period is currently active.
 		$('.period').each(function(index) {
