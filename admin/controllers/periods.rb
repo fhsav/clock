@@ -11,7 +11,7 @@ Admin.controllers :periods, :parent => :schedules do
     
     period = Period.create(
       :number => parameters[:number],
-      :name => parameters[:text],
+      :text => parameters[:text],
       :start => start,
       :finish => finish
     )
@@ -44,7 +44,7 @@ Admin.controllers :periods, :parent => :schedules do
       
       if period.update_attributes(
         :number => parameters[:number],
-        :name => parameters[:text],
+        :text => parameters[:text],
         :start => start,
         :finish => finish
       )
