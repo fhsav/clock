@@ -5,11 +5,12 @@
     %link{:href => "/css/application.css", :rel => "stylesheet"}/
   %body
     #contain
-      #marquee
-        %marquee
-          - @marquees.each do |marquee|
-            \ —  #{marquee.text}
-          \  — 
+      - if !@marquees.blank?
+        #marquee
+          %marquee
+            - @marquees.each do |marquee|
+              \ —  #{marquee.text}
+            \  — 
       #schedule
         .during
           - if @periods_exist

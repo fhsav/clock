@@ -75,6 +75,7 @@ body {
 	background: rgba(250, 250, 250, 0.8);
 	border-bottom: 1px solid #333;
 	padding: 10px;
+	max-height: 36px !important;
 }
 
 #schedule #active {
