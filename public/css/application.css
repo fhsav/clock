@@ -1,151 +1,157 @@
 /*
-	FHS Clock
-		file: css/application.css
+	
+		file: application.css
 */
 
 /*
 	= Appendix
-		I. Reset
-		II. Typefaces
-		II. Universal
-		III. Marquee
-		IV. Schedule
-		V. Clock
-		VI. Message
+		I. Media Queries
+		II.
 */
 
 /*
-	I. Reset
+	I. Media Queries
 */
 
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}:focus {outline:0}body {line-height:1;color:black;background:white}ol,ul {list-style:none}table {border-collapse:separate;border-spacing:0}caption,th,td {text-align:left;font-weight:normal}blockquote:before,blockquote:after,q:before,q:after {content:""}blockquote,q {quotes:""""}.floated:after {clear: both;content: ".";display: block;height: 0;visibility: hidden;}* html .floated {height: 1%;}
+@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
+
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
+
+}
+
+/*
+	II. Typefaces
+*/
 
 @font-face {
 	font-family: 'Standard CT';
 	font-weight: bold;
-	src: url('/fonts/style_156823.eot');
-	src: url('/fonts/style_156823.eot?#iefix') format('embedded-opentype'),
-			 url('/fontsstyle_156823.woff') format('woff'),
-			 url('/fonts/style_156823.ttf') format('truetype'),
-			 url('/fonts/style_156823.svg#StandardCT-Bold') format('svg'); 
+	src: url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot');
+	src: url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot?#iefix') format('embedded-opentype'),
+			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.woff') format('woff'),
+			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.ttf') format('truetype'),
+			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.svg#StandardCT-Bold') format('svg'); 
 }
 
 /*
-	II. Universal
+	II. 
 */
-
-* {
-	cursor: none;
-}
 
 body {
 	background: url('/img/mosaic.png') repeat;
-	font-family: "Standard CT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: bold 18px/1.5em "Standard CT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 1em 0;
 	overflow: hidden;
 }
 
-#contain {
-	height: 500px !important;
-	padding: 10px;
-	width: 625px;
+li {
+	display: block;
+	list-style-type: none;
+}
+
+/*
+	III. Main
+*/
+
+#main {
+	margin-top: 1em;
 }
 
 /*
 	III. Marquee
 */
 
-#marquee {
-	background: rgba(51,51,51,.8);
-	color: #fff;
-	font-size: 22px;
-	font-weight: bold;
-	float: left;
-	margin-top: 20px;
-	padding: 10px 0 5px;
-	position: absolute;
-	top: 20px;
-	width: 625px !important;
+marquee {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fafafa;
+	padding: 0.3em 0.25em 0.25em 0.25em;
 }
 
 /*
 	IV. Schedule
 */
 
-#schedule {
-	border: #fff;
-	font-weight: bold;
-	left: 20px;
-	margin-top: 60px;
-	position: absolute;
-	top: 30px;
-	width: 275px;
+ol#periods li {
+	background: rgba(255, 255, 255, 0.5);
+	border-bottom: 1px solid #000;
+	padding: 0.3em 0.5em 0.15em 0.5em;
 }
 
-#schedule .period {
-	background: rgba(250, 250, 250, 0.8);
-	border-bottom: 1px solid #333;
-	padding: 15px 10px 10px 10px;
-	max-height: 36px !important;
-}
-
-#schedule #active {
-	background: #333;
+ol#periods li#active {
+	background: rgba(0, 0, 0, 0.5);
 	color: #fafafa;
-	border-right: 1px solid #333;
 }
 
-#schedule .after {
+#after {
+	background: rgba(255, 255, 255, 0.5);
+	border: 2px solid rgba(255, 255, 255, 0.75);
 	display: none;
+	margin-top: 1.75em;
+	padding: 2em;
+	text-align: center;
 }
 
 /*
-	V. Clock
+	X. Left
 */
-#clock {
+
+#left {
+	padding-right: 1em;
+}
+
+/*
+	V. Right
+*/
+
+#right {
 	color: #fafafa;
-	font-size: 32px;
-	font-weight: bold;
-	line-height: 1.5em;
-	position: absolute;
-	top: 130px;
-	left: 350px;
-	width: 275px !important;
+	margin-top: 2em;
 	text-align: center;
-}
-
-#clock p {
-	padding-bottom: 25px;
-}
-
-#clock p:last-child {
-	font-size: 48px;
+	width: 50%;
 }
 
 /*
-	VI. Message
+	VI. Clock
 */
-#notices  {
-	position: absolute;
-	left: 285px;
-	top: 350px;
+
+
+#clock {
+	margin-bottom: 3em;
 }
 
-#notices p {
-	display: block;
-	font-size: 18px;
-	font-weight: bold;
-	margin-bottom: 20px;
-	padding: 10px;
-	text-align: center;
-	width: 300px;
+#clock #date {
+	font-size: 1.5em;
+	margin-bottom: 1em;
 }
 
-#notices p.true  {
+#clock #time {
+	font-size: 3em;
+}
+
+/*
+	X. Notices
+*/
+
+#notices li {
+	background: rgba(250, 250, 0, 0.6);
+	border: 2px solid rgba(250, 250, 0, 0.8);
+	color: #000;
+	padding: 1em 0.75em 0.75em 0.75em;
+	margin-bottom: 1em;
+}
+
+#notices li.true {
 	background: rgba(250, 0, 30, 0.6);
 	border: 2px solid rgba(250, 0, 30, 0.8);
 }
 
-#notices p  {
-	background: rgba(250, 250, 0, 0.6);
-	border: 2px solid rgba(250, 250, 0, 0.8);
+/*
+	X. Miscellaneous
+*/
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
 }

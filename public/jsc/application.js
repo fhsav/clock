@@ -1,16 +1,8 @@
 /*
-	FHS Clock
-		file: /jsc/application.js
+	Clock
+		file: jsc/application.js
 */
 
-/*
-	= Appendix
-		I. Clock
-		II. Periods
-		III. Refresh
-		IV. Background
-		V. API
-*/
 
 /*
 	I. Clock
@@ -57,7 +49,7 @@ function clock(){
 		var date = '0' + date
 	}
 	
-	if(hour > 12){
+	if(hour >= 12){
 		am_pm = 'PM';
 	}
 	else if(hour < 12){
@@ -75,8 +67,8 @@ function clock(){
 	var hour = ( hour > 12 ) ? hour - 12 : hour;
 	var hour = ( hour == 0 ) ? 12 : hour;
 	
-	$('span#date').html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
-	$('span#time').html(hour + ":" + minute + ":" + second + " " + am_pm)
+	$('p#date').html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
+	$('p#time').html(hour + ":" + minute + ":" + second + " " + am_pm)
 	
 	/*
 		II. Periods
@@ -86,22 +78,26 @@ function clock(){
 		
 		// Displays "It's after school" if after last period's finish time.
 		/*
-		var periods = $('.period').length();
+		var periods = $('ol#periods').children().length;
 		
-		var element = $('.period:eq(' + periods + ')');
+		var element = $('ol#periods li:eq(' + periods + ')');
 		var final_time = element.find('time.finish').attr('time');
 	
 		d = new Date();
 		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 	
-		if (time > final_time) {
-			$(".during").css("display", "none");
-			$(".after").css("display", "block");
+		if (time < final_time) {
+			$(".during").show("display", "block");
+			$(".after").hide("display", "none");
 		}
-		*/
+		
+		else {
+			$(".after").show("display", "block");
+			$(".during").css("display", "none");
+		}
 		
 		// Shows which period is currently active.
-		$('.period').each(function(index) {
+		$('ol#periods li').each(function(index) {
 			var element = $(this);
 		
 			var start = element.find('time.start').attr('time');
@@ -119,7 +115,8 @@ function clock(){
 			}
 
 		});
-	
+		*/
+		
 	});
 	
 };

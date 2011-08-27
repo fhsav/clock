@@ -1,50 +1,42 @@
-!!! 5
-%html
+<!doctype html>
+%html{:lang => "en"}
   %head
-    %title FHS Clock
-    %link{:href => "/css/application.css", :rel => "stylesheet"}/
+    %meta{:charset => "utf-8"}
+      %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+        %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}
+          %title FHS Clock
+          %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
+            %link{:href => "/css/gyaku.css", :rel => "stylesheet"}
+              %link{:href => "/css/application.css", :rel => "stylesheet"}
   %body
     #contain
-      - if !@marquees.blank?
-        #marquee
+      %header.row
+        - if !@marquees.blank?
           %marquee
             - @marquees.each do |marquee|
-              \ —  #{marquee.text}
-            \  — 
-      #schedule
-        .during
-          - if @periods_exist
-            - @periods.each do |period|
-              %div.period
-                ="#{period.text}: "
-                %time.start{:time => seconds(period.start)}="#{local(period.start)}"
-                &ndash;
-                %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
-        .after
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-          %div.period{:style => "text-align: center"}
-            It's after school!
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-          %div.period
-      #clock
-        %p
-          %span#date
-        %p
-          %span#time
-      - if @notices
-        #notices
-          - @notices.each do |notice|
-            %p{:class => notice.urgent}= notice.text
-    %script{:src => "/jsc/jquery.js"}
+              &nbsp;&mdash;&nbsp;
+              %span= marquee.text
+              &nbsp;&mdash;&nbsp;
+      %section#main.row
+        #left.sixcol
+          %section#during
+            %ol#periods
+              - if !@periods.blank?
+                - @periods.each do |period|
+                  %li
+                    ="#{period.text}: "
+                    %time.start{:time => seconds(period.start)}="#{local(period.start)}"
+                    &ndash;
+                    %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
+          %section#after
+            %p It's after school!
+        #right.sixcol.last
+          %section#clock
+            %p#date
+            %p#time
+          %section#notices
+            %ol
+              - if !@notices.blank?
+                %li{:class => notice.urgent}= notice.text
+    %script{:src => "/jsc/lib/jquery-1.6.2.js"}
     %script{:src => "/jsc/application.js"}
