@@ -77,7 +77,6 @@ function clock(){
 	$(document).ready(function(){
 		
 		// Displays "It's after school" if after last period's finish time.
-		/*
 		var periods = $('ol#periods').children().length;
 		
 		var element = $('ol#periods li:eq(' + periods + ')');
@@ -115,34 +114,9 @@ function clock(){
 			}
 
 		});
-		*/
 		
 	});
 	
 };
 setInterval("clock()", 0);
 
-/*
-	III. Reload
-*/
-
-/*
-function refresh(hours, minutes, seconds) {
-    var now = new Date();
-    var then = new Date();
-
-    if(now.getHours() > hours ||
-       (now.getHours() == hours && now.getMinutes() > minutes) ||
-        now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
-        then.setDate(now.getDate() + 1);
-    }
-    then.setHours(hours);
-    then.setMinutes(minutes);
-    then.setSeconds(seconds);
-
-    var timeout = (then.getTime() - now.getTime());
-    setTimeout(function() { window.location.reload(true); }, timeout);
-}
-
-refresh(1,0,0);
-*/
