@@ -9,6 +9,10 @@ Admin.controllers :periods, :parent => :schedules do
     start = Time.parse(parameters[:start])
     finish = Time.parse(parameters[:finish])
     
+    if parameters[:number].blank?
+      parameters[:number] = schedule.periods.count + 1
+    end
+    
     period = Period.create(
       :number => parameters[:number],
       :text => parameters[:text],
