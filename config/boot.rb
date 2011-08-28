@@ -6,4 +6,8 @@ require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 Bundler.require(:default, PADRINO_ENV)
 
+require 'yaml'
+
+@@yaml = YAML::load(File.open(File.join(PADRINO_ROOT, 'config', 'settings.yml')))
+
 Padrino.load!

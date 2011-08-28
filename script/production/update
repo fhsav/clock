@@ -6,7 +6,7 @@ cd /var/www/fhsclock
 
 git pull
 rvm rvmrc trust
-rvm gemset create fhsclock
+rvm gemset empty
 gem install bundler
 bundle install
 
