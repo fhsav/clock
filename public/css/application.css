@@ -39,6 +39,11 @@
 	II. 
 */
 
+* {
+	cursor: none;
+	overflow: hide;
+}
+
 body {
 	background: url('/img/backgrounds/mosaic.png') repeat;
 	font: bold 18px/1.5em "Standard CT", "Helvetica Neue", Helvetica, Arial, sans-serif;
