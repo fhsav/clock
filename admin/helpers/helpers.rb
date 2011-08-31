@@ -10,7 +10,7 @@ Admin.helpers do
   
   def authenticate!
     session["fhsclock"] ||= 0
-    session["fhsclock"] = @@yaml["password"]
+    session["fhsclock"] = options.session_secret
     
     redirect url(:index)
   end

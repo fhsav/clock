@@ -37,6 +37,7 @@
           %section#notices
             %ol
               - if !@notices.blank?
-                %li{:class => notice.urgent}= notice.text
+                - @notices.each do |notice|
+                  %li{:class => notice.urgent}= notice.text
     %script{:src => "/jsc/lib/jquery-1.6.2.js"}
     %script{:src => "/jsc/application.js"}
