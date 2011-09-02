@@ -9,6 +9,11 @@ Admin.controllers :periods, :parent => :schedules do
     start = Time.parse(parameters[:start])
     finish = Time.parse(parameters[:finish])
     
+    if !start.to_s.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/) or !finish.to_s.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/)
+      flash[:error] = "That isn't a time, you dope."
+      redirect url(:schedules, :edit, :id => schedule.id)
+    end
+    
     if parameters[:number].blank?
       parameters[:number] = schedule.periods.count + 1
     end
