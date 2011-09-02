@@ -120,3 +120,11 @@ function clock(){
 };
 setInterval("clock()", 0);
 
+/*
+	III. Marquee
+*/
+
+$(document).ready(function (){
+	$("#marquee").marquee({pauseOnHover: false});
+});
+

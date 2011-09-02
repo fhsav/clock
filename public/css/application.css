@@ -68,10 +68,25 @@ li {
 	III. Marquee
 */
 
-marquee {
+ul#marquee {
 	background: rgba(0, 0, 0, 0.5);
 	color: #fafafa;
+	display: block;
+	height: 1.5em;
+	
+	list-style: none;
+	line-height: 1;
+	position: relative;
+	overflow: hidden;
+}
+
+ul#marquee li {
 	padding: 0.3em 0.25em 0.25em 0.25em;
+	position: absolute;
+	top: -999em;
+	left: 0;
+	display: block;
+	white-space: nowrap; /* keep all text on a single line */
 }
 
 /*

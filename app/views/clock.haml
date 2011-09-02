@@ -12,11 +12,9 @@
     #contain
       %header.row
         - if !@marquees.blank?
-          %marquee
+          %ul#marquee
             - @marquees.each do |marquee|
-              &nbsp;&mdash;&nbsp;
-              %span= marquee.text
-            &nbsp;&mdash;&nbsp;
+              %li= marquee.text
       %section#main.row
         #left.sixcol
           %section#during
@@ -40,4 +38,5 @@
                 - @notices.each do |notice|
                   %li{:class => notice.urgent}= notice.text
     %script{:src => "/jsc/lib/jquery-1.6.2.js"}
+    %script{:src => "/jsc/lib/jquery.marquee.min.js"}
     %script{:src => "/jsc/application.js"}
