@@ -1,7 +1,11 @@
 Clock.helpers do
   def local(time)
     time = time - 14400
-    time.strftime("%I:%M%P")
+    hour = time.hour
+    minute = time.strftime("%M")
+    ampm = time.strftime("%P")
+    
+    "#{hour}:#{minute}#{ampm}"
   end
   
   def seconds(time)

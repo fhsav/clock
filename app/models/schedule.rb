@@ -2,7 +2,7 @@ class Schedule
   include MongoMapper::Document
   
   # Keys
-  key :name, String
+  key :name, String, :required => true
   key :description, String
   key :active, Boolean
   
@@ -54,5 +54,4 @@ class Period
   key :name, String
   key :start, Time
   key :finish, Time
-  
 end

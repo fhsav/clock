@@ -1,0 +1,4 @@
+#!/bin/sh
+
+passenger stop
+passenger start -d
