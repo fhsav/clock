@@ -37,6 +37,9 @@ Admin.controllers do
     post :authenticate do
       if encrypt(params[:password]) == @@yaml["password"]
         authenticate!
+      else
+        flash[:error] = "Wrong password, you dolt."
+        redirect url(:login)
       end
       
       redirect url(:index)
