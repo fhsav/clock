@@ -35,7 +35,7 @@ Admin.controllers do
     
     # POST /authenticate
     post :authenticate do
-      if encrypt(params[:password]) == @@yaml["password"]
+      if encrypt(params[:password]) == options.password
         authenticate!
       else
         flash[:error] = "Wrong password, you dolt."

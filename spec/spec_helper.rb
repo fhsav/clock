@@ -13,4 +13,4 @@ def session
   last_request.env['rack.session']
 end
 
-@@yaml = YAML::load(File.open(PADRINO_ROOT + '/spec/private.yml'))
+@@yaml = YAML::load(File.open(PADRINO_ROOT + '/config/settings.yml'))

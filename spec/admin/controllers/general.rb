@@ -13,7 +13,7 @@ describe "Admin" do
     
     get "/admin"
     
-    last_response.should_not be_redirect
+    last_response.location.should == "/admin"
     last_response.should be_ok
   end
   
