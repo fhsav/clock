@@ -79,10 +79,11 @@ function clock(){
 		// Displays "It's after school" if after last period's finish time.
 		var periods = $('ol#periods').children().length;
 		
-		var element = $('ol#periods li:eq(' + periods + ')');
+		var element = $('ol#periods:nth-child(' + periods + ')');
 		var final_time = element.find('time.finish').attr('time');
 	
 		d = new Date();
+
 		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 	
 		if (time < final_time) {
@@ -102,7 +103,6 @@ function clock(){
 			var start = element.find('time.start').attr('time');
 			var finish = element.find('time.finish').attr('time');
 		
-			d = new Date();
 			var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 		
 			if (time >= start && time <= finish) {
