@@ -7,6 +7,7 @@ gem 'thin'
 group :production do
   gem 'passenger'
   gem 'god'
+  gem 'cijoe'
 end
 
 # Project requirements
@@ -21,6 +22,7 @@ gem 'bson_ext', :require => "mongo"
 gem 'maruku'
 gem 'ya2yaml'
 gem 'whenever'
+gem 'pony'
 
 # Test requirements
 gem 'rspec', :group => "test"

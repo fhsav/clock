@@ -5,7 +5,7 @@
 /* TEAM */
   Developer, Designer: Ethan Turkeltaub
   Site: http://ethan.heroku.com
-  Twitter: @ethnt
+  Twitter: ethnt
   Location: Farmington, CT (USA)
 
 /* THANKS */
@@ -17,4 +17,4 @@
   Standards: HTML5, CSS3
   Components: jQuery
   Application: Padrino, MongoDB (via MongoMapper)
-  Software: gEdit    
+  Software: gEdit
