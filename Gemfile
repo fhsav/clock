@@ -7,6 +7,7 @@ gem 'thin'
 group :production do
   gem 'passenger'
   gem 'god'
+  gem 'cijoe'
 end
 
 # Project requirements
