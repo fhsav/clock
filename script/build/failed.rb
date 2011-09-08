@@ -1,19 +1,41 @@
-require 'gmail'
+require 'pony'
 
-Gmail.new("fhsclock", "shrug#cl*ck") do |gmail|
-  gmail.deliver do
-    to "ethan.turkeltaub@gmail.com"
-    subject "FHS Clock build failed."
-    text_part do
-      body "The build of the latest stable version of the FHS Clock has failed. Please check it out."
-    end
-  end
-  
-  gmail.deliver do
-    to "fhsav@comcast.net"
-    subject "FHS Clock build failed."
-    text_part do
-      body "The build of the latest stable version of the FHS Clock has failed. Please check it out."
-    end
-  end
-end
+Pony.mail(
+	:to => "Ethan Turkeltaub <ethan.turkeltaub@gmail.com>",
+	:from => "FHS Timelord <fhsclock@gmail.com>",
+	:subject => "FHS Clock build failed!",
+	:body => "The latest build of the FHS Clock failed. Please check it out!",
+	
+	:via => :smtp, :smtp => {
+		:host => 'smtp.gmail.com',
+		:port => '587',
+		:user => 'fhsclock@gmail.com',
+		:password => 'shrug#cl*ck',
+		:auth => :plain,
+		:domain => "gmail.com"
+	},
+	
+	:headers => {
+		"Reply-To" => "fhsclock@gmail.com"
+	}
+)
+
+Pony.mail(
+	:to => "Evan Foreman <fhsav@comcast.net>",
+	:from => "FHS Timelord <fhsclock@gmail.com>",
+	:subject => "FHS Clock build failed!",
+	:body => "The latest build of the FHS Clock failed. Please check it out!",
+	
+	:via => :smtp, :smtp => {
+		:host => 'smtp.gmail.com',
+		:port => '587',
+		:user => 'fhsclock@gmail.com',
+		:password => 'shrug#cl*ck',
+		:auth => :plain,
+		:domain => "gmail.com"
+	},
+	
+	:headers => {
+		"Reply-To" => "fhsclock@gmail.com"
+	}
+)
