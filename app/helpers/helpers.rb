@@ -1,7 +1,7 @@
 Clock.helpers do
   def local(time)
     time = time - 14400
-    hour = time.hour
+    hour = time.strftime("%I")
     minute = time.strftime("%M")
     ampm = time.strftime("%P")
     
