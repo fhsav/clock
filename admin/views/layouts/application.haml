@@ -49,6 +49,8 @@
       %footer.row
         %p The FHS Clock is functional.
         %p Version #{CLOCK_VERSION}
+        %form{:action => url(:logout), :method => "post"}
+          %button{:type => "submit"} Logout
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"}
     %script{:src => "/admin/jsc/gyaku.js"}
     %script{:src => "/admin/jsc/application.js"}

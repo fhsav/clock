@@ -44,9 +44,10 @@ Admin.controllers do
       end
     end
     
-  # GET /logout
-  get :logout do
+  # POST /logout
+  post :logout do
     deauthenticate!
+    redirect url(:login)
   end
   
 end
