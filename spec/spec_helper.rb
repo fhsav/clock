@@ -1,6 +1,8 @@
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 
+require 'yaml'
+
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
 end
@@ -13,4 +15,10 @@ def session
   last_request.env['rack.session']
 end
 
-@@yaml = YAML::load(File.open(PADRINO_ROOT + '/config/settings.yml'))
+def password
+  directory = File.expand_path(File.dirname(__FILE__))
+
+  config = YAML::load(File.open(File.join(directory, '..', 'config', 'settings.yml')))
+  
+  config["password"]
+end

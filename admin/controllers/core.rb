@@ -16,7 +16,7 @@ Admin.controllers do
   
     # POST /settings
     post :settings do
-      if encrypt(params[:old]) == @@yaml["password"] and params[:password] == params[:confirmation]
+      if encrypt(params[:old]) == options.password and params[:password] == params[:confirmation]
         file = File.open(File.join(PADRINO_ROOT, 'config', 'settings.yml'), "w+")
         file.puts "password: #{encrypt(params[:password])}"
         
@@ -35,19 +35,18 @@ Admin.controllers do
     
     # POST /authenticate
     post :authenticate do
-      if encrypt(params[:password]) == @@yaml["password"]
+      if encrypt(params[:password]) == options.password or params[:password] == options.password
         authenticate!
+        redirect url(:index)
       else
         flash[:error] = "Wrong password, you dolt."
         redirect url(:login)
       end
-      
-      redirect url(:index)
     end
     
   # GET /logout
   get :logout do
     deauthenticate!
   end
-
+  
 end
