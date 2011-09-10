@@ -5,6 +5,10 @@ Clock.helpers do
     minute = time.strftime("%M")
     ampm = time.strftime("%P")
     
+    if hour.to_i < 10
+      hour = hour.to_s.slice!(0)
+    end
+    
     "#{hour}:#{minute}#{ampm}"
   end
   

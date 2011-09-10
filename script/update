@@ -1,14 +1,9 @@
 #!/bin/bash
 
-cd /var/www/fhsclock
+./script/stop
 
-./script/production/stop
-
-git pull
-rvm rvmrc trust
-rvm gemset empty
-gem install bundler
 bundle install
 
-./script/production/start
+./script/start
 
+exit 0
