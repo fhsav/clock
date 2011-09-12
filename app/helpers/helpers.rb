@@ -1,3 +1,9 @@
+class String
+  def initial
+    self[0,1]
+  end
+end
+
 Clock.helpers do
   def local(time)
     time = time - 14400
@@ -5,8 +11,8 @@ Clock.helpers do
     minute = time.strftime("%M")
     ampm = time.strftime("%P")
     
-    if hour.to_i < 10
-      hour = hour.to_s.slice!(0)
+    if hour.to_s.initial == "0"
+      hour = hour.to_s.slice!(1)
     end
     
     "#{hour}:#{minute}#{ampm}"
