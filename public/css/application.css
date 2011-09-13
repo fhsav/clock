@@ -196,7 +196,7 @@ ol#periods li#active {
 }
 
 #clock #time {
-	font-family: "Helvetica";
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 3em;
 }
 
