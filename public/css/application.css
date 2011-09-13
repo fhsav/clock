@@ -46,55 +46,7 @@
 
 body {
 	background: url('/img/backgrounds/mosaic.png') repeat;
-	font: bold 2/*
-	
-		file: application.css
-*/
-
-/*
-	= Appendix
-		I. Media Queries
-		II.
-*/
-
-/*
-	I. Media Queries
-*/
-
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
-
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
-
-}
-
-/*
-	II. Typefaces
-*/
-
-@font-face {
-	font-family: 'Standard CT';
-	font-weight: bold;
-	src: url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot');
-	src: url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot?#iefix') format('embedded-opentype'),
-			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.woff') format('woff'),
-			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.ttf') format('truetype'),
-			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.svg#StandardCT-Bold') format('svg'); 
-}
-
-/*
-	II. 
-*/
-
-* {
-	cursor: none;
-	overflow: hide;
-}
-
-body {
-	background: url('/img/backgrounds/mosaic.png') repeat;
-	font: bold 28px/1.5em "Standard CT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: bold 28px/1.5em "Standard CT", Helvetica, Arial, sans-serif;
 	margin: 1em 0;
 	overflow: hidden;
 }
@@ -198,7 +150,7 @@ ol#periods li#active {
 }
 
 #clock #time {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica", Arial, sans-serif;
 	font-size: 3em;
 }
 
