@@ -82,7 +82,7 @@ function clock(){
 	
 		d = new Date();
 
-		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+		var time = (d.getHours() * 3600) + (d.getMinutes() * 60);
 	
 		if (final_time < time) {
 			$("#after").css("display", "block");
@@ -99,7 +99,8 @@ function clock(){
 			var element = $(this);
 		
 			var start = element.find('time.start').attr('datetime');
-			var finish = element.find('time.finish').attr('datetime') - 60;
+			var finish = element.find('time.finish').attr('datetime');
+			    finish = finish - 60;
 		
 			var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 		
