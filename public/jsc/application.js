@@ -77,23 +77,21 @@ function clock(){
 	$(document).ready(function(){
 		
 		// Displays "It's after school" if after last period's finish time.
-		var periods = $('ol#periods').children().length;
-		
-		var element = $('ol#periods:nth-child(' + periods + ')');
-		var final_time = element.find('time.finish').attr('time');
+		var final_period = $('ol#periods li:last-child');
+		var final_time = final_period.find('time.finish').attr('datetime');
 	
 		d = new Date();
 
 		var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 	
-		if (time < final_time) {
-			$(".during").show("display", "block");
-			$(".after").hide("display", "none");
+		if (final_time < time) {
+			$("#after").css("display", "block");
+			$("#during").css("display", "none");
 		}
 		
 		else {
-			$(".after").show("display", "block");
-			$(".during").css("display", "none");
+			$("#during").css("display", "block");
+			$("#after").css("display", "none");
 		}
 		
 		// Shows which period is currently active.
@@ -101,7 +99,7 @@ function clock(){
 			var element = $(this);
 		
 			var start = element.find('time.start').attr('datetime');
-			var finish = element.find('time.finish').attr('datetime');
+			var finish = element.find('time.finish').attr('datetime') - 60;
 		
 			var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 		
