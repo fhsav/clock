@@ -16,10 +16,10 @@ Admin.controllers :schedules do
       
       if schedule.save
         flash[:notice] = "The schedule #{schedule.name} has been activated."
-        redirect url(:schedules, :edit, :id => schedule.id)
+        redirect url(:schedules, :index)
       else
         flash[:error] = "Something went wrong and the schedule #{schedule.name} was not activated."
-        redirect url(:schedules, :edit, :id => schedule.id)
+        redirect url(:schedules, :index)
       end
     end
     
@@ -50,7 +50,7 @@ Admin.controllers :schedules do
       
       if schedule.update_attributes(params[:schedule])
         flash[:notice] = "The schedule #{schedule.name} has been modified"
-        redirect url(:schedules, :index)
+        redirect url(:schedules, :edit, :id => schedule.id)
       else
         flash[:error] = "Something went wrong and the schedule #{schedule.name} was not modified."
         redirect url(:schedules, :edit, :id => schedule.id)

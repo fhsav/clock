@@ -48,12 +48,12 @@ Admin.controllers :periods, :parent => :schedules do
       
       parameters = params[:period]
     
-      start = Time.parse(parameters[:start])
-      finish = Time.parse(parameters[:finish])
+      start = parameters[:start].to_s
+    finish = parameters[:finish].to_s
       
-      if !start.to_s.match(/^([01]?[0-9]|2[0-3])\:[0-5][0-9]$/) or !finish.to_s.match(/^([01]?[0-9]|2[0-3])\:[0-5][0-9]$/)
+      if !start.match(/^([01]?[0-9]|2[0-3])\:[0-5][0-9]$/) or !finish.match(/^([01]?[0-9]|2[0-3])\:[0-5][0-9]$/)
         flash[:error] = "That isn't a time!"
-        redirect url(:schedules, :edit, :id => schedule.id)
+        redirect url(:schedules, :edit, :id => params[:s_id])
       end
       
       if period.update_attributes(
