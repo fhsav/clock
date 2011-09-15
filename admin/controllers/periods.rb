@@ -6,11 +6,11 @@ Admin.controllers :periods, :parent => :schedules do
     
     parameters = params[:period]
     
-    start = Time.parse(parameters[:start])
-    finish = Time.parse(parameters[:finish])
+    start = parameters[:start].to_s
+    finish = parameters[:finish].to_s
     
-    if !start.to_s.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/) or !finish.to_s.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/)
-      flash[:error] = "That isn't a time, you dope."
+    if !start.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/) or !finish.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/)
+      flash[:error] = "That isn't a time, you dope. #{start}"
       redirect url(:schedules, :edit, :id => schedule.id)
     end
     

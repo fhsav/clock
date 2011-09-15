@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    aaronh-chronic (0.3.9)
     activemodel (3.0.9)
       activesupport (= 3.0.9)
       builder (~> 2.1.2)
@@ -138,9 +137,6 @@ GEM
       simple_oauth (~> 0.1.4)
     url_mount (0.2.1)
       rack
-    whenever (0.6.8)
-      aaronh-chronic (>= 0.3.9)
-      activesupport (>= 2.3.4)
     ya2yaml (0.30)
 
 PLATFORMS
@@ -162,5 +158,4 @@ DEPENDENCIES
   redis
   rspec
   thin
-  whenever
   ya2yaml

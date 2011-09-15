@@ -21,7 +21,6 @@ gem 'mongo_mapper'
 gem 'bson_ext', :require => "mongo"
 gem 'maruku'
 gem 'ya2yaml'
-gem 'whenever'
 gem 'pony'
 
 # Test requirements
