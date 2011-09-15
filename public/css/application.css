@@ -73,6 +73,8 @@ ul#marquee {
 	color: #fafafa;
 	display: block;
 	font-size: 1.5em;
+<<<<<<< HEAD
+=======
 	height: 1.5em;
 	
 	list-style: none;
@@ -202,6 +204,7 @@ ul#marquee {
 	background: rgba(0, 0, 0, 0.5);
 	color: #fafafa;
 	display: block;
+>>>>>>> master
 	height: 1.5em;
 	
 	list-style: none;
@@ -277,6 +280,7 @@ ol#periods li#active {
 }
 
 #clock #time {
+	font-family: "Helvetica";
 	font-size: 3em;
 }
 
