@@ -23,9 +23,9 @@
                 - @periods.each do |period|
                   %li
                     ="#{period.text}: "
-                    %time.start{:time => seconds(period.start)}="#{local(period.start)}"
+                    %time.start{:datetime => seconds(period.start)}="#{local(period.start)}"
                     &ndash;
-                    %time.finish{:time => seconds(period.finish)}="#{local(period.finish)}"
+                    %time.finish{:datetime => seconds(period.finish)}="#{local(period.finish)}"
           %section#after
             %p It's after school!
         #right.sixcol.last

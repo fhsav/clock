@@ -100,8 +100,8 @@ function clock(){
 		$('ol#periods li').each(function(index) {
 			var element = $(this);
 		
-			var start = element.find('time.start').attr('time');
-			var finish = element.find('time.finish').attr('time');
+			var start = element.find('time.start').attr('datetime');
+			var finish = element.find('time.finish').attr('datetime');
 		
 			var time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 		
