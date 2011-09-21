@@ -9,25 +9,6 @@ Admin.controllers do
     render :index
   end
   
-  # GET /settings
-  get :settings do
-    render :settings
-  end
-  
-    # POST /settings
-    post :settings do
-      if encrypt(params[:old]) == options.password and params[:password] == params[:confirmation]
-        file = File.open(File.join(PADRINO_ROOT, 'config', 'settings.yml'), "w+")
-        file.puts "password: #{encrypt(params[:password])}"
-        
-        flash[:notice] = "Password saved."
-        redirect url(:settings)
-      else
-        flash[:error] = "Either you entered the wrong password, or the passwords did not match."
-        redirect url(:settings)
-      end
-    end
-  
   # GET /login
   get :login do
     render :login, :layout => false
