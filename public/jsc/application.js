@@ -124,6 +124,6 @@ setInterval("clock()", 0);
 */
 
 $(document).ready(function (){
-	$("#marquee").marquee({pauseOnHover: false});
+	$("#marquee").marquee();
 });
 
