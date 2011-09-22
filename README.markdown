@@ -2,7 +2,7 @@
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
-**Thanks:** Nick Silverman, Joshua Warchol, Jon Ferry
+**Thanks:** Nick Silverman, [Joshua Warchol](http://unwin.org/), [Jon Ferry](http://jonferry.com/)
 
 ## What is it?
 
