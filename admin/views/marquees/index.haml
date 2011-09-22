@@ -1,6 +1,8 @@
 #inner.row
   = partial 'partials/nav/marquees'
   %section#body
+    %h2
+      Marquees
     =flash_tag :notice
     - if !@marquees.blank?
       %table

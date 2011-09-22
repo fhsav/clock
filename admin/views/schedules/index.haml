@@ -1,6 +1,8 @@
 #inner.row
   = partial 'partials/nav/schedules'
   %section#body
+    %h2
+      Schedules
     =flash_tag :notice
     - if !@schedules.blank?
       %table
