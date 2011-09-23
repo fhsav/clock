@@ -1,0 +1,6 @@
+[submodule "eturk/fhsclock-helpers"]
+	path = eturk/fhsclock-helpers
+	url = git@github.com:eturk/fhsclock-helpers.git
+[submodule "helpers"]
+	path = helpers
+	url = git://github.com/eturk/fhsclock-helpers.git
