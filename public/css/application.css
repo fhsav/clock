@@ -109,6 +109,7 @@ ol#periods li#active {
 	background: rgba(255, 255, 255, 0.5);
 	border: 2px solid rgba(255, 255, 255, 0.75);
 	display: none;
+	font-size: 2em;
 	margin-top: 1.75em;
 	padding: 2em;
 	text-align: center;
@@ -145,7 +146,7 @@ ol#periods li#active {
 #clock #date {
 	font-size: 2.25em;
 	margin-bottom: 1em;
-	line-height: 1.25em;
+	line-height: 1em;
 }
 
 #clock #time {
