@@ -2,6 +2,8 @@
 
 ./script/stop
 
+git pull
+
 bundle install
 
 ./script/start
