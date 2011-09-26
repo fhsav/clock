@@ -301,6 +301,10 @@ tr.true {
 	text-align: center;
 }
 
+#contain > footer button {
+	margin-top: 1em;
+}
+
 #contain > footer p:nth-child(2) {
 	color: #ccc;
 }
