@@ -110,7 +110,7 @@ ol#periods li#active {
 	border: 2px solid rgba(255, 255, 255, 0.75);
 	display: none;
 	font-size: 2em;
-	margin-top: 1.75em;
+	line-height: 1.5em;
 	padding: 2em;
 	text-align: center;
 }
