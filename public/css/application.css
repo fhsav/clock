@@ -109,8 +109,9 @@ ol#periods li#active {
 	background: rgba(255, 255, 255, 0.5);
 	border: 2px solid rgba(255, 255, 255, 0.75);
 	display: none;
-	font-size: 2em;
-	line-height: 1.5em;
+	font-size: 1.5em;
+	line-height: 1em;
+	margin-top: 1em;
 	padding: 2em;
 	text-align: center;
 }
