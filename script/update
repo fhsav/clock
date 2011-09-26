@@ -6,4 +6,6 @@ bundle install
 
 ./script/start
 
+curl "http://192.168.1.103:3000/ping"
+
 exit 0
