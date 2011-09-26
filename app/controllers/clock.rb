@@ -17,6 +17,11 @@ Clock.controllers do
     render :clock
   end
   
+  # GET /api
+  get :api do
+    
+  end 
+  
   # GET /ping
   get :ping do
     "pong"

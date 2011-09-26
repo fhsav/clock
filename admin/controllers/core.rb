@@ -8,7 +8,7 @@ Admin.controllers do
   get :index do
     render :index
   end
-  
+
   # GET /login
   get :login do
     render :login, :layout => false
