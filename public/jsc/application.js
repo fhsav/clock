@@ -111,6 +111,16 @@ function clock(){
 			else {
 				element.attr('id', '');
 			}
+			
+			// Shows if it is between periods.
+			var next = element.next();
+			
+			var next_start = next.find('time.start').attr('datetime');
+				next_start = next_start - 60;
+			
+			if (time > finish && time < next_start) {
+				element.css('border-bottom', '10px solid #0e0e0e')
+			}
 
 		});
 		
