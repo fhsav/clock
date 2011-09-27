@@ -116,10 +116,14 @@ function clock(){
 			var next = element.next();
 			
 			var next_start = next.find('time.start').attr('datetime');
-				next_start = next_start - 60;
+				next_start = next_start;
 			
 			if (time > finish && time < next_start) {
-				element.css('border-bottom', '10px solid #0e0e0e')
+				element.css('border-bottom', '10px solid #000')
+			}
+			
+			else {
+				element.css('border-bottom', '1px solid #000');
 			}
 
 		});
