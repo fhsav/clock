@@ -46,7 +46,7 @@
 
 body {
 	background: url('/img/backgrounds/mosaic.png') repeat;
-	font: bold 28px/1.5em "Standard CT", Helvetica, Arial, sans-serif;
+	font: bold 26px/1.5em "Standard CT", Helvetica, Arial, sans-serif;
 	margin: 1em 0;
 	overflow: hidden;
 }
