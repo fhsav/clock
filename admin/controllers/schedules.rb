@@ -40,7 +40,7 @@ Admin.controllers :schedules do
   # GET /admin/schedules/edit/:id
   get :edit, :with => :id do
     @schedule = Schedule.find(params[:id])
-    @periods = @schedule.periods.sort(:number.desc)
+    @periods = @schedule.periods.sort(:number.asc)
     
     render 'schedules/edit'
   end

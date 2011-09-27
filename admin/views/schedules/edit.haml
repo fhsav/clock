@@ -26,7 +26,7 @@
             %button.green{:type => "submit", :value => "Publish"} Publish
 
       %section.meta
-        - if !@schedule.periods.blank?
+        - if !@periods.blank?
           %table
             %thead
               %tr
@@ -35,7 +35,7 @@
                 %th Start/Finish Times
                 %th Actions
             %tbody
-              - @schedule.periods.each do |period|
+              - @periods.each do |period|
                 %tr
                   %td= period.number
                   %td= period.text
