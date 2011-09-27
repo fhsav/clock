@@ -146,6 +146,7 @@ ol#periods li#active {
 #clock #date {
 	font-size: 1.75em;
 	margin-bottom: 0.5em;
+	margin-top: 0.25em;
 	line-height: 1em;
 }
 
