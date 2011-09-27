@@ -45,7 +45,7 @@
 }
 
 body {
-	background: url('/img/backgrounds/mosaic.png') repeat;
+	background: url('/img/backgrounds/sea-green.jpg') no-repeat;
 	font: bold 26px/1.5em "Standard CT", Helvetica, Arial, sans-serif;
 	margin: 1em 0;
 	overflow: hidden;
@@ -61,7 +61,7 @@ li {
 */
 
 #main {
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 
 /*
@@ -69,7 +69,7 @@ li {
 */
 
 ul#marquee {
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(50, 50, 50, 0.5);
 	color: #fafafa;
 	display: block;
 	font-size: 1.5em;
@@ -97,11 +97,12 @@ ul#marquee li {
 ol#periods li {
 	background: rgba(255, 255, 255, 0.5);
 	border-bottom: 1px solid #000;
+	font-size: 1.35em;
 	padding: 0.3em 0.5em 0.15em 0.5em;
 }
 
 ol#periods li#active {
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(50, 50, 50, 0.5);
 	color: #fafafa;
 }
 
@@ -121,7 +122,7 @@ ol#periods li#active {
 */
 
 #left {
-	padding-right: 1em;
+	/*padding-right: 1em;*/
 }
 
 /*
@@ -130,9 +131,7 @@ ol#periods li#active {
 
 #right {
 	color: #fafafa;
-	margin-top: 2em;
 	text-align: center;
-	width: 50%;
 }
 
 /*
@@ -153,6 +152,7 @@ ol#periods li#active {
 #clock #time {
 	font-family: "Helvetica", Arial, sans-serif;
 	font-size: 3em;
+	line-height: 1em;
 }
 
 /*

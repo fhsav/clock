@@ -1,4 +1,4 @@
-<!doctype html>
+!!! 
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}
@@ -16,7 +16,7 @@
             - @marquees.each do |marquee|
               %li= marquee.text
       %section#main.row
-        #left.sixcol
+        #left.sevencol
           %section#during
             %ol#periods
               - if !@periods.blank?
@@ -28,7 +28,7 @@
                     %time.finish{:datetime => seconds(period.finish)}="#{local(period.finish)}"
           %section#after
             %p It's after school!
-        #right.sixcol.last
+        #right.fivecol.last
           %section#clock
             %p#date
             %p#time
