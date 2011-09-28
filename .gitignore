@@ -4,3 +4,4 @@ spec/private.yml
 */.DS_Store
 .DS_Store
 .tmproj
+.sass-cache/
