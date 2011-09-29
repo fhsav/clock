@@ -9,24 +9,16 @@
 		II.
 */
 
-@import "gyaku"
-
-/*
-	I. Media Queries
-*/
-
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
-
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
-
-}
+@import "compass/css3";
+@import "gyaku";
 
 /*
 	II. Typefaces
 */
 
+@include font-face("Standard CT", font-files("/lib/typefaces/StandardCT-Bold/StandardCT-Bold.ttf", truetype), "/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot");
+
+/*
 @font-face {
 	font-family: 'Standard CT';
 	font-weight: bold;
@@ -36,6 +28,7 @@
 			 url('/lib/typefaces/StandardCT-Bold/StandardCT-Bold.ttf') format('truetype'),
 			 url('/lib/typefaces/StandardCT-Bold/StandardCT-Bold.svg#StandardCT-Bold') format('svg'); 
 }
+*/
 
 /*
 	II. 
@@ -47,7 +40,7 @@
 }
 
 body {
-	background: url('/img/backgrounds/green-gradient.jpg') no-repeat;
+	background: url('/img/backgrounds/sea-green.jpg') no-repeat;
 	font: bold 26px/1.5em "Standard CT", Helvetica, Arial, sans-serif;
 	margin: 1em 0;
 	overflow: hidden;
@@ -99,7 +92,7 @@ ul#marquee li {
 ol#periods li {
 	background: rgba(255, 255, 255, 0.5);
 	border-bottom: 1px solid #000;
-	font-size: 1.35em;
+	font-size: 1.45em;
 	padding: 0.3em 0.5em 0.15em 0.5em;
 }
 
@@ -124,7 +117,6 @@ ol#periods li#active {
 */
 
 #left {
-	/*padding-right: 1em;*/
 }
 
 /*

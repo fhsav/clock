@@ -14,7 +14,7 @@ module CompassInitializer
       config.css_dir = "public/css"
       config.images_dir = "public/img"
       config.javascripts_dir = "public/jsc"
-      config.output_style = :compressed
+      config.output_style = :nested
     end
 
     Compass.configure_sass_plugin!

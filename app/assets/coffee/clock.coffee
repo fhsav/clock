@@ -1,5 +1,8 @@
 clock = ->
+  
+  # Clock
   d = new Date()
+  
   day = d.getDay()
   month = d.getMonth()
   date = d.getDate()
@@ -7,9 +10,14 @@ clock = ->
   hour = d.getHours()
   minute = d.getMinutes()
   second = d.getSeconds()
+  
   dayArray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
   monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
-  date = "0" + date  if date < 10
+  
+  if date < 10
+  	date = "0" + date
+  
+  
   if hour >= 12
     am_pm = "PM"
   else am_pm = "AM"  if hour < 12
