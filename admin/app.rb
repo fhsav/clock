@@ -5,8 +5,6 @@ class Admin < Padrino::Application
   register Padrino::Helpers
   register Padrino::Mailer
   register Padrino::Rendering
-  register CompassInitializer
-  register BaristaInitializer
   
   enable :caching
   enable :sessions

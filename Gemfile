@@ -17,8 +17,6 @@ gem 'redis'
 
 # Component requirements
 gem 'haml'
-gem 'barista'
-gem 'compass'
 gem 'mongo_mapper'
 gem 'bson_ext', :require => "mongo"
 gem 'maruku'
