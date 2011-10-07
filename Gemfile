@@ -22,6 +22,7 @@ gem 'bson_ext', :require => "mongo"
 gem 'maruku'
 gem 'ya2yaml'
 gem 'pony'
+gem 'pusher'
 
 # Test requirements
 gem 'rspec', :group => "test"

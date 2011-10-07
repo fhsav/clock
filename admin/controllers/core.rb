@@ -24,6 +24,15 @@ Admin.controllers do
         redirect url(:login)
       end
     end
+  
+  # POST /refresh
+  post :refresh do
+    Pusher['fhsclock'].trigger('refresh', {
+      'time' => Time.now
+    })
+    
+    redirect url(:index)
+  end
     
   # POST /logout
   post :logout do
