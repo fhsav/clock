@@ -15,7 +15,7 @@ Clock.helpers do
       hour = hour.to_s.slice!(1)
     end
     
-    "#{hour}:#{minute}#{ampm}"
+    "#{hour}:#{minute}"
   end
   
   def seconds(time)

@@ -24,7 +24,7 @@
                   %li
                     ="#{period.text}: "
                     %time.start{:datetime => seconds(period.start)}="#{local(period.start)}"
-                    &ndash;
+                    &mdash;
                     %time.finish{:datetime => seconds(period.finish)}="#{local(period.finish)}"
           %section#after
             %p It's after school!
@@ -39,5 +39,4 @@
                   %li{:class => notice.urgent}= notice.text
     %script{:src => "/jsc/lib/jquery-1.6.2.js"}
     %script{:src => "/jsc/lib/jquery.marquee.min.js"}
-    %script{:src => "http://js.pusherapp.com/1.9/pusher.min.js"}
     %script{:src => "/jsc/application.js"}
