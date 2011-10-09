@@ -20,8 +20,6 @@ gem 'haml'
 gem 'mongo_mapper'
 gem 'bson_ext', :require => "mongo"
 gem 'maruku'
-gem 'ya2yaml'
-gem 'pony'
 
 # Test requirements
 gem 'rspec', :group => "test"

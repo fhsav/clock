@@ -87,6 +87,9 @@ function clock(){
 		if (final_time < time) {
 			$("#after").css("display", "block");
 			$("#during").css("display", "none");
+			
+			$("#left").removeClass('sevencol').addClass('fivecol');
+			$("#right").removeClass('fivecol').addClass('sevencol');
 		}
 		
 		else {
@@ -140,4 +143,10 @@ setInterval("clock()", 0);
 $(document).ready(function (){
 	$("#marquee").marquee();
 });
+
+/*
+	IV. Refresh
+*/
+
+
 

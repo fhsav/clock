@@ -24,7 +24,7 @@ Admin.controllers do
         redirect url(:login)
       end
     end
-    
+  
   # POST /logout
   post :logout do
     deauthenticate!

@@ -4,6 +4,7 @@ CLOCK_VERSION = "0.1.7"
 
 require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
+
 Bundler.require(:default, PADRINO_ENV)
 
 Padrino.load!

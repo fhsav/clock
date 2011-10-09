@@ -17,4 +17,4 @@ class Admin < Padrino::Application
   config = YAML::load(File.open(File.join(directory, '..', 'config', 'settings.yml')))
   
   set :password, config["password"]
-end
+end  
