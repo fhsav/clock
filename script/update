@@ -2,7 +2,7 @@
 
 ./script/stop
 
-git pull
+git pull origin stable
 
 bundle install
 
