@@ -1,13 +1,9 @@
 source :rubygems
 
-# Server requirements
-# gem 'thin' or mongrel
 gem 'thin'
 
 group :production do
   gem 'passenger'
-  gem 'god'
-  gem 'cijoe'
 end
 
 # Project requirements
