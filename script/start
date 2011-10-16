@@ -1,5 +1,14 @@
 #!/bin/bash
 
+mkdir -p tmp/pids log
+
 unicorn -c script/unicorn.rb -E production -p 3000 -D
 
-exit 0
+FILE=tmp/pids/unicorn.pid
+
+if [ -f FILE ];
+then
+  exit 0
+else
+  exit 1
+fi
