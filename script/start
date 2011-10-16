@@ -1,5 +1,5 @@
 #!/bin/bash
 
-unicorn -c script/unicorn.rb -p 3000 -D
+unicorn -c script/unicorn.rb -E production -p 3000 -D
 
 exit 0
