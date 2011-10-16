@@ -2,3 +2,4 @@
 
 unicorn -c script/unicorn.rb -p 3000 -D
 
+exit 0
