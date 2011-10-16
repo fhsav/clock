@@ -1,0 +1,11 @@
+branches:
+  only:
+    - master
+    - stable
+rvm:
+  - 1.9.2
+  - ruby-head
+script: ./script/start
+notifications:
+  email:
+    - ethan.turkeltaub@gmail.com
