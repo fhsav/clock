@@ -97,8 +97,10 @@ ul#marquee li {
 ol#periods li {
 	background: rgba(255, 255, 255, 0.5);
 	border-bottom: 1px solid #000;
+	display: block;
 	font-size: 1.35em;
 	padding: 0.3em 0.5em 0.15em 0.5em;
+	width: 100%
 }
 
 ol#periods li#active {

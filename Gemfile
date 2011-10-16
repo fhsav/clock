@@ -4,6 +4,7 @@ gem 'thin'
 
 group :production do
   gem 'passenger'
+  gem 'unicorn'
 end
 
 # Project requirements

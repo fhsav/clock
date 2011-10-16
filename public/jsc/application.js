@@ -145,8 +145,7 @@ $(document).ready(function (){
 });
 
 /*
-	IV. Refresh
+	IV. FitText
 */
 
-
-
+$("ol#periods li").fitText(1.2, { minFontSize: '30px', maxFontSize: '36px' });
