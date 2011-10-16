@@ -1,4 +1,4 @@
 #!/bin/bash
 
-passenger start -d
+unicorn -c script/unicorn.rb -p 3000 -D
 
