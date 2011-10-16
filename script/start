@@ -4,11 +4,11 @@ mkdir -p tmp/pids log
 
 unicorn -c script/unicorn.rb -E production -p 3000 -D
 
-FILE=tmp/pids/unicorn.pid
-
-if [ -f FILE ];
+if [ -f tmp/pids/unicorn.pid ];
 then
+  echo "Exit status 0"
   exit 0
 else
+  echo "Exit status 1"
   exit 1
 fi
