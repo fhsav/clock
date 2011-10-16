@@ -141,7 +141,9 @@ setInterval("clock()", 0);
 */
 
 $(document).ready(function (){
-	$("#marquee").marquee();
+	$("#marquee").marquee({
+		pauseOnHover: false
+	});
 });
 
 /*
@@ -149,3 +151,4 @@ $(document).ready(function (){
 */
 
 $("ol#periods li").fitText(1.2, { minFontSize: '30px', maxFontSize: '36px' });
+
