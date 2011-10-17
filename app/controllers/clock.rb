@@ -5,10 +5,7 @@ Clock.controllers do
     @schedule = Schedule.first(:active => true)
     
     if !@schedule.blank?
-      @periods_exist = true
       @periods = @schedule.periods.sort(:number.asc)
-    else
-      @periods_exist = false
     end
     
     @marquees = Marquee.all
@@ -16,11 +13,6 @@ Clock.controllers do
     
     render :clock
   end
-  
-  # GET /api
-  get :api do
-    
-  end 
   
   # GET /ping
   get :ping do

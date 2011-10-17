@@ -1,6 +1,6 @@
 Admin.controllers do
   
-  before :except => [ :login, :authenticate, :refresh ] do
+  before :except => [ :login, :authenticate ] do
     authenticated?
   end
   
@@ -18,6 +18,7 @@ Admin.controllers do
     post :authenticate do
       if encrypt(params[:password]) == options.password or params[:password] == options.password
         authenticate!
+        
         redirect url(:index)
       else
         flash[:error] = "Wrong password, you dolt."
@@ -28,6 +29,7 @@ Admin.controllers do
   # POST /logout
   post :logout do
     deauthenticate!
+    
     redirect url(:login)
   end
   

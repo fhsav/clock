@@ -4,7 +4,7 @@ Admin.helpers do
   def local(time)
   	if time != nil
       time = time - 14400
-	  time.strftime("%k:%M")
+	    time.strftime("%k:%M")
     end
   end
   
