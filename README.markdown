@@ -1,5 +1,7 @@
 # FHS Clock
 
+[![https://secure.travis-ci.org/eturk/fhsclock.png]](http://travis-ci.org/#!/eturk/fhsclock)
+
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
 **Thanks:** Nick Silverman, [Joshua Warchol](http://unwin.org/), [Jon Ferry](http://jonferry.com/)
