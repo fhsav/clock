@@ -1,3 +1,9 @@
+class String
+  def initial
+    self[0,1]
+  end
+end
+
 Clock.helpers do
   def local(time)
     time = time - 14400
