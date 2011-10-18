@@ -5,7 +5,6 @@ gem 'thin'
 group :production do
   gem 'unicorn'
   gem 'cijoe'
-  gem 'pony'
 end
 
 gem 'rake'
