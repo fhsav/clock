@@ -2,7 +2,7 @@
 
 mkdir -p tmp/pids log
 
-unicorn -c script/unicorn.rb -E production -p 3000 -D
+bundle exec unicorn -c script/unicorn.rb -E production -p 3000 -D
 
 if [ -f tmp/pids/unicorn.pid ];
 then
