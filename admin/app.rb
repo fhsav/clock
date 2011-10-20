@@ -9,7 +9,7 @@ class Admin < Padrino::Application
 
   directory = File.expand_path(File.dirname(__FILE__))
 
-  config = YAML::load(File.open(File.join(directory, '..', 'config', 'settings.yml')))
+  config = YAML::load(File.open(File.join(directory, '..', '.fhsclock.yml')))
   
   set :password, config["password"]
 end  
