@@ -149,5 +149,6 @@ DEPENDENCIES
   rake
   redis
   rspec
+  sinatra (~> 1.2.7)
   thin
   unicorn
