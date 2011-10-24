@@ -2,6 +2,6 @@
 
 mkdir -p tmp/pids log
 
-bundle exec unicorn -c script/unicorn.rb -E production -p 3000 -D
+bundle exec unicorn -c bin/unicorn.rb -E production -p 3000 -D
 
 exit 0
