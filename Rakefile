@@ -1,3 +1,3 @@
 task :default do
-  exec('./script/start')
+  exec('./bin/start')
 end

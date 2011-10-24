@@ -1,0 +1,3 @@
+#!/bin/bash
+
+kill -INT `cat /var/www/fhsclock/tmp/pids/unicorn.pid`
