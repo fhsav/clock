@@ -4,13 +4,4 @@ mkdir -p tmp/pids log
 
 bundle exec unicorn -c script/unicorn.rb -E production -p 3000 -D
 
-echo "hello"
-
-if [ -e tmp/pids/unicorn.pid ];
-then
-  echo "exists"
-  exit 0
-else
-  echo "doesn't exist"
-  exit 1
-fi
+exit 0
