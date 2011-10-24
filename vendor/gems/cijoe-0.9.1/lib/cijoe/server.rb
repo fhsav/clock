@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'erb'
-require 'json'
 
 class CIJoe
   class Server < Sinatra::Base
@@ -9,7 +8,7 @@ class CIJoe
     dir = File.dirname(File.expand_path(__FILE__))
 
     set :views,  "#{dir}/views"
-    set :public_folder, "#{dir}/public"
+    set :public, "#{dir}/public"
     set :static, true
     set :lock, true
 
@@ -28,15 +27,15 @@ class CIJoe
     end
 
     post '/?' do
-      unless params[:rebuild]
-        payload = JSON.parse(params[:payload])
-        pushed_branch = payload["ref"].split('/').last
+      payload = params[:payload].to_s
+      if payload =~ /"ref":"(.+?)"/
+        pushed_branch = $1.split('/').last
       end
-      
-      # Only build if we were given an explicit branch via `?branch=blah`
-      # or the payload exists and the "ref" property matches our 
-      # specified build branch.
-      if params[:branch] || params[:rebuild] || pushed_branch == joe.git_branch
+
+      # Only build if we were given an explicit branch via `?branch=blah`,
+      # no payload exists (we're probably testing), or the payload exists and
+      # the "ref" property matches our specified build branch.
+      if params[:branch] || payload.empty? || pushed_branch == joe.git_branch
         joe.build(params[:branch])
       end
 
@@ -80,6 +79,8 @@ class CIJoe
       super
       check_project
       @joe = CIJoe.new(options.project_path)
+
+      CIJoe::Campfire.activate(options.project_path)
     end
 
     def self.start(host, port, project_path)
@@ -100,7 +101,7 @@ class CIJoe
         end
         puts "Using HTTP basic auth"
       end
-      set :project_path, Proc.new{project_path}, true
+      set :project_path, Proc.new{project_path}
     end
 
     def check_project

@@ -49,9 +49,6 @@ put whatever you want in there.
 Tip: your repo's `HEAD` will point to the commit used to run the
 build. Pull any metadata you want out of that scro.
 
-** WARNING ** Do not run this against a git repo that has unpushed
-  commits, as this will do a hard reset against the github remote and
-wipe out unpushed changes.
 
 Other Branches
 ----------------------
@@ -80,7 +77,8 @@ Campfire notification is included, because it's what we use. Want Joe
 notify your Campfire? Put this in your repo's `.git/config`:
 
     [campfire]
-    	token = abcd1234
+    	user = your@campfire.email
+    	pass = passw0rd
     	subdomain = whatever
     	room = Awesomeness
     	ssl = false
@@ -88,7 +86,7 @@ notify your Campfire? Put this in your repo's `.git/config`:
 Or do it the old fashion way:
 
     $ cd yourrepo
-    $ git config --add campfire.token abcd1234
+    $ git config --add campfire.user chris@ozmm.org
     $ git config --add campfire.subdomain github
     etc.
 
@@ -149,18 +147,11 @@ Other CI Servers
 
 Need more features? More notifiers? Check out one of these bad boys:
 
-* [Jenkins](http://jenkins-ci.org/)
 * [Cerberus](http://cerberus.rubyforge.org/)
 * [Integrity](http://integrityapp.com/)
 * [CruiseControl.rb](http://cruisecontrolrb.thoughtworks.com/)
 * [BuildBot](http://buildbot.net/trac)
 * [Signal](http://www.github.com/dcrec1/signal)
-
-
-Does GitHub use cijoe?
----------------------------------
-
-No. We use [Jenkins](http://jenkins-ci.org/).
 
 
 Screenshots
@@ -174,4 +165,7 @@ Screenshots
 Questions? Concerns?
 ---------------------------------
 
-[Issues](http://github.com/defunkt/cijoe/issues)
+[Issues](http://github.com/defunkt/cijoe/issues) or [the mailing list](http://groups.google.com/group/cijoe).
+
+
+( Chris Wanstrath :: chris@ozmm.org )
