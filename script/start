@@ -4,7 +4,7 @@ mkdir -p tmp/pids log
 
 bundle exec unicorn -c script/unicorn.rb -E production -p 3000 -D
 
-if [ -f tmp/pids/unicorn.pid ];
+if [ -e tmp/pids/unicorn.pid ];
 then
   exit 0
 else
