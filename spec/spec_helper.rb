@@ -1,5 +1,5 @@
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
-require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
+require File.expand_path(File.dirname(__FILE__) + "/../config/boot.rb")
 
 require 'yaml'
 
@@ -18,7 +18,7 @@ end
 def password
   directory = File.expand_path(File.dirname(__FILE__))
 
-  config = YAML::load(File.open(File.join(directory, '..', 'config', 'settings.yml')))
+  config = YAML::load(File.open(File.join(directory, '..', '.fhsclock.yml')))
   
   config["password"]
 end

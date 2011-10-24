@@ -22,7 +22,7 @@ describe "Schedule" do
   it "creation API should work" do
     post "/admin/schedules/create", :schedule => { :name => "Derp" }
     
-    last_response.should be_ok
+    last_response.should be_redirect
   end
   
   it "modification API should work" do
@@ -30,7 +30,7 @@ describe "Schedule" do
   
     put "/admin/schedules/modify", :id => schedule.id, :schedule => { :name => "Herp" }
     
-    last_response.should be_ok
+    last_response.should be_redirect
   end
   
   it "deletion API should work" do
@@ -38,6 +38,6 @@ describe "Schedule" do
     
     delete "/admin/schedules/destroy", :id => schedule.id
     
-    last_response.should be_ok
+    last_response.should be_redirect
   end
 end
