@@ -4,7 +4,7 @@ gem 'thin'
 
 group :production do
   gem 'unicorn'
-  gem 'cijoe', '0.9.2', :path => "vendor/gems/cijoe-0.9.2"
+  gem 'cijoe', '0.9.1', :path => "vendor/gems/cijoe-0.9.1"
 end
 
 gem 'rake'

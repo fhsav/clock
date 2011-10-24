@@ -1,7 +1,7 @@
 PATH
-  remote: vendor/gems/cijoe-0.9.2
+  remote: vendor/gems/cijoe-0.9.1
   specs:
-    cijoe (0.9.2)
+    cijoe (0.9.1)
 
 GEM
   remote: http://rubygems.org/
@@ -111,7 +111,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext
-  cijoe (= 0.9.2)!
+  cijoe (= 0.9.1)!
   haml
   maruku
   mongo_mapper
