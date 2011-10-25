@@ -5,7 +5,7 @@ branches:
 rvm:
   - 1.9.2
   - ruby-head
-script: ./script/start
+script: ./bin/start
 notifications:
   email:
     - ethan.turkeltaub@gmail.com
