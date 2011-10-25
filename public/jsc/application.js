@@ -97,6 +97,9 @@
 			else {
 				$("#during").css("display", "block");
 				$("#after").css("display", "none");
+				
+				$("#left").removeClass('fivecol').addClass('sevencol');
+				$("#right").removeClass('sevencol').addClas('fivecol');
 			}
 		
 			// Shows which period is currently active.
