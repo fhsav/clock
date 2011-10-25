@@ -35,6 +35,12 @@
 			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.svg#StandardCT-Bold') format('svg'); 
 }
 
+@font-face {
+	font-family: "Helvetica World";
+	font-weight: bold;
+	src: url('/css/lib/typefaces/Helvetica/HelveticaWorld-Bold.ttf') format('truetype');
+}
+
 /*
 	II. 
 */
@@ -152,7 +158,7 @@ ol#periods li#active {
 }
 
 #clock #time {
-	font-family: "Helvetica", Arial, sans-serif;
+	font-family: "Helvetica World", sans-serif;
 	font-size: 3em;
 	line-height: 1em;
 }
