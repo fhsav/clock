@@ -9,7 +9,7 @@ Admin.controllers :periods, :parent => :schedules do
     start = parameters[:start].to_s
     finish = parameters[:finish].to_s
     
-    if !start.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/) or !finish.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/)
+    if !start.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/) or !finish.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
       flash[:error] = "That isn't a time, you dope. #{start}"
       redirect url(:schedules, :edit, :id => schedule.id)
     end
@@ -51,7 +51,7 @@ Admin.controllers :periods, :parent => :schedules do
       start = parameters[:start].to_s
     finish = parameters[:finish].to_s
       
-      if !start.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/) or !finish.match(/^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/)
+      if !start.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/) or !finish.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
         flash[:error] = "That isn't a time!"
         redirect url(:schedules, :edit, :id => params[:s_id])
       end
