@@ -99,7 +99,7 @@
 				$("#after").css("display", "none");
 				
 				$("#left").removeClass('fivecol').addClass('sevencol');
-				$("#right").removeClass('sevencol').addClas('fivecol');
+				$("#right").removeClass('sevencol').addClass('fivecol');
 			}
 		
 			// Shows which period is currently active.
