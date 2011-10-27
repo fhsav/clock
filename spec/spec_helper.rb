@@ -22,3 +22,8 @@ def password
   
   config["password"]
 end
+
+def site
+  "http://example.org"
+end
+

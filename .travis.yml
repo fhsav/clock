@@ -5,7 +5,7 @@ branches:
 rvm:
   - 1.9.2
   - ruby-head
-script: ./bin/start
+script: bundle exec padrino rake spec && ./bin/start
 notifications:
   email:
     - ethan.turkeltaub@gmail.com
