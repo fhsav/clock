@@ -4,29 +4,21 @@ Admin.controllers :periods, :parent => :schedules do
   post :create do
     schedule = Schedule.find(params[:id])
     
-    parameters = params[:period]
+    start = Time.parse(params[:period][:start].to_s)
+    finish = Time.parse(params[:period][:finish].to_s)
     
-    start = parameters[:start].to_s
-    finish = parameters[:finish].to_s
+    text = params[:period][:text]
     
-    if !start.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/) or !finish.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
-      flash[:error] = "That isn't a time, you dope. #{start}"
-      redirect url(:schedules, :edit, :id => schedule.id)
+    if !params[:period][:number].blank?
+      number = params[:period][:number]
+    else
+      number = schedule.periods.count + 1
     end
     
-    if parameters[:number].blank?
-      parameters[:number] = schedule.periods.count + 1
-    end
-    
-    period = Period.create(
-      :number => parameters[:number],
-      :text => parameters[:text],
-      :start => start,
-      :finish => finish
-    )
-    
+    period = Period.create(:number => number, :text => text, :start => start, :finish => finish)
+
     if period.save and schedule.periods << period
-      flash[:notice] = "The period has been created."
+      flash[:notice] = "The period has been created. #{params[:period]}"
       redirect url(:schedules, :edit, :id => schedule.id)
     else
       flash[:error] = "Something went wrong and the period has not been created."
@@ -49,7 +41,7 @@ Admin.controllers :periods, :parent => :schedules do
       parameters = params[:period]
     
       start = parameters[:start].to_s
-    finish = parameters[:finish].to_s
+      finish = parameters[:finish].to_s
       
       if !start.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/) or !finish.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
         flash[:error] = "That isn't a time!"
