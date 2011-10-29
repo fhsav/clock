@@ -14,6 +14,8 @@ gem 'redis'
 gem 'haml'
 gem 'mongo_mapper'
 gem 'bson_ext', :require => "mongo"
+gem 'joint'
+gem 'jnunemaker-rack-gridfs', :require => "rack/gridfs"
 gem 'maruku'
 
 gem 'rspec', :group => "test"

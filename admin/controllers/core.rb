@@ -1,5 +1,4 @@
 Admin.controllers do
-  
   before :except => [ :login, :authenticate ] do
     authenticated?
   end
