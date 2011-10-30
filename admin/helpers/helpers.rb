@@ -18,7 +18,7 @@ Admin.helpers do
   def deauthenticate!
     session["fhsclock"] ||= 0
     
-    redirect "/admin/login"
+    redirect url(:login)
   end
   
   def authenticated?

@@ -1,20 +1,11 @@
 Admin.controllers :periods, :parent => :schedules do
   
-  before do
-    authenticated?
-  end
-  
   # POST /admin/schedules/:schedule_id/periods/create
   post :create do
     schedule = Schedule.find(params[:id])
     
     start = Time.parse(params[:period][:start].to_s)
     finish = Time.parse(params[:period][:finish].to_s)
-    
-    if !start.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/) or !finish.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
-      flash[:error] = "That isn't a time, you dope. #{start}"
-      redirect url(:schedules, :edit, :id => schedule.id)
-    end
     
     text = params[:period][:text]
     

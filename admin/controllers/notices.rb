@@ -1,8 +1,4 @@
 Admin.controllers :notices do
-
-  before do
-    authenticated?
-  end
   
   # GET /admin/notices
   get :index do

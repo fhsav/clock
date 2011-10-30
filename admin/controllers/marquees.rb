@@ -1,8 +1,4 @@
 Admin.controllers :marquees do
-
-  before do
-    authenticated?
-  end
   
   # GET /admin/marquees
   get :index do

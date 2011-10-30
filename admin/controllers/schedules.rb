@@ -1,8 +1,4 @@
 Admin.controllers :schedules do
-
-  before do
-    authenticated?
-  end
   
   # GET /admin/schedules
   get :index do
