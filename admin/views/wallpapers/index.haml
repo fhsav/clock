@@ -1,0 +1,40 @@
+#inner.row
+  = partial 'partials/navigation'
+  %section#body
+    %h2
+      Wallpapers
+    =flash_tag :notice
+    - if !@wallpapers.blank?
+      %table
+        %thead
+          %tr
+            %th Name
+            %th URL
+            %th Actions
+        %tbody
+          - @wallpapers.each do |wallpaper|
+            %tr{:class => wallpaper.active}
+              %td= wallpaper.name
+              %td= link_to url(:wallpapers, :direct, :id => wallpaper.file.id), url(:wallpapers, :direct, :id => wallpaper.file.id)
+              %td
+                %form.inline{:action => url(:wallpapers, :activate), :method => "post"}
+                  %input{:name => "id", :type => "hidden", :value => wallpaper.id}/
+                  - if !wallpaper.active
+                    %button.inline{:type => "submit", :value => "Activate"} Activate
+                    &mdash;
+                %form.inline{:action => url(:wallpapers, :destroy), :method => "post"}
+                  %input{:name => "id", :type => "hidden", :value => wallpaper.id}/
+                  %input{:name => "_method", :type => "hidden", :value => "delete"}/
+                  %button.inline{:type => "submit", :value => "Delete"} Delete
+    - else
+      %p
+        No wallpapers!
+        
+    %section.meta.row
+      %form{:action => url(:wallpapers, :create), :enctype => "multipart/form-data", :method => "post"}
+        %p
+          %input{:name => "wallpaper[name]", :placeholder => "Name", :type => "text"}/
+        %p
+          %input{:name => "wallpaper[file]", :type => "file"}/
+        %p
+          %button.green{:type => "submit"} Create

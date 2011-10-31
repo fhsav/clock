@@ -31,5 +31,4 @@ Admin.controllers do
     
     redirect url(:login)
   end
-  
 end

@@ -11,6 +11,9 @@ Clock.controllers do
     @marquees = Marquee.all
     @notices = Notice.all
     
+    wallpaper = Wallpaper.first(:active => true)
+    @wallpaper = Admin.url(:wallpapers, :linked, :id => wallpaper.file.id)
+    
     render :clock
   end
   
