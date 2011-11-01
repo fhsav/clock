@@ -8,11 +8,10 @@
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
     %link{:href => "/css/gyaku.css", :rel => "stylesheet"}
     %link{:href => "/css/application.css", :rel => "stylesheet"}
-    %style{:type => "text/css"}
-      :plain
-        #body{
-          background: url("#{wallpaper}") no-repeat;
-        }
+    :css
+      #body{
+        background: url("#{@wallpaper}") no-repeat !important;
+      }
   %body
     #contain
       %header.row

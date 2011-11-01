@@ -26,10 +26,4 @@ Clock.helpers do
     
     hours + minutes
   end
-  
-  def wallpaper
-    wallpaper = Wallpaper.first(:active => true)
-    wallpaper = "/admin/wallpapers/direct/#{wallpaper.file.id}"
-    wallpaper
-  end
 end

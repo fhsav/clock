@@ -1,5 +1,4 @@
 Clock.controllers do
-  
   # GET /
   get :index do
     @schedule = Schedule.first(:active => true)
@@ -11,8 +10,13 @@ Clock.controllers do
     @marquees = Marquee.all
     @notices = Notice.all
     
-    wallpaper = Wallpaper.first(:active => true)
-    @wallpaper = Admin.url(:wallpapers, :linked, :id => wallpaper.file.id)
+    @wallpaper = Wallpaper.first(:active => true)
+    
+    if @wallpaper
+      @wallpaper = "/admin/wallpapers/linked/#{@wallpaper.file.id}"
+    else
+      @wallpaper = "/img/backgrounds/sea-green.jpg"
+    end
     
     render :clock
   end

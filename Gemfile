@@ -1,6 +1,13 @@
 source :rubygems
 
-gem 'thin'
+group :development do
+  gem 'thin'
+end
+
+group :test do
+  gem 'rspec', :group => "test"
+  gem 'rack-test', :require => "rack/test", :group => "test"
+end
 
 group :production do
   gem 'unicorn'
@@ -8,17 +15,16 @@ group :production do
 end
 
 gem 'rake'
-gem 'rack-flash'
-gem 'redis'
+gem 'sinatra-flash'
+
+gem 'bson_ext', :require => "mongo"
+gem 'mongo_mapper'
+gem 'joint'
 
 gem 'haml'
-gem 'mongo_mapper'
-gem 'bson_ext', :require => "mongo"
+gem 'compass'
+gem 'barista'
 gem 'maruku'
-gem 'joint'
-gem 'rack-gridfs', :require => "rack/gridfs"
 
-gem 'rspec', :group => "test"
-gem 'rack-test', :require => "rack/test", :group => "test"
 
-gem 'padrino', '0.10.0'
+gem 'padrino', '0.10.4'
