@@ -8,24 +8,24 @@ Admin.controllers do
     render :index
   end
 
-  # GET /login
+  # GET /admin/login
   get :login do
     render :login, :layout => false
   end
     
-    # POST /authenticate
-    post :authenticate do
-      if encrypt(params[:password]) == options.password or params[:password] == options.password
-        authenticate!
-        
-        redirect url(:index)
-      else
-        flash[:error] = "Wrong password, you dolt."
-        redirect url(:login)
-      end
+  # POST /admin/authenticate
+  post :authenticate do
+    if encrypt(params[:password]) == options.password
+      authenticate!
+      
+      redirect url(:index)
+    else
+      flash[:error] = "Wrong password, you dolt."
+      redirect url(:login)
     end
+  end
   
-  # POST /logout
+  # POST /admin/logout
   post :logout do
     deauthenticate!
     

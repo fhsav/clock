@@ -5,7 +5,7 @@ if ENV['HEROKU']
 else
   logger = Logger.new(PADRINO_ROOT + "/log/mongodb.log")  
   
-  MongoMapper.connection = Mongo::Connection.new('localhost', 27017, :logger => logger, :slave_ok => true)
+  MongoMapper.connection = Mongo::Connection.new('localhost', 27017, :logger => logger, :slave_ok => true, :read_secondary => false)
 
   case Padrino.env
     when :development then MongoMapper.database = 'clock_development'

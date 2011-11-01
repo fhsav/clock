@@ -15,7 +15,8 @@ group :production do
 end
 
 gem 'rake'
-gem 'sinatra-flash'
+gem 'rack-flash'
+gem 'rack-protection'
 
 gem 'bson_ext', :require => "mongo"
 gem 'mongo_mapper'
@@ -27,4 +28,4 @@ gem 'barista'
 gem 'maruku'
 
 
-gem 'padrino', '0.10.4'
+gem 'padrino', '0.10.0'

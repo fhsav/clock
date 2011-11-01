@@ -1,4 +1,5 @@
 Clock.controllers do
+
   # GET /
   get :index do
     @schedule = Schedule.first(:active => true)
@@ -25,5 +26,4 @@ Clock.controllers do
   get :ping do
     "pong"
   end
-  
 end

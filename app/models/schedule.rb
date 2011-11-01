@@ -2,7 +2,7 @@ class Schedule
   include MongoMapper::Document
   
   # Keys
-  key :name, String, :required => true
+  key :name, String
   key :description, String
   key :active, Boolean
   
@@ -10,6 +10,9 @@ class Schedule
   
   # Associations
   many :periods
+  
+  # Validations
+  validates_presence_of :name
 end
 
 class Period

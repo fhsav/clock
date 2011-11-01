@@ -6,9 +6,7 @@ class Admin < Padrino::Application
   register Padrino::Rendering
   
   enable :sessions
+  layout "#{File.join(PADRINO_ROOT, 'admin', 'views', 'application.haml')}"
   
-  directory = File.expand_path(File.dirname(__FILE__))
-  config = YAML::load(File.open(File.join(directory, '..', '.fhsclock.yml')))
-  
-  set :password, config["password"]
+  set :password, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["password"]
 end  
