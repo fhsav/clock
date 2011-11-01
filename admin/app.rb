@@ -7,7 +7,8 @@ class Admin < Padrino::Application
   register ProtectionInitializer
   
   enable :sessions
-  layout "#{File.join(PADRINO_ROOT, 'admin', 'views', 'application.haml')}"
+  
+  layout :application
   
   set :password, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["password"]
 end  

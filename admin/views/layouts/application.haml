@@ -30,6 +30,8 @@
               %ul
                 %li
                   %a{:href => url(:index)} General
+                //%li
+                //%a{:href => url(:wallpapers, :index)} Wallpapers
                 %li
                   %a{:href => url(:schedules, :index)} Schedules
                 %li
@@ -41,9 +43,9 @@
             %p.right
               %a{:href => Clock.url(:index)} View Clock &rarr;
       #main{:role => "main"}
-        
-        =yield
-        
+        #inner.row
+          =partial 'partials/navigation'
+          =yield
       %footer.row
         %p The FHS Clock is functional.
         %p Version #{CLOCK_VERSION}
