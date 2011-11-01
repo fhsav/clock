@@ -1,223 +1,103 @@
 /*
-	Gyaku
-		file: css/gyaku.css
+Syntax error: Undefined variable: "$contain_padding".
+        on line 113 of /var/www/fhsclock/app/assets/scss/gyaku.scss
+
+108: 		1140px Grid by Andy Taylor (http://coo.ly/pGu)
+109: */
+110: 
+111: 
+112: #contain {
+113: 	padding-left: $contain_padding;
+114: 	padding-right: $contain_padding;
+115: }
+116: 
+117: .row {
+118: 	width: 100%;
+
+Backtrace:
+/var/www/fhsclock/app/assets/scss/gyaku.scss:113
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/script/variable.rb:50:in `_perform'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:214:in `visit_prop'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:234:in `visit_rule'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/tree/root_node.rb:20:in `render'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/engine.rb:300:in `_render'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/engine.rb:247:in `render'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:319:in `update_stylesheet'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:181:in `block (2 levels) in update_stylesheets'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:175:in `each'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:175:in `block in update_stylesheets'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:173:in `each'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:173:in `update_stylesheets'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin.rb:81:in `update_stylesheets'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin.rb:54:in `check_for_updates'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sass-3.1.10/lib/sass/plugin/rack.rb:51:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/xss_header.rb:22:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/base.rb:47:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/base.rb:47:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/path_traversal.rb:16:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/json_csrf.rb:17:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/base.rb:47:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/xss_header.rb:22:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-protection-1.1.4/lib/rack/protection/escaped_params.rb:52:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-1.3.5/lib/rack/session/abstract/id.rb:195:in `context'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-1.3.5/lib/rack/session/abstract/id.rb:190:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-1.3.5/lib/rack/head.rb:9:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sinatra-1.2.7/lib/sinatra/showexceptions.rb:21:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-1.3.5/lib/rack/methodoverride.rb:24:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sinatra-1.2.7/lib/sinatra/base.rb:1292:in `block in call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sinatra-1.2.7/lib/sinatra/base.rb:1323:in `synchronize'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/sinatra-1.2.7/lib/sinatra/base.rb:1292:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/router.rb:71:in `block in call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/router.rb:64:in `each'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/router.rb:64:in `call'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thin-1.2.11/lib/thin/connection.rb:84:in `block in pre_process'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thin-1.2.11/lib/thin/connection.rb:82:in `catch'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thin-1.2.11/lib/thin/connection.rb:82:in `pre_process'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thin-1.2.11/lib/thin/connection.rb:57:in `process'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thin-1.2.11/lib/thin/connection.rb:42:in `receive_data'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/eventmachine-0.12.10/lib/eventmachine.rb:256:in `run_machine'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/eventmachine-0.12.10/lib/eventmachine.rb:256:in `run'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thin-1.2.11/lib/thin/backends/base.rb:61:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thin-1.2.11/lib/thin/server.rb:159:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-1.3.5/lib/rack/handler/thin.rb:13:in `run'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/rack-1.3.5/lib/rack/server.rb:265:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/server.rb:44:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/server.rb:34:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/server.rb:13:in `run!'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/cli/adapter.rb:7:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/lib/padrino-core/cli/base.rb:24:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thor-0.14.6/lib/thor/task.rb:22:in `run'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thor-0.14.6/lib/thor/invocation.rb:118:in `invoke_task'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thor-0.14.6/lib/thor.rb:263:in `dispatch'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/thor-0.14.6/lib/thor/base.rb:389:in `start'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/gems/padrino-core-0.10.0/bin/padrino:9:in `<top (required)>'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/bin/padrino:19:in `load'
+/home/ethan/.rvm/gems/ruby-1.9.2-p290@fhsclock/bin/padrino:19:in `<main>'
 */
-
-/*
-	= Appendix
-		I. Reset
-		II. 1140px Grid
-*/
-
-/*
-	I. Reset
-		HTML5 Reset Stylesheet by HTML5 Doctor (http: //coo.ly/iEv)
-*/
-
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-	background: transparent;
-	border: 0;
-	font-size: 100%;
-	margin: 0;
-	padding: 0;
-	outline: 0;
-	vertical-align: baseline;
-}
-
-body {
-	line-height: 1;
-}
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section { 
-	display: block;
-}
-
-nav ul {
-	list-style: none;
-}
-
-blockquote, q {
-	quotes: none;
-}
-
-blockquote:before, blockquote:after, q:before, q:after {
-	content: '';
-	content: none;
-}
-
-a {
-	background: transparent;
-	font-size: 100%;
-	margin: 0;
-	padding: 0;
-	vertical-align: baseline;
-}
-
-ins {
-	background-color: #ff9;
-	color: #000;
-	text-decoration: none;
-}
-
-mark {
-	background-color: #ff9;
-	color: #000; 
-	font-style: italic;
-	font-weight: bold;
-}
-
-del {
-	text-decoration: line-through;
-}
-
-abbr[title], dfn[title] {
-	border-bottom: 1px dotted;
-	cursor: help;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-hr {
-	border: 0;	
-	border-top: 1px solid #cccccc;
-	display: block;
-	height: 1px;
-	margin: 1em 0;
-	padding: 0;
-}
-
-input, select {
-	vertical-align: middle;
-}
-
-/*
-	II. 1140px Grid
-		1140px Grid by Andy Taylor (http://coo.ly/pGu)
-*/
-
-
-#contain {
-	padding-left: 40px;
-	padding-right: 40px;
-}
-
-.row {
-	width: 100%;
-	max-width: 1024px;
-	min-width: 755px;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
-.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
-	margin-right: 3.8%;
-	float: left;
-	min-height: 1px;
-}
-
-.row .onecol {
-	width: 4.85%;
-}
-
-.row .twocol {
-	width: 13.45%;
-}
-
-.row .threecol {
-	width: 22.05%;
-}
-
-.row .fourcol {
-	width: 30.75%;
-}
-
-.row .fivecol {
-	width: 39.45%;
-}
-
-.row .sixcol {
-	/*width: 48%;*/
-	width: 40%;
-}
-
-.row .sevencol {
-	width: 56.75%;
-}
-
-.row .eightcol {
-	width: 65.4%;
-}
-
-.row .ninecol {
-	width: 74.05%;
-}
-
-.row .tencol {
-	width: 82.7%;
-}
-
-.row .elevencol {
-	width: 91.35%;
-}
-
-.row .twelvecol {
-	width: 100%;
-	float: left;
-}
-
-.last {
-	margin-right: 0px;
-}
-
-img, object, embed {
-	max-width: 100%;
-}
-
-img {
-	height: auto;
-}
-
-@media only screen and (max-	width: 1023px) {
-	body {
-		font-size: 0.8em;
-		line-height: 1.5em;
-	}
-}
-
-@media handheld, only screen and (max-	width: 767px) {
-	body {
-		font-size: 16px;
-		-webkit-text-size-adjust: none;
-	}
-	
-	.row, body, .container {
-		width: 100%;
-		min-	width: 0;
-		margin-left: 0px;
-		margin-right: 0px;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-	
-	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
-		width: auto;
-		float: none;
-		margin-left: 0px;
-		margin-right: 0px;
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-}
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$contain_padding\".\A         on line 113 of /var/www/fhsclock/app/assets/scss/gyaku.scss\A \A 108: 		1140px Grid by Andy Taylor (http://coo.ly/pGu)\A 109: */\A 110: \A 111: \A 112: #contain {\A 113: 	padding-left: $contain_padding;\A 114: 	padding-right: $contain_padding;\A 115: }\A 116: \A 117: .row {\A 118: 	width: 100%;"; }

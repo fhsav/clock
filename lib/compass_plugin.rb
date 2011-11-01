@@ -4,12 +4,12 @@ module CompassInitializer
 
     Compass.configuration do |config|
       config.project_path = Padrino.root
-      config.sass_dir = File.join(PADRINO_ROOT, "app", "assets", "compass")
+      config.sass_dir = "app/assets/scss"
       config.project_type = :stand_alone
       config.http_path = "/"
-      config.css_dir = File.join(PADRINO_ROOT, "public", "css")
-      config.images_dir = File.join(PADRINO_ROOT, "public", "img")
-      config.javascripts_dir = File.join(PADRINO_ROOT, "public", "jsc")
+      config.css_dir = "public/css"
+      config.images_dir = "public/img"
+      config.javascripts_dir = "public/jsc"
       config.output_style = :compressed
     end
 

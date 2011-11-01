@@ -1,44 +1,28 @@
-/*global jQuery */
-/*!	
-* FitText.js 1.0
-*
-* Copyright 2011, Dave Rupert http://daverupert.com
-* Released under the WTFPL license 
-* http://sam.zoy.org/wtfpl/
-*
-* Date: Thu May 05 14:23:00 2011 -0600
-*/
+/* DO NOT MODIFY. This file was compiled Tue, 01 Nov 2011 23:26:34 GMT from
+ * /var/www/fhsclock/app/assets/coffee/lib/jquery.fittext.coffee
+ */
 
-(function( $ ){
-	
-	$.fn.fitText = function( kompressor, options ) {
-	    
-	    var settings = {
-        'minFontSize' : Number.NEGATIVE_INFINITY,
-        'maxFontSize' : Number.POSITIVE_INFINITY
+(function() {
+  (function($) {
+    return $.fn.fitText = function(kompressor, options) {
+      var settings;
+      settings = {
+        minFontSize: Number.NEGATIVE_INFINITY,
+        maxFontSize: Number.POSITIVE_INFINITY
       };
-	
-			return this.each(function(){
-				var $this = $(this);              // store the object
-				var compressor = kompressor || 1; // set the compressor
-        
-        if ( options ) { 
-          $.extend( settings, options );
+      return this.each(function() {
+        var $this, compressor, resizer;
+        $this = $(this);
+        compressor = kompressor || 1;
+        if (options) {
+          $.extend(settings, options);
         }
-        
-        // Resizer() resizes items based on the object width divided by the compressor * 10
-				var resizer = function () {
-					$this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
-				};
-
-				// Call once to set.
-				resizer();
-				
-				// Call on resize. Opera debounces their resize by default. 
-      	$(window).resize(resizer);
-      	
-			});
-
-	};
-
-})( jQuery );
+        resizer = function() {
+          return $this.css("font-size", Math.max(Math.min($this.width() / (compressor * 10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+        };
+        resizer();
+        return $(window).resize(resizer);
+      });
+    };
+  })(jQuery);
+}).call(this);
