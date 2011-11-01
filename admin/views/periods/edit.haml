@@ -1,22 +1,20 @@
-#inner.row
-  = partial 'partials/navigation'
-  %section#body
-    %section.row
-      %h2
-        Editing period 
-        ="&ldquo;#{@period.text}&rdquo; in schedule"
-        ="&ldquo;#{@schedule.name}&rdquo;"
-      =flash_tag :error
-      =flash_tag :notice
-      %form.row{:action => url(:periods, :modify, :schedules_id => @schedule.id), :method => "post"}
-        %section
-          %p.inline
-            %input.tiny{:name => "period[number]", :type => "text", :width => "5", :value => @period.number}/
-            %input.medium{:name => "period[text]", :type => "text", :value => @period.text}/
-            %input.time{:name => "period[start]", :type => "text", :value => local(@period.start)}/
-            %input.time{:name => "period[finish]", :type => "text", :value => local(@period.finish)}/
-          %p
-            %input{:name => "id", :type => "hidden", :value => @period.id}/
-            %input{:name => "s_id", :type => "hidden", :value => @schedule.id}/
-            %input{:name => "_method", :type => "hidden", :value => "put"}/
-            %button.green{:type => "submit", :value => "Publish"} Publish
+%section#body
+  %section.row
+    %h2
+      Editing period 
+      ="&ldquo;#{@period.text}&rdquo; in schedule"
+      ="&ldquo;#{@schedule.name}&rdquo;"
+    =flash_tag :error
+    =flash_tag :notice
+    %form.row{:action => url(:periods, :modify, :schedules_id => @schedule.id), :method => "post"}
+      %section
+        %p.inline
+          %input.tiny{:name => "period[number]", :type => "text", :width => "5", :value => @period.number}/
+          %input.medium{:name => "period[text]", :type => "text", :value => @period.text}/
+          %input.time{:name => "period[start]", :type => "text", :value => local(@period.start)}/
+          %input.time{:name => "period[finish]", :type => "text", :value => local(@period.finish)}/
+        %p
+          %input{:name => "id", :type => "hidden", :value => @period.id}/
+          %input{:name => "s_id", :type => "hidden", :value => @schedule.id}/
+          %input{:name => "_method", :type => "hidden", :value => "put"}/
+          %button.green{:type => "submit", :value => "Publish"} Publish

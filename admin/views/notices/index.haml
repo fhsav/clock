@@ -1,35 +1,33 @@
-#inner.row
-  = partial 'partials/navigation'
-  %section#body
-    %h2
-      Notices
-    =flash_tag :notice
-    - if !@notices.blank?
-      %table
-        %thead
-          %tr
-            %th Text
-            %th Actions
-        %tbody
-          - @notices.each do |notice|
-            %tr{:class => notice.urgent}
-              %td= notice.text
-              %td
-                %a{:href => url(:notices, :edit, :id => notice.id)} Edit
-                &mdash;
-                %form.inline{:action => url(:notices, :destroy), :method => "post"}
-                  %input{:name => "id", :type => "hidden", :value => notice.id}/
-                  %input{:name => "_method", :type => "hidden", :value => "delete"}/
-                  %button.inline{:type => "submit", :value => "Delete"} Delete
-                      
-    - else
+%section#body
+  %h2
+    Notices
+  =flash_tag :notice
+  - if !@notices.blank?
+    %table
+      %thead
+        %tr
+          %th Text
+          %th Actions
+      %tbody
+        - @notices.each do |notice|
+          %tr{:class => notice.urgent}
+            %td= notice.text
+            %td
+              %a{:href => url(:notices, :edit, :id => notice.id)} Edit
+              &mdash;
+              %form.inline{:action => url(:notices, :destroy), :method => "post"}
+                %input{:name => "id", :type => "hidden", :value => notice.id}/
+                %input{:name => "_method", :type => "hidden", :value => "delete"}/
+                %button.inline{:type => "submit", :value => "Delete"} Delete
+                    
+  - else
+    %p
+      No notices!
+  
+  %section.meta.row
+    %form{:action => url(:notices, :create), :method => "post"}
       %p
-        No notices!
-    
-    %section.meta.row
-      %form{:action => url(:notices, :create), :method => "post"}
-        %p
-          %input{:name => "notice[text]", :placeholder => "What do you need to inform the school of?", :type => "text"}/
-          %input{:name => "urgent[]", :type => "checkbox"} Urgent?
-        %p
-          %button.green{:type => "submit"} Create
+        %input{:name => "notice[text]", :placeholder => "What do you need to inform the school of?", :type => "text"}/
+        %input{:name => "urgent[]", :type => "checkbox"} Urgent?
+      %p
+        %button.green{:type => "submit"} Create

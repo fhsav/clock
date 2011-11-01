@@ -14,4 +14,4 @@ class Wallpaper
   validates_presence_of :file
 end
 
-Wallpaper.create_index([['files_id', Mongo::ASCENDING], ['n', Mongo::ASCENDING]], :unique => true) 
+Wallpaper.ensure_index([['files_id', Mongo::ASCENDING], ['n', Mongo::ASCENDING]], :unique => true) 

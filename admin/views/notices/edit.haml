@@ -1,21 +1,19 @@
-#inner.row
-  = partial 'partials/navigation'
-  %section#body
-    %section.row
-      %h2
-        Editing notice 
-        ="&rdquo;#{@notice.text}&ldquo;"
-      =flash_tag :error
-      =flash_tag :notice
-      %form.row{:action => url(:notices, :modify), :method => "post"}
-        %section
-          %p
-            %input{:name => "notice[text]", :placeholder => "What do you need to inform the school of?", :type => "text", :value => @notice.text}/
-            - if @notice.urgent
-              %input{:name => "urgent[]", :type => "checkbox", :checked => "checked"} Urgent?
-            - else
-              %input{:name => "urgent[]", :type => "checkbox"} Urgent?
-          %p
-            %input{:name => "id", :type => "hidden", :value => @notice.id}/
-            %input{:name => "_method", :type => "hidden", :value => "put"}/
-            %button.green{:type => "submit", :value => "Publish"} Publish
+%section#body
+  %section.row
+    %h2
+      Editing notice 
+      ="&rdquo;#{@notice.text}&ldquo;"
+    =flash_tag :error
+    =flash_tag :notice
+    %form.row{:action => url(:notices, :modify), :method => "post"}
+      %section
+        %p
+          %input{:name => "notice[text]", :placeholder => "What do you need to inform the school of?", :type => "text", :value => @notice.text}/
+          - if @notice.urgent
+            %input{:name => "urgent[]", :type => "checkbox", :checked => "checked"} Urgent?
+          - else
+            %input{:name => "urgent[]", :type => "checkbox"} Urgent?
+        %p
+          %input{:name => "id", :type => "hidden", :value => @notice.id}/
+          %input{:name => "_method", :type => "hidden", :value => "put"}/
+          %button.green{:type => "submit", :value => "Publish"} Publish

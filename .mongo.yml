@@ -1,0 +1,28 @@
+defaults: &defaults
+  adapter: mongodb
+  
+development:
+  <<: *defaults
+  host: localhost
+  database: clock_development
+  port: 27017
+  
+test:
+  <<: *defaults
+  host: localhost
+  database: clock_test
+  port: 27017
+  
+production:
+  <<: *defaults
+  host: localhost
+  database: clock_production
+  port: 27017
+  
+heroku:
+  <<: *defaults
+  host: staff.mongohq.com
+  database: fhsclock
+  port: 10015
+  userdatabase: ENV["MONGO_USERdatabase"]
+  password: ENV["MONGO_PASSWORD"]
