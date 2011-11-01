@@ -4,6 +4,7 @@ class Admin < Padrino::Application
   register Padrino::Helpers
   register Padrino::Mailer
   register Padrino::Rendering
+  register ProtectionInitializer
   
   enable :sessions
   layout "#{File.join(PADRINO_ROOT, 'admin', 'views', 'application.haml')}"
