@@ -16,19 +16,20 @@ body {
 }
 
 h2 {
-	font-size: 2em;
-	margin-bottom: 0.75em;
+	border-bottom: 2px solid #444;
+	font-size: 1.5em;
+	margin-bottom: 1em;
+	padding-bottom: 0.5em;
+	width: 100%;
 }
 
 input {
 	border: 1px solid #ccc;
-	border-radius: 0.5em 0 0 0.5em;
 	padding: 1em;
 }
 
 button {
 	border: 1px solid #ccc;
-	border-radius: 0 0.5em 0.5em 0;
 	padding: 1em;
 }
 
@@ -39,8 +40,7 @@ button {
 #main {
 	background: #edeeeb;
 	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 20px;
+	padding: 25px;
 	margin: 200px auto;
 	width: 400px;
 }
@@ -54,6 +54,6 @@ button {
 
 p#v {
 	font-size: 0.75em;
-	margin-top: 1em;
+	margin-top: 0.5em;
 	padding-top: 0.5em;
 }
