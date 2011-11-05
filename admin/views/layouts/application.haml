@@ -28,8 +28,8 @@
               %ul
                 %li
                   %a{:href => url(:index)} General
-                /%li
-                /%a{:href => url(:wallpapers, :index)} Wallpapers
+                %li
+                  %a{:href => url(:wallpapers, :index)} Wallpapers
                 %li
                   %a{:href => url(:schedules, :index)} Schedules
                 %li
@@ -45,7 +45,7 @@
           =partial 'partials/navigation'
           =yield
       %footer.row
-        %p The FHS Clock is functional.
+        %p The FHS Clock is awesome.
         %p Version #{CLOCK_VERSION}
         %p
           %form{:action => url(:logout), :method => "post"}
