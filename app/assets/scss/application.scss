@@ -1,6 +1,6 @@
 /*
-	
-		file: application.css
+	FHS Clock
+		file: application.scss
 */
 
 /*
@@ -9,13 +9,19 @@
 		II.
 */
 
+/*
+	I. Variables and Import
+*/
+
 $contain_padding: 40px;
 $max_width: 960px;
 
+@import "compass/css3/font-face";
 @import "gyaku";
 
+
 /*
-	I. Media Queries
+	II. Media Queries
 */
 
 @media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
@@ -27,24 +33,12 @@ $max_width: 960px;
 }
 
 /*
-	II. Typefaces
+	III. Typefaces
 */
 
-@font-face {
-	font-family: 'Standard CT';
-	font-weight: bold;
-	src: url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot');
-	src: url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot?#iefix') format('embedded-opentype'),
-			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.woff') format('woff'),
-			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.ttf') format('truetype'),
-			 url('/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.svg#StandardCT-Bold') format('svg'); 
-}
+@include font-face("Standard CT", font-files("/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.woff", woff, "/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.ttf", truetype, "/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.svg#StandardCT-Bold", svg), "/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot");
+@include font-face("Helvetica World", font-files("/css/lib/typefaces/Helvetica/HelveticaWorld-Bold.ttf", truetype));
 
-@font-face {
-	font-family: "Helvetica World";
-	font-weight: bold;
-	src: url('/css/lib/typefaces/Helvetica/HelveticaWorld-Bold.ttf') format('truetype');
-}
 
 /*
 	II. 
@@ -89,15 +83,16 @@ ul#marquee {
 	line-height: 1;
 	position: relative;
 	overflow: hidden;
-}
 
-ul#marquee li {
-	padding: 0.35em 0.25em 0.25em 0.25em;
-	position: absolute;
-	top: -999em;
-	left: 0;
-	display: block;
-	white-space: nowrap; /* keep all text on a single line */
+	li {
+		padding: 0.35em 0.25em 0.25em 0.25em;
+		position: absolute;
+		top: -999em;
+		left: 0;
+		display: block;
+		white-space: nowrap; /* keep all text on a single line */
+	}
+
 }
 
 /*
@@ -110,13 +105,14 @@ ol#periods li {
 	display: block;
 	font-size: 1.35em;
 	padding: 0.3em 0.5em 0.15em 0.5em;
-	width: 90%
+	width: 90%;
+	
+	#active {
+		background: rgba(50, 50, 50, 0.5);
+		color: #fafafa;
+	}
 }
 
-ol#periods li#active {
-	background: rgba(50, 50, 50, 0.5);
-	color: #fafafa;
-}
 
 #after {
 	background: rgba(255, 255, 255, 0.5);
@@ -126,14 +122,6 @@ ol#periods li#active {
 	line-height: 1em;
 	padding: 2em;
 	text-align: center;
-}
-
-/*
-	X. Left
-*/
-
-#left {
-	/*padding-right: 1em;*/
 }
 
 /*
@@ -152,37 +140,39 @@ ol#periods li#active {
 
 #clock {
 	margin-bottom: 2em;
-}
+	
+	#date {
+		font-size: 1.75em;
+		line-height: 1em;
+		margin-bottom: 0.5em;
+		margin-top: 0.25em;
+	}
 
-#clock #date {
-	font-size: 1.75em;
-	margin-bottom: 0.5em;
-	margin-top: 0.25em;
-	line-height: 1em;
-}
-
-#clock #time {
-	font-family: "Helvetica World", sans-serif;
-	font-size: 3em;
-	line-height: 1em;
+	#time {
+		font-family: "Helvetica World", sans-serif;
+		font-size: 3em;
+		line-height: 1em;
+	}
 }
 
 /*
 	X. Notices
 */
 
-#notices li {
-	background: rgba(250, 250, 0, 0.6);
-	border: 2px solid rgba(250, 250, 0, 0.8);
-	color: #000;
-	font-size: 1.25em;
-	padding: 1em 0.75em 0.75em 0.75em;
-	margin-bottom: 1em;
-}
+#notices {
+	li {
+		background: rgba(250, 250, 0, 0.6);
+		border: 2px solid rgba(250, 250, 0, 0.8);
+		color: #000;
+		font-size: 1.25em;
+		padding: 1em 0.75em 0.75em 0.75em;
+		margin-bottom: 1em;
+	}
 
-#notices li.true {
-	background: rgba(250, 0, 30, 0.6);
-	border: 2px solid rgba(250, 0, 30, 0.8);
+	li.true {
+		background: rgba(250, 0, 30, 0.6);
+		border: 2px solid rgba(250, 0, 30, 0.8);
+	}
 }
 
 /*

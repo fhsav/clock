@@ -1,35 +1,57 @@
 /*
-	
-		file: css/application.css
+	FHS Clock
+		file: admin.scss
 */
 
 /*
 	= Appendix
-		I. Media Queries
-		II. 
+		I. Variables and Imports
+		II. Media Queries
+		III. Universal
+		IV. Header
+		V. Body
+		VI. Footer
+*/
+
+/*
+	I. Variables and Imports
 */
 
 $contain_padding: 0;
 $max_width: 860px;
 
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800|Droid+Serif:400,700,400italic,700italic&v2|Anonymous+Pro:400,400italic,700,700italic&v2");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800|Droid+Serif:400,700,400italic,700italic&v2|Anonymous+Pro:400,400italic,700,700italic&v2"); /* Fonts. */
 
-@import "gyaku";
+@import "gyaku"; /* Framework. */
+
 
 /*
 	II. Media Queries
 */
 
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
+@media handheld, only screen and (max-width: 767px) {
+
+	#contain > header nav {
+		margin-left: -1em;
+	}
+	
+	h1 {
+		margin-bottom: 1em;
+	}
+
+	#main {
+		padding: 1em;
+	}
+	
+	p.right {
+		padding-right: 1em;
+	}
 
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
-
-}
 
 /*
-	III. 
+	III. Universal
 */
 
 body {
@@ -38,37 +60,18 @@ body {
 	font: 11px/1.5em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-h2 {
-	font-size: 1.25em;
-	margin-bottom: 1em;
-}
-
-p.inline input {
-	display: inline;
-}
-
-input.tiny {
-	width: 5% !important;
-}
-
-input.medium {
-	width: 40% !important;
-}
-
-input.time {
-	width: 20% !important;
-}
-
 a {
 	color: #000;
 	text-decoration: none;
+
 	&:hover {
 		border-bottom: 1px solid #000;
 	}
 }
 
-#body ul {
-	margin-left: 2em;
+button.green {
+	background: #CEFFA8;
+	border: 1px solid #64D111;
 }
 
 button.inline, form.inline {
@@ -79,13 +82,35 @@ button.inline, form.inline {
 	padding: 0;
 }
 
-button.green {
-	background: #CEFFA8;
-	border: 1px solid #64D111;
+button, input {
+	font: 11px/1.5em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+button, input, textarea {
+	border: 1px solid #e0e0e0;
+	outline: none;
+	padding: 0.5em;
 }
 
 code {
 	display: inline;
+}
+
+h2 {
+	font-size: 1.25em;
+	margin-bottom: 1em;
+}
+
+input.medium {
+	width: 40% !important;
+}
+
+input.time {
+	width: 20% !important;
+}
+
+input.tiny {
+	width: 5% !important;
 }
 
 form button {
@@ -102,16 +127,6 @@ h1 {
 	font-weight: normal;
 }
 
-input, button {
-	font: 11px/1.5em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-input, textarea, button {
-	border: 1px solid #e0e0e0;
-	outline: none;
-	padding: 0.5em;
-}
-
 input:focus, textarea:focus {
 	border: 1px solid #ccc;
 }
@@ -122,20 +137,6 @@ input[type="text"] {
 
 select option {
 	overflow: visible;
-}
-
-textarea {
-	height: 20em;
-	max-width: 98%;
-	width: 98%;
-}
-
-textarea, code {
-	font: 11px/1.5em "Anonymous Pro", Monaco, Courier New, Courier, monospaced;
-}
-
-textarea.small {
-	height: 10em;
 }
 
 table {
@@ -156,6 +157,20 @@ td {
 	padding: .5em .5em;
 }
 
+textarea {
+	height: 20em;
+	max-width: 98%;
+	width: 98%;
+}
+
+textarea, code {
+	font: 11px/1.5em "Anonymous Pro", Monaco, Courier New, Courier, monospaced;
+}
+
+textarea.small {
+	height: 10em;
+}
+
 th {
 	padding: .25em .5em;
 }
@@ -164,67 +179,8 @@ tr:nth-child(2n+2) {
 	background: #fff;
 }
 
-/*
-	IV. Header
-*/
-
-#contain > header {
-	border-bottom: 1px solid #ccc;
-	margin-bottom: 4em;
-}
-
-#contain > header .black {
-	background: #444;
-	padding: 4em 0 2em 0;
-}
-
-#contain > header .black a {
-	color: #fafafa;
-}
-
-#contain > header .white {
-	background: #fafafa;
-	padding: 1em 0;
-}
-
-#contain > header .white a:hover {
-	color: #666;
-}
-
-#contain > header hgroup:first-child {
-	margin: 0 auto;
-	width: 100%;
-}
-
-#contain > header .white p {
-	display: inline;
-}
-
-#contain > header nav ul {
-	float: right !important;
-}
-
-#contain > header nav ul li {
-	display: inline;
-	margin-left: 1em;
-}
-
-#contain > header nav ul li.selected {
-	border-bottom: 5px solid #fafafa;
-}
-
-#contain > header nav ul li a:hover {
-	color: #fff;
-}
-
-/*
-	V. Body
-*/
-
-#body {
-	background: #fafafa;
-	border: 1px solid #ccc;
-	padding: 2em 1em 2em 1em;
+tr.true {
+	background: rgba(255, 255, 0, 0.5)
 }
 
 .error {
@@ -237,39 +193,8 @@ tr:nth-child(2n+2) {
 	padding: 1em;
 }
 
-#main nav {
-	margin-bottom: 2.5em;
-}
-
-#main nav li {
+.inline input {
 	display: inline;
-	margin: 0;
-}
-
-#main nav li a{
-	background: #ccc;
-	color: #444;
-	display: block;
-	float: left;
-	margin: 0 1em 0 0;
-	padding: 0.5em 1em;
-	text-decoration: none;
-}
-
-#main nav li a:visited{
-	color: #444;
-}
-
-#main nav li.selected a{
-	background: #fafafa;
-	border-bottom: 1px solid #fafafa;
-	border-left: 1px solid #ccc;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-}
-
-#main nav li a:hover {
-	background: #e1e1e1;
 }
 
 .meta {
@@ -291,9 +216,106 @@ tr:nth-child(2n+2) {
 	width: 95%;
 }
 
-tr.true {
-	background: rgba(255, 255, 0, 0.5)
+
+/*
+	IV. Header
+*/
+
+#contain > header {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 4em;
 }
+
+#contain > header hgroup:first-child {
+	margin: 0 auto;
+	width: 100%;
+}
+
+#contain > header nav ul {
+	float: right !important;
+}
+
+#contain > header nav ul li {
+	display: inline;
+	margin-left: 1em;
+}
+
+#contain > header nav ul li a:hover {
+	color: #fff;
+}
+
+#contain > header .black {
+	background: #444;
+	padding: 4em 0 2em 0;
+}
+
+#contain > header .black a {
+	color: #fafafa;
+}
+
+#contain > header .white {
+	background: #fafafa;
+	padding: 1em 0;
+}
+
+#contain > header .white a:hover {
+	color: #666;
+}
+
+#contain > header .white p {
+	display: inline;
+}
+
+
+/*
+	V. Body
+*/
+
+#body {
+	background: #fafafa;
+	border: 1px solid #ccc;
+	padding: 2em 1em 2em 1em;
+}
+
+#body ul {
+	margin-left: 2em;
+}
+
+#main nav {
+	margin-bottom: 2.5em;
+}
+
+#main nav li {
+	display: inline;
+	margin: 0;
+}
+
+#main nav li a {
+	background: #ccc;
+	color: #444;
+	display: block;
+	float: left;
+	margin: 0 1em 0 0;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	
+	&:hover {
+		background: #e1e1e1;
+	}
+	
+	&:visited {
+		color: #444;
+	}
+}
+
+#main nav li.selected a {
+	background: #fafafa;
+	border-bottom: 1px solid #fafafa;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
 
 /*
 	VI. Footer

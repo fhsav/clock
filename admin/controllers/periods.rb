@@ -27,7 +27,7 @@ Admin.controllers :periods, :parent => :schedules do
     period = Period.new(:number => number, :text => params[:period][:text], :start => start, :finish => finish)
 
     if period.save and schedule.periods << period
-      flash[:notice] = "The period has been created. #{params[:period]}"
+      flash[:notice] = "The period has been created."
       redirect url(:schedules, :edit, :id => schedule.id)
     else
       flash[:error] = "Something went wrong and the period has not been created."
