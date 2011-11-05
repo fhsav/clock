@@ -8,4 +8,3 @@ if ENV['HEROKU']
 end
 
 MongoMapper.setup(configuration, PADRINO_ENV, :logger => logger, :slave_ok => true)
-
