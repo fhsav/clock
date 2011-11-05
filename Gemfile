@@ -18,7 +18,7 @@ gem 'rake'
 gem 'rack-flash'
 gem 'rack-protection'
 
-gem 'bson_ext', :require => "mongo"
+gem 'bson_ext', '1.4.0', :require => "mongo"
 gem 'mongo_mapper'
 gem 'joint'
 
