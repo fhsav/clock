@@ -36,7 +36,7 @@ Admin.controllers :schedules do
   
   # POST /admin/schedules/create
   post :create do
-    schedule = Schedule.create(params[:schedule])
+    schedule = Schedule.new(params[:schedule])
     schedule.active = false
 
     if schedule.save

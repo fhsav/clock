@@ -19,7 +19,7 @@ Admin.controllers :notices do
   
   # POST /admin/notices/create
   post :create do
-    notice = Notice.create(params[:notice])
+    notice = Notice.new(params[:notice])
     notice.urgent = params[:urgent] ? 1 : 0 
     
     if notice.save

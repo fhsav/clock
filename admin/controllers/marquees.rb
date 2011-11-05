@@ -19,7 +19,7 @@ Admin.controllers :marquees do
     
   # POST /admin/marquees/create
   post :create do
-    marquee = Marquee.create(params[:marquee])
+    marquee = Marquee.new(params[:marquee])
     
     if marquee.save
       flash[:notice] = "The marquee has been created."

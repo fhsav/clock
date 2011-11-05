@@ -24,7 +24,7 @@ Admin.controllers :periods, :parent => :schedules do
       number = schedule.periods.count + 1
     end
     
-    period = Period.create(:number => number, :text => params[:period][:text], :start => start, :finish => finish)
+    period = Period.new(:number => number, :text => params[:period][:text], :start => start, :finish => finish)
 
     if period.save and schedule.periods << period
       flash[:notice] = "The period has been created. #{params[:period]}"
