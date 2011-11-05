@@ -16,7 +16,7 @@ Clock.controllers do
     if @wallpaper
       @wallpaper = "/admin/wallpapers/linked/#{@wallpaper.file.id}"
     else
-      @wallpaper = "/img/backgrounds/sea-green.jpg"
+      @wallpaper = "/img/default.jpg"
     end
     
     render :clock
