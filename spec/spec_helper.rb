@@ -32,9 +32,3 @@ def file
   f = Rack::Test::UploadedFile.new(f, 'image/png')
   f
 end
-
-def file2
-  f = File.join(File.dirname(__FILE__), 'boat.jpg')
-  f = Rack::Test::UploadedFile.new(f, 'image/jpeg')
-  f
-end
