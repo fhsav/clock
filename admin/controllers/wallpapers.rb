@@ -22,7 +22,7 @@ Admin.controllers :wallpapers do
   
   # POST /admin/wallpapers/create
   post :create do
-    wallpaper = Wallpaper.create(:name => params[:wallpaper][:name], :file => params[:wallpaper][:file][:tempfile])
+    wallpaper = Wallpaper.new(:name => params[:wallpaper][:name], :file => params[:wallpaper][:file][:tempfile])
 
     if wallpaper.save
       flash[:notice] = "Your wallpaper has been saved."

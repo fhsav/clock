@@ -7,4 +7,4 @@ if ENV['HEROKU']
   PADRINO_ENV = "heroku"
 end
 
-MongoMapper.setup(configuration, PADRINO_ENV, :logger => logger, :slave_ok => true)
+MongoMapper.setup(configuration, PADRINO_ENV, :logger => logger)

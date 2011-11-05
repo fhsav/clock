@@ -27,3 +27,8 @@ def site
   "http://example.org"
 end
 
+def file
+  f = File.join(File.dirname(__FILE__), 'wood.png')
+  f = Rack::Test::UploadedFile.new(f, 'image/png')
+  f
+end
