@@ -1,9 +1,5 @@
 source :rubygems
 
-group :development do
-  gem 'thin'
-end
-
 group :test do
   gem 'rspec', :group => "test"
   gem 'rack-test', :require => "rack/test", :group => "test"
@@ -14,6 +10,7 @@ group :production do
   gem 'cijoe', '0.9.1'
 end
 
+gem 'thin'
 gem 'rake'
 gem 'rack-flash'
 gem 'rack-protection'
