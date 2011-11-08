@@ -14,11 +14,9 @@
         %meta{:content => "The FHS Clock control panel.", :name => "description"}
         %meta{:content => "", :name => "author"}
         %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-        %link{:href => "/admin/img/favicon.ico", :rel => "shortcut icon"}
-        %link{:href => "/admin/img/apple-touch-icon.png", :rel => "apple-touch-icon"}
-        %link{:href => "/admin/css/gyaku.css", :rel => "stylesheet"}
-        %link{:href => "/admin/css/application.css", :rel => "stylesheet"}
-        %script{:src => "/admin/jsc/lib/modernizr-1.7.min.js"}
+        %link{:href => "/img/favicon.ico", :rel => "shortcut icon"}
+        %link{:href => "/img/apple-touch-icon.png", :rel => "apple-touch-icon"}
+        %link{:href => "/css/admin.css", :rel => "stylesheet"}
   %body
     #contain
       %header
@@ -43,18 +41,14 @@
             %p.right
               %a{:href => Clock.url(:index)} View Clock &rarr;
       #main{:role => "main"}
-        
-        =yield
-        
+        #inner.row
+          =yield
       %footer.row
-        %p The FHS Clock is functional.
+        %p The FHS Clock is awesome
         %p Version #{CLOCK_VERSION}
         %p
           %form{:action => url(:logout), :method => "post"}
             %button{:type => "submit"} Logout
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"}
-    %script{:src => "/admin/jsc/gyaku.js"}
-    %script{:src => "/admin/jsc/application.js"}
-    /[if lt IE 7 ]
-      <script src="/admin/jsc/libs/dd_belatedpng.js"></script>
-      <script> DD_belatedPNG.fix('img, .png_bg');</script>
+    %script{:src => "/jsc/gyaku.js"}
+    %script{:src => "/jsc/application.js"}
