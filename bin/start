@@ -4,6 +4,6 @@
 
 mkdir -p tmp/pids log
 
-bundle update
+bundle install
 bundle exec padrino rake spec
 bundle exec unicorn -c bin/unicorn.rb -E production -p 3000 -D
