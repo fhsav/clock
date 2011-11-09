@@ -21,6 +21,7 @@ gem 'joint'
 
 gem 'haml'
 gem 'compass'
+gem 'therubyracer-heroku', '~> 0.8.1.pre3'
 gem 'barista'
 gem 'maruku'
 

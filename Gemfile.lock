@@ -111,6 +111,7 @@ GEM
       rack (~> 1.1)
       tilt (< 2.0, >= 1.2.2)
     syntax (1.0.0)
+    therubyracer-heroku (0.8.1.pre3)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -148,5 +149,6 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  therubyracer-heroku (~> 0.8.1.pre3)
   thin
   unicorn
