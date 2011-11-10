@@ -57,6 +57,7 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.3.8)
     multi_json (1.0.3)
+    mustang (0.2.2)
     padrino (0.10.0)
       padrino-admin (= 0.10.0)
       padrino-cache (= 0.10.0)
@@ -142,6 +143,7 @@ DEPENDENCIES
   joint
   maruku
   mongo_mapper
+  mustang
   padrino (= 0.10.0)
   rack-flash
   rack-protection

@@ -21,6 +21,7 @@ gem 'joint'
 
 gem 'haml'
 gem 'compass'
+gem 'mustang'
 gem 'barista'
 gem 'maruku'
 

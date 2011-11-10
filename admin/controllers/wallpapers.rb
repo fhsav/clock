@@ -16,7 +16,7 @@ Admin.controllers :wallpapers do
   end
   
   # GET /admin/wallpapers/direct/:id
-  get :direct, :with => :id, :provides => [:jpg, :png, :gif] do
+  get :direct, :with => :id, :provides => [:jpg, :png, :gif, :mp4] do
     grid(params[:id])
   end
   
