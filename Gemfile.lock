@@ -57,6 +57,7 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.3.8)
     multi_json (1.0.3)
+    mustang (0.2.2)
     padrino (0.10.0)
       padrino-admin (= 0.10.0)
       padrino-cache (= 0.10.0)
@@ -111,7 +112,6 @@ GEM
       rack (~> 1.1)
       tilt (< 2.0, >= 1.2.2)
     syntax (1.0.0)
-    therubyracer-heroku (0.8.1.pre3)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -143,12 +143,12 @@ DEPENDENCIES
   joint
   maruku
   mongo_mapper
+  mustang
   padrino (= 0.10.0)
   rack-flash
   rack-protection
   rack-test
   rake
   rspec
-  therubyracer-heroku (~> 0.8.1.pre3)
   thin
   unicorn
