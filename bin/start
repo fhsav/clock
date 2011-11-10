@@ -1,9 +1,34 @@
 #!/bin/bash
 
-./bin/stop
+# Stopping if it is running.
+if [ -s /var/www/fhsclock/tmp/pids/unicorn.pid ]; then
+	kill -INT `cat /var/www/fhsclock/tmp/pids/unicorn.pid`
+	echo -e '\E[37;44m'"\033[1mThe clock is restarting.\033[0m"
+else
+	echo -e '\E[37;44m'"\033[1mThe clock is starting.\033[0m"
+fi
 
+# Reset the logs.
+rm log/*
 mkdir -p tmp/pids log
 
+# Re-Bundle dependencies.
+echo -e '\E[37;44m'"\033[1mRunning the Bundler install to get the dependencies.\033[0m"
 bundle install
+
+# Run the tests.
+echo -e '\E[37;44m'"\033[1mRunning the tests.\033[0m"
 bundle exec padrino rake spec
+
+# Attempt at starting.
+echo -e '\E[37;44m'"\033[1mAttempting to start the server.\033[0m"
 bundle exec unicorn -c bin/unicorn.rb -E production -p 3000 -D
+
+# Give an indication.
+if [ -e /var/www/fhsclock/tmp/pids/unicorn.pid ]; then
+	echo -e '\E[37;44m'"\033[1mThe clock has successfully started.\033[0m"
+	exit 0
+else
+	echo -e '\E[37;44m'"\033[1mSomething went wrong and the clock did not start.\033[0m"
+	exit 1
+fi
