@@ -1,4 +1,4 @@
-Admin.controllers :wallpapers do
+ Admin.controllers :wallpapers do
   before :except => [:linked, :direct] do
     authenticated?
   end
@@ -22,8 +22,8 @@ Admin.controllers :wallpapers do
   
   # POST /admin/wallpapers/create
   post :create do
-    wallpaper = Wallpaper.new(:name => params[:wallpaper][:name], :file => params[:wallpaper][:file][:tempfile])
-
+    wallpaper = Wallpaper.new(:name => params[:wallpaper][:name], :content_type => params[:wallpaper][:file][:content_type], :file => params[:wallpaper][:file])
+    
     if wallpaper.save
       flash[:notice] = "Your wallpaper has been saved."
       redirect url(:wallpapers, :index)

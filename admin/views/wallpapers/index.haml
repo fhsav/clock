@@ -8,12 +8,14 @@
         %tr
           %th Name
           %th URL
+          %th Content Type
           %th Actions
       %tbody
         - @wallpapers.each do |wallpaper|
           %tr{:class => wallpaper.active}
             %td= wallpaper.name
             %td= link_to url(:wallpapers, :direct, :id => wallpaper.file.id), url(:wallpapers, :direct, :id => wallpaper.file.id)
+            %td= wallpaper.content_type
             %td
               %form.inline{:action => url(:wallpapers, :activate), :method => "post"}
                 %input{:name => "id", :type => "hidden", :value => wallpaper.id}/

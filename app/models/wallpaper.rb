@@ -4,6 +4,7 @@ class Wallpaper
   
   # Keys
   key :name, String
+  key :content_type, String
   key :active, Boolean
   
   # Attachments
