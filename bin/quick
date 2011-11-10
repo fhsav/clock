@@ -4,4 +4,5 @@
 
 mkdir -p tmp/pids log
 
+echo -e "\033[1mQuickly attempting to start the clock. No guarantees on the results.\033[0m"
 bundle exec unicorn -c bin/unicorn.rb -E production -p 3000 -D

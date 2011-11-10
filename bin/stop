@@ -1,3 +1,8 @@
 #!/bin/bash
 
-kill -INT `cat /var/www/fhsclock/tmp/pids/unicorn.pid`
+if [ -s tmp/pids/unicorn.pid ]; then
+	kill -INT `cat tmp/pids/unicorn.pid`
+	echo -e "\033[1mThe clock has stopped.\033[0m"
+else
+	echo -e "\033[1mIt appears the clock has not started.\033[0m"
+fi
