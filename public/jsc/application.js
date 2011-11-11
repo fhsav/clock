@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 11 Nov 2011 00:27:33 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 11 Nov 2011 01:12:39 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -80,15 +80,15 @@
     }), 0);
   })();
   $(document).ready(function() {
-    return $("#marquee").marquee({
+    $("#marquee").marquee({
       pauseOnHover: false
     });
-  });
-  $("ol#periods li").fitText(1.2, {
-    minFontSize: "30px",
-    maxFontSize: "36px"
-  });
-  $("video").bind("ended", function() {
-    return this.play();
+    $("video[loop]").bind("ended", function() {
+      return this.play();
+    });
+    return $("ol#periods li").fitText(1.2, {
+      minFontSize: "30px",
+      maxFontSize: "36px"
+    });
   });
 }).call(this);

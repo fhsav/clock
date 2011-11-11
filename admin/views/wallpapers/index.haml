@@ -36,11 +36,14 @@
       No wallpapers!
       
   %section.meta.row
-    %form{:action => url(:wallpapers, :create), :enctype => "multipart/form-data", :method => "post"}
+    :maruku
+      **Disclaimer**: When you change the background (especially to a video), it will be slow to load. It'll most likely flash to white and stay like that for a second or two.
+    %form{:action => url(:wallpapers, :create), :enctype => "multipart/form-data", :method => "post", :style => "margin-top: 1em"}
       %p
         %input{:name => "wallpaper[name]", :placeholder => "Name", :type => "text"}/
+      %p{:style => "margin-bottom: 0"}
+        Only <code>*.jpg</code>, <code>*.png</code>, <code>*.gif</code> for images, and only <code>*.mp4</code> for video.
       %p
-        <pre>*.jpg, *.gif, *.png, *.mp4</pre>
         %input{:name => "wallpaper[file]", :type => "file"}/
       %p
         %button.green{:type => "submit"} Create

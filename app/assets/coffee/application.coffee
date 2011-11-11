@@ -58,10 +58,12 @@
 )()
 $(document).ready ->
   $("#marquee").marquee pauseOnHover: false
+  
+  $("video[loop]").bind "ended", ->
+    @play()
+  
+  $("ol#periods li").fitText 1.2,
+    minFontSize: "30px"
+    maxFontSize: "36px"
 
-$("ol#periods li").fitText 1.2,
-  minFontSize: "30px"
-  maxFontSize: "36px"
 
-$("video").bind "ended", ->
-  @play()
