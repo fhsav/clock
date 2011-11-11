@@ -14,9 +14,9 @@ Clock.controllers do
     @wallpaper = Wallpaper.first(:active => true)
     
     if @wallpaper
-      @wallpaper = "/admin/wallpapers/linked/#{@wallpaper.file.id}"
+      @wallpaper_url = "/admin/wallpapers/linked/#{@wallpaper.file.id}"
     else
-      @wallpaper = "/img/default.jpg"
+      @wallpaper_url = "/img/default.jpg"
     end
     
     render :clock

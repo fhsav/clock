@@ -2,6 +2,8 @@ require "spec_helper"
 
 describe "Clock" do
   it "should work" do
+    Wallpaper.create(:name => "Foobar", :file => file, :active => true)
+    
     get "/"
     
     last_response.should be_ok

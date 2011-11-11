@@ -62,3 +62,6 @@ $(document).ready ->
 $("ol#periods li").fitText 1.2,
   minFontSize: "30px"
   maxFontSize: "36px"
+
+$("video").bind "ended", ->
+  @play()

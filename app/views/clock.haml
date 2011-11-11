@@ -7,9 +7,16 @@
     %title FHS Clock
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
     %link{:href => "/css/application.css", :rel => "stylesheet"}
-    :css
-      body{ background: url("#{@wallpaper}") no-repeat; }
+    - if @wallpaper.file.type != "video/mp4"
+      :css
+        body{ background: url("#{@wallpaper_url}") no-repeat; }
+    - else
+      :css
+        body{ background-color: #000000; }
   %body
+    - if @wallpaper.file.type == "video/mp4"
+      %video{:autoplay => "true", :loop => "true", :muted => "true", :onended => "this.play()"}
+        %source{:src => @wallpaper_url, :type => "video/mp4"}
     #contain
       %header.row
         - if !@marquees.blank?

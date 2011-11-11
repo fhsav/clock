@@ -30,9 +30,4 @@ Admin.helpers do
   def encrypt(string)
     Digest::SHA1.hexdigest(string)
   end
-  
-  def grid(id)
-    grid = Mongo::Grid.new(MongoMapper.database)
-    grid.get(BSON::ObjectId.from_string(id)).read
-  end
 end

@@ -12,17 +12,17 @@
   
   # GET /admin/wallpapers/linked/:id
   get :linked, :with => :id do
-    grid(params[:id])
+    Wallpaper.find_by_file_id(params[:id]).file.grid_io
   end
   
   # GET /admin/wallpapers/direct/:id
   get :direct, :with => :id, :provides => [:jpg, :png, :gif, :mp4] do
-    grid(params[:id])
+    Wallpaper.find_by_file_id(params[:id]).file.grid_io
   end
   
   # POST /admin/wallpapers/create
   post :create do
-    wallpaper = Wallpaper.new(:name => params[:wallpaper][:name], :content_type => params[:wallpaper][:file][:content_type], :file => params[:wallpaper][:file])
+    wallpaper = Wallpaper.new(:name => params[:wallpaper][:name], :content_type => params[:wallpaper][:file][:content_type], :file => params[:wallpaper][:file][:tempfile])
     
     if wallpaper.save
       flash[:notice] = "Your wallpaper has been saved."
