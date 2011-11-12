@@ -1,5 +1,4 @@
 Clock.controllers do
-
   # GET /
   get :index do
     @schedule = Schedule.first(:active => true)
@@ -12,12 +11,6 @@ Clock.controllers do
     @notices = Notice.all
     
     @wallpaper = Wallpaper.first(:active => true)
-    
-    if @wallpaper
-      @wallpaper_url = "/admin/wallpapers/linked/#{@wallpaper.file.id}"
-    else
-      @wallpaper_url = "/img/default.jpg"
-    end
     
     render :clock
   end
