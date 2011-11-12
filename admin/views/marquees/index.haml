@@ -27,9 +27,6 @@
   %section.meta.row
     %form{:action => url(:marquees, :create), :method => "post"}
       %p
-        %em
-          Do not use asteriks (*) or any dividers! The clock will do that for you!
-      %p
         %input{:name => "marquee[text]", :placeholder => "Text to display", :type => "text"}/
       %p
         %button.green{:type => "submit"} Create

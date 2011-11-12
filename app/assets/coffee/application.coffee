@@ -56,6 +56,7 @@
       clock()
   ), 0
 )()
+
 $(document).ready ->
   $("#marquee").marquee pauseOnHover: false
   
