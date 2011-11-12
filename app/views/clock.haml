@@ -15,7 +15,7 @@
         body{ background-color: #000000; }
   %body
     - if @wallpaper.file.type == "video/mp4"
-      %video{:autoplay => "true", :loop => "true", :muted => "true"}
+      %video{:autoplay => true, :loop => true, :muted => true}
         %source{:src => @wallpaper_url, :type => "video/mp4"}
     #contain
       %header.row
