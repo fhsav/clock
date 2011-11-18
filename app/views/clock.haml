@@ -30,17 +30,14 @@
               %li= marquee.text
       %section#main.row
         #left.sevencol
-          %section#during
-            %ol#periods
-              - if !@periods.blank?
-                - @periods.each do |period|
-                  %li
-                    ="#{period.text}: "
-                    %time.start{:datetime => seconds(period.start)}="#{local(period.start)}"
-                    &mdash;
-                    %time.finish{:datetime => seconds(period.finish)}="#{local(period.finish)}"
-          %section#after
-            %p It's after school!
+          %ol#periods
+            - if !@periods.blank?
+              - @periods.each do |period|
+                %li
+                  ="#{period.text}: "
+                  %time.start{:datetime => seconds(period.start)}="#{local(period.start)}"
+                  &mdash;
+                  %time.finish{:datetime => seconds(period.finish)}="#{local(period.finish)}"
         #right.fivecol.last
           %section#clock
             %p#date

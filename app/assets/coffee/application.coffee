@@ -27,14 +27,16 @@
       time = (d.getHours() * 3600) + (d.getMinutes() * 60)
       if final_time < time
         $("#after").css "display", "block"
-        $("#during").css "display", "none"
-        $("#left").removeClass("sevencol").addClass "fivecol"
-        $("#right").removeClass("fivecol").addClass "sevencol"
+        $("ol#periods").css "display", "none"
+        $("#left").removeClass("sevencol")
+        $("#right").removeClass("fivecol").addClass "twelvecol"
+        $("#clock #date").css("font-size", "2.75em")
+        $("#clock #time").css("font-size", "4em")
       else
-        $("#during").css "display", "block"
+        $("ol#periods").css "display", "block"
         $("#after").css "display", "none"
         $("#left").removeClass("fivecol").addClass "sevencol"
-        $("#right").removeClass("sevencol").addClass "fivecol"
+        $("#right").removeClass("twelvecol").addClass "fivecol"
       $("ol#periods li").each (index) ->
         element = $(this)
         start = element.find("time.start").attr("datetime")
