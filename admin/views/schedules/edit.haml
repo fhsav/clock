@@ -39,9 +39,9 @@
                 %td= period.text
                 %td= "#{local(period.start)} &ndash; #{local(period.finish)}"
                 %td
-                  %a{:href => url(:periods, :edit, :id => period.id, :schedules_id => @schedule.id)} Edit
+                  %a{:href => url(:periods, :edit, :id => period.id, :schedule_id => @schedule.id)} Edit
                   &mdash;
-                  %form.inline{:action => url(:periods, :destroy, :schedules_id => @schedule.id), :method => "post"}
+                  %form.inline{:action => url(:periods, :destroy, :schedule_id => @schedule.id), :method => "post"}
                     %input{:name => "id", :type => "hidden", :value => period.id}/
                     %input{:name => "s_id", :type => "hidden", :value => @schedule.id}/
                     %input{:name => "_method", :type => "hidden", :value => "delete"}/
@@ -51,7 +51,7 @@
           No periods!
     
     %section.meta
-      %form{:action => url(:periods, :create, :schedules_id => @schedule.id), :method => "post"}
+      %form{:action => url(:periods, :create, :schedule_id => @schedule.id), :method => "post"}
         %p.inline
           %input.tiny{:name => "period[number]", :placeholder => "Event #", :tabindex => "0", :type => "text", :width => "5"}/
           %input.medium{:name => "period[text]", :placeholder => "Descriptive text (Period 1), et cetera.", :type => "text"}/

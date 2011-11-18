@@ -10,7 +10,7 @@ describe "Admin core" do
   it "should be accessible with password" do
     post "/admin/authenticate", :password => password
     
-    last_response.location.should == "#{site}/admin"
+    last_response.location.should == "#{site}/admin/"
   end
   
   it "home should be ok" do

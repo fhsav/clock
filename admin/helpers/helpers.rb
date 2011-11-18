@@ -10,7 +10,7 @@ Admin.helpers do
   
   def authenticate!
     session["fhsclock"] ||= 0
-    session["fhsclock"] = options.session_secret
+    session["fhsclock"] = settings.session_secret
     
     redirect url(:index)
   end
@@ -22,7 +22,7 @@ Admin.helpers do
   end
   
   def authenticated?
-    unless session["fhsclock"] == options.session_secret
+    unless session["fhsclock"] == settings.session_secret
       redirect url(:login)
     end
   end

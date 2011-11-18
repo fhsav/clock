@@ -6,7 +6,7 @@ Admin.controllers :periods, :parent => :schedules do
   # GET /admin/schedules/:schedule_id/periods/edit/:id
   get :edit, :with => :id do
     @period = Period.find(params[:id])
-    @schedule = Schedule.find(params[:schedules_id])
+    @schedule = Schedule.find(params[:schedule_id])
     
     render 'periods/edit'
   end
@@ -15,8 +15,8 @@ Admin.controllers :periods, :parent => :schedules do
   post :create do
     schedule = Schedule.find(params[:id])
     
-    start = Time.parse(params[:period][:start].to_s)
-    finish = Time.parse(params[:period][:finish].to_s)
+    start = Time.parse(params[:period][:start].to_s) - 3600
+    finish = Time.parse(params[:period][:finish].to_s) - 3600
     
     if !params[:period][:number].blank?
       number = params[:period][:number]
@@ -48,6 +48,9 @@ Admin.controllers :periods, :parent => :schedules do
       flash[:error] = "That isn't a time!"
       redirect url(:schedules, :edit, :id => params[:s_id])
     end
+    
+    start = Time.parse(start) - 3600
+    finish = Time.parse(finish) - 3600
     
     if period.update_attributes(
       :number => parameters[:number],

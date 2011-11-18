@@ -12,10 +12,11 @@ end
 
 gem 'thin'
 gem 'rake'
-gem 'rack-flash'
+gem 'sinatra-flash', :require => "sinatra/flash"
 gem 'rack-protection'
 
 gem 'bson_ext', '1.4.0', :require => "mongo"
+gem 'mongo', '1.4.0', :require => false
 gem 'mongo_mapper'
 gem 'joint'
 
@@ -26,4 +27,4 @@ gem 'barista'
 gem 'maruku'
 
 
-gem 'padrino', '0.10.0'
+gem 'padrino', '0.10.5'

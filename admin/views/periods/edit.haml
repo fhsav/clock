@@ -6,7 +6,7 @@
       ="&ldquo;#{@schedule.name}&rdquo;"
     =flash_tag :error
     =flash_tag :notice
-    %form.row{:action => url(:periods, :modify, :schedules_id => @schedule.id), :method => "post"}
+    %form.row{:action => url(:periods, :modify, :schedule_id => @schedule.id), :method => "post"}
       %section
         %p.inline
           %input.tiny{:name => "period[number]", :type => "text", :width => "5", :value => @period.number}/
