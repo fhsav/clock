@@ -4,3 +4,4 @@ tmp/
 vendor/ruby/
 .DS_Store
 .tmproj
+.bundle/
