@@ -7,4 +7,6 @@ require 'bundler/setup'
 
 Bundler.require(:default, PADRINO_ENV)
 
+TZ = ActiveSupport::TimeZone.new("Eastern Time (US & Canada)")
+
 Padrino.load!

@@ -14,6 +14,7 @@ gem 'thin'
 gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
 gem 'rack-protection'
+gem 'tzinfo'
 
 gem 'bson_ext', '1.4.0', :require => "mongo"
 gem 'mongo', '1.4.0', :require => false

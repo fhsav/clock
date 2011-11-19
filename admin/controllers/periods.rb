@@ -15,8 +15,8 @@ Admin.controllers :periods, :parent => :schedules do
   post :create do
     schedule = Schedule.find(params[:id])
     
-    start = Time.parse(params[:period][:start].to_s) - 3600
-    finish = Time.parse(params[:period][:finish].to_s) - 3600
+    start = Time.parse(params[:period][:start].to_s)
+    finish = Time.parse(params[:period][:finish].to_s)
     
     if !params[:period][:number].blank?
       number = params[:period][:number]
@@ -39,25 +39,19 @@ Admin.controllers :periods, :parent => :schedules do
   put :modify do
     period = Period.find(params[:id])
     
-    parameters = params[:period]
-  
-    start = parameters[:start].to_s
-    finish = parameters[:finish].to_s
-    
-    if !start.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/) or !finish.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
-      flash[:error] = "That isn't a time!"
-      redirect url(:schedules, :edit, :id => params[:s_id])
+    if !time?(params[:period][:start]) or !time?(params[:period][:finish])
+      if !time?(params[:period][:start])
+        flash[:error] = "#{params[:period][:start]} isn't a time!"
+      else if! !time?(params[:period][:finish])
+        flash[:error] = "#{params[:period][:finish]} isn't a time!"
+      end
+      redirect url(:periods, :edit, :id => period.id, :schedule_id => params[:s_id])
     end
     
-    start = Time.parse(start) - 3600
-    finish = Time.parse(finish) - 3600
+    start = Time.parse(params[:period][:start])
+    finish = Time.parse(params[:period][:finish])
     
-    if period.update_attributes(
-      :number => parameters[:number],
-      :text => parameters[:text],
-      :start => start,
-      :finish => finish
-    )
+    if period.update_attributes(params[:period])
       flash[:notice] = "The period has been modified."
       redirect url(:schedules, :edit, :id => params[:s_id])
     else

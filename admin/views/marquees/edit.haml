@@ -1,5 +1,8 @@
 %section#body
   %section.row
+    %nav.back
+      %p
+        %a{:href => url(:marquees, :index)}= "&larr; Back to all marquees."
     %h2
       Editing marquee item 
       ="&rdquo;#{@marquee.text}&ldquo;"
