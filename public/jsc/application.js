@@ -1,9 +1,10 @@
-/* DO NOT MODIFY. This file was compiled Fri, 18 Nov 2011 02:11:47 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 19 Nov 2011 00:10:51 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
   var clock;
+
   (clock = function() {
     return setTimeout((function() {
       var am_pm, d, date, day, dayArray, hour, minute, month, monthArray, second, year;
@@ -17,22 +18,14 @@
       second = d.getSeconds();
       dayArray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
       monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-      if (date < 10) {
-        date = "0" + date;
-      }
+      if (date < 10) date = "0" + date;
       if (hour >= 12) {
         am_pm = "PM";
       } else {
-        if (hour < 12) {
-          am_pm = "AM";
-        }
+        if (hour < 12) am_pm = "AM";
       }
-      if (minute < 10) {
-        minute = "0" + minute;
-      }
-      if (second < 10) {
-        second = "0" + second;
-      }
+      if (minute < 10) minute = "0" + minute;
+      if (second < 10) second = "0" + second;
       hour = (hour > 12 ? hour - 12 : hour);
       hour = (hour === 0 ? 12 : hour);
       $("p#date").html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
@@ -43,7 +36,7 @@
         final_time = final_period.find("time.finish").attr("datetime");
         d = new Date();
         time = (d.getHours() * 3600) + (d.getMinutes() * 60);
-        if (final_time < time) {
+        if (final_time < time || $("ol#periods:empty")) {
           $("#after").css("display", "block");
           $("ol#periods").css("display", "none");
           $("#left").removeClass("sevencol");
@@ -81,6 +74,7 @@
       });
     }), 0);
   })();
+
   $(document).ready(function() {
     $("#marquee").marquee({
       pauseOnHover: false
@@ -93,4 +87,5 @@
       maxFontSize: "36px"
     });
   });
+
 }).call(this);

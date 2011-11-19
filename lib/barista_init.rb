@@ -13,8 +13,8 @@ end
 # Shut Barista up.
 module Barista
   class << self
-    def env
-      @env == "production"
+    def logger
+      @logger = nil
     end
   end
 end

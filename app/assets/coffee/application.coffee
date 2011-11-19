@@ -25,7 +25,7 @@
       final_time = final_period.find("time.finish").attr("datetime")
       d = new Date()
       time = (d.getHours() * 3600) + (d.getMinutes() * 60)
-      if final_time < time
+      if final_time < time or $("ol#periods:empty")
         $("#after").css "display", "block"
         $("ol#periods").css "display", "none"
         $("#left").removeClass("sevencol")
