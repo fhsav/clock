@@ -14,7 +14,7 @@ mkdir -p tmp/pids log
 
 # Re-Bundle dependencies.
 echo -e "\033[1mRunning the Bundler install to get the dependencies.\033[0m"
-bundle install
+bundle install --without development
 
 # Run the tests.
 echo -e "\033[1mRunning the tests.\033[0m"
