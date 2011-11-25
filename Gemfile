@@ -13,9 +13,11 @@ group :production do
 end
 
 gem 'thin'
+gem 'rack-protection'
+
 gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
-gem 'rack-protection'
+
 gem 'tzinfo'
 
 gem 'bson_ext', '1.4.0', :require => "mongo"
@@ -29,5 +31,6 @@ gem 'mustang'
 gem 'barista'
 gem 'maruku'
 
+gem 'kumade'
 
 gem 'padrino', '0.10.5'
