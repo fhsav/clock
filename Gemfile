@@ -1,9 +1,5 @@
 source :rubygems
 
-group :development do
-  gem 'therubyracer'
-end
-
 group :test do
   gem 'rack-test', :require => "rack/test"
   gem 'rspec'
@@ -13,7 +9,6 @@ end
 
 group :production do
   gem 'unicorn'
-  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
 
 gem 'thin'
@@ -23,6 +18,7 @@ gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'tzinfo'
+gem 'therubyrhino'
 
 gem 'bson_ext', '1.4.0', :require => "mongo"
 gem 'mongo', '1.4.0', :require => false
