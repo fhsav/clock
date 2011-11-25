@@ -1,7 +1,7 @@
 source :rubygems
 
 group :development do
-  gem 'mustang'
+  gem 'therubyracer'
 end
 
 group :test do

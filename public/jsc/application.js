@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 25 Nov 2011 02:49:23 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 25 Nov 2011 04:19:41 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -31,46 +31,24 @@
       $("p#date").html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
       $("p#time").html(hour + ":" + minute + ":" + second + " " + am_pm);
       return $(document).ready(function() {
-        /*
-              # After-school stuff.
-              final_period = $("ol#periods li:last-child")
-              final_time = final_period.find("time.finish").attr("datetime")
-              
-              d = new Date()
-              time = (d.getHours() * 3600) + (d.getMinutes() * 60)
-              
-              if final_time < time or $("ol#periods:empty")
-                $("#after").css "display", "block"
-                $("ol#periods").css "display", "none"
-                $("#left").removeClass("sevencol")
-                $("#right").removeClass("fivecol").addClass "twelvecol"
-                $("#clock #date").css("font-size", "2.75em")
-                $("#clock #time").css("font-size", "4em")
-              else
-                $("ol#periods").css "display", "block"
-                $("#after").css "display", "none"
-                $("#left").removeClass("fivecol").addClass "sevencol"
-                $("#right").removeClass("twelvecol").addClass "fivecol"
-        */
-        var current_time, period, period_time;
+        var final_period, final_time, time;
+        final_period = $("ol#periods li:last-child");
+        final_time = final_period.find("time.finish").attr("datetime") - 60;
         d = new Date();
-        period = $("ol#periods li").last();
-        period_time = period.find("time.finish").attr("datetime");
-        current_time = (d.getHours() * 3600) + (d.getMinutes() * 60);
-        if (time < period_time) {
+        time = (d.getHours() * 3600) + (d.getMinutes() * 60);
+        if (time > final_time) {
           $("ol#periods").css("display", "none");
           $("#left").removeClass("sevencol");
           $("#right").removeClass("fivecol").addClass("twelvecol");
-          $("#clock #date").css("font-size", "2.75em");
-          $("#clock #time").css("font-size", "4em");
-          $("#debug").text("true ");
+          $("#date").css("font-size", "2.5em");
+          $("#time").css("font-size", "4em");
         } else {
-          $("ol#periods").css("display", "block");
-          $("#left").removeClass("fivecol").addClass("sevencol");
+          $("#ol#periods").css("display", "block");
+          $("#left").addClass("sevencol");
           $("#right").removeClass("twelvecol").addClass("fivecol");
         }
         $("ol#periods li").each(function(index) {
-          var element, finish, next, next_start, start, time;
+          var element, finish, next, next_start, start;
           element = $(this);
           start = element.find("time.start").attr("datetime");
           finish = element.find("time.finish").attr("datetime");

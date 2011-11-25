@@ -10,6 +10,6 @@
 
 The Farmington High School Clock is displayed on a television in each classroom. It displays the time and date, periods (and current period) of the day, marquee items, and notices for the school.
 
-## I want to know more!
+## Can I use it for my school?
 
-Please, [see the wiki](https://github.com/eturk/fhsclock/wiki).
+Sure! I would [contact me](mailto:ethan.turkeltaub.com) about the production environment, modifying the code for your school, and deployment.
