@@ -1,8 +1,11 @@
 source :rubygems
 
 group :test do
-  gem 'rspec', :group => "test"
-  gem 'rack-test', :require => "rack/test", :group => "test"
+  gem 'rspec'
+  gem 'capybara', :require => 'capybara/dsl'
+  gem 'rack-test', :require => "rack/test"
+  gem 'evergreen'
+  gem 'factory_girl'
 end
 
 group :production do

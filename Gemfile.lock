@@ -7,11 +7,21 @@ GEM
       i18n (~> 0.6)
     activesupport (3.1.3)
       multi_json (~> 1.0)
+    addressable (2.2.6)
     barista (1.2.1)
       coffee-script (~> 2.2)
     bson (1.4.0)
     bson_ext (1.4.0)
     builder (3.0.0)
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    childprocess (0.2.2)
+      ffi (~> 1.0.6)
     choice (0.1.4)
     chunky_png (1.2.5)
     cijoe (0.9.1)
@@ -28,8 +38,17 @@ GEM
     daemons (1.1.4)
     diff-lcs (1.1.3)
     eventmachine (0.12.10)
+    evergreen (1.0.0)
+      capybara (~> 1.0)
+      coffee-script
+      json_pure
+      launchy
+      sinatra (~> 1.1)
     execjs (1.2.9)
       multi_json (~> 1.0)
+    factory_girl (2.3.0)
+      activesupport
+    ffi (1.0.11)
     fssm (0.2.7)
     grit (2.4.1)
       diff-lcs (~> 1.1)
@@ -43,7 +62,10 @@ GEM
       mime-types
       mongo_mapper (~> 0.9.0)
       wand (~> 0.4)
+    json_pure (1.6.1)
     kgio (2.6.0)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -59,6 +81,7 @@ GEM
       plucky (~> 0.3.8)
     multi_json (1.0.3)
     mustang (0.2.2)
+    nokogiri (1.5.0)
     padrino (0.10.5)
       padrino-admin (= 0.10.5)
       padrino-cache (= 0.10.5)
@@ -105,8 +128,14 @@ GEM
     rspec-expectations (2.7.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.7.0)
+    rubyzip (0.9.4)
     safe_shell (1.0.1)
     sass (3.1.10)
+    selenium-webdriver (2.13.0)
+      childprocess (>= 0.2.1)
+      ffi (~> 1.0.9)
+      json_pure
+      rubyzip
     sinatra (1.3.1)
       rack (~> 1.3, >= 1.3.4)
       rack-protection (~> 1.1, >= 1.1.2)
@@ -133,6 +162,8 @@ GEM
     wand (0.4)
       mime-types
       safe_shell (~> 1.0.0)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -140,8 +171,11 @@ PLATFORMS
 DEPENDENCIES
   barista
   bson_ext (= 1.4.0)
+  capybara
   cijoe (= 0.9.1)
   compass
+  evergreen
+  factory_girl
   haml
   joint
   maruku
