@@ -1,5 +1,9 @@
 source :rubygems
 
+group :development do
+  gem 'mustang'
+end
+
 group :test do
   gem 'rack-test', :require => "rack/test"
   gem 'rspec'
@@ -9,7 +13,7 @@ end
 
 group :production do
   gem 'unicorn'
-  gem 'cijoe', '0.9.1'
+  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
 
 gem 'thin'
@@ -27,7 +31,6 @@ gem 'joint'
 
 gem 'haml'
 gem 'compass'
-gem 'mustang'
 gem 'barista'
 gem 'maruku'
 
