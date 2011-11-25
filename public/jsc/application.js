@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sat, 19 Nov 2011 00:10:51 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 25 Nov 2011 02:11:04 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -19,13 +19,13 @@
       dayArray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
       monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
       if (date < 10) date = "0" + date;
+      if (minute < 10) minute = "0" + minute;
+      if (second < 10) second = "0" + second;
       if (hour >= 12) {
         am_pm = "PM";
       } else {
         if (hour < 12) am_pm = "AM";
       }
-      if (minute < 10) minute = "0" + minute;
-      if (second < 10) second = "0" + second;
       hour = (hour > 12 ? hour - 12 : hour);
       hour = (hour === 0 ? 12 : hour);
       $("p#date").html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
@@ -65,9 +65,9 @@
           next_start = next.find("time.start").attr("datetime");
           next_start = next_start;
           if (time > finish && time < next_start) {
-            return element.css("border-bottom", "10px solid #000");
+            return element.css("border-bottom", "10px solid rgba(0, 0, 0, 0.5)");
           } else {
-            return element.css("border-bottom", "1px solid #000");
+            return element.css("border-bottom", "1px solid rgba(0, 0, 0, 0.5)");
           }
         });
         return clock();

@@ -1,10 +1,9 @@
 source :rubygems
 
 group :test do
-  gem 'rspec'
-  gem 'capybara', :require => 'capybara/dsl'
   gem 'rack-test', :require => "rack/test"
-  gem 'evergreen'
+  gem 'rspec'
+  gem 'capybara', :require => "capybara/dsl"
   gem 'factory_girl'
 end
 
