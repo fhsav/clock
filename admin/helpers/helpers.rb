@@ -2,15 +2,12 @@ require 'digest/sha1'
 
 Admin.helpers do
   def local(time)
-  	if time != nil
-      time = time - 14400
-	    time.strftime("%k:%M")
-    end
+    TZ.utc_to_local(time).strftime("%k:%M").to_s.strip
   end
   
   def authenticate!
     session["fhsclock"] ||= 0
-    session["fhsclock"] = options.session_secret
+    session["fhsclock"] = settings.session_secret
     
     redirect url(:index)
   end
@@ -22,12 +19,16 @@ Admin.helpers do
   end
   
   def authenticated?
-    unless session["fhsclock"] == options.session_secret
+    unless session["fhsclock"] == settings.session_secret
       redirect url(:login)
     end
   end
   
   def encrypt(string)
     Digest::SHA1.hexdigest(string)
+  end
+  
+  def time?(string)
+    string.to_s.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
   end
 end

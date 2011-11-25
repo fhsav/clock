@@ -15,7 +15,7 @@ Admin.controllers do
     
   # POST /admin/authenticate
   post :authenticate do
-    if encrypt(params[:password]) == options.password or params[:password] == options.password
+    if encrypt(params[:password]) == settings.password or params[:password] == settings.password
       authenticate!
       
       redirect url(:index)

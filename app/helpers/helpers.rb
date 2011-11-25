@@ -7,7 +7,7 @@ end
 Clock.helpers do
   def local(time)
     if time
-      time = time - 14400
+      time = TZ.utc_to_local(time)
       
       hour = time.strftime("%I")
       minute = time.strftime("%M")
@@ -22,7 +22,7 @@ Clock.helpers do
   
   def seconds(time)
     if time
-      time = time - 14400
+      time = TZ.utc_to_local(time)
       
       hours = time.hour * 3600
       minutes = time.min * 60

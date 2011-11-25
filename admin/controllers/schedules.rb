@@ -53,7 +53,7 @@ Admin.controllers :schedules do
     schedule = Schedule.find(params[:id])
     
     if schedule.update_attributes(params[:schedule])
-      flash[:notice] = "The schedule #{schedule.name} has been modified"
+      flash[:notice] = "The schedule #{schedule.name} has been modified."
       redirect url(:schedules, :edit, :id => schedule.id)
     else
       flash[:error] = "Something went wrong and the schedule #{schedule.name} was not modified."

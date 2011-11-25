@@ -1,8 +1,10 @@
 source :rubygems
 
 group :test do
-  gem 'rspec', :group => "test"
-  gem 'rack-test', :require => "rack/test", :group => "test"
+  gem 'rack-test', :require => "rack/test"
+  gem 'rspec'
+  gem 'capybara', :require => "capybara/dsl"
+  gem 'factory_girl'
 end
 
 group :production do
@@ -11,11 +13,15 @@ group :production do
 end
 
 gem 'thin'
-gem 'rake'
-gem 'rack-flash'
 gem 'rack-protection'
 
+gem 'rake'
+gem 'sinatra-flash', :require => "sinatra/flash"
+
+gem 'tzinfo'
+
 gem 'bson_ext', '1.4.0', :require => "mongo"
+gem 'mongo', '1.4.0', :require => false
 gem 'mongo_mapper'
 gem 'joint'
 
@@ -25,5 +31,6 @@ gem 'mustang'
 gem 'barista'
 gem 'maruku'
 
+gem 'kumade'
 
-gem 'padrino', '0.10.0'
+gem 'padrino', '0.10.5'

@@ -1,12 +1,15 @@
 %section#body
   %section.row
+    %nav.back
+      %p
+        %a{:href => url(:schedules, :edit, :id => @schedule.id)}= "&larr; Back to &ldquo;#{@schedule.name}&rdquo;"
     %h2
       Editing period 
       ="&ldquo;#{@period.text}&rdquo; in schedule"
       ="&ldquo;#{@schedule.name}&rdquo;"
     =flash_tag :error
     =flash_tag :notice
-    %form.row{:action => url(:periods, :modify, :schedules_id => @schedule.id), :method => "post"}
+    %form.row{:action => url(:periods, :modify, :schedule_id => @schedule.id), :method => "post"}
       %section
         %p.inline
           %input.tiny{:name => "period[number]", :type => "text", :width => "5", :value => @period.number}/
