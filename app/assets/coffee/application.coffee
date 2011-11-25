@@ -40,7 +40,8 @@
     
     # jQuery st00f.
     $(document).ready ->
-    
+      
+      ###
       # After-school stuff.
       final_period = $("ol#periods li:last-child")
       final_time = final_period.find("time.finish").attr("datetime")
@@ -60,6 +61,26 @@
         $("#after").css "display", "none"
         $("#left").removeClass("fivecol").addClass "sevencol"
         $("#right").removeClass("twelvecol").addClass "fivecol"
+      ###
+      
+      d = new Date()
+      period = $("ol#periods li").last()
+      period_time = period.find("time.finish").attr("datetime")
+      current_time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+      
+      # If it is after-school.
+      if time < period_time
+        $("ol#periods").css "display", "none" # Hide periods.
+        $("#left").removeClass("sevencol") # Removed left column.
+        $("#right").removeClass("fivecol").addClass "twelvecol" # Expand right column.
+        $("#clock #date").css("font-size", "2.75em") # Increase size of date.
+        $("#clock #time").css("font-size", "4em") # Increase size of time.
+      
+      # If it is during school.
+      else
+        $("ol#periods").css "display", "block" # Show periods.
+        $("#left").removeClass("fivecol").addClass "sevencol" # Show left column.
+        $("#right").removeClass("twelvecol").addClass "fivecol" # Shrink right column.
       
       # Which period are we currently in?
       $("ol#periods li").each (index) ->
