@@ -15,14 +15,9 @@ test:
   
 production:
   <<: *defaults
+  host: localhost
   database: clock_production
-  username: Timelord
-  password: cl*ck
-  hosts:
-  - - localhost
-    - 27017
-  - - staff.mongohq.com
-    - 10055
+  port: 27017
   
 heroku:
   <<: *defaults
