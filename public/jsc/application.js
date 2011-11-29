@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 25 Nov 2011 04:19:41 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 28 Nov 2011 22:26:15 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -46,6 +46,8 @@
           $("#ol#periods").css("display", "block");
           $("#left").addClass("sevencol");
           $("#right").removeClass("twelvecol").addClass("fivecol");
+          $("#date").css("font-size", "1.75em");
+          $("#time").css("font-size", "3em");
         }
         $("ol#periods li").each(function(index) {
           var element, finish, next, next_start, start;
@@ -77,7 +79,7 @@
     $("#marquee").marquee({
       pauseOnHover: false
     });
-    $("video[loop]").bind("ended", function() {
+    $("video source").bind("ended", function() {
       return this.play();
     });
     return $("ol#periods li").fitText(1.2, {
