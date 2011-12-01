@@ -21,7 +21,6 @@
     monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
     
     # Append a 0 if less than 10.
-    date = "0" + date  if date < 10
     minute = "0" + minute  if minute < 10
     second = "0" + second  if second < 10
     
@@ -98,3 +97,9 @@ $(document).ready ->
   $("ol#periods li").fitText 1.2,
     minFontSize: "30px"
     maxFontSize: "36px"
+    
+# Pusher and refresh.
+pusher = new Pusher("4f803f0cec789e485391")
+channel = pusher.subscribe("refreshes")
+channel.bind "refresh", (data) ->
+  window.location.href = window.location.href;

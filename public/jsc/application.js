@@ -1,9 +1,9 @@
-/* DO NOT MODIFY. This file was compiled Mon, 28 Nov 2011 22:26:15 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 01 Dec 2011 21:33:42 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
-  var clock;
+  var channel, clock, pusher;
 
   (clock = function() {
     return setTimeout((function() {
@@ -18,7 +18,6 @@
       second = d.getSeconds();
       dayArray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
       monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-      if (date < 10) date = "0" + date;
       if (minute < 10) minute = "0" + minute;
       if (second < 10) second = "0" + second;
       if (hour >= 12) {
@@ -86,6 +85,14 @@
       minFontSize: "30px",
       maxFontSize: "36px"
     });
+  });
+
+  pusher = new Pusher("4f803f0cec789e485391");
+
+  channel = pusher.subscribe("refreshes");
+
+  channel.bind("refresh", function(data) {
+    return window.location.href = window.location.href;
   });
 
 }).call(this);

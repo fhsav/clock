@@ -20,8 +20,8 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 gem 'tzinfo'
 gem 'therubyrhino'
 
-gem 'bson_ext', '1.4.0', :require => "mongo"
-gem 'mongo', '1.4.0', :require => false
+gem 'bson_ext', '1.5.1', :require => "mongo"
+gem 'mongo', '1.5.1', :require => false
 gem 'mongo_mapper'
 gem 'joint'
 
@@ -29,6 +29,8 @@ gem 'haml'
 gem 'compass'
 gem 'barista'
 gem 'maruku'
+
+gem 'pusher'
 
 gem 'kumade'
 

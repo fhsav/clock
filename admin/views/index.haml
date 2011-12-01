@@ -5,3 +5,8 @@
     *  For documentation, visit [the wiki on GitHub](http://github.com/eturk/fhsclock/wiki/_pages).
     *  For support, [email me](mailto:ethan.turkeltaub@gmail.com), or [create an issue on GitHub](http://github.com/eturk/fhsclock/issues).
     *  _Remember, after each change, you need to refresh the computer!_
+  %section{:style => "margin-top: 1em"}
+    = flash_tag :notice
+    %form{:action => url(:refresh), :method => "post"}
+      %p
+        %button.huge{:type => "submit"} Refresh

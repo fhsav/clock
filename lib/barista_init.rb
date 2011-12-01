@@ -3,7 +3,6 @@ module BaristaInitializer
     Barista.configure do |c|
       c.root = File.join(Padrino.root, "app", "assets", "coffee")
       c.output_root = File.join(Padrino.root, "public", "jsc")
-      c.verbose = false
     end
 
     app.register Barista::Integration::Sinatra
