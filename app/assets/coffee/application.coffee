@@ -89,10 +89,6 @@ $(document).ready ->
   # Stop the marquee from stopping as you hover.
   $("#marquee").marquee pauseOnHover: false
   
-  # Hack to loop video.
-  $("video source").bind "ended", ->
-    this.play()
-  
   # FitText
   $("ol#periods li").fitText 1.2,
     minFontSize: "30px"
