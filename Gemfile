@@ -24,11 +24,12 @@ gem 'bson_ext', '1.5.1', :require => "mongo"
 gem 'mongo', '1.5.1', :require => false
 gem 'mongo_mapper'
 gem 'joint'
+gem 'rack-gridfs', :require => "rack/gridfs"
 
 gem 'haml'
 gem 'compass'
 gem 'barista'
-gem 'maruku'
+gem 'rdiscount'
 
 gem 'pusher'
 

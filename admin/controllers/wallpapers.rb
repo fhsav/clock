@@ -1,5 +1,5 @@
  Admin.controllers :wallpapers do
-  before :except => [:linked, :direct] do
+  before :except => [:serve] do
     authenticated?
   end
   
@@ -10,14 +10,9 @@
     render 'wallpapers/index'
   end
   
-  # GET /admin/wallpapers/linked/:id
-  get :linked, :with => :id do
-    Wallpaper.find_by_file_id(params[:id]).file.grid_io
-  end
-  
-  # GET /admin/wallpapers/direct/:id
-  get :direct, :with => :id, :provides => [:jpg, :png, :gif, :mp4] do
-    Wallpaper.find_by_file_id(params[:id]).file.grid_io
+  # GET /admin/wallpapers/serve/:id
+  get :serve, :with => :id do
+    redirect("/gridfs/#{id}")
   end
   
   # POST /admin/wallpapers/create

@@ -7,19 +7,13 @@
       %thead
         %tr
           %th Name
-          %th Preview
           %th Content Type
           %th Actions
       %tbody
         - @wallpapers.each do |wallpaper|
           %tr{:class => wallpaper.active}
-            %td= wallpaper.name
-            - if wallpaper.file.type == "video/mp4"
-              %td
-                %a{:href => "/admin/wallpapers/direct/#{wallpaper.file.id}.mp4"}
-                  ="/admin/wallpapers/direct/#{wallpaper.file.id}.mp4"
-            -else
-              %td= link_to url(:wallpapers, :direct, :id => wallpaper.file.id), url(:wallpapers, :direct, :id => wallpaper.file.id)
+            %td
+              %a{:href => "/gridfs/#{wallpaper.file.id}"}= wallpaper.name
             %td= wallpaper.file.type
             %td
               %form.inline{:action => url(:wallpapers, :activate), :method => "post"}
@@ -36,8 +30,8 @@
       No wallpapers!
       
   %section.meta.row
-    :maruku
-      **Disclaimer**: When you change the background (especially to a video), it will be slow to load. It'll most likely flash to white and stay like that for a second or two. Allowed file types are only <code>*.jpg</code>, <code>*.png</code>, <code>*.gif</code> for images, and only <code>*.mp4</code> for video. _Due to a bug with Google Chrome, video looping does not work._
+    :markdown
+      **Disclaimer**: When you change the background (especially to a video), it will be slow to load. It'll most likely flash to white and stay like that for a second or two.
     %form{:action => url(:wallpapers, :create), :enctype => "multipart/form-data", :method => "post", :style => "margin-top: 1em"}
       %p
         %input{:name => "wallpaper[name]", :placeholder => "Name", :type => "text"}/

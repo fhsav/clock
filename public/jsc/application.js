@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 02 Dec 2011 00:10:01 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 03 Dec 2011 20:03:55 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 

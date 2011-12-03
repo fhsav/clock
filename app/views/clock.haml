@@ -10,7 +10,7 @@
     - if !@wallpaper.blank?
       - if @wallpaper.file.type != "video/mp4"
         :css
-          body { background: url("/admin/wallpapers/linked/#{@wallpaper.file.id}") no-repeat; }
+          body { background: url("/gridfs/#{@wallpaper.file.id}") no-repeat; }
       - else
         :css
           body { background-color: #000000; }
@@ -20,8 +20,7 @@
   %body
     - if !@wallpaper.blank?
       - if @wallpaper.file.type == "video/mp4"
-        %video{:autoplay => true, :loop => true, :muted => true}
-          %source{:src => "/admin/wallpapers/direct/#{@wallpaper.file.id}.mp4", :preload => "all", :type => "video/mp4"}
+        %video{:autoplay => true, :muted => true, :preload => "none", :loop => true, :src => "/gridfs/#{@wallpaper.file.id}"}
     #contain
       %header.row
         - if !@marquees.blank?
