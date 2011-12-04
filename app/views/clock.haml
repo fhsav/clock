@@ -20,7 +20,8 @@
   %body
     - if !@wallpaper.blank?
       - if @wallpaper.file.type == "video/mp4"
-        %video{:autoplay => true, :muted => true, :preload => "none", :loop => true, :src => "/gridfs/#{@wallpaper.file.id}"}
+        %video{:autoplay => true, :muted => true, :preload => "none", :loop => true}
+          %source{:src => "/gridfs/#{@wallpaper.file.id}"}
     #contain
       %header.row
         - if !@marquees.blank?
