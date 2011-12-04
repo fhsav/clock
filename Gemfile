@@ -18,18 +18,19 @@ gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'tzinfo'
-gem 'therubyrhino'
 
 gem 'bson_ext', '1.5.1', :require => "mongo"
+gem 'rack-gridfs', :require => "rack/gridfs"
 gem 'mongo', '1.5.1', :require => false
 gem 'mongo_mapper'
 gem 'joint'
-gem 'rack-gridfs', :require => "rack/gridfs"
 
 gem 'haml'
+gem 'rdiscount'
+
+gem 'therubyrhino'
 gem 'compass'
 gem 'barista'
-gem 'rdiscount'
 
 gem 'pusher'
 

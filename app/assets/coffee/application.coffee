@@ -1,6 +1,6 @@
 # FHS Clock
 #   file: application.coffee
- 
+
 (clock = ->
   
   # Changing elements. Will change every 0 seconds.
