@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Sun, 04 Dec 2011 02:25:10 GMT from
- * /var/www/fhsclock/app/assets/coffee/application.coffee
+/* DO NOT MODIFY. This file was compiled Wed, 07 Dec 2011 12:18:57 GMT from
+ * /Users/fhsav/Sites/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
@@ -42,7 +42,7 @@
           $("#date").css("font-size", "2.5em");
           $("#time").css("font-size", "4em");
         } else {
-          $("#ol#periods").css("display", "block");
+          $("ol#periods").css("display", "block");
           $("#left").addClass("sevencol");
           $("#right").removeClass("twelvecol").addClass("fivecol");
           $("#date").css("font-size", "1.75em");

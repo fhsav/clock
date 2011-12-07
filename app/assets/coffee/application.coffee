@@ -52,7 +52,7 @@
         $("#date").css("font-size", "2.5em")
         $("#time").css("font-size", "4em")
       else
-        $("#ol#periods").css "display", "block"
+        $("ol#periods").css "display", "block"
         $("#left").addClass "sevencol"
         $("#right").removeClass("twelvecol").addClass "fivecol"
         $("#date").css("font-size", "1.75em")
