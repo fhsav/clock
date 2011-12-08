@@ -2,7 +2,11 @@ require 'digest/sha1'
 
 Admin.helpers do
   def local(time)
-    TZ.utc_to_local(time).strftime("%k:%M").to_s.strip
+    if ENV["HEROKU"]
+      time.strftime("%k:%M").to_s.strip
+    else
+      TZ.utc_to_local(time).strftime("%k:%M").to_s.strip
+    end
   end
   
   def authenticate!
