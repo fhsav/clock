@@ -7,21 +7,20 @@
     %title FHS Clock
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
     %link{:href => "/css/application.css", :rel => "stylesheet"}
-    - if !@wallpaper.blank?
-      - if @wallpaper.file.type != "video/mp4"
+    - if settings.video["enabled"] == true
+      :css
+        body { background-color: #000000; }
+    - else
+      - if !@wallpaper.blank?
         :css
           body { background: url("/gridfs/#{@wallpaper.file.id}") no-repeat; }
       - else
         :css
-          body { background-color: #000000; }
-    - else
-      :css
-        body { background: url("/img/default.jpg") no-repeat; }
+          body { background: url("/img/default.jpg") no-repeat; }
   %body
-    - if !@wallpaper.blank?
-      - if @wallpaper.file.type == "video/mp4"
-        %video{:autoplay => true, :muted => true, :preload => "none", :loop => true}
-          %source{:src => "/gridfs/#{@wallpaper.file.id}"}
+    - if settings.video["enabled"] == true
+      %video{:autoplay => true, :muted => true, :preload => "none", :loop => true}
+        %source{:src => "/videos/#{settings.video["file"]}"}
     #contain
       %header.row
         - if !@marquees.blank?
