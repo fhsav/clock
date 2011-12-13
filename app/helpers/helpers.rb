@@ -7,7 +7,9 @@ end
 Clock.helpers do
   def local(time)
     if time
-      time = TZ.utc_to_local(time)
+      unless ENV["HEROKU"]
+        time = TZ.utc_to_local(time)
+      end
       
       hour = time.strftime("%I")
       minute = time.strftime("%M")
@@ -22,7 +24,9 @@ Clock.helpers do
   
   def seconds(time)
     if time
-      time = TZ.utc_to_local(time)
+      unless ENV["HEROKU"]
+        time = TZ.utc_to_local(time)
+      end
       
       hours = time.hour * 3600
       minutes = time.min * 60

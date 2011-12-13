@@ -7,6 +7,8 @@ require 'bundler/setup'
 
 Bundler.require(:default, PADRINO_ENV)
 
-TZ = ActiveSupport::TimeZone.new("Eastern Time (US & Canada)")
+unless ENV["HEROKU"]
+  TZ = ActiveSupport::TimeZone.new("Eastern Time (US & Canada)")
+end
 
 Padrino.load!
