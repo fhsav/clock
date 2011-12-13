@@ -2,6 +2,9 @@
   %h2
     Wallpapers
   =flash_tag :notice
+  - if settings.video["enabled"] == true
+    .error
+      A video is enabled, so you cannot change the wallpaper here.
   - if !@wallpapers.blank?
     %table
       %thead
@@ -24,7 +27,7 @@
               %form.inline{:action => url(:wallpapers, :destroy), :method => "post"}
                 %input{:name => "id", :type => "hidden", :value => wallpaper.id}/
                 %input{:name => "_method", :type => "hidden", :value => "delete"}/
-                %button.inline{:type => "submit", :value => "Delete"} Delete
+                %button.inline{:type => "submit", :value => "Delete"} Delete	
   - else
     %p
       No wallpapers!

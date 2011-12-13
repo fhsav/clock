@@ -8,6 +8,7 @@ class Admin < Padrino::Application
   
   enable :sessions
   set :password, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["password"]
+  set :video, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["video"]
   
   layout :application
 end  
