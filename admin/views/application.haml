@@ -28,9 +28,8 @@
               %ul
                 %li
                   %a{:href => url(:index)} Home
-                - unless !ENV["HEROKU"]
-                  %li
-                    %a{:href => url(:wallpapers, :index)} Wallpapers
+                %li
+                  %a{:href => url(:wallpapers, :index)} Wallpapers
                 %li
                   %a{:href => url(:schedules, :index)} Schedules
                 %li

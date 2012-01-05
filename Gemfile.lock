@@ -245,7 +245,6 @@ DEPENDENCIES
   haml
   joint
   kumade
-  mongo (= 1.5.1)
   mongo_mapper
   padrino (= 0.10.5)
   pusher
