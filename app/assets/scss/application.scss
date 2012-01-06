@@ -82,7 +82,7 @@ video {
 */
 
 ul#marquee {
-	background: rgba(50, 50, 50, 0.5);
+	background: rgba(50, 50, 50, 0.75);
 	color: #fafafa;
 	display: block;
 	font-size: 1.5em;
@@ -109,15 +109,27 @@ ul#marquee {
 */
 
 ol#periods li {
-	background: rgba(255, 255, 255, 0.5);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e2e2e2), to(#f0f0f0));
+
+	/*background: rgba(255, 255, 255, 0.5);*/
 	border-bottom: 1px solid #000;
 	display: block;
 	font-size: 1.35em;
-	padding: 0.3em 0.5em 0.15em 0.5em;
+	padding: 0.4em 0.5em 0.15em 0.5em;
 	width: 90%;
 	
+	&:first-child {
+		border-top: 1px solid #ccc;
+		border-radius: 3px 3px 0 0;
+	}
+	
+	&:last-child {
+		border-radius: 0 0 3px 3px;
+	}
+	
 	&#active {
-		background: rgba(50, 50, 50, 0.5);
+		/*background: rgba(50, 50, 50, 0.5);*/
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#949494));
 		color: #fafafa;
 	}
 }
