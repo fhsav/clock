@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Wed, 07 Dec 2011 12:18:57 GMT from
- * /Users/fhsav/Sites/fhsclock/app/assets/coffee/application.coffee
+/* DO NOT MODIFY. This file was compiled Sat, 07 Jan 2012 20:52:08 GMT from
+ * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {

@@ -15,7 +15,7 @@ $max_width: 1040px;
 */
 
 body {
-	background: #444;
+	background: #fafafa;
 	color: #444;
 	font: 13px/1.5em "Open Sans", Helvetica, Arial, sans-serif;
 }
@@ -26,16 +26,15 @@ h2 {
 	margin-bottom: 1em;
 	padding-bottom: 0.5em;
 	width: 100%;
+	text-align: center;
 }
 
 input {
 	border: 1px solid #ccc;
+	border-radius: 3px;
 	padding: 1em;
-}
-
-button {
-	border: 1px solid #ccc;
-	padding: 1em;
+	text-algin: center;
+	width: 90%;
 }
 
 /*
@@ -45,9 +44,10 @@ button {
 #main {
 	background: #edeeeb;
 	border: 1px solid #ccc;
-	padding: 25px;
-	margin: 200px auto;
-	width: 400px;
+	padding: 3em;
+	margin: 12em auto 0;
+	min-width: 398px;
+	max-width: 400px;
 }
 
 .error {
@@ -61,4 +61,5 @@ p#v {
 	font-size: 0.75em;
 	margin-top: 0.5em;
 	padding-top: 0.5em;
+	text-align: center;
 }
