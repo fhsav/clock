@@ -111,7 +111,6 @@ ul#marquee {
 ol#periods li {
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e2e2e2), to(#f0f0f0));
 
-	/*background: rgba(255, 255, 255, 0.5);*/
 	border-bottom: 1px solid #000;
 	display: block;
 	font-size: 1.35em;
@@ -128,7 +127,6 @@ ol#periods li {
 	}
 	
 	&#active {
-		/*background: rgba(50, 50, 50, 0.5);*/
 		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#949494));
 		color: #fafafa;
 	}
@@ -160,6 +158,7 @@ ol#periods li {
 
 
 #clock {
+	text-shadow: 1px 1px 1px #333;
 	margin-bottom: 2em;
 	
 	#date {
