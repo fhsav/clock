@@ -5,8 +5,17 @@
 
 /*
 	= Appendix
-		I. Media Queries
-		II.
+		I. Variables and Import
+		II. Media Queries
+		III. Typefaces
+		IV. Universal
+		V. Main
+		VI. Marquee
+		VII. Schedule
+		VIII. Right
+		VIV. Clock
+		X. Notices
+		XI. Miscellaneous
 */
 
 /*
@@ -41,7 +50,7 @@ $max_width: 960px;
 
 
 /*
-	II. 
+	IV. Universal
 */
 
 * {
@@ -70,7 +79,7 @@ video {
 }
 
 /*
-	III. Main
+	V. Main
 */
 
 #main {
@@ -78,7 +87,7 @@ video {
 }
 
 /*
-	III. Marquee
+	VI. Marquee
 */
 
 ul#marquee {
@@ -105,7 +114,7 @@ ul#marquee {
 }
 
 /*
-	IV. Schedule
+	VII. Schedule
 */
 
 ol#periods li {
@@ -127,7 +136,7 @@ ol#periods li {
 	}
 	
 	&#active {
-		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#777));
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#333));
 		color: #fafafa;
 	}
 }
@@ -144,7 +153,7 @@ ol#periods li {
 }
 
 /*
-	V. Right
+	VIII. Right
 */
 
 #right {
@@ -153,7 +162,7 @@ ol#periods li {
 }
 
 /*
-	VI. Clock
+	VIV. Clock
 */
 
 
@@ -196,7 +205,7 @@ ol#periods li {
 }
 
 /*
-	X. Miscellaneous
+	XI. Miscellaneous
 */
 
 ::-webkit-scrollbar {
