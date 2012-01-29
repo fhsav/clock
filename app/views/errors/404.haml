@@ -1,0 +1,18 @@
+<!doctype html>
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}
+    %title FHS Clock &mdash; Error
+    %link{:href => "humans.txt", :rel => "author", :type => "text/plain"}
+    %link{:href => "/css/error.css", :rel => "stylesheet"}
+  %body
+    #contain
+      #main.row{:role => "main"}
+        %p
+          %img{:src => "/img/adam-savage.jpg"}/
+        %h1 Well there's your problem.
+        %h2 Y'all got a 404 up in here.
+        %p
+          %a{ :href => Admin.url(:index) } Go back home, sir.

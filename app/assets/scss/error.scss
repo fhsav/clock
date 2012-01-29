@@ -1,0 +1,52 @@
+/*
+	Error
+		file: error.scss
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700,700italic&v2);
+
+$contain_padding: 20px;
+$max_width: 360px;
+
+@import "gyaku";
+
+body {
+	background: #f0f0f0;
+	color: #333;
+	font: 13px/1.5em "Anonymous Pro", monospace;
+	text-align: center;
+}
+
+a {
+	color: #333;
+	
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+pre {
+	background: #fcfcfc;
+	border: 2px solid #ccc;
+	padding: 1em;
+	width: 90%;
+}
+
+h1, h2 {
+	text-transform: uppercase;
+}
+
+h1 {
+	font-size: 1.25em;
+	margin-top: 1em;
+}
+
+h2 {
+	font-size: 1.75em;
+	margin-bottom: 2em;
+	margin-top: 1em;
+}
+
+#main {
+	margin-top: 3em;
+}

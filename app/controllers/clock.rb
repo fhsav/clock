@@ -19,4 +19,13 @@ Clock.controllers do
   get :ping do
     "pong"
   end
+  
+  # GET /500
+  get "/500" do
+    if request.env['sinatra_error']
+      @error = request.env['sinatra_error'].name
+    end
+    
+    render 'errors/500'
+  end
 end

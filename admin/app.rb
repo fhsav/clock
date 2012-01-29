@@ -11,4 +11,12 @@ class Admin < Padrino::Application
   set :video, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["video"]
   
   layout :application
+  
+  not_found do
+    redirect url("/404")
+  end
+  
+  error do
+    redirect url("/500")
+  end
 end  
