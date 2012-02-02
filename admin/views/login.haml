@@ -26,7 +26,8 @@
         %form{:action => url(:authenticate), :method => "post"}
           %p
             %input{:name => "password", :placeholder => "Password", :type => "password"}/
-        
+          %p
+            %button{:type => "submit"} Sign in
         %p#v #{CLOCK_VERSION}
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"}
     %script{:src => "/jsc/gyaku.js"}
