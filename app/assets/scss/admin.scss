@@ -240,12 +240,16 @@ tr.true {
 }
 
 #contain > header nav ul {
-	float: right !important;
+	/*float: right !important;*/
 }
 
 #contain > header nav ul li {
 	display: inline;
 	margin-left: 1em;
+	
+	&:first-child {
+		margin-left: 0;
+	}
 }
 
 #contain > header nav ul li a:hover {
@@ -265,15 +269,6 @@ tr.true {
 	background: #fafafa;
 	padding: 1em 0;
 }
-
-#contain > header .white a:hover {
-	color: #666;
-}
-
-#contain > header .white p {
-	display: inline;
-}
-
 
 /*
 	V. Body

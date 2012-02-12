@@ -24,22 +24,22 @@
           %hgroup.row
             %h1.sixcol
               %a{:href => url(:index)} FHS Clock
-            %nav.last
-              %ul
-                %li
-                  %a{:href => url(:index)} Home
-                %li
-                  %a{:href => url(:wallpapers, :index)} Wallpapers
-                %li
-                  %a{:href => url(:schedules, :index)} Schedules
-                %li
-                  %a{:href => url(:marquees, :index)} Marquees
-                %li
-                  %a{:href => url(:notices, :index)} Notices
+            %p.right.last
+              %a{:href => Clock.url(:index)}
+                View Clock &rarr;
         .white
-          %hgroup.row
-            %p.right
-              %a{:href => Clock.url(:index)} View Clock &rarr;
+          %nav.row
+            %ul
+              %li
+                %a{:href => url(:index)} Home
+              %li
+                %a{:href => url(:wallpapers, :index)} Wallpapers
+              %li
+                %a{:href => url(:schedules, :index)} Schedules
+              %li
+                %a{:href => url(:marquees, :index)} Marquees
+              %li
+                %a{:href => url(:notices, :index)} Notices
       #main{:role => "main"}
         #inner.row
           =yield
