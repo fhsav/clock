@@ -1,42 +1,43 @@
+/*
+	FHS Clock
+		file: admin/header.scss
+*/
+
 #contain > header {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 4em;
-}
 
-#contain > header hgroup:first-child {
-	margin: 0 auto;
-	width: 100%;
-}
-
-#contain > header nav ul {
-	/*float: right !important;*/
-}
-
-#contain > header nav ul li {
-	display: inline;
-	margin-right: 1.5em;
-	
-	&:first-child {
-		margin-left: 0;
+	hgroup:first-child {
+		margin: 0 auto;
+		width: 100%;
 	}
-}
 
-#contain > header nav ul li a:hover {
-	color: #444;
-	border: 0;
-}
+	nav ul li {
+		display: inline-block;
+		margin-right: 1.5em;
+	
+		&:first-child {
+			margin-left: 0;
+		}
+		
+		a:hover {
+			color: #444;
+			border: 0;
+		}
+	}
 
-#contain > header .black {
-	background: #444;
-	padding: 4em 0 2em 0;
-}
+	.black {
+		background: #444;
+		padding: 4em 0 2em 0;
+		
+		a {
+			color: #fafafa;
+		}
+	}
 
-#contain > header .black a {
-	color: #fafafa;
-}
-
-#contain > header .white {
-	background: #fafafa;
-	padding: 1em 0;
+	.white {
+		background: #fafafa;
+		padding: 1em 0;
+	}
 }
 

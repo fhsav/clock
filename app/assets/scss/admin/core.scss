@@ -1,8 +1,12 @@
+/*
+	FHS Clock
+		file: admin/core.scss
+*/
 
 body {
 	background: #efefef;
 	color: #444;
-	font: 11px/1.5em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font: 12px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -15,12 +19,6 @@ a {
 }
 
 button {
-	box-shadow: 
-		inset 0 1px 0 rgba(255, 255, 255, 0.6),
-		0 1px 0 rgba(0, 0, 0, 0.2),
-		0 0 0 1px rgb(150, 150, 150),
-		0 1px 2px rgba(0, 0, 0, 0.25);
-	border-radius: 3px;
 	background-color: rgba(255, 255, 255, 0.7);
 	background-image: 
 		-webkit-gradient(
@@ -30,32 +28,34 @@ button {
 			from(rgb(240, 240, 240)),
 			to(rgb(210, 210, 210))
 		);
+	border-radius: 3px;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.6),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(150, 150, 150),
+		0 1px 1px rgba(0, 0, 0, 0.25);
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 	
 	a {
-		display: block;
 		color: #000 !important;
+		display: block;
+		height: 100%;
 		
 		&:hover {
-			color: #000;
 			border: 0;
+			color: #000;
 		}
 		
 	}
 	
 	&:active {
-		-webkit-box-shadow:
+		box-shadow:
 			inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
 			0 0 0 1px rgb(140, 140, 140),
 			0 1px 1px rgba(0, 0, 0, 0.3);
 	}
-	
-	&:hover {
-		cursor: pointer;
-	}
-	
 	
 	&:focus {
 		background: black;
@@ -84,11 +84,11 @@ button {
 	}
 	
 	&.huge {
-		width: 100%;
 		height: 100px;
 		font-size: 3em;
 		font-weight: bold;
 		text-shadow: 1px 1px 1px #fff;
+		width: 100%;
 	}
 }
 
@@ -96,14 +96,14 @@ button.inline, form.inline {
 	background: none;
 	border: none;
 	box-shadow: none;
-	text-shadow: none;
 	display: inline;
 	margin: 0;
 	padding: 0;
+	text-shadow: none;
 }
 
 button, input {
-	font: 11px/1.5em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font: 11px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 button, input, textarea {
@@ -204,41 +204,4 @@ tr:nth-child(2n+2) {
 
 tr.true {
 	background: rgba(255, 255, 0, 0.5)
-}
-
-
-
-.error {
-	background: rgba(255, 0, 0, 0.5);
-	margin: 1em 0;
-	border-radius: 2px;
-	width: 95%;
-}
-
-.error, .notice {
-	margin-bottom: 2em;
-	padding: 1em;
-}
-
-.inline input {
-	display: inline;
-}
-
-.meta {
-	border-top: 1px solid #eee;
-	margin-top: 2em;
-	padding-top: 2em;
-}
-
-.notice {
-	border: 2px solid rgba(0, 255, 0, 1);
-	background: rgba(0, 255, 0, 0.5);
-}
-
-.right {
-	float: right !important;
-}
-
-.sixcol input {
-	width: 95%;
 }

@@ -1,1 +1,105 @@
-body{background:#efefef;color:#444;font:11px/1.5em "Open Sans",Helvetica Neue,Helvetica,Arial,sans-serif}a{color:#000;text-decoration:none}a:hover{border-bottom:1px solid #000}button{box-shadow:inset 0 1px 0 rgba(255,255,255,0.6),0 1px 0 rgba(0,0,0,0.2),0 0 0 1px #969696,0 1px 2px rgba(0,0,0,0.25);border-radius:3px;background-color:rgba(255,255,255,0.7);background-image:-webkit-gradient(linear, left top, left bottom, from(#f0f0f0), to(#d2d2d2));padding:0.25em 0.5em;text-decoration:none;text-shadow:0 1px 0 rgba(255,255,255,0.3)}button a{display:block;color:#000 !important}button a:hover{color:#000;border:0}button:active{-webkit-box-shadow:inset 0 0 4px 1px rgba(0,0,0,0.2),0 0 0 1px #8c8c8c,0 1px 1px rgba(0,0,0,0.3)}button:hover{cursor:pointer}button:focus{background:black}button.green{background:#CEFFA8;background-image:-webkit-gradient(linear, left top, left bottom, from(#ceffa8), to(#c3f0a1));box-shadow:none;border:1px solid #64D111}button.green:active{box-shadow:inset 0 1px 0 rgba(184,230,149,0.6),0 1px 0 rgba(0,0,0,0.2),0 0 0 1px #b8e695,0 1px 2px rgba(0,0,0,0.25)}button.huge{width:100%;height:100px;font-size:3em;font-weight:bold;text-shadow:1px 1px 1px #fff}button.inline,form.inline{background:none;border:none;box-shadow:none;text-shadow:none;display:inline;margin:0;padding:0}button,input{font:11px/1.5em "Open Sans",Helvetica Neue,Helvetica,Arial,sans-serif}button,input,textarea{border:1px solid #e0e0e0;outline:none;padding:0.5em}code{display:inline}h2{font-size:1.25em;margin-bottom:1em}input.medium{width:40% !important}input.time{width:20% !important}input.tiny{width:5% !important}form button{cursor:pointer;margin-right:2px}form p{margin-bottom:1em}h1{font-size:1.5em;font-weight:normal;margin-top:7px}input:focus,textarea:focus{border:1px solid #ccc}input[type="text"]{width:50%}select option{overflow:visible}table{border-spacing:0.25em;width:98%}thead{background:#444;border-color:inherit;color:#fafafa;display:table-header-group;text-align:left;vertical-align:middle}td{padding:.5em .5em}textarea{height:20em;max-width:98%;width:98%}textarea,code{font:11px/1.5em "Anonymous Pro",Monaco,Courier New,Courier,monospaced}textarea.small{height:10em}th{padding:.25em .5em}tr:nth-child(2n+2){background:#fff}tr.true{background:rgba(255,255,0,0.5)}.error{background:rgba(255,0,0,0.5);margin:1em 0;border-radius:2px;width:95%}.error,.notice{margin-bottom:2em;padding:1em}.inline input{display:inline}.meta{border-top:1px solid #eee;margin-top:2em;padding-top:2em}.notice{border:2px solid lime;background:rgba(0,255,0,0.5)}.right{float:right !important}.sixcol input{width:95%}
+/*
+Syntax error: Undefined variable: "$font".
+        on line 9 of /var/www/fhsclock/app/assets/scss/admin/core.scss
+
+4: */
+5: 
+6: body {
+7: 	background: #efefef;
+8: 	color: #444;
+9: 	font: 12px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;
+10: }
+11: 
+12: a {
+13: 	color: #000;
+14: 	text-decoration: none;
+
+Backtrace:
+/var/www/fhsclock/app/assets/scss/admin/core.scss:9
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/variable.rb:50:in `_perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `block in _perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `map'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `_perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `block in _perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `map'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `_perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:214:in `visit_prop'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:234:in `visit_rule'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:27:in `block in visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:39:in `with_environment'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:26:in `visit_children'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:47:in `visit_root'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:18:in `visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/root_node.rb:20:in `render'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/engine.rb:300:in `_render'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/engine.rb:247:in `render'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:319:in `update_stylesheet'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:181:in `block (2 levels) in update_stylesheets'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:175:in `each'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:175:in `block in update_stylesheets'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:173:in `each'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin/compiler.rb:173:in `update_stylesheets'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin.rb:81:in `update_stylesheets'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin.rb:54:in `check_for_updates'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/plugin/rack.rb:51:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/rack-1.3.5/lib/rack/head.rb:9:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/rack-1.3.5/lib/rack/methodoverride.rb:24:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/reloader.rb:250:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/logger.rb:306:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sinatra-1.3.1/lib/sinatra/showexceptions.rb:21:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/rack-1.3.5/lib/rack/session/abstract/id.rb:195:in `context'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/rack-1.3.5/lib/rack/session/abstract/id.rb:190:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sinatra-1.3.1/lib/sinatra/base.rb:1334:in `block in call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sinatra-1.3.1/lib/sinatra/base.rb:1403:in `synchronize'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sinatra-1.3.1/lib/sinatra/base.rb:1334:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/router.rb:83:in `block in call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/router.rb:76:in `each'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/router.rb:76:in `call'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:80:in `block in pre_process'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `catch'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `pre_process'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:53:in `process'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:38:in `receive_data'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/eventmachine-0.12.10/lib/eventmachine.rb:256:in `run_machine'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/eventmachine-0.12.10/lib/eventmachine.rb:256:in `run'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thin-1.3.1/lib/thin/backends/base.rb:61:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thin-1.3.1/lib/thin/server.rb:159:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/rack-1.3.5/lib/rack/handler/thin.rb:13:in `run'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/rack-1.3.5/lib/rack/server.rb:265:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/server.rb:45:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/server.rb:34:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/server.rb:12:in `run!'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/cli/adapter.rb:7:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/lib/padrino-core/cli/base.rb:24:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thor-0.14.6/lib/thor/task.rb:22:in `run'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thor-0.14.6/lib/thor/invocation.rb:118:in `invoke_task'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thor-0.14.6/lib/thor.rb:263:in `dispatch'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/thor-0.14.6/lib/thor/base.rb:389:in `start'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/padrino-core-0.10.5/bin/padrino:9:in `<top (required)>'
+/var/www/fhsclock/vendor/ruby/1.9.1/bin/padrino:19:in `load'
+/var/www/fhsclock/vendor/ruby/1.9.1/bin/padrino:19:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$font\".\A         on line 9 of /var/www/fhsclock/app/assets/scss/admin/core.scss\A \A 4: */\A 5: \A 6: body {\A 7: 	background: #efefef;\A 8: 	color: #444;\A 9: 	font: 12px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;\A 10: }\A 11: \A 12: a {\A 13: 	color: #000;\A 14: 	text-decoration: none;"; }

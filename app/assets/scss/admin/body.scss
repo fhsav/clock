@@ -1,54 +1,65 @@
+/*
+	FHS Clock
+		file: admin/body.scss
+*/
+
 #body {
 	background: #fafafa;
 	border: 1px solid #ccc;
-	padding: 2em 1em 2em 1em;
 	border-radius: 3px;
-}
-
-#body ul {
-	margin-left: 2em;
-}
-
-#body nav.back {
-	margin-bottom: 2em;
-}
-
-#body header h2, #body header nav {
-	display: inline-block;
-}
-
-#main nav {
-	margin-bottom: 2.5em;
-}
-
-#main nav li {
-	display: inline;
-	margin: 0;
-}
-
-#main nav li a {
-	background: #ccc;
-	color: #444;
-	display: block;
-	float: left;
-	margin: 0 1em 0 0;
-	padding: 0.5em 1em;
-	text-decoration: none;
+	padding: 2em 1em 2em 1em;
 	
-	&:hover {
-		background: #e1e1e1;
+	header {
+		h2, nav {
+			display: inline-block;
+		}
 	}
 	
-	&:visited {
-		color: #444;
+	ul {
+		margin-left: 2em;
 	}
+
+	nav.back {
+		margin-bottom: 2em;
+	}
+
+
 }
 
-#main nav li.selected a {
-	background: #fafafa;
-	border-bottom: 1px solid #fafafa;
-	border-left: 1px solid #ccc;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+#main {
+	nav {
+		margin-bottom: 2.5em;
+
+		li {
+			display: inline;
+			margin: 0;
+
+			a {
+				background: #ccc;
+				color: #444;
+				display: block;
+				float: left;
+				margin: 0 1em 0 0;
+				padding: 0.5em 1em;
+				text-decoration: none;
+	
+				&:hover {
+					background: #e1e1e1;
+				}
+	
+				&:visited {
+					color: #444;
+				}
+			}
+
+			&.selected a {
+				background: #fafafa;
+				border-bottom: 1px solid #fafafa;
+				border-left: 1px solid #ccc;
+				border-top: 1px solid #ccc;
+				border-right: 1px solid #ccc;
+			}
+		}
+	}
 }
 

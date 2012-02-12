@@ -110,13 +110,13 @@ input, select {
 
 
 #contain {
-	padding-left: $contain_padding;
-	padding-right: $contain_padding;
+	padding-left: $padding;
+	padding-right: $padding;
 }
 
 .row {
 	width: 100%;
-	max-width: $max_width;
+	max-width: $width;
 	min-width: 355px;
 	margin: 0 auto;
 	overflow: hidden;

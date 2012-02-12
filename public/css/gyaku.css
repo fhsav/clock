@@ -1,5 +1,5 @@
 /*
-Syntax error: Undefined variable: "$contain_padding".
+Syntax error: Undefined variable: "$padding".
         on line 113 of /var/www/fhsclock/app/assets/scss/gyaku.scss
 
 108: 		1140px Grid by Andy Taylor (http://coo.ly/pGu)
@@ -7,8 +7,8 @@ Syntax error: Undefined variable: "$contain_padding".
 110: 
 111: 
 112: #contain {
-113: 	padding-left: $contain_padding;
-114: 	padding-right: $contain_padding;
+113: 	padding-left: $padding;
+114: 	padding-right: $padding;
 115: }
 116: 
 117: .row {
@@ -94,4 +94,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$contain_padding\".\A         on line 113 of /var/www/fhsclock/app/assets/scss/gyaku.scss\A \A 108: 		1140px Grid by Andy Taylor (http://coo.ly/pGu)\A 109: */\A 110: \A 111: \A 112: #contain {\A 113: 	padding-left: $contain_padding;\A 114: 	padding-right: $contain_padding;\A 115: }\A 116: \A 117: .row {\A 118: 	width: 100%;"; }
+  content: "Syntax error: Undefined variable: \"$padding\".\A         on line 113 of /var/www/fhsclock/app/assets/scss/gyaku.scss\A \A 108: 		1140px Grid by Andy Taylor (http://coo.ly/pGu)\A 109: */\A 110: \A 111: \A 112: #contain {\A 113: 	padding-left: $padding;\A 114: 	padding-right: $padding;\A 115: }\A 116: \A 117: .row {\A 118: 	width: 100%;"; }

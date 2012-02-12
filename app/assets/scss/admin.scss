@@ -3,13 +3,10 @@
 		file: admin.scss
 */
 
-$contain_padding: 0;
-$max_width: 860px;
-
-@import url("http://is.gd/UsPLuf");
-@import "gyaku";
+@import "admin/assets";
 @import "admin/media";
 @import "admin/core";
 @import "admin/header";
 @import "admin/body";
 @import "admin/footer";
+@import "admin/misc";
