@@ -253,7 +253,8 @@ tr.true {
 }
 
 #contain > header nav ul li a:hover {
-	color: #fff;
+	color: #444;
+	border: 0;
 }
 
 #contain > header .black {
@@ -268,6 +269,53 @@ tr.true {
 #contain > header .white {
 	background: #fafafa;
 	padding: 1em 0;
+}
+
+button {
+	-webkit-box-shadow: 
+		inset 0 1px 0 rgba(255, 255, 255, 0.6),
+		0 1px 0 rgba(0, 0, 0, 0.2),
+		0 0 0 1px rgb(150, 150, 150),
+		0 1px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.7);
+	background-image: 
+		-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(rgb(240, 240, 240)),
+			to(rgb(210, 210, 210))
+		);
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+	
+	a {
+		display: block;
+		color: #000 !important;
+		
+		&:hover {
+			color: #000;
+			border: 0;
+		}
+		
+	}
+	
+	&:hover {
+		cursor: pointer;
+	}
+	
+	&:active {
+		-webkit-box-shadow:
+			inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
+			0 0 0 1px rgb(140, 140, 140),
+			0 1px 1px rgba(0, 0, 0, 0.3);
+	}
+	
+	&:focus {
+		background: black;
+	}
 }
 
 /*
