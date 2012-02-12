@@ -3,12 +3,12 @@
 		file: login.scss
 */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800|Droid+Serif:400,700,400italic,700italic&v2|Anonymous+Pro:400,400italic,700,700italic&v2);
-
 $padding: 0;
 $width: 1040px;
 
+@import url("http://is.gd/UsPLuf");
 @import "gyaku";
+
 
 /*
 	I. Universal
@@ -19,10 +19,6 @@ body {
 	background-image: -webkit-linear-gradient(#D9E4EA, #EEF3F7) no-repeat;
 	color: #444;
 	font: 13px/1.5em "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-p > button {
-	display: block;
 }
 
 button {
@@ -45,6 +41,10 @@ button {
 	&:focus {
 		background-image: -webkit-linear-gradient(#2D93BF, #19749B);
 	}
+}
+
+p > button {
+	display: block;
 }
 
 h2 {
