@@ -14,8 +14,7 @@
         %meta{:content => "The FHS Clock control panel.", :name => "description"}
         %meta{:content => "", :name => "author"}
         %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-        %link{:href => "/img/favicon.ico", :rel => "shortcut icon"}
-        %link{:href => "/img/apple-touch-icon.png", :rel => "apple-touch-icon"}
+        %link{:href => "/favicon.ico", :rel => "shortcut icon"}
         %link{:href => "/css/admin.css", :rel => "stylesheet"}
   %body
     #contain
@@ -24,28 +23,27 @@
           %hgroup.row
             %h1.sixcol
               %a{:href => url(:index)} FHS Clock
-            %nav.last
-              %ul
-                %li
-                  %a{:href => url(:index)} Home
-                %li
-                  %a{:href => url(:wallpapers, :index)} Wallpapers
-                %li
-                  %a{:href => url(:schedules, :index)} Schedules
-                %li
-                  %a{:href => url(:marquees, :index)} Marquees
-                %li
-                  %a{:href => url(:notices, :index)} Notices
+            %button.right.last
+              %a{:href => Clock.url(:index)}
+                View Clock &rarr;
         .white
-          %hgroup.row
-            %p.right
-              %a{:href => Clock.url(:index)} View Clock &rarr;
+          %nav.row
+            %ul
+              %li
+                %a{:href => url(:index)} Home
+              %li
+                %a{:href => url(:wallpapers, :index)} Wallpapers
+              %li
+                %a{:href => url(:schedules, :index)} Schedules
+              %li
+                %a{:href => url(:marquees, :index)} Marquees
+              %li
+                %a{:href => url(:notices, :index)} Notices
       #main{:role => "main"}
         #inner.row
           =yield
       %footer.row
-        %p The FHS Clock is awesome
-        %p Version #{CLOCK_VERSION}
+        %p#v #{CLOCK_VERSION}
         %p
           %form{:action => url(:logout), :method => "post"}
             %button{:type => "submit"} Logout

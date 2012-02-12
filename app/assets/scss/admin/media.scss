@@ -1,0 +1,23 @@
+/*
+	FHS Clock
+		file: admin/media.scss
+*/
+
+@media handheld, only screen and (max-width: 767px) {
+	#contain > header nav {
+		margin-left: -1em;
+	}
+	
+	h1 {
+		margin-bottom: 1em;
+	}
+
+	#main {
+		padding: 1em;
+	}
+	
+	p.right {
+		padding-right: 1em;
+	}
+}
+

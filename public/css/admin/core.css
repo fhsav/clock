@@ -1,22 +1,30 @@
 /*
-Syntax error: Undefined variable: "$padding".
-        on line 113 of /var/www/fhsclock/app/assets/scss/gyaku.scss
+Syntax error: Undefined variable: "$font".
+        on line 9 of /var/www/fhsclock/app/assets/scss/admin/core.scss
 
-108: 		1140px Grid by Andy Taylor (http://coo.ly/pGu)
-109: */
-110: 
-111: 
-112: #contain {
-113: 	padding-left: $padding;
-114: 	padding-right: $padding;
-115: }
-116: 
-117: .row {
-118: 	width: 100%;
+4: */
+5: 
+6: body {
+7: 	background: #efefef;
+8: 	color: #444;
+9: 	font: 12px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;
+10: }
+11: 
+12: a {
+13: 	color: #000;
+14: 	text-decoration: none;
 
 Backtrace:
-/var/www/fhsclock/app/assets/scss/gyaku.scss:113
+/var/www/fhsclock/app/assets/scss/admin/core.scss:9
 /var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/variable.rb:50:in `_perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `block in _perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `map'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `_perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `block in _perform'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `map'
+/var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/list.rb:69:in `_perform'
 /var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/script/node.rb:40:in `perform'
 /var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/perform.rb:214:in `visit_prop'
 /var/www/fhsclock/vendor/ruby/1.9.1/gems/sass-3.1.10/lib/sass/tree/visitors/base.rb:37:in `visit'
@@ -94,4 +102,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$padding\".\A         on line 113 of /var/www/fhsclock/app/assets/scss/gyaku.scss\A \A 108: 		1140px Grid by Andy Taylor (http://coo.ly/pGu)\A 109: */\A 110: \A 111: \A 112: #contain {\A 113: 	padding-left: $padding;\A 114: 	padding-right: $padding;\A 115: }\A 116: \A 117: .row {\A 118: 	width: 100%;"; }
+  content: "Syntax error: Undefined variable: \"$font\".\A         on line 9 of /var/www/fhsclock/app/assets/scss/admin/core.scss\A \A 4: */\A 5: \A 6: body {\A 7: 	background: #efefef;\A 8: 	color: #444;\A 9: 	font: 12px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;\A 10: }\A 11: \A 12: a {\A 13: 	color: #000;\A 14: 	text-decoration: none;"; }
