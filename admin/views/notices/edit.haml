@@ -1,8 +1,8 @@
 %section#body
   %section.row
     %nav.back
-      %p
-        %a{:href => url(:notices, :index)}= "&larr; Back to all notices."
+      %button
+        %a{:href => url(:notices, :index)}= "&larr; Back"
     %h2
       Editing notice 
       ="&rdquo;#{@notice.text}&ldquo;"

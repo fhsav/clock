@@ -1,8 +1,8 @@
 %section#body
   %section.row
     %nav.back
-      %p
-        %a{:href => url(:schedules, :edit, :id => @schedule.id)}= "&larr; Back to &ldquo;#{@schedule.name}&rdquo;"
+      %button
+        %a{:href => url(:schedules, :edit, :id => @schedule.id)}= "&larr; Back"
     %h2
       Editing period 
       ="&ldquo;#{@period.text}&rdquo; in schedule"
