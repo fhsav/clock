@@ -11,7 +11,7 @@ Syntax error: Undefined variable: "$font".
 10: }
 11: 
 12: a {
-13: 	color: #000;
+13: 	color: #333;
 14: 	text-decoration: none;
 
 Backtrace:
@@ -102,4 +102,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$font\".\A         on line 9 of /var/www/fhsclock/app/assets/scss/admin/core.scss\A \A 4: */\A 5: \A 6: body {\A 7: 	background: #efefef;\A 8: 	color: #444;\A 9: 	font: 12px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;\A 10: }\A 11: \A 12: a {\A 13: 	color: #000;\A 14: 	text-decoration: none;"; }
+  content: "Syntax error: Undefined variable: \"$font\".\A         on line 9 of /var/www/fhsclock/app/assets/scss/admin/core.scss\A \A 4: */\A 5: \A 6: body {\A 7: 	background: #efefef;\A 8: 	color: #444;\A 9: 	font: 12px/1.5em $font, Helvetica Neue, Helvetica, Arial, sans-serif;\A 10: }\A 11: \A 12: a {\A 13: 	color: #333;\A 14: 	text-decoration: none;"; }

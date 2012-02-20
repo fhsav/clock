@@ -4,8 +4,9 @@
       %button
         %a{:href => url(:notices, :index)}= "&larr; Back"
     %h2
-      Editing notice 
-      ="&rdquo;#{@notice.text}&ldquo;"
+      ="Editing notice item number #{@notice.id}."
+    %blockquote
+      ="&ldquo;#{@notice.text}&rdquo;"
     =flash_tag :error
     =flash_tag :notice
     %form.row{:action => url(:notices, :modify), :method => "post"}
