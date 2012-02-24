@@ -8,6 +8,10 @@
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 2em 1em 2em 1em;
+
+	form.activate {
+		margin-top: -1em;
+	}
 	
 	header {
 		h2, nav {
@@ -16,14 +20,13 @@
 	}
 	
 	ul {
+		margin-bottom: 2em;
 		margin-left: 2em;
 	}
 
 	nav.back {
 		margin-bottom: 2em;
 	}
-
-
 }
 
 #main {
