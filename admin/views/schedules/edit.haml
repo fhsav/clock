@@ -57,7 +57,7 @@
       %form{:action => url(:periods, :create, :schedule_id => @schedule.id), :method => "post"}
         %p.inline
           %input.tiny{:name => "period[number]", :placeholder => "Event #", :tabindex => "0", :type => "text", :width => "5"}/
-          %input.medium{:name => "period[text]", :placeholder => "Descriptive text (Period 1), et cetera.", :type => "text"}/
+          %input.medium{:autofocus => true, :name => "period[text]", :placeholder => "Descriptive text (Period 1), et cetera.", :type => "text"}/
           %input.time{:name => "period[start]", :placeholder => "Start time (07:32)", :type => "text"}/
           %input.time{:name => "period[finish]", :placeholder => "End time (14:23)", :type => "text"}/
           %input{:name => "id", :type => "hidden", :value => @schedule.id}/

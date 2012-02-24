@@ -7,6 +7,10 @@
   get :index do
     @wallpapers = Wallpaper.all
     
+    if ENV['HEROKU']
+      @disabled = true
+    end
+    
     render 'wallpapers/index'
   end
   

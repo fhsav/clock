@@ -33,12 +33,13 @@
       No wallpapers!
       
   %section.meta.row
-    :markdown
-      **Disclaimer**: When you change the background (especially to a video), it will be slow to load. It'll most likely flash to white and stay like that for a second or two.
+    - if @disabled
+      .error
+        The uploading of wallpapers is disabled on Heroku.
     %form{:action => url(:wallpapers, :create), :enctype => "multipart/form-data", :method => "post", :style => "margin-top: 1em"}
       %p
-        %input{:name => "wallpaper[name]", :placeholder => "Name", :type => "text"}/
+        %input{:disabled => @disabled, :name => "wallpaper[name]", :placeholder => "Name", :type => "text"}/
       %p
-        %input{:name => "wallpaper[file]", :type => "file"}/
+        %input{:disabled => @disabled, :name => "wallpaper[file]", :type => "file"}/
       %p
         %button.green{:type => "submit"} Create
