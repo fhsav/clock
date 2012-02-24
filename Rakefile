@@ -1,13 +1,6 @@
-namespace :server do
-  task :start do
-    sh "./bin/start"
-  end
-  
-  task :stop do
-    sh "./bin/stop"
-  end
-  
-  task :development do
-    sh "./bin/server"
-  end
-end
+require File.dirname(__FILE__) + '/config/boot.rb'
+
+require 'thor'
+require 'padrino-core/cli/rake'
+
+PadrinoTasks.init
