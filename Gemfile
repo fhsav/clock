@@ -18,6 +18,7 @@ gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'tzinfo'
+gem 'htmlentities'
 
 gem 'bson_ext', '1.5.1', :require => "mongo"
 gem 'rack-gridfs', :require => "rack/gridfs"

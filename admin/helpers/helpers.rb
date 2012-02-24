@@ -35,4 +35,9 @@ Admin.helpers do
   def time?(string)
     string.to_s.match(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/)
   end
+  
+  def entities(string)
+  	he = HTMLEntities.new
+  	he.decode(string)
+  end
 end
