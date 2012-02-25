@@ -1,7 +1,8 @@
-log/
+.bundle/
+.DS_Store
 .sass-cache/
+.tmproj
+dump.rdb
+log/
 tmp/
 vendor/ruby/
-.DS_Store
-.tmproj
-.bundle/
