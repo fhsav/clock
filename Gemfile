@@ -17,6 +17,8 @@ gem 'rack-protection'
 gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
 
+gem 'resque'
+
 gem 'tzinfo'
 gem 'htmlentities'
 

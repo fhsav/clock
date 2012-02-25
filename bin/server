@@ -1,3 +1,4 @@
 #!/bin/bash
 
-bundle exec padrino start -a thin -p 8080
+#bundle exec padrino start -a thin -p 8080
+bundle exec thin start -p 8080
