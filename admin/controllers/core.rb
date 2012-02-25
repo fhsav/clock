@@ -10,10 +10,19 @@ Admin.controllers do
   
   # POST /admin/refresh
   post :refresh do
-    Resque.enqueue(Refresh)
+    yaml = YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["pusher"]
     
-    flash[:notice] = "Refresh request sent."
-    redirect url(:index)
+    Pusher.app_id = yaml["id"]
+    Pusher.key = yaml["key"]
+    Pusher.secret = yaml["secret"]
+    
+    if Pusher["refreshes"].trigger!("refresh", { :timestamp => Time.now })
+      flash[:notice] = "Refresh request sent."
+      redirect url(:index)
+    else
+      flash[:error] = "Something went wrong and the refresh request was not sent."
+      redirect url(:index)
+    end
   end
 
   # GET /admin/login
