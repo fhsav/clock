@@ -1,3 +1,17 @@
+class EngagePusher
+  @queue = :pusher
+  
+  def self.perform
+    yaml = YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["pusher"]
+    
+    Pusher.app_id = yaml["id"]
+    Pusher.key = yaml["key"]
+    Pusher.secret = yaml["secret"]
+    
+    Pusher["refreshes"].trigger!("refresh", { :timestamp => Time.now })
+  end
+end
+
 Admin.controllers do
   before :except => [ :login, :authenticate ] do
     authenticated?
@@ -10,19 +24,10 @@ Admin.controllers do
   
   # POST /admin/refresh
   post :refresh do
-    yaml = YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["pusher"]
+    Resque.enqueue(EngagePusher)
     
-    Pusher.app_id = yaml["id"]
-    Pusher.key = yaml["key"]
-    Pusher.secret = yaml["secret"]
-    
-    if Pusher["refreshes"].trigger!("refresh", { :timestamp => Time.now })
-      flash[:notice] = "Refresh request sent."
-      redirect url(:index)
-    else
-      flash[:error] = "Something went wrong and the refresh request was not sent."
-      redirect url(:index)
-    end
+    flash[:notice] = "Refresh request sent."
+    redirect url(:index)
   end
 
   # GET /admin/login
