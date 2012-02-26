@@ -3,7 +3,6 @@ class Clock < Padrino::Application
   register CompassInitializer
   register Padrino::Cache
   register Padrino::Helpers
-  register Padrino::Mailer
   register Padrino::Rendering
   
   use Rack::GridFS, :prefix => 'gridfs', :hostname => 'localhost', :port => 27017, :database => "clock_#{PADRINO_ENV}"
