@@ -1,5 +1,4 @@
 Clock.controllers do
-  # GET /
   get :index do
     @schedule = Schedule.first(:active => true)
     
@@ -10,19 +9,15 @@ Clock.controllers do
     @marquees = Marquee.all
     @notices = Notice.all
     
-    @wallpaper = cache("wallpaper", :expires_in => 60) do
-      Wallpaper.first(:active => true)
-    end
+    @wallpaper = Wallpaper.first(:active => true)
     
     render :clock
   end
   
-  # GET /ping
   get :ping do
     "pong"
   end
   
-  # GET /500
   get "/500" do
     if request.env['sinatra_error']
       @error = request.env['sinatra_error'].name

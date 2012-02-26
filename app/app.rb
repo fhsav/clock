@@ -10,7 +10,12 @@ class Clock < Padrino::Application
   set :video, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["video"]
   
   enable :caching
-  set :cache, Padrino::Cache::Store::Redis.new(::Redis.new(:host => '127.0.0.1', :port => 6379, :db => 0))
+  
+  if ENV["HEROKU"]
+    set :cache, Padrino::Cache::Store::Memory.new(10000)
+  else
+    set :cache, Padrino::Cache::Store::Mongo.new(::Mongo::Connection.new("localhost", 27017).db('clock_development'))
+  end
   
   not_found do
     render 'errors/404'

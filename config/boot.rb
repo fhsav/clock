@@ -11,8 +11,4 @@ unless ENV["HEROKU"]
   TZ = ActiveSupport::TimeZone.new("Eastern Time (US & Canada)")
 end
 
-Padrino.before_load do
-  Dir[PADRINO_ROOT + "app/workers/*.rb"].each {|file| require file}
-end
-
 Padrino.load!
