@@ -9,9 +9,7 @@ Clock.controllers do
     @marquees = Marquee.all
     @notices = Notice.all
     
-    @wallpaper = cache("active_wallpaper", :expires_in => 60) do
-      Wallpaper.first(:active => true)
-    end
+    @wallpaper = Wallpaper.first(:active => true)
     
     render :clock
   end
