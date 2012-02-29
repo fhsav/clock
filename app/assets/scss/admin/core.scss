@@ -22,20 +22,20 @@ blockquote {
 
 button, .button {
 	background-color: rgba(255, 255, 255, 0.7);
-	background-image: 
-		-webkit-gradient(
-			linear,
-			left top,
-			left bottom,
-			from(rgb(240, 240, 240)),
-			to(rgb(210, 210, 210))
-		);
+	@include background-image(
+		linear-gradient(
+			top,
+			rgb(240, 240, 240),
+			rgb(210, 210, 210)
+		)
+	);
 	border-radius: 3px;
-	box-shadow:
+	@include box-shadow(
 		inset 0 1px 0 rgba(255, 255, 255, 0.6),
 		0 1px 0 rgba(0, 0, 0, 0.2),
 		0 0 0 1px rgb(150, 150, 150),
-		0 1px 1px rgba(0, 0, 0, 0.25);
+		0 1px 1px rgba(0, 0, 0, 0.25)
+	);
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -53,10 +53,11 @@ button, .button {
 	}
 	
 	&:active {
-		box-shadow:
+		@include box-shadow(
 			inset 0 0 4px 1px rgba(0, 0, 0, 0.2),
 			0 0 0 1px rgb(140, 140, 140),
 			0 1px 1px rgba(0, 0, 0, 0.3);
+		);
 	}
 	
 	&:focus {
@@ -77,11 +78,14 @@ button, .button {
 		border: 1px solid #64D111;
 		
 		&:active {
-			box-shadow: 
-				inset 0 1px 0 rgba(184, 230, 149, 0.6),
-				0 1px 0 rgba(0, 0, 0, 0.2),
-				0 0 0 1px rgb(184, 230, 149),
-				0 1px 2px rgba(0, 0, 0, 0.25);
+			@include background-image(
+				linear-gradient(
+					inset 0 1px 0 rgba(184, 230, 149, 0.6),
+					0 1px 0 rgba(0, 0, 0, 0.2),
+					0 0 0 1px rgb(184, 230, 149),
+					0 1px 2px rgba(0, 0, 0, 0.25)
+				)
+			);
 		}
 	}
 	

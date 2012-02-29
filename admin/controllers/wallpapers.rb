@@ -34,14 +34,9 @@
   
   # POST /admin/wallpapers/activate
   post :activate do
-    expire("wallpaper")
-    
     Wallpaper.set({:active => true}, :active => false)
     
-    wallpaper = cache("active_wallpaper", :expires_in => 60) do
-      Wallpaper.find(params[:id])
-    end
-    
+    wallpaper = Wallpaper.find(params[:id])
     wallpaper.active = true
     
     if wallpaper.save

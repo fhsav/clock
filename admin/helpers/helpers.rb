@@ -40,4 +40,11 @@ Admin.helpers do
   	he = HTMLEntities.new
   	he.decode(string)
   end
+  
+  def flush_cache!
+    expire("active_wallpaper")
+    cache("active_wallpaper", :expires_in => 30) do
+      Wallpaper.first(:active => true)
+    end
+  end
 end

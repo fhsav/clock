@@ -10,6 +10,8 @@ Admin.controllers do
   
   # POST /admin/refresh
   post :refresh do
+    flush_cache!
+    
     yaml = YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["pusher"]
     
     Pusher.app_id = yaml["id"]
