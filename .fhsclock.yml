@@ -4,5 +4,5 @@ pusher:
   key: 4f803f0cec789e485391
   secret: 68e1367424e19a300512
 video:
-  enabled: true
-  file: snow.mp4
+  enabled: false
+  file: 
