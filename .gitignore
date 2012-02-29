@@ -1,8 +1,8 @@
 log/
-.sass-cache/
+public/videos
 tmp/
 vendor/ruby/
 .DS_Store
+.sass-cache/
 .tmproj
-.bundle/
-public/videos
+dump.rdb
