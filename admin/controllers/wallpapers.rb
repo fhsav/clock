@@ -3,7 +3,6 @@
     authenticated?
   end
   
-  # GET /admin/wallpapers
   get :index do
     @wallpapers = Wallpaper.all
     
@@ -14,12 +13,10 @@
     render 'wallpapers/index'
   end
   
-  # GET /admin/wallpapers/serve/:id
   get :serve, :with => :id do
     redirect("/gridfs/#{id}")
   end
   
-  # POST /admin/wallpapers/create
   post :create do
     wallpaper = Wallpaper.new(:name => params[:wallpaper][:name], :content_type => params[:wallpaper][:file][:content_type], :file => params[:wallpaper][:file][:tempfile])
     
@@ -32,7 +29,6 @@
     end
   end
   
-  # POST /admin/wallpapers/activate
   post :activate do
     Wallpaper.set({:active => true}, :active => false)
     
@@ -48,7 +44,6 @@
     end
   end
   
-  # DELETE /admin/wallpapers/destroy
   delete :destroy do
     wallpaper = Wallpaper.find(params[:id])
     

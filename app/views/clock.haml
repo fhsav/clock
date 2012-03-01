@@ -46,8 +46,8 @@
               - if !@notices.blank?
                 - @notices.each do |notice|
                   %li{:class => notice.urgent}= notice.text
-    %script{:src => "http://code.jquery.com/jquery-1.7.1.js"}
-    %script{:src => "http://js.pusherapp.com/1.9/pusher.min.js"}
+    %script{:src => "/jsc/lib/jquery.js"}
+    %script{:src => "/jsc/lib/pusher.min.js"}
     %script{:src => "/jsc/lib/jquery.marquee.js"}
     %script{:src => "/jsc/lib/jquery.fittext.js"}
     %script{:src => "/jsc/application.js"}

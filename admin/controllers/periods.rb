@@ -3,7 +3,6 @@ Admin.controllers :periods, :parent => :schedules do
     authenticated?
   end
   
-  # GET /admin/schedules/:schedule_id/periods/edit/:id
   get :edit, :with => :id do
     @period = Period.find(params[:id])
     @schedule = Schedule.find(params[:schedule_id])
@@ -11,7 +10,6 @@ Admin.controllers :periods, :parent => :schedules do
     render 'periods/edit'
   end
   
-  # POST /admin/schedules/:schedule_id/periods/create
   post :create do
     schedule = Schedule.find(params[:id])
     
@@ -35,7 +33,6 @@ Admin.controllers :periods, :parent => :schedules do
     end
   end
 
-  # PUT /admin/schedules/:schedule_id/periods/modify
   put :modify do
     period = Period.find(params[:id])
     
@@ -60,7 +57,6 @@ Admin.controllers :periods, :parent => :schedules do
     end
   end
   
-  # DELETE /admin/schedules/:schedule_id/periods/destroy
   delete :destroy do
     period = Period.find(params[:id])
     

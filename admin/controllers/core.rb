@@ -3,15 +3,11 @@ Admin.controllers do
     authenticated?
   end
   
-  # GET /admin
   get :index do
     render :index
   end
   
-  # POST /admin/refresh
   post :refresh do
-    flush_cache!
-    
     yaml = YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["pusher"]
     
     Pusher.app_id = yaml["id"]
@@ -27,12 +23,10 @@ Admin.controllers do
     end
   end
 
-  # GET /admin/login
   get :login do
     render :login, :layout => false
   end
     
-  # POST /admin/authenticate
   post :authenticate do
     if encrypt(params[:password]) == settings.password or params[:password] == settings.password
       authenticate!
@@ -44,7 +38,6 @@ Admin.controllers do
     end
   end
   
-  # POST /admin/logout
   post :logout do
     deauthenticate!
     

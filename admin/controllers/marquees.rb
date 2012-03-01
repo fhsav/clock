@@ -3,21 +3,18 @@ Admin.controllers :marquees do
     authenticated?
   end
   
-  # GET /admin/marquees
   get :index do
     @marquees = Marquee.all
     
     render 'marquees/index'
   end
 
-  # GET /admin/marquees/edit/:id
   get :edit, :with => :id do
     @marquee = Marquee.find(params[:id])
     
     render 'marquees/edit'
   end
     
-  # POST /admin/marquees/create
   post :create do
     marquee = Marquee.new(params[:marquee])
     
@@ -30,7 +27,6 @@ Admin.controllers :marquees do
     end
   end
   
-  # PUT /admin/marquees/modify
   put :modify do
     marquee = Marquee.find(params[:id])
     
@@ -43,7 +39,6 @@ Admin.controllers :marquees do
     end
   end
   
-  # DELETE /admin/marquees/destroy
   delete :destroy do
     marquee = Marquee.find(params[:id])
     
