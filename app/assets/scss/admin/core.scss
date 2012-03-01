@@ -66,23 +66,23 @@ button, .button {
 	
 	&.green {
 		background: #CEFFA8;
-		background-image: 
-			-webkit-gradient(
-				linear,
-				left top,
-				left bottom,
-				from(#CEFFA8),
-				to(#C3F0A1)
-			);
-			box-shadow: none;
+		@include background-image(
+			linear-gradient(
+				top,
+				#CEFFA8,
+				#C3F0A1
+			)
+		);
+		box-shadow: none;
 		border: 1px solid #64D111;
 		
 		&:active {
-			-webkit-linear-gradient:
-					inset 0 1px 0 rgba(184, 230, 149, 0.6),
-					0 1px 0 rgba(0, 0, 0, 0.2),
-					0 0 0 1px rgb(184, 230, 149),
-					0 1px 2px rgba(0, 0, 0, 0.25);
+			@include box-shadow(
+				inset 0 1px 0 rgba(184, 230, 149, 0.6),
+				0 1px 0 rgba(0, 0, 0, 0.2),
+				0 0 0 1px rgb(184, 230, 149),
+				0 1px 2px rgba(0, 0, 0, 0.25)
+			);
 		}
 	}
 	
@@ -146,35 +146,26 @@ input {
 	
 	&[type=checkbox] {
 		-webkit-appearance: none;
-		-webkit-box-shadow: 
+		@include box-shadow( 
 			inset 0 1px 0 rgba(255, 255, 255, 0.6),
 			0 0 0 1px rgb(150, 150, 150),
-			0 1px 2px rgba(0, 0, 0, 0.25);
-		background:
-			-webkit-gradient(
-				linear,
-				0% 0%,
-				0% 100%,
-				from(rgb(240, 240, 240)),
-				to(rgb(210, 210, 210))
-			)
-			rgb(90, 90, 90);
+			0 1px 2px rgba(0, 0, 0, 0.25)
+		);
 		border-radius: 3px;
 		height: 10px;
 		padding: 0.2em;
 		width: 10px;
 		
 		&:checked {
-			background:
+			@include background(
 				url('/img/check.png') center center no-repeat,
-				-webkit-gradient(
-					linear,
-					0% 0%,
-					0% 100%,
-					from(rgb(240, 240, 240)),
-					to(rgb(210, 210, 210))
+				linear-gradient(
+					top,
+					rgb(240, 240, 240),
+					rgb(210, 210, 210)
 				)
-				rgb(90, 90, 90);
+				rgb(90, 90, 90)
+			);
 		}
 	}
 
