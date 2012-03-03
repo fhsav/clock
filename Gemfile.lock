@@ -248,7 +248,7 @@ DEPENDENCIES
   joint
   kumade
   mongo_mapper
-  padrino (= 0.10.5)
+  padrino
   pusher
   rack-gridfs
   rack-protection

@@ -6,7 +6,7 @@ rvm:
   - 1.9.2
   - 1.9.3
   - ruby-head
-script: ./bin/start
+script: ./bin/safe
 notifications:
   email:
     - ethan.turkeltaub@gmail.com

@@ -36,4 +36,4 @@ gem 'pusher'
 
 gem 'kumade'
 
-gem 'padrino', '0.10.5'
+gem 'padrino'
