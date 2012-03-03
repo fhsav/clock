@@ -20,7 +20,7 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 gem 'tzinfo'
 gem 'htmlentities'
 
-gem 'bson_ext', '1.5.1', :require => "mongo"
+gem 'bson_ext', :require => "mongo"
 gem 'rack-gridfs', :require => "rack/gridfs"
 gem 'mongo_mapper'
 gem 'joint'

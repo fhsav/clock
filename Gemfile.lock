@@ -239,7 +239,7 @@ PLATFORMS
 
 DEPENDENCIES
   barista
-  bson_ext (= 1.5.1)
+  bson_ext
   capybara
   compass
   factory_girl
