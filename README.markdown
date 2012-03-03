@@ -1,6 +1,6 @@
 # FHS Clock
 
-[![Travis-CI](https://secure.travis-ci.org/eturk/fhsclock.png)](http://travis-ci.org/#!/eturk/fhsclock)
+[![Travis-CI](https://secure.travis-ci.org/eturk/fhsclock.png)](http://travis-ci.org/#!/eturk/fhsclock) [![Gemnasium](https://gemnasium.com/eturk/fhsclock.png)](https://gemnasium.com/eturk/fhsclock)
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
