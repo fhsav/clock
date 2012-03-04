@@ -22,7 +22,7 @@ bundle exec padrino rake spec
 
 # Attempt at starting.
 echo -e "\033[1mAttempting to start the server.\033[0m"
-bundle exec unicorn -c bin/unicorn.rb -E production -p 3000 -D
+bundle exec unicorn -c config/unicorn.rb -E production -p 3000 -D
 
 # Give an indication.
 if [ -e tmp/pids/unicorn.pid ]; then
