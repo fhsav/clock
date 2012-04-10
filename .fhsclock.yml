@@ -1,8 +1,8 @@
 password: e57b7e5e1723a1ef652fa6daa4f315e58863fa6b
 pusher:
   id: 9339
-  key: 4f803f0cec789e485391
-  secret: 68e1367424e19a300512
+  key: 1d5de4ec7b636ea0a3a0
+  secret: c40c83c522e3cdb16d08
 video:
   enabled: false
   file: 
