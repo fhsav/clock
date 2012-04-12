@@ -4,7 +4,9 @@
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
-**Thanks:** Nick Silverman, [Joshua Warchol](http://unwin.org/), [Jon Ferry](http://jonferry.com/)
+**Thanks:** Nick Silverman, [Joshua Warchol](http://unwin.org/)
+
+**Licence:** [The ☺ Licence](http://licence.visualidiot.com/)
 
 ## What is it?
 
