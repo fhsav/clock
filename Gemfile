@@ -15,6 +15,8 @@ gem 'thin'
 gem 'rack-protection'
 
 gem 'rake'
+gem 'thor'
+
 gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'tzinfo'
