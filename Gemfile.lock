@@ -259,5 +259,6 @@ DEPENDENCIES
   sinatra-flash
   therubyrhino
   thin
+  thor
   tzinfo
   unicorn
