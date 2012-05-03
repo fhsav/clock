@@ -9,7 +9,7 @@ rvm:
   - ree
 before_install:
   - gem update --system
-script: ./bin/safe
+script: bundle exec thor safe
 notifications:
   email:
     - ethan.turkeltaub@gmail.com
