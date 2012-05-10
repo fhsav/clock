@@ -8,6 +8,7 @@ group :test do
 end
 
 group :production do
+  gem 'god'
   gem 'foreman'
   gem 'unicorn'
 end
