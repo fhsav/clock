@@ -33,13 +33,16 @@ $width: 960px;
 	II. Media Queries
 */
 
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
-
-}
-
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
+	#right {
+		margin-top: 0.5em;
+	}
 
+	#time {
+		font-size: 2.5em !important;
+	}
 }
+
 
 /*
 	III. Typefaces
@@ -201,13 +204,14 @@ ol#periods li {
 	
 	#date {
 		font-size: 1.75em;
+		font-weight: bold;
 		line-height: 1.15em;
 		margin-bottom: 0.5em;
 		margin-top: 0.25em;
 	}
 
 	#time {
-		font: 3.5em/1em "Ubuntu Mono", monospace;
+		font: bold 3.5em/1em "Ubuntu Mono", monospace;
 	}
 }
 
