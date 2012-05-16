@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 16 May 2012 11:52:44 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 16 May 2012 12:11:13 GMT from
  * /Users/fhsteacher/Sites/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -45,7 +45,7 @@
           $("#left").addClass("sevencol");
           $("#right").removeClass("twelvecol").addClass("fivecol");
           $("#date").css("font-size", "1.75em");
-          $("#time").css("font-size", "3em");
+          $("#time").css("font-size", "3.5em");
         }
         $("ol#periods li").each(function(index) {
           var e, finish, next, next_start, start;

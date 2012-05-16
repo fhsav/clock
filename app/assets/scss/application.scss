@@ -108,17 +108,18 @@ ul#marquee {
 	display: block;
 	font-size: 1.5em;
 	height: 1.5em;
-	list-style: none;
 	line-height: 1;
-	position: relative;
+	list-style: none;
 	overflow: hidden;
+	position: relative;
+	
 
 	li {
+		display: block;
+		left: 0;
 		padding: 0.25em 0.25em 0.25em 0.5em;
 		position: absolute;
 		top: -999em;
-		left: 0;
-		display: block;
 		white-space: nowrap;
 	}
 
@@ -155,7 +156,14 @@ ol#periods li {
 	}
 	
 	&#active {
-		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444), to(#222));
+		background-image:
+			-webkit-gradient(
+				linear,
+				0% 0%,
+				0% 100%,
+				from(#444),
+				to(#222)
+			);
 		color: #fafafa;
 	}
 }
@@ -193,15 +201,13 @@ ol#periods li {
 	
 	#date {
 		font-size: 1.75em;
-		line-height: 1em;
+		line-height: 1.15em;
 		margin-bottom: 0.5em;
 		margin-top: 0.25em;
 	}
 
 	#time {
-		font-family: "Ubuntu Mono", sans-serif;
-		font-size: 3em;
-		line-height: 1em;
+		font: 3.5em/1em "Ubuntu Mono", monospace;
 	}
 }
 
@@ -216,13 +222,13 @@ ol#periods li {
 		border-radius: 3px;
 		color: #000;
 		font-size: 1.25em;
-		padding: 1em 0.75em 0.75em 0.75em;
 		margin-bottom: 1em;
-	}
+		padding: 1em 0.75em 0.75em 0.75em;
 
-	li.true {
-		background: rgba(250, 0, 30, 0.6);
-		border: 2px solid rgba(250, 0, 30, 0.8);
+		&.true {
+			background: rgba(250, 0, 30, 0.6);
+			border: 2px solid rgba(250, 0, 30, 0.8);
+		}
 	}
 }
 

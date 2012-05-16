@@ -45,7 +45,7 @@
         $("#left").addClass "sevencol"
         $("#right").removeClass("twelvecol").addClass "fivecol"
         $("#date").css("font-size", "1.75em")
-        $("#time").css("font-size", "3em")
+        $("#time").css("font-size", "3.5em")
       
       $("ol#periods li").each (index) ->
         e = $(this)
