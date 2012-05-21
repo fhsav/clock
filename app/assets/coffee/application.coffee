@@ -34,6 +34,8 @@
       final_time = final_period.find("time.finish").attr("datetime") - 60
       time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 
+      $("#debug").text final_time
+
       if time > final_time
         $("ol#periods").css "display", "none"
         $("#left").removeClass("sevencol")
@@ -59,14 +61,13 @@
           e.attr "id", "active"
         else
           e.attr "id", ""
-          
+
         next = e.next()
         next_start = next.find("time.start").attr("datetime")
-        
-        if time > finish and time < next_start
-          e.css "border-bottom", "10px solid rgba(0, 0, 0, 0.5)"
-        else
-          e.css "border-bottom", "1px solid rgba(0, 0, 0, 0.5)"
+
+        if time > finish
+          e.fadeOut 'slow', ->
+            e.remove()
 
       clock()
   ), 0
