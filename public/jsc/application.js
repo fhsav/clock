@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Mon, 21 May 2012 16:45:49 GMT from
- * /Users/FHSAV/Sites/fhsclock/app/assets/coffee/application.coffee
+/* DO NOT MODIFY. This file was compiled Tue, 22 May 2012 00:47:57 GMT from
+ * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
@@ -34,7 +34,6 @@
         final_period = $("ol#periods li:last-child");
         final_time = final_period.find("time.finish").attr("datetime") - 60;
         time = (d.getHours() * 3600) + (d.getMinutes() * 60);
-        $("#debug").text(final_time);
         if (time > final_time) {
           $("ol#periods").css("display", "none");
           $("#left").removeClass("sevencol");
@@ -64,7 +63,7 @@
           next_start = next.find("time.start").attr("datetime");
           if (time > finish) {
             return e.fadeOut('slow', function() {
-              return e.remove();
+              return e.hide();
             });
           }
         });
@@ -80,10 +79,6 @@
     });
     $('video[loop="loop"]').bind("ended", function() {
       return this.play();
-    });
-    $("ol#periods li").fitText(1.2, {
-      minFontSize: "30px",
-      maxFontSize: "36px"
     });
     pusher = new Pusher("4f803f0cec789e485391");
     channel = pusher.subscribe("refreshes");

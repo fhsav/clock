@@ -34,8 +34,6 @@
       final_time = final_period.find("time.finish").attr("datetime") - 60
       time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 
-      $("#debug").text final_time
-
       if time > final_time
         $("ol#periods").css "display", "none"
         $("#left").removeClass("sevencol")
@@ -67,7 +65,7 @@
 
         if time > finish
           e.fadeOut 'slow', ->
-            e.remove()
+            e.hide()
 
       clock()
   ), 0
@@ -78,10 +76,6 @@ $(document).ready ->
   
   $('video[loop="loop"]').bind "ended", ->
     @play()
-  
-  $("ol#periods li").fitText 1.2,
-    minFontSize: "30px"
-    maxFontSize: "36px"
     
   pusher = new Pusher("4f803f0cec789e485391")
   channel = pusher.subscribe("refreshes")

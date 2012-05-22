@@ -46,9 +46,8 @@
               - if !@notices.blank?
                 - @notices.each do |notice|
                   %li{:class => notice.urgent}= notice.text
-          #debug
     %script{:src => "/jsc/lib/jquery.js"}
+    %script{:src => "/jsc/lib/jquery.ui.js"}
     %script{:src => "/jsc/lib/pusher.min.js"}
     %script{:src => "/jsc/lib/jquery.marquee.js"}
-    %script{:src => "/jsc/lib/jquery.fittext.js"}
     %script{:src => "/jsc/application.js"}
