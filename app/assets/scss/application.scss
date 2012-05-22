@@ -33,20 +33,32 @@ $width: 960px;
 	II. Media Queries
 */
 
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
-
-}
-
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
+	#right {
+		margin-top: 0.5em;
+	}
 
+	#time {
+		font-size: 2.5em !important;
+	}
 }
+
 
 /*
 	III. Typefaces
 */
 
-@include font-face("Standard CT", font-files("/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.woff", woff, "/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.ttf", truetype, "/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.svg#StandardCT-Bold", svg), "/css/lib/typefaces/StandardCT-Bold/StandardCT-Bold.eot");
-@include font-face("Helvetica World", font-files("/css/lib/typefaces/Helvetica/HelveticaWorld-Bold.ttf", truetype));
+$p-regular: "/fonts/proxima-nova/regular/regular";
+@include font-face("Proxima Nova", font-files($p-regular + ".woff", $p-regular + ".ttf", $p-regular + ".svg"), $p-regular + ".eot", normal, normal);
+
+$p-semibold: "/fonts/proxima-nova/semibold/semibold";
+@include font-face("Proxima Nova", font-files($p-semibold + ".woff", $p-semibold + ".ttf", $p-semibold + ".svg"), $p-semibold + ".eot", bold, normal);
+
+$u-regular: "/fonts/ubuntu-mono/regular/regular";
+@include font-face("Ubuntu Mono", font-files($u-regular + ".woff", $u-regular + ".ttf", $u-regular + ".svg"), $u-regular + ".eot", normal, normal);
+
+$u-bold: "/fonts/ubuntu-mono/bold/bold";
+@include font-face("Ubuntu Mono", font-files($u-bold + ".woff", $u-bold + ".ttf", $u-bold + ".svg"), $u-bold + ".eot", bold, normal);
 
 
 /*
@@ -59,7 +71,7 @@ $width: 960px;
 }
 
 body {
-	font: bold 26px/1.5em "Standard CT", Helvetica, Arial, sans-serif;
+	font: bold 26px/1.5em "Proxima Nova", Helvetica, Arial, sans-serif;
 	margin: 1em 0;
 	overflow: hidden;
 }
@@ -99,18 +111,18 @@ ul#marquee {
 	display: block;
 	font-size: 1.5em;
 	height: 1.5em;
-	
-	list-style: none;
 	line-height: 1;
-	position: relative;
+	list-style: none;
 	overflow: hidden;
+	position: relative;
+	
 
 	li {
-		padding: 0.35em 0.25em 0.25em 0.5em;
+		display: block;
+		left: 0;
+		padding: 0.25em 0.25em 0.25em 0.5em;
 		position: absolute;
 		top: -999em;
-		left: 0;
-		display: block;
 		white-space: nowrap;
 	}
 
@@ -121,35 +133,45 @@ ul#marquee {
 	VII. Schedule
 */
 
-ol#periods li {
-	background-image: 
-		-webkit-gradient(
-			linear,
-			left top,
-			left bottom,
-			from(rgb(240, 240, 240)),
-			to(rgb(210, 210, 210))
-		);
-	border-bottom: 1px solid #000;
-	//border-top: 1px solid #fff;
-	display: block;
-	font-size: 1.35em;
-	padding: 0.4em 0.5em 0.15em 0.5em;
+ol#periods {
 	width: 90%;
-	
-	&:first-child {
-		//border: none;
-		border-radius: 3px 3px 0 0;
-	}
-	
-	&:last-child {
-		border-radius: 0 0 3px 3px;
-		border-bottom: none;
-	}
-	
-	&#active {
-		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444), to(#222));
-		color: #fafafa;
+
+	li {
+		background-image: 
+			-webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				from(rgb(240, 240, 240)),
+				to(rgb(210, 210, 210))
+			);
+		border-bottom: 1px solid #000;
+		//border-top: 1px solid #fff;
+		display: block;
+		font-size: 1.35em;
+		padding: 0.3em 0.5em 0.25em 0.5em;
+		
+		&:first-child {
+			//border: none;
+			border-radius: 3px 3px 0 0;
+		}
+		
+		&:last-child {
+			border-radius: 0 0 3px 3px;
+			border-bottom: none;
+		}
+		
+		&#active {
+			background-image:
+				-webkit-gradient(
+					linear,
+					0% 0%,
+					0% 100%,
+					from(#444),
+					to(#222)
+				);
+			color: #fafafa;
+		}
 	}
 }
 
@@ -181,20 +203,19 @@ ol#periods li {
 
 
 #clock {
-	text-shadow: 1px 1px 1px #333;
+	text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.8);
 	margin-bottom: 2em;
 	
 	#date {
 		font-size: 1.75em;
-		line-height: 1em;
+		font-weight: bold;
+		line-height: 1.15em;
 		margin-bottom: 0.5em;
 		margin-top: 0.25em;
 	}
 
 	#time {
-		font-family: "Helvetica World", sans-serif;
-		font-size: 3em;
-		line-height: 1em;
+		font: bold 3.5em/1em "Ubuntu Mono", monospace;
 	}
 }
 
@@ -209,13 +230,13 @@ ol#periods li {
 		border-radius: 3px;
 		color: #000;
 		font-size: 1.25em;
-		padding: 1em 0.75em 0.75em 0.75em;
 		margin-bottom: 1em;
-	}
+		padding: 1em 0.75em 0.75em 0.75em;
 
-	li.true {
-		background: rgba(250, 0, 30, 0.6);
-		border: 2px solid rgba(250, 0, 30, 0.8);
+		&.true {
+			background: rgba(250, 0, 30, 0.6);
+			border: 2px solid rgba(250, 0, 30, 0.8);
+		}
 	}
 }
 

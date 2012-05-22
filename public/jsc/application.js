@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Tue, 22 May 2012 01:37:33 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 22 May 2012 01:57:29 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -28,7 +28,7 @@
       hour = (hour > 12 ? hour - 12 : hour);
       hour = (hour === 0 ? 12 : hour);
       $("p#date").html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
-      $("p#time").html(hour + ":" + minute + ":" + second + " " + am_pm);
+      $("p#time").html(hour + ":" + minute + ":" + second);
       return $(document).ready(function() {
         var final_period, final_time, time;
         final_period = $("ol#periods li:last-child");
@@ -45,7 +45,7 @@
           $("#left").addClass("sevencol");
           $("#right").removeClass("twelvecol").addClass("fivecol");
           $("#date").css("font-size", "1.75em");
-          $("#time").css("font-size", "3em");
+          $("#time").css("font-size", "3.5em");
         }
         $("ol#periods li").each(function(index) {
           var e, finish, next, next_start, start;

@@ -27,7 +27,7 @@
     hour = (if (hour is 0) then 12 else hour)
     
     $("p#date").html dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + ""
-    $("p#time").html hour + ":" + minute + ":" + second + " " + am_pm
+    $("p#time").html hour + ":" + minute + ":" + second
     
     $(document).ready ->
       final_period = $("ol#periods li:last-child")
@@ -45,7 +45,7 @@
         $("#left").addClass "sevencol"
         $("#right").removeClass("twelvecol").addClass "fivecol"
         $("#date").css("font-size", "1.75em")
-        $("#time").css("font-size", "3em")
+        $("#time").css("font-size", "3.5em")
       
       $("ol#periods li").each (index) ->
         e = $(this)
