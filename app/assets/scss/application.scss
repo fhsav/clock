@@ -131,19 +131,20 @@ ol#periods li {
 			to(rgb(210, 210, 210))
 		);
 	border-bottom: 1px solid #000;
-	border-top: 1px solid #fff;
+	//border-top: 1px solid #fff;
 	display: block;
 	font-size: 1.35em;
 	padding: 0.4em 0.5em 0.15em 0.5em;
 	width: 90%;
 	
 	&:first-child {
-		border: none;
+		//border: none;
 		border-radius: 3px 3px 0 0;
 	}
 	
 	&:last-child {
 		border-radius: 0 0 3px 3px;
+		border-bottom: none;
 	}
 	
 	&#active {

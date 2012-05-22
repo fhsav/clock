@@ -57,6 +57,7 @@
     
         if time >= start and time <= finish
           e.attr "id", "active"
+          e.css 'border-radius', '3px 3px 0 0'
         else
           e.attr "id", ""
 
@@ -64,7 +65,7 @@
         next_start = next.find("time.start").attr("datetime")
 
         if time > finish
-          e.fadeOut 'slow', ->
+          e.slideUp 'slow', ->
             e.hide()
 
       clock()
