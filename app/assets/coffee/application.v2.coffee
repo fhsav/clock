@@ -7,8 +7,8 @@ $(document).ready ->
   $('video[loop="loop"]').bind "ended", ->
     @play()
     
-  pusher = new Pusher("4f803f0cec789e485391")
-  channel = pusher.subscribe("refreshes")
+  pusher = new Pusher "4f803f0cec789e485391"
+  channel = pusher.subscribe "refreshes" 
   channel.bind "refresh", (data) ->
     window.location.href = window.location.href
 
@@ -23,8 +23,9 @@ class Clock
     periods()
     afterschool()
 
+    @time = (d.getHours() * 3600) + (d.getMinutes() * 60) + d.getSeconds()
 
-  timekeeping = ->
+  timekeeping = =>
     day = d.getDay()
     month = d.getMonth()
     date = d.getDate()
@@ -36,8 +37,6 @@ class Clock
     days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-    time = (hour * 3600) + (minute * 60) + second
-
     minute = "0" + minute if minute < 10
     second = "0" + second if second < 10
     
@@ -47,8 +46,7 @@ class Clock
     $("p#date").html "#{days[day]}, #{months[month]} #{date}#{ordinal(date)}, #{year}"
     $("p#time").html "#{hour}:#{minute}:#{second}"
 
-
-  periods = ->
+  periods = =>
     $(document).ready ->
       $("ol#periods li").each (index) ->
         e = $(@)
@@ -56,20 +54,19 @@ class Clock
         start = e.find("time.start").attr("datetime")
         finish = e.find("time.finish").attr("datetime") - 60
 
-        if time >= start and time <= finish
+        if @time >= start and @time <= finish
           e.addClass "active"
         else
           e.removeClass "active"
 
-        if time => finish
+        if @time => finish
           e.slideUp 'slow', ->
             e.hide()
 
-
-  afterschool = ->
+  afterschool = =>
     final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60
 
-    if time > final
+    if @time > final
       $("ol#periods").hide()
       $("#left").removeClass("sevencol")
       $("#right").switchClass "fivecol", "twelvecol", 750
