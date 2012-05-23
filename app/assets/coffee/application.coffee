@@ -15,7 +15,7 @@
     days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
-    time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+    time = (hour * 3600) + (minute * 60) + second
 
     minute = "0" + minute if minute < 10
     second = "0" + second if second < 10
@@ -25,50 +25,50 @@
 
     date = "#{date}"
 
-    dayLastNum = date.substr(1, date.length)
-    if dayLastNum == "1"
-      suffix = "st"
-    else if dayLastNum == "2"
-      suffix = "nd"
-    else if dayLastNum == "3"
-      suffix = "rd"
-    else
-      suffix = "th"
+    ordinal = (d) ->
+      d = String(d)
+      (if d.substr(-(Math.min(d.length, 2))) > 3 and d.substr(-(Math.min(d.length, 2))) < 21 then "th" else [ "th", "st", "nd", "rd", "th" ][Math.min(Number(d) % 10, 4)])
     
-    $("p#date").html "#{days[day]}, #{months[month]} #{date}#{suffix}, #{year}"
+    # Append date and time to clock.
+    $("p#date").html "#{days[day]}, #{months[month]} #{date}#{ordinal(date)}, #{year}"
     $("p#time").html "#{hour}:#{minute}:#{second}"
     
     $(document).ready ->
-      final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60
 
-      if time > final
-        $("ol#periods").hide()
-        $("#left").removeClass("sevencol")
-        $("#right").switchClass "fivecol", "twelvecol", 750
-        $("#clock").switchClass "during", "after", 1000
-      else
-        $("ol#periods").show()
-        $("#left").addClass "sevencol"
-        $("#right").switchClass "twelvecol", "fivecol", 750
-        $("#clock").switchClass "after", "during", 1000
-      
-      $("ol#periods li").each (index) ->
-        e = $(this)
-        
-        start = e.find("time.start").attr("datetime")
-        finish = e.find("time.finish").attr("datetime") - 60
+      # Check what period it is and respond appropriately.
+      periods = ->
+        $("ol#periods li").each (index) ->
+          e = $(this)
+          
+          start = e.find("time.start").attr("datetime")
+          finish = e.find("time.finish").attr("datetime") - 60
 
-        if time >= start and time <= finish
-          e.addClass "active"
+          if time >= start and time <= finish
+            e.addClass "active"
+          else
+            e.removeClass "active"
+
+          if time => finish
+            e.slideUp 'slow', ->
+              e.hide()
+
+      # Check if it's after school and respond appropriately.
+      afterschool = ->
+        final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60
+
+        if time > final
+          $("ol#periods").hide()
+          $("#left").removeClass("sevencol")
+          $("#right").switchClass "fivecol", "twelvecol", 750
+          $("#clock").switchClass "during", "after", 1000
         else
-          e.removeClass "active"
-
-        next = e.next().find("time.start").attr("datetime")
-
-        if time > finish
-          e.slideUp 'slow', ->
-            e.hide()
-
+          $("ol#periods").show()
+          $("#left").addClass "sevencol"
+          $("#right").switchClass "twelvecol", "fivecol", 750
+          $("#clock").switchClass "after", "during", 1000
+      
+        periods()
+        afterschool()
       clock()
   ), 0
 )()
