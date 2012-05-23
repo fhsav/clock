@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Wed, 23 May 2012 12:11:27 GMT from
- * /Users/fhsteacher/Sites/fhsclock/app/assets/coffee/application.coffee
+/* DO NOT MODIFY. This file was compiled Wed, 23 May 2012 16:44:37 GMT from
+ * /Users/FHSAV/Sites/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
@@ -7,7 +7,7 @@
 
   (clock = function() {
     return setTimeout((function() {
-      var d, date, day, dayLastNum, days, hour, minute, month, months, second, suffix, time, year;
+      var d, date, day, days, hour, minute, month, months, ordinal, second, time, year;
       d = new Date();
       day = d.getDay();
       month = d.getMonth();
@@ -18,27 +18,41 @@
       second = d.getSeconds();
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      time = (d.getHours() * 3600) + (d.getMinutes() * 60);
+      time = (hour * 3600) + (minute * 60) + second;
       if (minute < 10) minute = "0" + minute;
       if (second < 10) second = "0" + second;
       hour = (hour > 12 ? hour - 12 : hour);
       hour = (hour === 0 ? 12 : hour);
       date = "" + date;
-      dayLastNum = date.substr(1, date.length);
-      if (dayLastNum === "1") {
-        suffix = "st";
-      } else if (dayLastNum === "2") {
-        suffix = "nd";
-      } else if (dayLastNum === "3") {
-        suffix = "rd";
-      } else {
-        suffix = "th";
-      }
-      $("p#date").html("" + days[day] + ", " + months[month] + " " + date + suffix + ", " + year);
+      ordinal = function(d) {
+        d = String(d);
+        if (d.substr(-(Math.min(d.length, 2))) > 3 && d.substr(-(Math.min(d.length, 2))) < 21) {
+          return "th";
+        } else {
+          return ["th", "st", "nd", "rd", "th"][Math.min(Number(d) % 10, 4)];
+        }
+      };
+      $("p#date").html("" + days[day] + ", " + months[month] + " " + date + (ordinal(date)) + ", " + year);
       $("p#time").html("" + hour + ":" + minute + ":" + second);
       return $(document).ready(function() {
         var final;
-        final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60;
+        $("ol#periods li").each(function(index) {
+          var e, finish, start;
+          e = $(this);
+          start = e.find("time.start").attr("datetime");
+          finish = e.find("time.finish").attr("datetime");
+          if (time >= start && time <= finish) {
+            e.addClass("active");
+          } else {
+            e.removeClass("active");
+          }
+          if (time >= finish) {
+            return e.slideUp('slow', function() {
+              return e.hide();
+            });
+          }
+        });
+        final = $("ol#periods li:last-child").find("time.finish").attr("datetime");
         if (time > final) {
           $("ol#periods").hide();
           $("#left").removeClass("sevencol");
@@ -48,25 +62,8 @@
           $("ol#periods").show();
           $("#left").addClass("sevencol");
           $("#right").switchClass("twelvecol", "fivecol", 750);
-          $("#clock").switchClass("after", "during", 1000);
+          $("#clock").switchClass("after", "during", 100);
         }
-        $("ol#periods li").each(function(index) {
-          var e, finish, next, start;
-          e = $(this);
-          start = e.find("time.start").attr("datetime");
-          finish = e.find("time.finish").attr("datetime") - 60;
-          if (time >= start && time <= finish) {
-            e.addClass("active");
-          } else {
-            e.removeClass("active");
-          }
-          next = e.next().find("time.start").attr("datetime");
-          if (time > finish) {
-            return e.slideUp('slow', function() {
-              return e.hide();
-            });
-          }
-        });
         return clock();
       });
     }), 0);

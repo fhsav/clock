@@ -36,39 +36,34 @@
     $(document).ready ->
 
       # Check what period it is and respond appropriately.
-      periods = ->
-        $("ol#periods li").each (index) ->
-          e = $(this)
-          
-          start = e.find("time.start").attr("datetime")
-          finish = e.find("time.finish").attr("datetime") - 60
+      $("ol#periods li").each (index) ->
+        e = $(this)
+        
+        start = e.find("time.start").attr("datetime")
+        finish = e.find("time.finish").attr("datetime")
 
-          if time >= start and time <= finish
-            e.addClass "active"
-          else
-            e.removeClass "active"
-
-          if time => finish
-            e.slideUp 'slow', ->
-              e.hide()
-
-      # Check if it's after school and respond appropriately.
-      afterschool = ->
-        final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60
-
-        if time > final
-          $("ol#periods").hide()
-          $("#left").removeClass("sevencol")
-          $("#right").switchClass "fivecol", "twelvecol", 750
-          $("#clock").switchClass "during", "after", 1000
+        if time >= start and time <= finish
+          e.addClass "active"
         else
-          $("ol#periods").show()
-          $("#left").addClass "sevencol"
-          $("#right").switchClass "twelvecol", "fivecol", 750
-          $("#clock").switchClass "after", "during", 1000
-      
-        periods()
-        afterschool()
+          e.removeClass "active"
+
+        if time >= finish
+          e.slideUp 'slow', ->
+            e.hide()
+
+      final = $("ol#periods li:last-child").find("time.finish").attr("datetime")
+
+      if time > final
+        $("ol#periods").hide()
+        $("#left").removeClass("sevencol")
+        $("#right").switchClass "fivecol", "twelvecol", 750
+        $("#clock").switchClass "during", "after", 1000
+      else
+        $("ol#periods").show()
+        $("#left").addClass "sevencol"
+        $("#right").switchClass "twelvecol", "fivecol", 750
+        $("#clock").switchClass "after", "during", 100
+
       clock()
   ), 0
 )()

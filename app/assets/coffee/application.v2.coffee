@@ -19,20 +19,22 @@ setTimeout (->
 class Clock
   constructor: ->
   @update: (d) ->
+    @d = d
+
     timekeeping()
     periods()
     afterschool()
 
-    @time = (d.getHours() * 3600) + (d.getMinutes() * 60) + d.getSeconds()
+    @time = (@d.getHours() * 3600) + (@d.getMinutes() * 60) + @d.getSeconds()
 
   timekeeping = =>
-    day = d.getDay()
-    month = d.getMonth()
-    date = d.getDate()
-    year = d.getFullYear()
-    hour = d.getHours()
-    minute = d.getMinutes()
-    second = d.getSeconds()
+    day = @d.getDay()
+    month = @d.getMonth()
+    date = @d.getDate()
+    year = @d.getFullYear()
+    hour = @d.getHours()
+    minute = @d.getMinutes()
+    second = @d.getSeconds()
 
     days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -43,7 +45,7 @@ class Clock
     hour = (if (hour > 12) then hour - 12 else hour)
     hour = (if (hour is 0) then 12 else hour)
 
-    $("p#date").html "#{days[day]}, #{months[month]} #{date}#{ordinal(date)}, #{year}"
+    $("p#date").html "#{days[day]}, #{months[month]} #{date}, #{year}"
     $("p#time").html "#{hour}:#{minute}:#{second}"
 
   periods = =>
@@ -59,7 +61,7 @@ class Clock
         else
           e.removeClass "active"
 
-        if @time => finish
+        if @time >= finish
           e.slideUp 'slow', ->
             e.hide()
 
