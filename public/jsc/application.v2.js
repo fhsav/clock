@@ -1,10 +1,10 @@
-/* DO NOT MODIFY. This file was compiled Tue, 22 May 2012 23:33:25 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 23 May 2012 00:28:01 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.v2.coffee
  */
 
 (function() {
-  var Clock;
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; }, _this = this;
+  var Clock, fhs;
+  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   Clock = (function() {
 
@@ -14,14 +14,17 @@
       this.time = __bind(this.time, this);
       this.currentTime = __bind(this.currentTime, this);
       this.currentDate = __bind(this.currentDate, this);
-      this.clock = __bind(this.clock, this);
-      this.update = __bind(this.update, this);      this.d = new Date();
+      this.clock = __bind(this.clock, this);      this.d = new Date();
     }
 
-    Clock.prototype.update = function() {
-      this.clock();
-      this.highlight();
-      return this.afterschool();
+    Clock.prototype.run = function() {
+      var _this = this;
+      return setTimeout((function() {
+        _this.clock();
+        _this.highlight();
+        _this.afterschool();
+        return run();
+      }), 0);
     };
 
     Clock.prototype.clock = function() {
@@ -87,11 +90,9 @@
 
   })();
 
-  setTimeout((function() {
-    var fhs;
-    fhs = new Clock();
-    return fhs.update();
-  }), 0);
+  fhs = new Clock();
+
+  fhs.run();
 
   $(document).ready(function() {
     var channel, pusher;

@@ -207,7 +207,6 @@ ol#periods {
 	margin-bottom: 2em;
 	
 	#date {
-		font-size: 1.75em;
 		font-weight: bold;
 		line-height: 1.15em;
 		margin-bottom: 0.5em;
@@ -215,7 +214,29 @@ ol#periods {
 	}
 
 	#time {
-		font: bold 3.5em/1em "Ubuntu Mono", monospace;
+		font-family: "Ubuntu Mono", monospace;
+		font-weight: bold;
+		line-height: 1em;
+	}
+
+	&.during {
+		#date {
+			font-size: 1.75em;
+		}
+
+		#time {
+			font-size: 3.5em;
+		}
+	}
+
+	&.after {
+		#date {
+			font-size: 2.5em;
+		}
+
+		#time {
+			font-size: 4em;
+		}
 	}
 }
 

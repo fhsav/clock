@@ -1,16 +1,19 @@
 # FHS Clock
 #   file: application.v2.coffee
 
-
 class Clock
   constructor: ->
     @d = new Date()
 
   # Update the clock.
-  update: =>
-    @clock()
-    @highlight()
-    @afterschool()
+  run: ->
+    setTimeout (=>
+      @clock()
+      @highlight()
+      @afterschool()
+
+      run()
+    ), 0
 
   # Fill in the time elements.
   clock: =>
@@ -69,10 +72,8 @@ class Clock
 
   afterschool: =>
 
-setTimeout (=>
-  fhs = new Clock()
-  fhs.update()
-), 0
+fhs = new Clock()
+fhs.run()
 
 $(document).ready ->
   $("#marquee").marquee pauseOnHover: false
