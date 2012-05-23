@@ -12,57 +12,58 @@
     minute = d.getMinutes()
     second = d.getSeconds()
     
-    dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
+    time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+
     minute = "0" + minute if minute < 10
     second = "0" + second if second < 10
     
-    if hour >= 12
-      am_pm = "PM"
-    else
-      am_pm = "AM"
-    
     hour = (if (hour > 12) then hour - 12 else hour)
     hour = (if (hour is 0) then 12 else hour)
+
+    date = "#{date}"
+
+    dayLastNum = date.substr(1, date.length)
+    if dayLastNum == "1"
+      suffix = "st"
+    else if dayLastNum == "2"
+      suffix = "nd"
+    else if dayLastNum == "3"
+      suffix = "rd"
+    else
+      suffix = "th"
     
-    $("p#date").html dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + ""
-    $("p#time").html hour + ":" + minute + ":" + second
+    $("p#date").html "#{days[day]}, #{months[month]} #{date}#{suffix}, #{year}"
+    $("p#time").html "#{hour}:#{minute}:#{second}"
     
     $(document).ready ->
-      final_period = $("ol#periods li:last-child")
-      final_time = final_period.find("time.finish").attr("datetime") - 60
-      time = (d.getHours() * 3600) + (d.getMinutes() * 60)
+      final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60
 
-      if time > final_time
-        $("ol#periods").css "display", "none"
+      if time > final
+        $("ol#periods").hide()
         $("#left").removeClass("sevencol")
-        $("#right").removeClass("fivecol").addClass "twelvecol"
-        $("#date").css("font-size", "2.5em")
-        $("#time").css("font-size", "4em")
+        $("#right").switchClass "fivecol", "twelvecol", 750
+        $("#clock").switchClass "during", "after", 1000
       else
-        $("ol#periods").css "display", "block"
+        $("ol#periods").show()
         $("#left").addClass "sevencol"
-        $("#right").removeClass("twelvecol").addClass "fivecol"
-        $("#date").css("font-size", "1.75em")
-        $("#time").css("font-size", "3.5em")
+        $("#right").switchClass "twelvecol", "fivecol", 750
+        $("#clock").switchClass "after", "during", 1000
       
       $("ol#periods li").each (index) ->
         e = $(this)
         
         start = e.find("time.start").attr("datetime")
-        finish = e.find("time.finish").attr("datetime")
-        finish = finish - 60
-        time = (d.getHours() * 3600) + (d.getMinutes() * 60)
-    
-        if time >= start and time <= finish
-          e.attr "id", "active"
-          e.css 'border-radius', '3px 3px 0 0'
-        else
-          e.attr "id", ""
+        finish = e.find("time.finish").attr("datetime") - 60
 
-        next = e.next()
-        next_start = next.find("time.start").attr("datetime")
+        if time >= start and time <= finish
+          e.addClass "active"
+        else
+          e.removeClass "active"
+
+        next = e.next().find("time.start").attr("datetime")
 
         if time > finish
           e.slideUp 'slow', ->

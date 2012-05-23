@@ -42,12 +42,12 @@
       final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60
 
       if time > final
-        $("ol#periods").detach()
+        $("ol#periods").hide()
         $("#left").switchClass "sevencol", "", 750
         $("#right").switchClass "fivecol", "twelvecol", 750
         $("#clock").switchClass "during", "after", 750
       else
-        $("ol#periods").appendTo("#left")
+        $("ol#periods").show
         $("#left").switchClass "", "sevencol", 750
         $("#right").switchClass "twelvecol", "fivecol", 750
         $("#clock").switchClass "after", "during", 750
@@ -59,13 +59,9 @@
         finish = e.find("time.finish").attr("datetime") - 60
     
         if time >= start and time <= finish
-          e.switchClass "", "active", 750
-          e.css 'border-radius', '3px 3px 0 0'
+          e.addClass "active"
         else
-          e.attr "id", ""
-
-        next = e.next()
-        next_start = next.find("time.start").attr("datetime")
+          e.switchClass "active", "", 750
 
         if time > finish
           e.slideUp 'slow', ->

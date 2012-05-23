@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Tue, 22 May 2012 01:57:29 GMT from
- * /var/www/fhsclock/app/assets/coffee/application.coffee
+/* DO NOT MODIFY. This file was compiled Wed, 23 May 2012 12:11:27 GMT from
+ * /Users/fhsteacher/Sites/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
@@ -7,7 +7,7 @@
 
   (clock = function() {
     return setTimeout((function() {
-      var am_pm, d, date, day, dayArray, hour, minute, month, monthArray, second, year;
+      var d, date, day, dayLastNum, days, hour, minute, month, months, second, suffix, time, year;
       d = new Date();
       day = d.getDay();
       month = d.getMonth();
@@ -16,52 +16,51 @@
       hour = d.getHours();
       minute = d.getMinutes();
       second = d.getSeconds();
-      dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      time = (d.getHours() * 3600) + (d.getMinutes() * 60);
       if (minute < 10) minute = "0" + minute;
       if (second < 10) second = "0" + second;
-      if (hour >= 12) {
-        am_pm = "PM";
-      } else {
-        am_pm = "AM";
-      }
       hour = (hour > 12 ? hour - 12 : hour);
       hour = (hour === 0 ? 12 : hour);
-      $("p#date").html(dayArray[day] + ", " + monthArray[month] + " " + date + ", " + year + "");
-      $("p#time").html(hour + ":" + minute + ":" + second);
+      date = "" + date;
+      dayLastNum = date.substr(1, date.length);
+      if (dayLastNum === "1") {
+        suffix = "st";
+      } else if (dayLastNum === "2") {
+        suffix = "nd";
+      } else if (dayLastNum === "3") {
+        suffix = "rd";
+      } else {
+        suffix = "th";
+      }
+      $("p#date").html("" + days[day] + ", " + months[month] + " " + date + suffix + ", " + year);
+      $("p#time").html("" + hour + ":" + minute + ":" + second);
       return $(document).ready(function() {
-        var final_period, final_time, time;
-        final_period = $("ol#periods li:last-child");
-        final_time = final_period.find("time.finish").attr("datetime") - 60;
-        time = (d.getHours() * 3600) + (d.getMinutes() * 60);
-        if (time > final_time) {
-          $("ol#periods").css("display", "none");
+        var final;
+        final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60;
+        if (time > final) {
+          $("ol#periods").hide();
           $("#left").removeClass("sevencol");
-          $("#right").removeClass("fivecol").addClass("twelvecol");
-          $("#date").css("font-size", "2.5em");
-          $("#time").css("font-size", "4em");
+          $("#right").switchClass("fivecol", "twelvecol", 750);
+          $("#clock").switchClass("during", "after", 1000);
         } else {
-          $("ol#periods").css("display", "block");
+          $("ol#periods").show();
           $("#left").addClass("sevencol");
-          $("#right").removeClass("twelvecol").addClass("fivecol");
-          $("#date").css("font-size", "1.75em");
-          $("#time").css("font-size", "3.5em");
+          $("#right").switchClass("twelvecol", "fivecol", 750);
+          $("#clock").switchClass("after", "during", 1000);
         }
         $("ol#periods li").each(function(index) {
-          var e, finish, next, next_start, start;
+          var e, finish, next, start;
           e = $(this);
           start = e.find("time.start").attr("datetime");
-          finish = e.find("time.finish").attr("datetime");
-          finish = finish - 60;
-          time = (d.getHours() * 3600) + (d.getMinutes() * 60);
+          finish = e.find("time.finish").attr("datetime") - 60;
           if (time >= start && time <= finish) {
-            e.attr("id", "active");
-            e.css('border-radius', '3px 3px 0 0');
+            e.addClass("active");
           } else {
-            e.attr("id", "");
+            e.removeClass("active");
           }
-          next = e.next();
-          next_start = next.find("time.start").attr("datetime");
+          next = e.next().find("time.start").attr("datetime");
           if (time > finish) {
             return e.slideUp('slow', function() {
               return e.hide();

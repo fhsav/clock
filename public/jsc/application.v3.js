@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Wed, 23 May 2012 02:02:25 GMT from
- * /var/www/fhsclock/app/assets/coffee/application.v3.coffee
+/* DO NOT MODIFY. This file was compiled Wed, 23 May 2012 11:49:01 GMT from
+ * /Users/fhsteacher/Sites/fhsclock/app/assets/coffee/application.v3.coffee
  */
 
 (function() {
@@ -40,29 +40,26 @@
         var final;
         final = $("ol#periods li:last-child").find("time.finish").attr("datetime") - 60;
         if (time > final) {
-          $("ol#periods").detach();
+          $("ol#periods").hide();
           $("#left").switchClass("sevencol", "", 750);
           $("#right").switchClass("fivecol", "twelvecol", 750);
           $("#clock").switchClass("during", "after", 750);
         } else {
-          $("ol#periods").appendTo("#left");
+          $("ol#periods").show;
           $("#left").switchClass("", "sevencol", 750);
           $("#right").switchClass("twelvecol", "fivecol", 750);
           $("#clock").switchClass("after", "during", 750);
         }
         $("ol#periods li").each(function(index) {
-          var e, finish, next, next_start, start;
+          var e, finish, start;
           e = $(this);
           start = e.find("time.start").attr("datetime");
           finish = e.find("time.finish").attr("datetime") - 60;
           if (time >= start && time <= finish) {
-            e.switchClass("", "active", 750);
-            e.css('border-radius', '3px 3px 0 0');
+            e.addClass("active");
           } else {
-            e.attr("id", "");
+            e.switchClass("active", "", 750);
           }
-          next = e.next();
-          next_start = next.find("time.start").attr("datetime");
           if (time > finish) {
             return e.slideUp('slow', function() {
               return e.hide();
