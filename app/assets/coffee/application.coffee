@@ -61,13 +61,13 @@
         $("#left").removeClass("sevencol")
         $("#right").removeClass("fivecol").addClass "twelvecol"
         $("#date").css("font-size", "2.5em")
-        $("#time").css("font-size", "4em")
+        $("#time").css("font-size", "4.15em")
       else
         $("ol#periods").css "display", "block"
         $("#left").addClass "sevencol"
         $("#right").removeClass("twelvecol").addClass "fivecol"
-        $("#date").css("font-size", "2.15em")
-        $("#time").css("font-size", "4.15em")
+        $("#date").css("font-size", "2em")
+        $("#time").css("font-size", "3.5em")
 
       clock()
   ), 0
