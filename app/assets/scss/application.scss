@@ -95,6 +95,15 @@ video {
 	z-index: -999;
 }
 
+#gradient {
+	height: 50px !important;
+	background: url("/img/background.png") repeat-x;
+	position: fixed;
+	bottom: 0px;
+	z-index: 999;
+	width: 100%;
+}
+
 
 /*
 	V. Main

@@ -13,11 +13,7 @@
     - else
       - if !@wallpaper.blank?
         :css
-          body {
-            background-image: url("/img/background.png"), url("/gridfs/#{@wallpaper.file.id}");
-            background-position: left bottom, left top;
-            background-repeat: repeat-x, no-repeat;
-          }
+          body { background: url("/gridfs/#{@wallpaper.file.id}") no-repeat; }
       - else
         :css
           body { background: url("/img/default.jpg") no-repeat; }
@@ -52,6 +48,7 @@
               - if !@notices.blank?
                 - @notices.each do |notice|
                   %li{:class => notice.urgent}= notice.text
+    #gradient
     %script{:src => "/jsc/lib/jquery.js"}
     %script{:src => "/jsc/lib/jquery.ui.js"}
     %script{:src => "/jsc/lib/pusher.min.js"}
