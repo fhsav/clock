@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Thu, 24 May 2012 11:24:22 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 24 May 2012 11:27:18 GMT from
  * /Users/FHSAV/Sites/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -64,8 +64,8 @@
           $("ol#periods").css("display", "block");
           $("#left").addClass("sevencol");
           $("#right").removeClass("twelvecol").addClass("fivecol");
-          $("#date").css("font-size", "2.25em");
-          $("#time").css("font-size", "3.5em");
+          $("#date").css("font-size", "2.15em");
+          $("#time").css("font-size", "4.15em");
         }
         return clock();
       });

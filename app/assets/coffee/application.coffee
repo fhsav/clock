@@ -66,8 +66,8 @@
         $("ol#periods").css "display", "block"
         $("#left").addClass "sevencol"
         $("#right").removeClass("twelvecol").addClass "fivecol"
-        $("#date").css("font-size", "2.25em")
-        $("#time").css("font-size", "3.5em")
+        $("#date").css("font-size", "2.15em")
+        $("#time").css("font-size", "4.15em")
 
       clock()
   ), 0
