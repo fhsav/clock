@@ -37,8 +37,8 @@
 
       # Check what period it is and respond appropriately.
       $("ol#periods li").each (index) ->
-        e = $(this)
-        
+        e = $(@)
+
         start = e.find("time.start").attr("datetime")
         finish = e.find("time.finish").attr("datetime")
 
@@ -48,21 +48,26 @@
           e.removeClass "active"
 
         if time >= finish
+          e.attr 'data', '-1'
+
           e.slideUp 'slow', ->
             e.hide()
 
+      # Check if it's after school and respond appropriately.
       final = $("ol#periods li:last-child").find("time.finish").attr("datetime")
 
       if time > final
-        $("ol#periods").hide()
+        $("ol#periods").css "display", "none"
         $("#left").removeClass("sevencol")
-        $("#right").switchClass "fivecol", "twelvecol", 750
-        $("#clock").switchClass "during", "after", 1000
+        $("#right").removeClass("fivecol").addClass "twelvecol"
+        $("#date").css("font-size", "2.5em")
+        $("#time").css("font-size", "4em")
       else
-        $("ol#periods").show()
+        $("ol#periods").css "display", "block"
         $("#left").addClass "sevencol"
-        $("#right").switchClass "twelvecol", "fivecol", 750
-        $("#clock").switchClass "after", "during", 100
+        $("#right").removeClass("twelvecol").addClass "fivecol"
+        $("#date").css("font-size", "1.75em")
+        $("#time").css("font-size", "3.5em")
 
       clock()
   ), 0

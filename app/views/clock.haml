@@ -13,7 +13,11 @@
     - else
       - if !@wallpaper.blank?
         :css
-          body { background: url("/gridfs/#{@wallpaper.file.id}") no-repeat; }
+          body {
+            background-image: url("/img/background.png"), url("/gridfs/#{@wallpaper.file.id}");
+            background-position: left bottom, left top;
+            background-repeat: repeat-x, no-repeat;
+          }
       - else
         :css
           body { background: url("/img/default.jpg") no-repeat; }
@@ -32,15 +36,17 @@
           %ol#periods
             - if !@periods.blank?
               - @periods.each do |period|
-                %li
+                %li{:data => period.number}
                   ="#{period.text}: "
                   %time.start{:datetime => seconds(period.start)}="#{local(period.start)}"
                   &mdash;
                   %time.finish{:datetime => seconds(period.finish)}="#{local(period.finish)}"
         #right.fivecol.last
-          %section#clock.during
+          %section#clock
             %p#date
             %p#time
+          %section#countdown
+            %p
           %section#notices
             %ol
               - if !@notices.blank?

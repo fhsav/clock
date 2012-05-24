@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Wed, 23 May 2012 16:44:37 GMT from
- * /Users/FHSAV/Sites/fhsclock/app/assets/coffee/application.coffee
+/* DO NOT MODIFY. This file was compiled Thu, 24 May 2012 01:32:07 GMT from
+ * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
@@ -47,6 +47,7 @@
             e.removeClass("active");
           }
           if (time >= finish) {
+            e.attr('data', '-1');
             return e.slideUp('slow', function() {
               return e.hide();
             });
@@ -54,15 +55,17 @@
         });
         final = $("ol#periods li:last-child").find("time.finish").attr("datetime");
         if (time > final) {
-          $("ol#periods").hide();
+          $("ol#periods").css("display", "none");
           $("#left").removeClass("sevencol");
-          $("#right").switchClass("fivecol", "twelvecol", 750);
-          $("#clock").switchClass("during", "after", 1000);
+          $("#right").removeClass("fivecol").addClass("twelvecol");
+          $("#date").css("font-size", "2.5em");
+          $("#time").css("font-size", "4em");
         } else {
-          $("ol#periods").show();
+          $("ol#periods").css("display", "block");
           $("#left").addClass("sevencol");
-          $("#right").switchClass("twelvecol", "fivecol", 750);
-          $("#clock").switchClass("after", "during", 100);
+          $("#right").removeClass("twelvecol").addClass("fivecol");
+          $("#date").css("font-size", "1.75em");
+          $("#time").css("font-size", "3.5em");
         }
         return clock();
       });
