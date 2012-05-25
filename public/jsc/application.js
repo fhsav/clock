@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Thu, 24 May 2012 15:28:27 GMT from
- * /Users/FHSAV/Sites/fhsclock/app/assets/coffee/application.coffee
+/* DO NOT MODIFY. This file was compiled Fri, 25 May 2012 00:51:34 GMT from
+ * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
 (function() {
@@ -46,7 +46,7 @@
           } else {
             e.removeClass("active");
           }
-          if (time >= finish) {
+          if (time >= finish && $("ol#periods li").size() > 10) {
             e.attr('data', '-1');
             return e.slideUp('slow', function() {
               return e.hide();

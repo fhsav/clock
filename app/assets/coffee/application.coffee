@@ -47,7 +47,7 @@
         else
           e.removeClass "active"
 
-        if time >= finish
+        if time >= finish and $("ol#periods li").size() > 10
           e.attr 'data', '-1'
 
           e.slideUp 'slow', ->
