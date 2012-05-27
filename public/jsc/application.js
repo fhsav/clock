@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 25 May 2012 00:51:34 GMT from
+/* DO NOT MODIFY. This file was compiled Sun, 27 May 2012 14:16:03 GMT from
  * /var/www/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -35,26 +35,11 @@
       $("p#date").html("" + days[day] + ", " + months[month] + " " + date + (ordinal(date)) + ", " + year);
       $("p#time").html("" + hour + ":" + minute + ":" + second);
       return $(document).ready(function() {
-        var final;
-        $("ol#periods li").each(function(index) {
-          var e, finish, start;
-          e = $(this);
-          start = e.find("time.start").attr("datetime");
-          finish = e.find("time.finish").attr("datetime");
-          if (time >= start && time <= finish) {
-            e.addClass("active");
-          } else {
-            e.removeClass("active");
-          }
-          if (time >= finish && $("ol#periods li").size() > 10) {
-            e.attr('data', '-1');
-            return e.slideUp('slow', function() {
-              return e.hide();
-            });
-          }
-        });
-        final = $("ol#periods li:last-child").find("time.finish").attr("datetime");
-        if (time > final) {
+        var final_period, final_time;
+        final_period = $("ol#periods li:last-child");
+        final_time = final_period.find("time.finish").attr("datetime") - 60;
+        time = (d.getHours() * 3600) + (d.getMinutes() * 60);
+        if (time > final_time) {
           $("ol#periods").css("display", "none");
           $("#left").removeClass("sevencol");
           $("#right").removeClass("fivecol").addClass("twelvecol");
@@ -67,6 +52,26 @@
           $("#date").css("font-size", "2em");
           $("#time").css("font-size", "3.5em");
         }
+        $("ol#periods li").each(function(index) {
+          var e, finish, next, next_start, start;
+          e = $(this);
+          start = e.find("time.start").attr("datetime");
+          finish = e.find("time.finish").attr("datetime");
+          finish = finish - 60;
+          time = (d.getHours() * 3600) + (d.getMinutes() * 60);
+          if (time >= start && time <= finish) {
+            e.attr("id", "active");
+          } else {
+            e.attr("id", "");
+          }
+          next = e.next();
+          next_start = next.find("time.start").attr("datetime");
+          if (time > finish && time < next_start) {
+            return e.css("border-bottom", "10px solid rgba(0, 0, 0, 0.5)");
+          } else {
+            return e.css("border-bottom", "1px solid rgba(0, 0, 0, 0.5)");
+          }
+        });
         return clock();
       });
     }), 0);
