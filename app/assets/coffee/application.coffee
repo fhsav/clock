@@ -34,11 +34,34 @@
     $("p#time").html "#{hour}:#{minute}:#{second}"
     
     $(document).ready ->
-      final_period = $("ol#periods li:last-child")
-      final_time = final_period.find("time.finish").attr("datetime") - 60
-      time = (d.getHours() * 3600) + (d.getMinutes() * 60)
 
-      if time > final_time
+      # Check what period it is and respond appropriately.
+      $("ol#periods li").each (index) ->
+        e = $(@)
+
+        start = e.find("time.start").attr("datetime")
+        finish = e.find("time.finish").attr("datetime")
+
+        if time >= start and time <= finish
+          e.addClass "active"
+        else
+          e.removeClass "active"
+
+        if time > finish and time < e.next().find("time.start").attr("datetime")
+          e.css "border-bottom", "10px solid rgba(0, 0, 0, 0.5)"
+        else
+          e.css "border-bottom", "1px solid rgba(0, 0, 0, 0.5)"
+
+        if time >= finish and $("ol#periods li").size() > 10
+          e.attr 'data', '-1'
+
+          e.slideUp 'slow', ->
+            e.hide()
+
+      # Check if it's after school and respond appropriately.
+      final = $("ol#periods li:last-child").find("time.finish").attr("datetime")
+
+      if time > final
         $("ol#periods").css "display", "none"
         $("#left").removeClass("sevencol")
         $("#right").removeClass("fivecol").addClass "twelvecol"
@@ -50,27 +73,6 @@
         $("#right").removeClass("twelvecol").addClass "fivecol"
         $("#date").css("font-size", "2em")
         $("#time").css("font-size", "3.5em")
-      
-      $("ol#periods li").each (index) ->
-        e = $(this)
-        
-        start = e.find("time.start").attr("datetime")
-        finish = e.find("time.finish").attr("datetime")
-        finish = finish - 60
-        time = (d.getHours() * 3600) + (d.getMinutes() * 60)
-    
-        if time >= start and time <= finish
-          e.attr "id", "active"
-        else
-          e.attr "id", ""
-          
-        next = e.next()
-        next_start = next.find("time.start").attr("datetime")
-        
-        if time > finish and time < next_start
-          e.css "border-bottom", "10px solid rgba(0, 0, 0, 0.5)"
-        else
-          e.css "border-bottom", "1px solid rgba(0, 0, 0, 0.5)"
 
       clock()
   ), 0
