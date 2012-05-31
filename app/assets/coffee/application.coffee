@@ -43,9 +43,9 @@
         finish = e.find("time.finish").attr("datetime")
 
         if time >= start and time <= finish
-          e.addClass "active"
+          e.attr "id", "active"
         else
-          e.removeClass "active"
+          e.attr "id", ""
 
         if time > finish and time < e.next().find("time.start").attr("datetime")
           e.css "border-bottom", "10px solid rgba(0, 0, 0, 0.5)"

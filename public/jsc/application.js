@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Thu, 31 May 2012 15:08:08 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 31 May 2012 15:12:59 GMT from
  * /Users/FHSAV/Sites/fhsclock/app/assets/coffee/application.coffee
  */
 
@@ -42,9 +42,9 @@
           start = e.find("time.start").attr("datetime");
           finish = e.find("time.finish").attr("datetime");
           if (time >= start && time <= finish) {
-            e.addClass("active");
+            e.attr("id", "active");
           } else {
-            e.removeClass("active");
+            e.attr("id", "");
           }
           if (time > finish && time < e.next().find("time.start").attr("datetime")) {
             e.css("border-bottom", "10px solid rgba(0, 0, 0, 0.5)");
