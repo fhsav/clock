@@ -47,7 +47,12 @@
         else
           e.removeClass "active"
 
-        if time >= finish
+        if time > finish and time < e.next().find("time.start").attr("datetime")
+          e.css "border-bottom", "10px solid rgba(0, 0, 0, 0.5)"
+        else
+          e.css "border-bottom", "1px solid rgba(0, 0, 0, 0.5)"
+
+        if time >= finish and $("ol#periods li").size() > 10
           e.attr 'data', '-1'
 
           e.slideUp 'slow', ->
