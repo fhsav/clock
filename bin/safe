@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "\003[1mStarting the clock safely.\033[0m"
+
 # Stopping if it is running.
 if [ -s tmp/pids/unicorn.pid ]; then
 	kill -INT `cat tmp/pids/unicorn.pid`
