@@ -13,6 +13,11 @@ Admin.controllers :periods, :parent => :schedules do
   post :create do
     schedule = Schedule.find(params[:id])
     
+    if params[:period][:start] > params[:period][:finish]
+      flash[:error] = "The finish time needs to be after the start time (remember to use 24-hour time)."
+      redirect url(:schedules, :edit, :id => schedule.id)
+    end
+
     start = Time.parse(params[:period][:start].to_s)
     finish = Time.parse(params[:period][:finish].to_s)
     
