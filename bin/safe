@@ -12,7 +12,7 @@ fi
 
 # Reset the logs.
 rm log/*
-mkdir -p tmp/pids log
+mkdir -p tmp/pids log db/backups
 
 # Re-Bundle dependencies.
 echo -e "\033[1mRunning the Bundler install to get the dependencies.\033[0m"
