@@ -15,14 +15,17 @@ test:
   
 production:
   <<: *defaults
-  host: localhost
   database: clock_production
-  port: 27017
+  hosts:
+  - - localhost
+    - nil
+  - - staff.mongohq.com
+    - 10015
   
 heroku:
   <<: *defaults
   host: staff.mongohq.com
   database: clock_production
   port: 10055
-  username: Timelord
-  password: cl*ck
+  username: ENV["MONGOHQ_USERNAME"]
+  password: ENV["MONGOHQ_PASSWORD"]
