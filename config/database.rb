@@ -8,5 +8,3 @@ if ENV['HEROKU']
 end
 
 MongoMapper.setup(configuration, PADRINO_ENV, :logger => logger)
-
-Ohm.connect("http://localhost:6379")

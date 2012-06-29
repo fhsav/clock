@@ -4,7 +4,6 @@ class Admin < Padrino::Application
   register Padrino::Cache
   register Padrino::Helpers
   register Padrino::Rendering
-  register ProtectionInitializer
   
   enable :sessions
   set :password, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["password"]

@@ -8,12 +8,10 @@ group :test do
 end
 
 group :production do
-  gem 'foreman'
   gem 'unicorn'
 end
 
 gem 'thin'
-gem 'rack-protection'
 
 gem 'rake'
 
@@ -26,8 +24,6 @@ gem 'bson_ext', :require => "mongo"
 gem 'rack-gridfs', :require => "rack/gridfs"
 gem 'mongo_mapper'
 gem 'joint'
-
-gem 'ohm'
 
 gem 'haml'
 gem 'rdiscount'
