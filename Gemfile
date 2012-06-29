@@ -10,14 +10,12 @@ end
 group :production do
   gem 'foreman'
   gem 'unicorn'
-  gem 'puma'
 end
 
 gem 'thin'
 gem 'rack-protection'
 
 gem 'rake'
-gem 'thor'
 
 gem 'sinatra-flash', :require => "sinatra/flash"
 
