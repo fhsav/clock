@@ -27,5 +27,5 @@ heroku:
   host: staff.mongohq.com
   database: clock_production
   port: 10055
-  username: ENV["MONGOHQ_USERNAME"]
-  password: ENV["MONGOHQ_PASSWORD"]
+  username: Timelord
+  password: cl*ck
