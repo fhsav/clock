@@ -11,6 +11,11 @@ group :production do
   gem 'unicorn'
 end
 
+group :heroku do
+  gem 'foreman'
+  gem 'puma'
+end
+
 gem 'thin'
 
 gem 'rake'
