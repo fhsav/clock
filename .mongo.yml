@@ -15,12 +15,9 @@ test:
   
 production:
   <<: *defaults
+  host: localhost
   database: clock_production
-  hosts:
-  - - localhost
-    - nil
-  - - staff.mongohq.com
-    - 10015
+  port: 27017
   
 heroku:
   <<: *defaults
