@@ -1,7 +1,7 @@
 module BaristaInitializer
   def self.registered(app)
     Barista.configure do |c|
-      c.root = File.join(Padrino.root, "app", "assets", "coffee")
+      c.root = File.join(Padrino.root, "app", "assets", "jsc")
       c.output_root = File.join(Padrino.root, "public", "jsc")
     end
 

@@ -4,7 +4,7 @@ module CompassInitializer
 
     Compass.configuration do |config|
       config.project_path = Padrino.root
-      config.sass_dir = "app/assets/scss"
+      config.sass_dir = "app/assets/css"
       config.project_type = :stand_alone
       config.http_path = "/"
       config.css_dir = "public/css"

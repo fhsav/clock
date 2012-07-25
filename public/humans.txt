@@ -4,14 +4,13 @@
 
 /* TEAM */
   Developer, Designer: Ethan Turkeltaub
-  Site: http://ethan.heroku.com
+  Site: http://ethnt.me
   Twitter: ethnt
   Location: Farmington, CT (USA)
 
 /* THANKS */
   Nick Silverman
   Joshua Warchol: http://fanzter.com/about/joshua-warchol
-  Jon Ferry: http://fanzter.com/about/jon-ferry
 
 /* SITE */
   Standards: HTML5, CSS3
