@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\003[1mStarting the clock safely.\033[0m"
+echo -e "\033[1mSafely starting the clock...\033[0m"
 
 # Stopping if it is running.
 if [ -s tmp/pids/unicorn.pid ]; then

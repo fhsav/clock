@@ -1,6 +1,9 @@
 #!/bin/bash
 
 if [ -s tmp/pids/unicorn.pid ]; then
+  echo -e "\033[1mBacking up the production database...\033[0m"
+  mongodump -d clock_production -o db/backups
+
 	kill -INT `cat tmp/pids/unicorn.pid`
 	echo -e "\033[1mThe clock has stopped.\033[0m"
 else
