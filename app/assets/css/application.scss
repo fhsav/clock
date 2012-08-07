@@ -48,6 +48,9 @@ $width: 960px;
 	III. Typefaces
 */
 
+$w-regular: "/fonts/wayfinding/regular/regular";
+@include font-face("Wayfinding Sans", font-files($w-regular + ".woff", $w-regular + ".ttf", $w-regular + ".svg"), $w-regular + ".eot", normal, normal);
+
 $p-regular: "/fonts/proxima-nova/regular/regular";
 @include font-face("Proxima Nova", font-files($p-regular + ".woff", $p-regular + ".ttf", $p-regular + ".svg"), $p-regular + ".eot", normal, normal);
 
@@ -76,7 +79,7 @@ html {
 }
 
 body {
-	font: bold 26px/1.5em "Proxima Nova", Helvetica, Arial, sans-serif;
+	font: 26px/1.5em "Wayfinding Sans", Helvetica, Arial, sans-serif;
 	margin: 1em 0;
 	overflow: hidden;
 }

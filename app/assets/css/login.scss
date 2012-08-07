@@ -6,7 +6,7 @@
 $padding: 0;
 $width: 1040px;
 
-@import url("http://is.gd/UsPLuf");
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Open+Sans:300italic,400italic,600italic,400,300,600");
 @import "gyaku";
 
 
@@ -85,6 +85,6 @@ input {
 }
 
 p#v {
-	font-family: "Anonymous Pro";
+	font: 0.85em "Droid Sans Mono";
 	margin-top: 1.5em;
 }

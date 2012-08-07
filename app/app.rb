@@ -15,12 +15,4 @@ class Clock < Padrino::Application
   else
     set :cache, Padrino::Cache::Store::Mongo.new(::Mongo::Connection.new("localhost", 27017).db('clock_development'))
   end
-  
-  not_found do
-    render 'errors/404'
-  end
-  
-  error do
-    redirect url("/500")
-  end
 end

@@ -14,7 +14,7 @@
   end
   
   get :serve, :with => :id do
-    redirect("/gridfs/#{id}")
+    redirect("/gridfs/#{Wallpaper.find(params[:id]).file.id}")
   end
   
   post :create do
