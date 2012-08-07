@@ -1,10 +1,10 @@
-# FHS Clock
+# Clock
 
-[![Travis-CI](https://secure.travis-ci.org/eturk/fhsclock.png)](http://travis-ci.org/#!/eturk/fhsclock) [![Gemnasium](https://gemnasium.com/eturk/fhsclock.png)](https://gemnasium.com/eturk/fhsclock)
+[![Travis-CI](https://secure.travis-ci.org/eturk/clock.png)](http://travis-ci.org/#!/eturk/fhsclock) [![Gemnasium](https://gemnasium.com/eturk/clock.png)](https://gemnasium.com/eturk/clock)
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
-**Thanks:** Nick Silverman, [Joshua Warchol](http://unwin.org/)
+**Thanks:** Nick Silverman, Farmington High School Audio-Visual Department
 
 **Licence:** [The ☺ Licence](http://licence.visualidiot.com/)
 
