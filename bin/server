@@ -1,3 +1,0 @@
-#!/bin/bash
-
-bundle exec padrino start -a thin -p 8080

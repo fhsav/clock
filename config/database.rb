@@ -1,9 +1,9 @@
 require 'yaml'
 
-configuration = YAML::load(File.open(File.join(PADRINO_ROOT, '.mongo.yml')))
+c = YAML::load(File.open(File.join(PADRINO_ROOT, '.mongo.yml')))
 
 if ENV['HEROKU']
   PADRINO_ENV = "heroku"
 end
 
-MongoMapper.setup(configuration, PADRINO_ENV, :logger => logger)
+MongoMapper.setup(c, PADRINO_ENV, :logger => nil)

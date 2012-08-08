@@ -1,3 +1,0 @@
-#!/bin/bash
-
-mongorestore -d clock_production db/backups/clock_production

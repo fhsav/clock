@@ -1,8 +1,0 @@
-#!/bin/bash
-
-./bin/stop
-
-mkdir -p tmp/pids log
-
-echo -e "\033[1mStarting the clock.\033[0m"
-bundle exec unicorn -c config/unicorn.rb -E production -p 3000 -D

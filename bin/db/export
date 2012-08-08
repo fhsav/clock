@@ -1,3 +1,0 @@
-#!/bin/bash
-
-mongodump -d clock_production -o db/backups

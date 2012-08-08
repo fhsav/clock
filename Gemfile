@@ -1,5 +1,8 @@
 source :rubygems
 
+gem 'thin'
+gem 'foreman'
+
 group :test do
   gem 'rack-test', :require => "rack/test"
   gem 'rspec'
@@ -7,19 +10,7 @@ group :test do
   gem 'factory_girl'
 end
 
-group :production do
-  gem 'unicorn'
-end
-
-group :heroku do
-  gem 'foreman'
-  gem 'puma'
-end
-
-gem 'thin'
-
 gem 'rake'
-
 gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'tzinfo'
