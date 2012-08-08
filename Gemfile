@@ -30,6 +30,6 @@ gem 'barista'
 
 gem 'pusher'
 
-gem 'kumade'
+gem 'status_cats'
 
 gem 'padrino'

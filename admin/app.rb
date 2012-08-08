@@ -9,6 +9,8 @@ class Admin < Padrino::Application
   set :password, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["password"]
   set :video, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["video"]
   
+  use StatusCats, :only => [ 403, 404, 500 ]
+
   enable :caching
   
   if ENV["HEROKU"]
@@ -18,12 +20,4 @@ class Admin < Padrino::Application
   end
   
   layout :application
-  
-  not_found do
-    redirect url("/404")
-  end
-  
-  error do
-    redirect url("/500")
-  end
 end  
