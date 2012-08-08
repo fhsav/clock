@@ -7,7 +7,10 @@ $padding: 0;
 $width: 860px;
 
 @import url("http://is.gd/WjR6df");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600);
+
 @import "compass";
 @import "gyaku";
 
-$font: "Helvetica Neue";
+
+$font: "Open Sans";

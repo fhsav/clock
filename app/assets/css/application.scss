@@ -51,17 +51,8 @@ $width: 960px;
 $w-regular: "/fonts/wayfinding/regular/regular";
 @include font-face("Wayfinding Sans", font-files($w-regular + ".woff", $w-regular + ".ttf", $w-regular + ".svg"), $w-regular + ".eot", normal, normal);
 
-$p-regular: "/fonts/proxima-nova/regular/regular";
-@include font-face("Proxima Nova", font-files($p-regular + ".woff", $p-regular + ".ttf", $p-regular + ".svg"), $p-regular + ".eot", normal, normal);
-
-$p-semibold: "/fonts/proxima-nova/semibold/semibold";
-@include font-face("Proxima Nova", font-files($p-semibold + ".woff", $p-semibold + ".ttf", $p-semibold + ".svg"), $p-semibold + ".eot", bold, normal);
-
-$u-regular: "/fonts/ubuntu-mono/regular/regular";
-@include font-face("Ubuntu Mono", font-files($u-regular + ".woff", $u-regular + ".ttf", $u-regular + ".svg"), $u-regular + ".eot", normal, normal);
-
-$u-bold: "/fonts/ubuntu-mono/bold/bold";
-@include font-face("Ubuntu Mono", font-files($u-bold + ".woff", $u-bold + ".ttf", $u-bold + ".svg"), $u-bold + ".eot", bold, normal);
+$l-bold: "/fonts/lekton/bold/bold";
+@include font-face("Lekton", font-files($l-bold + ".woff", $l-bold + ".ttf", $l-bold + ".svg"), $l-bold + ".eot", bold, normal);
 
 
 /*
@@ -79,7 +70,7 @@ html {
 }
 
 body {
-	font: 26px/1.5em "Wayfinding Sans", Helvetica, Arial, sans-serif;
+	font: bold 26px/1.5em "Wayfinding Sans", Helvetica, Arial, sans-serif;
 	margin: 1em 0;
 	overflow: hidden;
 }
@@ -133,7 +124,6 @@ ul#marquee {
 	overflow: hidden;
 	position: relative;
 	
-
 	li {
 		display: block;
 		left: 0;
@@ -231,7 +221,7 @@ ol#periods {
 	}
 
 	#time {
-		font-family: "Ubuntu Mono", monospace;
+		font-family: "Lekton", monospace;
 		font-weight: bold;
 		line-height: 1em;
 	}
