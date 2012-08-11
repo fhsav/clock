@@ -1,6 +1,6 @@
 Clock.controllers :marquees do
   before do
-    authenticated?
+    redirect!
   end
   
   get :index do
@@ -16,9 +16,9 @@ Clock.controllers :marquees do
   end
     
   post :create do
-    marquee = Marquee.new(params[:marquee])
+    m = Marquee.new(params[:marquee])
     
-    if marquee.save
+    if m.save
       flash[:notice] = "The marquee has been created."
       redirect url(:marquees, :index)
     else
@@ -28,9 +28,9 @@ Clock.controllers :marquees do
   end
   
   put :modify do
-    marquee = Marquee.find(params[:id])
+    m = Marquee.find(params[:id])
     
-    if marquee.update_attributes(params[:marquee])
+    if m.update_attributes(params[:marquee])
       flash[:notice] = "The marquee has been modified."
       redirect url(:marquees, :index)
     else
@@ -40,9 +40,9 @@ Clock.controllers :marquees do
   end
   
   delete :destroy do
-    marquee = Marquee.find(params[:id])
+    m = Marquee.find(params[:id])
     
-    if marquee.destroy
+    if m.destroy
       flash[:notice] = "The marquee has been destroyed."
       redirect url(:marquees, :index)
     else

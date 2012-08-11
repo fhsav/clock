@@ -31,6 +31,7 @@ gem 'sass'
 gem 'compass'
 gem 'susy'
 
+gem 'therubyracer'
 gem 'barista'
 
 gem 'tzinfo'
