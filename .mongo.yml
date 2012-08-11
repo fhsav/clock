@@ -1,28 +1,16 @@
 defaults: &defaults
   adapter: mongodb
+  host: localhost
+  port: 27017
   
 development:
   <<: *defaults
-  host: localhost
   database: clock_development
-  port: 27017
   
 test:
   <<: *defaults
-  host: localhost
   database: clock_test
-  port: 27017
   
 production:
   <<: *defaults
-  host: localhost
   database: clock_production
-  port: 27017
-  
-heroku:
-  <<: *defaults
-  host: staff.mongohq.com
-  database: clock_production
-  port: 10055
-  username: Timelord
-  password: cl*ck

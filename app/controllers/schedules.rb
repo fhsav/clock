@@ -1,4 +1,4 @@
-Admin.controllers :schedules do
+Clock.controllers :schedules do
   before do
     authenticated?
   end

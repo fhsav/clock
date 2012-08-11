@@ -1,4 +1,4 @@
-Admin.controllers :periods, :parent => :schedules do
+Clock.controllers :periods, :parent => :schedules do
   before do
     authenticated?
   end

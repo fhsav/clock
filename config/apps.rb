@@ -5,4 +5,3 @@ Padrino.configure_apps do
 end
 
 Padrino.mount("Clock").to('/')
-Padrino.mount("Admin").to("/admin")

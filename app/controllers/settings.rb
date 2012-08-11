@@ -1,4 +1,4 @@
-Admin.controllers :settings do
+Clock.controllers :settings do
   before do
     authenticated?
   end

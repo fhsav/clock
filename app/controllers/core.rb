@@ -1,4 +1,4 @@
-Admin.controllers do
+Clock.controllers do
   before :except => [ :login, :authenticate ] do
     authenticated?
   end

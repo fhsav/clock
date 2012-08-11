@@ -1,4 +1,4 @@
-Clock.controllers do
+Clock.controllers :clock do
   get :index do
     @schedule = Schedule.first(:active => true)
     

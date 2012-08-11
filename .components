@@ -2,6 +2,6 @@
 :orm: mongomapper
 :test: rspec
 :mock: none
-:script: none
+:script: jquery
 :renderer: haml
 :stylesheet: compass

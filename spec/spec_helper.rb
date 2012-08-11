@@ -1,40 +1,35 @@
-require 'yaml'
+require 'spork'
 
-PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
+Spork.prefork do
+  PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 
-require File.expand_path(File.dirname(__FILE__) + "/../config/boot.rb")
-require File.expand_path(File.dirname(__FILE__) + "/factories.rb")
+  require File.expand_path(File.dirname(__FILE__) + "/../config/boot.rb")
 
-RSpec.configure do |conf|
-  conf.include Rack::Test::Methods
+  RSpec.configure do |conf|
+    conf.include Rack::Test::Methods
+  end
+
+  def app
+    Padrino.application
+  end
+
+  def file
+    Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg'), 'image/jpeg')
+  end
+
+  def response
+    last_response
+  end
+
+  def session
+    last_request.env['rack.session']
+  end
+
+  def site
+    "http://example.org"
+  end
 end
 
-def app
-  Padrino.application
-end
-
-def session
-  last_request.env['rack.session']
-end
-
-def password
-  directory = File.expand_path(File.dirname(__FILE__))
-
-  config = YAML::load(File.open(File.join(directory, '..', '.fhsclock.yml')))
-  
-  config["password"]
-end
-
-def site
-  "http://example.org"
-end
-
-def file
-  f = File.join(File.dirname(__FILE__), 'wood.png')
-  f = Rack::Test::UploadedFile.new(f, 'image/png')
-  f
-end
-
-def response
-  last_response
+Spork.each_run do
+  # Things that need to run every time...
 end

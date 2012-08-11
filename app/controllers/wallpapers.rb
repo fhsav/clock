@@ -1,4 +1,4 @@
- Admin.controllers :wallpapers do
+Clock.controllers :wallpapers do
   before :except => [:serve] do
     authenticated?
   end

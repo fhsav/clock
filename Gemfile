@@ -2,11 +2,12 @@ source :rubygems
 
 group :test do
   gem 'rack-test', :require => "rack/test"
+  gem 'spork'
   gem 'rspec'
+  gem 'factory_girl'
 end
 
 gem 'thin'
-
 gem 'foreman'
 
 gem 'rake'
@@ -22,6 +23,8 @@ gem 'ohm'
 
 gem 'faye'
 
+gem 'bcrypt-ruby'
+
 gem 'haml'
 
 gem 'sass'
@@ -31,8 +34,5 @@ gem 'susy'
 gem 'barista'
 
 gem 'tzinfo'
-gem 'htmlentities'
-
-gem 'bcrypt-ruby'
 
 gem 'padrino', '0.10.7'

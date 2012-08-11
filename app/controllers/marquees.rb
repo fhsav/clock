@@ -1,4 +1,4 @@
-Admin.controllers :marquees do
+Clock.controllers :marquees do
   before do
     authenticated?
   end
