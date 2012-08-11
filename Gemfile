@@ -33,4 +33,6 @@ gem 'barista'
 gem 'tzinfo'
 gem 'htmlentities'
 
+gem 'bcrypt-ruby'
+
 gem 'padrino', '0.10.7'

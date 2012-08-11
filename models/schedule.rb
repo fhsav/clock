@@ -3,7 +3,7 @@ class Schedule
   
   key :name, String
   key :description, String
-  key :active, Boolean
+  key :active, Boolean, :default => false
   
   timestamps!
   
