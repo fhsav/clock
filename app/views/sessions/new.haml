@@ -1,0 +1,11 @@
+#login
+  .inner
+    %header
+      %h2 Login
+
+    = partial 'layouts/flash', :locals => { :flash => flash }
+
+    = form_tag url(:sessions, :create), :class => "login", :method => "post" do
+      %p= password_field_tag :password, :placeholder => "Password"
+      %p.submit
+        %button.primary{:type => "submit"} Go

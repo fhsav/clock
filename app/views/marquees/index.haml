@@ -1,0 +1,35 @@
+%nav.breadcrumbs
+  %ol
+    %li
+      %a{:href => url(:index)} Home
+    %li
+      %span Marquee Items
+      
+= partial 'layouts/flash', :locals => { :flash => flash }
+
+%header
+  %h2 Marquee Items
+
+
+- if !@marquees.blank?
+  %table.marquees
+    %thead
+      %th Text
+      %th Actions
+    %tbody
+      - @marquees.each do |m|
+        %tr
+          %td.text= m.text
+          %td
+            %a{:href => url(:marquees, :edit, :id => m.id)} Edit
+            &mdash;
+            = form_tag url(:marquees, :destroy), :class => "inline", :method => "delete" do
+              = hidden_field_tag :id, :value => m.id
+              %button{:type => "submit"} Delete
+- else
+  %p No marquees items yet! Why don't you make one?
+                    
+%footer
+  %form.marquees{:action => url(:marquees, :create), :method => "post"}
+    %p= text_area_tag "marquee[text]", :autofocus => true, :placeholder => "What do you want to say?"
+    %p.submit= button_tag "Save", :class => "primary", :type => "submit"

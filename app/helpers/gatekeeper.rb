@@ -9,7 +9,7 @@ Clock.helpers do
   def redirect!
     if !password?
       flash[:warning] = "Please set a password before continuing."
-      redirect url(:settings, :new)
+      redirect url(:settings, :setup)
     end
 
     unless authenticated?
@@ -25,6 +25,6 @@ Clock.helpers do
 
   # Generate the session key for a particular password.
   def session_key
-    encrypt(Redis.get("password") + encrypt(options.session_secret))
+    encrypt(Redis.get("password") + encrypt(settings.session_secret))
   end
 end

@@ -1,0 +1,115 @@
+/*
+	Clock
+		file: clock.scss
+*/
+
+@import "lib/base";
+
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width;
+
+/*
+	= Appendix
+		I. Media Queries
+		II. 
+*/
+
+
+/*
+	I. Media Queries
+*/
+
+@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */ }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */ }
+
+
+/*
+	II. Universal
+*/
+
+* {
+	/*cursor: none;*/
+	overflow: hide;
+}
+
+html {
+	height: auto;
+	min-height: 100%;
+}
+
+body {
+	background: url("/img/default.jpg") no-repeat;
+	font: bold 32px/1.15em "Wayfinding Sans";
+}
+
+#contain {
+	//margin: 0.5em 0;
+}
+
+
+/*
+	III. Marquee
+*/
+
+#marquee {
+	@include container;
+
+	background: rgba(#333, 0.75);
+	color: #fafafa;
+	margin-top: 0.5em;
+
+	ul {
+		@include span-columns(12);
+
+		display: block;
+		height: 1.5em;
+		line-height: 1;
+		list-style: none;
+		overflow: hidden;
+		position: relative;
+
+		li {
+			display: block;
+			left: 0;
+			padding: 0.25em 0;
+			position: absolute;
+			top: -999em;
+			white-space: nowrap;
+		}
+	}
+}
+
+
+/*
+	IV. Main
+*/
+
+#main {
+	@include container;
+}
+
+
+/*
+	V. Periods
+*/
+
+#periods {
+	@include span-columns(5);
+
+	ul {
+		height: 100%;
+		width: 100%;
+	}
+}
+
+
+/*
+	VI. Clock
+*/
+
+#clock {
+	@include span-columns(6 omega);
+}

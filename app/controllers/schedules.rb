@@ -26,7 +26,7 @@ Clock.controllers :schedules do
 
     if s.save
       flash[:notice] = "The schedule #{s.name} has been created."
-      redirect url(:schedules, :edit, :id => schedule.id)
+      redirect url(:schedules, :view, :id => s.id)
     else
       flash[:error] = "Something went wrong and the schedule was not saved."
       redirect url(:schedules, :index)
@@ -39,15 +39,21 @@ Clock.controllers :schedules do
     render 'schedules/view'
   end
 
+  get :edit, :map => "/schedules/:id/edit" do
+    @schedule = Schedule.find(params[:id])
+
+    render 'schedules/edit'
+  end
+
   put :modify do
     s = Schedule.find(params[:id])
     
     if s.update_attributes(params[:schedule])
       flash[:notice] = "The schedule #{s.name} has been modified."
-      redirect url(:schedules, :edit, :id => s.id)
+      redirect url(:schedules, :view, :id => s.id)
     else
       flash[:error] = "Something went wrong and the schedule #{s.name} was not modified."
-      redirect url(:schedules, :edit, :id => s.id)
+      redirect url(:schedules, :view, :id => s.id)
     end
   end
   
@@ -59,7 +65,7 @@ Clock.controllers :schedules do
       redirect url(:schedules, :index)
     else
       flash[:error] = "Something went wrong and the schedule #{s.name} was not destroyed."
-      redirect url(:schedules, :edit, :id => s.id)
+      redirect url(:schedules, :view, :id => s.id)
     end
   end
 end

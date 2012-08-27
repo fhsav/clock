@@ -7,6 +7,8 @@ Clock.helpers do
 
   # Format the time in 12- or 24-hour time.
   def time(time, convention = 24)
+    time = convert(time)
+
     case convention
     when 24
       time.strftime("%H:%M")

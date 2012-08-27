@@ -1,0 +1,27 @@
+%nav.breadcrumbs
+  %ol
+    %li
+      %a{:href => url(:index)} Home
+    %li
+      %a{:href => url(:schedules, :index)} Schedules
+    %li
+      %a{:href => url(:schedules, :view, :id => @schedule.id)}= @schedule.name
+    %li
+      %span Edit
+
+%header
+  %h2 Schedules
+  %h3= "Editing #{@schedule.name}"
+
+= partial 'layouts/flash', :locals => { :flash => flash }
+
+= form_tag url(:schedules, :modify), :class => "schedules", :method => "put" do
+  = hidden_field_tag :id, :value => @schedule.id
+
+  %p
+    = text_field_tag :"schedule[name]", :value => @schedule.name
+    = text_field_tag :"schedule[description]", :value => @schedule.description
+  %p.submit
+    %button
+      %a{:href => url(:schedules, :index)} Cancel
+    = button_tag "Save", :class => "primary", :type => "submit"

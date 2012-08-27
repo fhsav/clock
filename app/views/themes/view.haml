@@ -1,0 +1,17 @@
+%nav.breadcrumbs
+  %ol
+    %li
+      %a{:href => url(:index)} Home
+    %li
+      %a{:href => url(:themes, :index)} Themes
+    %li
+      %span= @theme.name
+
+%header
+  %h2 Themes
+  %h3= @theme.name
+
+= partial 'layouts/flash', :locals => { :flash => flash }
+
+%p
+  %img{:src => url(:themes, :wallpaper, :id => @theme.id)}/

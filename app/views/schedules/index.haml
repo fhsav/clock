@@ -1,0 +1,47 @@
+%nav.breadcrumbs
+  %ol
+    %li
+      %a{:href => url(:index)} Home
+    %li
+      %span Schedules
+
+%header
+  %h2 Schedules
+
+= partial 'layouts/flash', :locals => { :flash => flash }
+
+- if !@schedules.blank?
+  %table.schedules
+    %thead
+      %th Name
+      %th Description
+      %th Activate
+      %th Actions
+    %tbody
+      - @schedules.each do |s|
+        %tr{:class => s.active}
+          %td
+            %a{:href => url(:schedules, :view, :id => s.id)}= s.name
+          %td= s.description
+          %td
+            = form_tag url(:schedules, :activate), :class => "inline", :method => "post" do
+              = hidden_field_tag :id, :value => s.id
+              - if !s.active
+                %button{:type => "submit"} Activate
+          %td
+            %a{:href => url(:schedules, :view, :id => s.id)} View
+            &mdash;
+            %a{:href => url(:schedules, :edit, :id => s.id)} Edit
+            &mdash;
+            = form_tag url(:schedules, :destroy), :class => "inline", :method => "delete" do
+              = hidden_field_tag :id, :value => s.id
+              %button{:type => "submit"} Delete
+- else
+  %p No schedules yet!
+                    
+%footer
+  = form_tag url(:schedules, :create), :class => "schedules", :method => "post" do
+    %p
+      = text_field_tag :"schedule[name]", :autofocus => true, :placeholder => "Name"
+      = text_field_tag :"schedule[description]", :placeholder => "Description"
+    %p.submit= button_tag "Save", :class => "primary", :type => "submit"

@@ -1,0 +1,44 @@
+%nav.breadcrumbs
+  %ol
+    %li
+      %a{:href => url(:index)} Home
+    %li
+      %span Themes
+
+%header
+  %h2 Themes
+
+= partial 'layouts/flash', :locals => { :flash => flash }
+
+- if !@themes.blank?
+  %table.themes
+    %thead
+      %th Name
+      %th Activate
+      %th Actions
+    %tbody
+      - @themes.each do |t|
+        %tr{:class => t.active}
+          %td= t.name
+          %td
+            = form_tag url(:themes, :activate), :class => "inline", :method => "post" do
+              = hidden_field_tag :id, :value => t.id
+              - if t.active
+                &mdash;
+              - else
+                %button{:type => "submit"} Activate
+          %td
+            %a{:href => url(:themes, :view, :id => t.id)} View
+            &mdash;
+            = form_tag url(:themes, :destroy), :class => "inline", :method => "delete" do
+              = hidden_field_tag :id, :value => t.id
+              %button{:type => "submit"} Delete
+- else
+  %p No themes yet!
+                    
+%footer
+  = form_tag url(:themes, :create), :enctype => "multipart/form-data", :class => "themes", :method => "post" do
+    %p
+      = text_field_tag :"theme[name]", :autofocus => true, :placeholder => "Name"
+      = file_field_tag :"theme[wallpaper]"
+    %p.submit= button_tag "Save", :class => "primary", :type => "submit"

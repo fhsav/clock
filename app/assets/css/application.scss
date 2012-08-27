@@ -1,0 +1,478 @@
+/*
+	Clock
+		file: application.scss
+*/
+
+@import "lib/base";
+
+/*
+	= Appendix
+		I. Media Queries
+		II. 
+*/
+
+
+/*
+	I. Media Queries
+*/
+
+@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */ }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */ }
+
+
+/*
+	II. Universal
+*/
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: #fafafa;
+	color: #333;
+	font: 14px/1.5em "Istok Web", Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #666;
+	text-decoration: none;
+
+	&:hover {
+		color: #999;
+	}
+}
+
+button, input, textarea {
+	font: 14px/1.5em "Istok Web", Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+button, input[type="submit"] {
+	@include border-radius(4px);
+
+	background-image: -webkit-linear-gradient(top, white, #E6E6E6);
+	border: 1px solid #ccc;
+	padding: 4px 10px 4px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, .75);
+
+	&:hover {
+		cursor: pointer;
+
+		a {
+			color: #666;
+		}
+	}
+
+	&:active {
+		background-color: #e6e6e6;
+		background-color: #d9d9d9;
+		background-image: none;
+		outline: 0;
+		-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+	}
+
+	&.primary {
+		background-color: #0073cc;
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0055cc));
+		border-color: #0055cc #0055cc #003580;
+		color: #fafafa;
+		text-shadow: 0 1px 1px rgba(0, 0, 0, .75);
+	}
+
+	a {
+		display: block;
+	}	
+}
+
+code, pre {
+	font-family: "Droid Sans Mono";
+}
+
+h1 {
+	font-size: 1.25em;
+	font-weight: bold;
+	margin-top: 0.125em;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+h3 {
+	font-size: 1.15em;
+}
+
+img {
+	max-width: 100%;
+}
+
+form {
+	&.inline {
+		display: inline;
+
+		button {
+			background: none;
+			border: 0;
+			color: #666;
+			padding: 0;
+			display: inline;
+
+			&:hover {
+				cursor: pointer;
+				color: #999;
+			}
+		}
+	}
+
+	&.schedules {
+		input[type="text"] {
+			width: 48.15%;
+		}
+	}
+
+	&.periods {
+		input {
+			&[name="period[number]"] {
+				width: 5%;
+			}
+
+			&[name="period[text]"] {
+				width: 47%;
+			}
+
+			&[name="period[start]"], &[name="period[finish]"] {
+				width: 20%;
+			}
+		}
+	}
+
+	&.themes {
+		input[type="text"] {
+			width: 63%;
+		}
+	}
+
+	&.settings {
+		p + p {
+			margin-top: 0.25em;
+		}
+
+		p.old {
+			border-bottom: 1px solid #e0e0e0;
+			margin-bottom: 0.5em;
+			padding-bottom: 0.5em;
+		}
+
+		input[type="password"] {
+			width: 50%;
+		}
+	}
+
+	&.login {
+		input[type="password"] {
+			width: 98%;
+		}
+	}
+
+	input, textarea {
+		background-color: white;
+		border: 1px solid #cccccc;
+		border-radius: 3px;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		transition: border linear 0.2s, box-shadow linear 0.2s;
+
+		&:focus {
+			border-color: rgba(82, 168, 236, 0.8);
+			outline: 0;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+		}
+	}
+
+	input {
+		padding: 0.5em 0.25em 0.5em 0.5em;
+	}
+
+	p.submit {
+		@include clearfix;
+
+		float: right;
+		margin-top: 0.25em;
+	}
+
+	textarea {
+		height: 10em;
+		padding: 0.25em;
+		width: 99%;
+	}
+}
+
+table {
+	margin-top: 1em;
+	width: 100%;
+
+	tbody {
+		tr:hover {
+			background: #fefefe;
+		}
+	}
+
+	td, th {
+		padding: 0.8em 0.4em;
+	}
+
+	td {
+		&.text {
+			padding-right: 5%;
+			width: 80%;
+		}
+
+		&:last-child {
+			vertical-align: top;
+		}
+	}
+
+	th {
+		border-bottom: 1px solid #ccc;
+		font-weight: bold;
+		vertical-align: bottom;
+	}
+
+	tr {
+
+		& + tr {
+			border-top: 1px solid #e0e0e0;
+		}
+
+		&.true {
+			background: rgba(yellow, 0.5);
+
+			&:hover {
+				background: rgba(yellow, 0.35);
+			}
+		}
+	}
+}
+
+.alert {
+	margin: 1em 0 2em;
+	padding: 8px 35px 8px 14px;
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+
+	&.notice {
+		background-color: #dff0d8;
+		border: 1px solid #d6e9c6;
+		color: #468847;
+	}
+
+	&.error {
+		background-color: #f2dede;
+		border: 1px solid #eed3d7;
+		color: #b94a48;
+	}
+
+	&.warning {
+		background: #fcf8e3;
+		border: 1px solid #fbeed5;
+		color: #c09853;
+	}
+}
+
+#contain {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -7em;
+}
+
+
+/*
+	III. Header
+*/
+
+#contain > header {
+	color: #fafafa;
+	margin-bottom: 2em;
+
+	a {
+		color: #fafafa;
+		text-decoration: none;
+
+		&:hover {
+			color: #efefef;
+		}
+	}
+
+	button {
+		background: none;
+		border: none;
+		color: #fafafa;
+		padding: 0;
+		text-shadow: none;
+
+		&:hover {
+			color: #efefef;
+			cursor: pointer;
+		}
+	}
+
+	hgroup {
+		padding: 1em 0;
+
+		&.top {
+			background: #518787;
+		}
+
+		&.bottom {
+			background: #74B5B5;
+		}
+
+		section {
+			@include container;
+		}
+
+		nav.left, aside {
+			@include span-columns(6);
+		}
+
+		nav.right {
+			@include span-columns(6 omega);
+
+			ul {
+				float: right;
+			}
+		}
+
+		li {
+			display: inline-block;
+
+			& + li {
+				margin-left: 1.5em;
+			}
+		}
+	}
+}
+
+
+/*
+	IV. Main
+*/
+
+#main {
+	@include container;
+
+	#login {
+		@include span-columns(10);
+		@include prefix(1);
+		@include suffix(1);
+
+		margin: 2em 0;
+		background: #efefef;
+
+		.inner {
+			padding: 4em 4em 6em;
+		}
+
+		header {
+			border-bottom: 1px solid #fff;
+		}
+	}
+
+	nav.breadcrumbs {
+		color: #aaa;
+		margin-bottom: 2.25em;
+
+		a {
+			color: #ccc;
+
+			&:hover {
+				color: #aaa;
+			}
+		}
+
+		ol {
+			margin-left: 0;
+
+			li {
+				display: inline-block;
+
+				& + li {
+					&:before {
+						content: "\203A ";
+					}
+				}
+			}
+		}
+	}
+
+	header {
+		border-bottom: 1px solid #f0f0f0;
+		margin-bottom: 1.5em;
+		padding-bottom: 0.25em;
+
+		section, aside {
+			display: inline-block;
+		}
+
+		section {
+			margin-top: 5px;
+
+			h2 {
+				margin-bottom: 0em;
+			}
+
+			h3 {
+				margin-bottom: 1em;
+			}
+		}
+
+		aside {
+			float: right;
+		}
+	}
+
+	ol, ul {
+		margin: 1em 0 1em 3em;
+	}
+
+	ul li {
+		list-style-type: disc;
+	}
+
+	footer {
+		border-top: 1px solid #f0f0f0;
+		padding-top: 2em;
+		margin-top: 2em;
+	}
+}
+
+
+/*
+	V. Footer
+*/
+
+body > footer {
+	background: #efefef;
+	color: #aaa;
+	height: 5em;
+	padding-top: 2em;
+	text-align: center;
+
+	section {
+		@include container;
+
+		p + p {
+			font: 0.85em "Droid Sans Mono";
+			margin-top: 1em;
+		}
+	}
+}
+
+.footer-push {
+	height: 6em;
+	padding-bottom: 6em;
+}

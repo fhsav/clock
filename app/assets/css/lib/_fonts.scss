@@ -1,0 +1,7 @@
+@import "compass/css3/font-face";
+
+@import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700|Signika:300,400,600,700);
+
+$w-regular: "/fonts/wayfinding/regular/regular";
+@include font-face("Wayfinding Sans", font-files($w-regular + ".woff", $w-regular + ".ttf", $w-regular + ".svg"), $w-regular + ".eot", normal, normal);

@@ -1,0 +1,14 @@
+!!!! 5
+%html{:lang => "en"}
+  %head
+    %title Faye Debugger
+  %body
+    %h1 Faye Debugger
+    %ul
+    %script{:src => "/jsc/lib/jquery.js"}
+    %script{:src => "/faye/client.js"}
+    :javascript
+      var client = new Faye.Client('http://localhost:5000/faye');
+      var subscription = client.subscribe('/refreshes', function(message) {
+        console.log(message.timestamp);
+      });
