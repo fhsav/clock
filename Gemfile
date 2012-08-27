@@ -5,6 +5,10 @@ group :test do
   gem 'rspec'
 end
 
+group :development do
+  gem 'therubyracer' # Heroku does not require therubyracer.
+end
+
 gem 'thin'
 
 gem 'foreman'
@@ -27,7 +31,6 @@ gem 'sass'
 gem 'compass'
 gem 'susy'
 
-gem 'therubyracer'
 gem 'barista'
 
 gem 'tzinfo'
