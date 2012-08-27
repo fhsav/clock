@@ -4,12 +4,11 @@ branches:
 rvm:
   - 1.9.2
   - 1.9.3
-  - ruby-head
   - rbx-19mode
   - ree
 before_install:
   - gem update --system
-script: bundle exec foreman start
+script: bundle exec thin start -d
 notifications:
   email:
     - ethan.turkeltaub@gmail.com
