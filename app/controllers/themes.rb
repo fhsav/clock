@@ -22,9 +22,12 @@ Clock.controllers :themes do
   end
   
   post :activate do
+    Theme.set({:active => true}, :active => false)
+
     t = Theme.find(params[:id])
-    
-    if t.activate!
+    t.active = true
+
+    if t.save
       flash[:notice] = 'The theme "' + t.name + '" has been activated.'
       redirect url(:themes, :index)
     else

@@ -12,6 +12,13 @@
     
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
     %link{:href => "/css/clock.css", :rel => "stylesheet"}
+
+    :css
+      - if !@theme.blank?
+        body { background: url("/gridfs/#{@theme.wallpaper.id}") no-repeat; }
+      - else
+        body { background: url("/img/default.jpg") no-repeat; }
+
   %body
     #contain
 
@@ -21,16 +28,17 @@
             %li= m.text  
 
       #main{:role => "main"}
-        - if @schedule
-          - if @schedule.periods
-            %section#periods
-              %ol
-                - @schedule.periods.each do |p|
-                  %li= "#{p.text}: #{time(p.start)} &ndash; #{time(p.finish)}"
+
+        - if @schedule and @schedule.periods
+          %section#periods
+            %ol
+              - @schedule.periods.each do |p|
+                %li= "#{p.text}: #{time(p.start)} &ndash; #{time(p.finish)}"
+              %li.active Activated: 10:33 &ndash; 11:00
 
         %aside#clock
-          %p.date Tuesday, August 2nd, 2012
-          %p.time 4:22
+          %p#date Tuesday, August 2nd, 2012
+          %p#time 10:22
 
     %script{:src => "/jsc/lib/jquery.js"}
     %script{:src => "/jsc/lib/jquery.marquee.js"}

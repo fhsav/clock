@@ -10,11 +10,6 @@ class Schedule
   many :periods
   
   validates_presence_of :name
-
-  def activate!
-    self.class.set({:active => true}, :active => false)
-    self.active = true
-  end
 end
 
 class Period

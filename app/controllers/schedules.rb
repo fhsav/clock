@@ -10,9 +10,12 @@ Clock.controllers :schedules do
   end
   
   post :activate do
+    Schedule.set({:active => true}, :active => false)
+
     s = Schedule.find(params[:id])
-    
-    if s.activate!
+    s.active = true
+
+    if s.save
       flash[:notice] = "The schedule #{s.name} has been activated."
       redirect url(:schedules, :index)
     else

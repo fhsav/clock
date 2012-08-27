@@ -7,6 +7,10 @@ group :test do
   gem 'factory_girl'
 end
 
+group :development do
+  gem 'therubyracer'
+end
+
 gem 'thin'
 gem 'foreman'
 
@@ -31,7 +35,6 @@ gem 'sass'
 gem 'compass'
 gem 'susy'
 
-gem 'therubyracer'
 gem 'barista'
 
 gem 'tzinfo'

@@ -5,3 +5,7 @@
 
 $w-regular: "/fonts/wayfinding/regular/regular";
 @include font-face("Wayfinding Sans", font-files($w-regular + ".woff", $w-regular + ".ttf", $w-regular + ".svg"), $w-regular + ".eot", normal, normal);
+
+$l-bold: "/fonts/lekton/bold/bold";
+@include font-face("Lekton", font-files($l-bold + ".woff", $l-bold + ".ttf", $l-bold + ".svg"), $l-bold + ".eot", bold, normal);
+
