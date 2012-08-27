@@ -41,6 +41,7 @@ html {
 }
 
 body {
+	color: #333;
 	font: bold 32px/1.25em "Wayfinding Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
@@ -72,7 +73,7 @@ body {
 		li {
 			display: block;
 			left: 0;
-			padding: 0.25em 0 0.25em 0.5em;
+			padding: 0.3em 0 0.25em 0.5em;
 			position: absolute;
 			top: -999em;
 			white-space: nowrap;
@@ -97,7 +98,7 @@ body {
 */
 
 #periods {
-	@include span-columns(11);
+	@include span-columns(12);
 
 	ol {
 		height: 100%;
@@ -125,6 +126,19 @@ body {
 				border-radius: 0 0 2px 2px;
 				border-bottom: 1px solid #fff;
 			}
+
+			&.active {
+				@include background(
+					linear-gradient(
+						top,
+						rgb(68, 68, 68),
+						rgb(34, 34, 34)
+					)
+				);
+
+				border-bottom: 1px solid #333 ;
+				color: #fafafa;
+			}
 		}
 	}
 }
@@ -135,8 +149,8 @@ body {
 */
 
 #clock {
-	@include span-columns(11 omega);
-	@include suffix(1);
+	@include span-columns(12 omega);
+	//@include suffix(1);
 
 	color: #fff;
 	text-align: center;

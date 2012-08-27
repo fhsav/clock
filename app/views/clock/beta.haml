@@ -14,10 +14,7 @@
     %link{:href => "/css/clock.css", :rel => "stylesheet"}
 
     :css
-      - if !@theme.blank?
-        body { background: url("/gridfs/#{@theme.wallpaper.id}") no-repeat; }
-      - else
-        body { background: url("/img/default.jpg") no-repeat; }
+      body { background: url(#{@theme}) no-repeat }
 
   %body
     #contain
@@ -33,7 +30,11 @@
           %section#periods
             %ol
               - @schedule.periods.each do |p|
-                %li= "#{p.text}: #{time(p.start)} &ndash; #{time(p.finish)}"
+                %li
+                  ="#{p.text}: "
+                  %time.start{:datetime => seconds(p.start)}= "#{time(p.start, 12)}"
+                  &ndash;
+                  %time.finish{:datetime => seconds(p.finish)}= "#{time(p.finish, 12)}"
               %li.active Activated: 10:33 &ndash; 11:00
 
         %aside#clock
