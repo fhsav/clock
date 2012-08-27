@@ -9,7 +9,6 @@ class Admin < Padrino::Application
   set :password, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["password"]
   set :video, YAML::load(File.open(File.join(PADRINO_ROOT, '.fhsclock.yml')))["video"]
   
-  use StatusCats, :only => [ 403, 404, 500 ]
 
   enable :caching
   

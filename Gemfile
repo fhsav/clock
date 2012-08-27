@@ -18,16 +18,16 @@ gem 'mongo_mapper'
 gem 'rack-gridfs', :require => "rack/gridfs"
 gem 'joint'
 
-gem 'ohm'
+gem 'pusher'
 
-gem 'faye'
-
+gem 'rdiscount'
 gem 'haml'
 
 gem 'sass'
 gem 'compass'
 gem 'susy'
 
+gem 'therubyracer'
 gem 'barista'
 
 gem 'tzinfo'
