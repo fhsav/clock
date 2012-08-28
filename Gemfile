@@ -1,16 +1,5 @@
 source :rubygems
 
-group :test do
-  gem 'rack-test', :require => "rack/test"
-  gem 'spork'
-  gem 'rspec'
-  gem 'factory_girl'
-end
-
-group :development do
-  gem 'therubyracer'
-end
-
 gem 'thin'
 gem 'foreman'
 
@@ -40,3 +29,18 @@ gem 'barista'
 gem 'tzinfo'
 
 gem 'padrino', '0.10.7'
+
+group :development do
+  gem 'therubyracer'
+end
+
+group :production do
+  gem 'cijoe', :git => "https://github.com/nvloff/cijoe.git"
+end
+
+group :test do
+  gem 'rack-test', :require => "rack/test"
+  gem 'spork'
+  gem 'rspec'
+  gem 'factory_girl'
+end
