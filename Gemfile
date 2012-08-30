@@ -1,14 +1,5 @@
 source :rubygems
 
-group :test do
-  gem 'rack-test', :require => "rack/test"
-  gem 'rspec'
-end
-
-group :development do
-  gem 'therubyracer' # Heroku does not require therubyracer.
-end
-
 gem 'thin'
 
 gem 'foreman'
@@ -37,3 +28,16 @@ gem 'tzinfo'
 gem 'htmlentities'
 
 gem 'padrino', '0.10.7'
+
+group :test do
+  gem 'rack-test', :require => "rack/test"
+  gem 'rspec'
+end
+
+group :development do
+  gem 'therubyracer' # Heroku does not require therubyracer.
+end
+
+group :production do
+  gem 'cijoe', :git => "https://github.com/nvloff/cijoe.git"
+end
