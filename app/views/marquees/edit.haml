@@ -1,8 +1,19 @@
+%nav.breadcrumbs
+  %ol
+    %li
+      %a{:href => url(:index)} Home
+    %li
+      %a{:href => url(:marquees, :index)} Marquee Items
+    %li
+      %a{:href => url(:marquees, :edit, :id => @marquee.id)}= @marquee.id
+    %li
+      %span Edit
+      
+= partial 'layouts/flash', :locals => { :flash => flash }
+
 %header
   %h2 Marquee Items
   %h3= "Editing marquee item <code>#{@marquee.id}</code>"
-
-= partial 'layouts/flash', :locals => { :flash => flash }
 
 - form_tag url(:marquees, :modify), :method => "put" do
   = hidden_field_tag :id, :value => @marquee.id

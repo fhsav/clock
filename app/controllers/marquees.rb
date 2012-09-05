@@ -9,12 +9,6 @@ Clock.controllers :marquees do
     render 'marquees/index'
   end
 
-  get :edit, :with => :id do
-    @marquee = Marquee.find(params[:id])
-    
-    render 'marquees/edit'
-  end
-    
   post :create do
     m = Marquee.new(params[:marquee])
     
@@ -25,6 +19,12 @@ Clock.controllers :marquees do
       flash[:error] = "Something went wrong and the marquee was not created."
       redirect url(:marquees, :index)
     end
+  end
+  
+  get :edit, :map => "/marquees/:id/edit" do
+    @marquee = Marquee.find(params[:id])
+    
+    render 'marquees/edit'
   end
   
   put :modify do

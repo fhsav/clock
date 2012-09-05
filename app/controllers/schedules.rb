@@ -53,10 +53,10 @@ Clock.controllers :schedules do
     
     if s.update_attributes(params[:schedule])
       flash[:notice] = "The schedule #{s.name} has been modified."
-      redirect url(:schedules, :view, :id => s.id)
+      redirect url(:schedules, :index)
     else
       flash[:error] = "Something went wrong and the schedule #{s.name} was not modified."
-      redirect url(:schedules, :view, :id => s.id)
+      redirect url(:schedules, :edit, :id => s.id)
     end
   end
   
