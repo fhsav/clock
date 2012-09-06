@@ -76,5 +76,5 @@ $(document).ready ->
   # Faye (Refreshing)
   faye = new Faye.Client("http://localhost:5000/faye")
   refreshes = faye.subscribe("/refreshes", (message) ->
-    console.log message.timestamp
+    location.reload false
   )

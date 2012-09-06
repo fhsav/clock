@@ -75,7 +75,8 @@
     });
     faye = new Faye.Client("http://localhost:5000/faye");
     return refreshes = faye.subscribe("/refreshes", function(message) {
-      return console.log(message.timestamp);
+      console.log(message.timestamp);
+      return location.reload(false);
     });
   });
 
