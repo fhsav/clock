@@ -30,3 +30,148 @@ $grid-padding: $gutter-width;
 	II. Universal
 */
 
+* {
+    //cursor: none;
+    overflow: hide;
+}
+
+html {
+    height: auto;
+    min-height: 100%;
+}
+
+body {
+    color: #333;
+    font: bold 32px/1.25em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+#contain {
+    margin: 0.5em 0;
+}
+
+
+/*
+    III. Marquee
+*/
+
+#marquee {
+    @include container;
+
+    background: rgba(#333, 0.75);
+    color: #fafafa;
+
+    ul {
+        @include span-columns(24 omega);
+
+        display: block;
+        height: 1.5em;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        position: relative;
+
+        li {
+            display: block;
+            left: 0;
+            padding: 0.2em 0 0.2em 0.5em;
+            position: absolute;
+            top: -999em;
+            white-space: nowrap;
+        }
+    }
+}
+
+
+/*
+    IV. Main
+*/
+
+#main {
+    @include container;
+
+    margin-top: 1em;
+
+    &.after {
+        #periods {
+            display: none;
+            visibility: hidden;
+        }
+
+        #clock {
+            @include span-columns(24 omega);
+        }
+    }
+}
+
+
+/*
+    V. Periods
+*/
+
+#periods {
+    @include span-columns(12);
+
+    ol {
+        height: 100%;
+        width: 100%;
+
+        li {
+            @include background(
+                linear-gradient(
+                    top,
+                    rgb(240, 240, 240),
+                    rgb(210, 210, 210)
+                )
+            );
+
+            border-bottom: 1px solid #000;
+            border-top: 1px solid #fff;
+            display: block;
+            padding: 0.3em 0.5em 0.25em 0.5em;
+
+            &:first-child {
+                border-radius: 2px 2px 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 2px 2px;
+                border-bottom: 1px solid #fff;
+            }
+
+            &.active {
+                @include background(
+                    linear-gradient(
+                        top,
+                        rgb(68, 68, 68),
+                        rgb(34, 34, 34)
+                    )
+                );
+
+                border-bottom: 1px solid #333;
+                color: #fafafa;
+            }
+        }
+    }
+}
+
+
+/*
+    VI. Clock
+*/
+
+#clock {
+    @include span-columns(12 omega);
+
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.8);
+
+    #date {
+        font-size: 1.25em;
+        line-height: 1.5em;
+    }
+
+    #time {
+        font: 3.5em "Open Sans", Anonymous Pro, Courier New, Courier, monospace;
+    }
+}

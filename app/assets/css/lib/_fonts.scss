@@ -9,3 +9,4 @@ $w-regular: "/fonts/wayfinding/regular/regular";
 $l-bold: "/fonts/lekton/bold/bold";
 @include font-face("Lekton", font-files($l-bold + ".woff", $l-bold + ".ttf", $l-bold + ".svg"), $l-bold + ".eot", bold, normal);
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600);

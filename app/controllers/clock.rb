@@ -9,10 +9,6 @@ Clock.controllers :clock do
   end
 
   get :index do
-    redirect url(:clock, :beta)
-  end
-
-  get :beta do
-    render 'clock/beta', :layout => false
+    render 'clock/index', :layout => false
   end
 end

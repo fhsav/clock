@@ -37,7 +37,7 @@ Clock.controllers :periods, :parent => :schedules do
   
   delete :destroy do
     p = Period.find(params[:id])
-    
+
     if p.destroy
       flash[:notice] = "The period has been destroyed."
       redirect url(:schedules, :view, :id => @s.id)
