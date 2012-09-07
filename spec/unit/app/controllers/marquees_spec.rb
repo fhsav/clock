@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe "Marquees" do
+  before(:each) do
+    @m = Marquee.create(:text => "We are the legacy of 15 billion years of cosmic evolution.")
+  end
+
   describe "GET /marqueees" do
     before do
       get "/marquees"
@@ -13,7 +17,7 @@ describe "Marquees" do
 
   describe "POST /marquees/create" do
     before do
-      post "/marquees", :marquee => { :text => "Foo to the bar to the foo." }
+      post "/marquees/create", :marquee => { :text => "Foo to the bar to the foo." }
     end
 
     it "should create a Marquee" do
@@ -22,7 +26,49 @@ describe "Marquees" do
 
     it "should redirect" do
       response.should be_redirect
-      response.location.should == "/marquees"
+      response.location.should == "#{site}/marquees"
+    end
+  end
+
+  describe "GET /marquees/:id/edit" do
+    before do
+      get "/marquees/#{@m.id}/edit"
+    end
+
+    it "should be ok" do
+      response.should be_ok
+    end
+  end
+
+  describe "PUT /marquees/modify" do
+    before do
+      put "/marquees/modify", :id => @m.id, :marquee => { :text => "Carl Sagan!" }
+
+      @m.reload
+    end
+
+    it "should modify a Marquee" do
+      @m.text.should == "Carl Sagan!"
+    end
+
+    it "should redirect correctly" do
+      response.should be_redirect
+      response.location.should == "#{site}/marquees"
+    end
+  end
+
+  describe "DELETE /marquees/destroy" do
+    before do
+      delete "/marquees/destroy", :id => @m.id
+    end
+
+    it "should destroy a Marquee" do
+      Marquee.find(@m.id).should be_nil
+    end
+
+    it "should redirect correctly" do
+      response.should be_redirect
+      response.location.should == "#{site}/marquees"
     end
   end
 end
