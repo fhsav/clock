@@ -6,7 +6,13 @@ Clock.controllers :periods, :parent => :schedules do
   end
   
   post :create do
-    p = Period.create(params[:period])
+    if !params[:period][:number].blank?
+      number = params[:period][:number]
+    else
+      number = @s.periods.count + 1
+    end
+
+    p = Period.create(:number => number, :text => params[:period][:text], :start => params[:period][:start], :finish => params[:period][:finish])
 
     if @s.periods << p
       flash[:notice] = "The period has been created."
