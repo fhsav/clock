@@ -10,7 +10,7 @@ rvm:
   - ree
 before_install:
   - gem update --system
-script: bundle exec foreman start
+script: bundle exec rspec spec
 notifications:
   email:
     - ethan.turkeltaub@gmail.com
