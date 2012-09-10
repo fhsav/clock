@@ -111,6 +111,10 @@ body {
 #periods {
     @include span-columns(12);
 
+    @media (max-width: 850px) {
+        @include span-columns(24 omega);
+    }
+
     ol {
         height: 100%;
         width: 100%;
@@ -161,6 +165,12 @@ body {
 
 #clock {
     @include span-columns(12 omega);
+
+    @media (max-width: 850px) {
+        @include span-columns(24 omega);
+
+        margin-top: 1em;
+    }
 
     color: #fff;
     text-align: center;
