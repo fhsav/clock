@@ -13,3 +13,5 @@
 The Farmington High School Clock is displayed on a television in each classroom. It displays the time and date, periods (and current period) of the day, marquee items, and notices for the school.
 
 It runs on the Ruby programming language, with the Padrino web framework, MongoDB database system, and the CoffeeScript and Sass pre-compilers.
+
+It uses CIJoe for CI on the actual server and Travis for building.
