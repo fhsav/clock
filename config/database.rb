@@ -2,8 +2,12 @@ require 'yaml'
 
 c = YAML::load(File.open(File.join(PADRINO_ROOT, '.mongo.yml')))
 
-if ENV['HEROKU']
-  PADRINO_ENV = "heroku"
-end
+if ENV['MONGOHQ_URL']
+  hq = URI.parse(ENV['MONGOHQ_URL'])
 
-MongoMapper.setup(c, PADRINO_ENV, :logger => nil)
+  MongoMapper.connection = Mongo::Connection.new(hq.host, hq.port, :logger => nil)
+  MongoMapper.database = hq.path.gsub(/^\//, '')
+  MongoMapper.database.authenticate(hq.user, hq.password)
+else
+  MongoMapper.setup(c, PADRINO_ENV, :logger => nil)
+end
