@@ -59,7 +59,8 @@
       # Check if it's after school and respond appropriately.
       final = $("#periods ol li:last-child").find("time.finish").attr("datetime")
 
-      if time > final
+      # Check if schedule exists.
+      if time > final or $("#main").hasClass "true"
         $("#main").addClass "after"
       else
         $("#main").removeClass "after"

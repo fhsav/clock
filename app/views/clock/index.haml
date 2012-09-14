@@ -19,12 +19,13 @@
   %body
     #contain
 
-      %header#marquee
-        %ul
-          - @marquees.each do |m|
-            %li= m.text  
+      - unless @marquees.empty?
+        %header#marquee
+          %ul
+            - @marquees.each do |m|
+              %li= m.text  
 
-      #main{:role => "main"}
+      #main{:class => @schedule.blank?, :role => "main"}
 
         - if @schedule and @schedule.periods
           %section#periods
