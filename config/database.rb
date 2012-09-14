@@ -1,8 +1,11 @@
 require "yaml"
 
 if ENV["MONGOHQ_URL"]
-  MongoMapper.config = { PADRINO_ENV => { "uri" => ENV["MONGOHQ_URL"] } }
-  MongoMapper.connect(PADRINO_ENV)
+  hq = URI.parse(ENV['MONGOHQ_URL'])
+
+  MongoMapper.connection = Mongo::Connection.new(hq.host, hq.port, :logger => nil)
+  MongoMapper.database = hq.path.gsub(/^\//, '')
+  MongoMapper.database.authenticate(hq.user, hq.password)
 else
   MongoMapper.setup(YAML::load(File.open(File.join(PADRINO_ROOT, ".mongo.yml"))), PADRINO_ENV, :logger => nil)
 end

@@ -89,7 +89,7 @@ body {
 #main {
     @include container;
 
-    margin-top: 1em;
+    margin-top: 0.75em;
 
     &.after {
         #periods {
@@ -177,7 +177,7 @@ body {
     text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.8);
 
     #date {
-        font-size: 1.25em;
+        font-size: 1.5em;
         line-height: 1.5em;
     }
 
@@ -185,5 +185,6 @@ body {
         font-size: 3.5em;
         font-weight: bold;
         line-height: 1em;
+        margin-top: 0.1em;
     }
 }
