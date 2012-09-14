@@ -1,7 +1,6 @@
 branches:
   only:
     - master
-    - refactor
 rvm:
   - 1.9.2
   - 1.9.3
