@@ -42,11 +42,11 @@ html {
 
 body {
     color: #333;
-    font: bold 32px/1.25em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font: bold 33px/1.25em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 #contain {
-    margin: 0.5em 0;
+    margin: 0.75em 0;
 }
 
 
@@ -89,7 +89,7 @@ body {
 #main {
     @include container;
 
-    margin-top: 1em;
+    margin-top: 0.75em;
 
     &.after {
         #periods {
@@ -177,7 +177,7 @@ body {
     text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.8);
 
     #date {
-        font-size: 1.25em;
+        font-size: 1.5em;
         line-height: 1.5em;
     }
 
@@ -185,5 +185,6 @@ body {
         font-size: 3.5em;
         font-weight: bold;
         line-height: 1em;
+        margin-top: 0.1em;
     }
 }

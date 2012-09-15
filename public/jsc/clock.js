@@ -58,7 +58,7 @@
           }
         });
         final = $("#periods ol li:last-child").find("time.finish").attr("datetime");
-        if (time > final) {
+        if (time > final || $("#main").hasClass("true")) {
           $("#main").addClass("after");
         } else {
           $("#main").removeClass("after");
