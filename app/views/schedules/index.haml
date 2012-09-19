@@ -21,7 +21,7 @@
       - @schedules.each do |s|
         %tr{:class => s.active}
           %td
-            %a{:href => url(:schedules, :view, :id => s.id)}= s.name
+            %a{:href => url(:schedules, :edit, :id => s.id)}= s.name
           %td= s.description
           %td
             = form_tag url(:schedules, :activate), :class => "inline", :method => "post" do
@@ -29,8 +29,6 @@
               - if !s.active
                 %button{:type => "submit"} Activate
           %td
-            %a{:href => url(:schedules, :view, :id => s.id)} View
-            &mdash;
             %a{:href => url(:schedules, :edit, :id => s.id)} Edit
             &mdash;
             = form_tag url(:schedules, :destroy), :class => "inline", :method => "delete" do

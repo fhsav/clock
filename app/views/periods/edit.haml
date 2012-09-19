@@ -5,7 +5,7 @@
     %li
       %a{:href => url(:schedules, :index)} Schedules
     %li
-      %a{:href => url(:schedules, :view, :id => @s.id)}= @s.name
+      %a{:href => url(:schedules, :edit, :id => @s.id)}= @s.name
     %li
       %span= @period.text
 
@@ -25,5 +25,5 @@
     = text_field_tag :"period[finish]", :class => "small", :placeholder => "Finish Time", :value => time(@period.finish, 24)
   %p.submit
     %button
-      %a{:href => url(:schedules, :view, :id => @s.id)} Cancel
+      %a{:href => url(:schedules, :edit, :id => @s.id)} Cancel
     = button_tag "Save", :class => "primary", :type => "submit"

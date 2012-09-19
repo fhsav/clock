@@ -113,6 +113,8 @@ img {
 }
 
 form {
+	@include clearfix;
+
 	&.inline {
 		display: inline;
 
@@ -131,6 +133,8 @@ form {
 	}
 
 	&.schedules {
+		margin-bottom: 1em;
+
 		input[type="text"] {
 			width: 48.15%;
 		}

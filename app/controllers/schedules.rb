@@ -36,12 +36,6 @@ Clock.controllers :schedules do
     end
   end
 
-  get :view, :map => "/schedules/:id" do
-    @schedule = Schedule.find(params[:id])
-
-    render 'schedules/view'
-  end
-
   get :edit, :map => "/schedules/:id/edit" do
     @schedule = Schedule.find(params[:id])
 

@@ -16,10 +16,10 @@ Clock.controllers :periods, :parent => :schedules do
 
     if @s.periods << p
       flash[:notice] = "The period has been created."
-      redirect url(:schedules, :view, :id => @s.id)
+      redirect url(:schedules, :edit, :id => @s.id)
     else
       flash[:error] = "Something went wrong and the period has not been created."
-      redirect url(:schedules, :view, :id => @s.id)
+      redirect url(:schedules, :edit, :id => @s.id)
     end
   end
   
@@ -34,10 +34,10 @@ Clock.controllers :periods, :parent => :schedules do
     
     if p.update_attributes(params[:period])
       flash[:notice] = "The period has been modified."
-      redirect url(:schedules, :view, :id => @s.id)
+      redirect url(:schedules, :edit, :id => @s.id)
     else
       flash[:error] = "Somethng went wrong and the period has not been modified."
-      redirect url(:schedules, :view, :id => @s.id)
+      redirect url(:schedules, :edit, :id => @s.id)
     end
   end
   
@@ -46,10 +46,10 @@ Clock.controllers :periods, :parent => :schedules do
 
     if p.destroy
       flash[:notice] = "The period has been destroyed."
-      redirect url(:schedules, :view, :id => @s.id)
+      redirect url(:schedules, :edit, :id => @s.id)
     else
       flash[:error] = "Something went wrong and the period has not been destroyed."
-      redirect url(:schedules, :view, :id => @s.id)
+      redirect url(:schedules, :edit, :id => @s.id)
     end
   end
 end
