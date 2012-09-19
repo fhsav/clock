@@ -5,8 +5,17 @@ Spork.prefork do
 
   require File.expand_path(File.dirname(__FILE__) + "/../config/boot.rb")
 
+  FactoryGirl.find_definitions
+
   RSpec.configure do |conf|
     conf.include Rack::Test::Methods
+    conf.include FactoryGirl::Syntax::Methods
+
+    conf.after do
+      MongoMapper.database.collections.each do |c|
+        c.remove
+      end
+    end
   end
 
   def app
