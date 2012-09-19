@@ -1,7 +1,8 @@
 source :rubygems
 
+gem 'padrino', '0.10.7'
+
 gem 'thin'
-gem 'foreman'
 
 gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
@@ -28,9 +29,9 @@ gem 'barista'
 
 gem 'tzinfo'
 
-gem 'padrino', '0.10.7'
-
 group :development do
+  gem 'foreman'
+
   gem 'therubyracer'
 end
 

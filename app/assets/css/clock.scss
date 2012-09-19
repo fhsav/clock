@@ -13,7 +13,11 @@ $grid-padding: $gutter-width;
 /*
 	= Appendix
 		I. Media Queries
-		II. 
+		II. Universal
+        III. Marquee
+        IV. Main
+        V. Periods
+        VI. Clock
 */
 
 
@@ -31,7 +35,7 @@ $grid-padding: $gutter-width;
 */
 
 * {
-    //cursor: none;
+    cursor: none;
     overflow: hide;
 }
 
