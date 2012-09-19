@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "Marquees" do
   before(:each) do
-    @m = Marquee.create(:text => "We are the legacy of 15 billion years of cosmic evolution.")
+    @m = create(:marquee)
   end
 
   describe "GET /marqueees" do

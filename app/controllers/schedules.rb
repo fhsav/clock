@@ -29,7 +29,7 @@ Clock.controllers :schedules do
 
     if s.save
       flash[:notice] = "The schedule #{s.name} has been created."
-      redirect url(:schedules, :view, :id => s.id)
+      redirect url(:schedules, :edit, :id => s.id)
     else
       flash[:error] = "Something went wrong and the schedule was not saved."
       redirect url(:schedules, :index)

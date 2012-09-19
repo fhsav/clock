@@ -113,7 +113,7 @@ describe "Schedules" do
 
       it "should redirect correctly" do
         response.should be_redirect
-        response.location.should == "#{site}/schedules/#{@s.id}"
+        response.location.should == "#{site}/schedules/#{@s.id}/edit"
       end
     end
 
@@ -127,7 +127,7 @@ describe "Schedules" do
 
       it "should redirect correctly" do
         response.should be_redirect
-        response.location.should == "#{site}/schedules/#{@s.id}"
+        response.location.should == "#{site}/schedules/#{@s.id}/edit"
       end
     end
   end
