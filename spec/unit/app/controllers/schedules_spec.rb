@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "Schedules" do
   before(:each) do
-    @s = Schedule.create(:name => "Foobar")
+    @s = create(:schedule)
   end
 
   describe "GET /schedules" do
@@ -23,16 +23,6 @@ describe "Schedules" do
 
     it "should create a Schedule" do
       Schedule.find_by_name("Barfoo").should_not be_nil
-    end
-  end
-
-  describe "GET /schedules/:id" do
-    before do
-      get "/schedules/#{@s.id}"
-    end
-
-    it "should be ok" do
-      response.should be_ok
     end
   end
 
@@ -74,11 +64,13 @@ describe "Schedules" do
 
   describe "Periods" do
     before(:each) do
-      @p = Period.create(:text => "Foobar", :start => "07:32", :finish => "08:14")
-      @s.periods << @p
+      #@p = Period.create(:text => "Foobar", :start => "07:32", :finish => "08:14")
+      #@s.periods << @p
 
-      @p.reload
-      @s.reload
+      #@p.reload
+      #@s.reload
+
+      @p = create(:period)
     end
 
     describe "POST /schedules/:schedule_id/periods/create" do
@@ -94,7 +86,7 @@ describe "Schedules" do
 
       it "should redirect correctly" do
         response.should be_redirect
-        response.location.should == "#{site}/schedules/#{@s.id}"
+        response.location.should == "#{site}/schedules/#{@s.id}/edit"
       end
     end
 
