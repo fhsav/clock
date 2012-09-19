@@ -1,13 +1,9 @@
 branches:
   only:
     - master
-    - refactor
 rvm:
   - 1.9.2
   - 1.9.3
-  - ruby-head
-  - rbx-19mode
-  - ree
 before_install:
   - gem update --system
 script: bundle exec rspec spec

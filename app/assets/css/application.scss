@@ -5,6 +5,8 @@
 
 @import "lib/base";
 
+$colour: rgb(81, 135, 135);
+
 /*
 	= Appendix
 		I. Media Queries
@@ -324,11 +326,13 @@ table {
 		padding: 1em 0;
 
 		&.top {
-			background: #518787;
+			//background: #518787;
+			background: $colour;
 		}
 
 		&.bottom {
-			background: #74B5B5;
+			//background: #74B5B5;
+			background: lighten($colour, 10%);
 		}
 
 		section {

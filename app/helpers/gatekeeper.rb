@@ -2,7 +2,9 @@ Clock.helpers do
 
   # Check if authenticated or not.
   def authenticated?
-    session_key == session["clock"]
+    unless PADRINO_ENV == "test"
+      session_key == session["clock"]
+    end
   end
 
   # Redirect the user appropriately.
