@@ -1,11 +1,12 @@
 branches:
   only:
     - master
+services:
+  - mongodb
+  - redis-server
 rvm:
   - 1.9.2
   - 1.9.3
-before_install:
-  - gem update --system
 script: bundle exec rspec spec
 notifications:
   email:
