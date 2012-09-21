@@ -25,7 +25,15 @@ $grid-padding: $gutter-width;
 	I. Media Queries
 */
 
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */ }
+@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
+    body {
+        font-size: 24px !important;
+    }
+
+    aside#clock {
+        margin: 0 auto 1em auto;
+    }
+}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */ }
 
@@ -116,7 +124,7 @@ body {
     @include span-columns(12);
 
     @media (max-width: 850px) {
-        @include span-columns(24 omega);
+        @include span-columns(23);
     }
 
     font-size: 0.85em;
@@ -173,9 +181,7 @@ body {
     @include span-columns(12 omega);
 
     @media (max-width: 850px) {
-        @include span-columns(24 omega);
-
-        margin-top: 1em;
+        @include span-columns(23);
     }
 
     color: #fff;

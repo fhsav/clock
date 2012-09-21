@@ -26,6 +26,9 @@
               %li= m.text  
 
       #main{:class => @schedule.blank?, :role => "main"}
+        %aside#clock
+          %p#date Tuesday, August 2nd, 2012
+          %p#time 10:22
 
         - if @schedule and @schedule.periods
           %section#periods
@@ -36,10 +39,7 @@
                   %time.start{:datetime => seconds(p.start)}= "#{time(p.start, 12)}"
                   &ndash;
                   %time.finish{:datetime => seconds(p.finish)}= "#{time(p.finish, 12)}"
-
-        %aside#clock
-          %p#date Tuesday, August 2nd, 2012
-          %p#time 10:22
+      
 
     %script{:src => "/jsc/lib/jquery.js"}
     %script{:src => "/faye/client.js"}
