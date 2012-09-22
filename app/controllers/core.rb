@@ -1,9 +1,9 @@
 Clock.controllers do
-  before do
-    redirect!
-  end
-
   get :index do
-    render :index
+  	if authenticated?
+      render :index
+    else
+      redirect url(:clock, :index)
+    end
   end
 end

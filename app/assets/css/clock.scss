@@ -33,6 +33,10 @@ $grid-padding: $gutter-width;
     aside#clock {
         margin: 0 auto 1em auto;
     }
+
+    #contain > footer {
+        display: block !important;
+    }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */ }
@@ -198,5 +202,35 @@ body {
         font-weight: bold;
         line-height: 1em;
         margin-top: 0.1em;
+    }
+}
+
+
+/*
+    VII. Footer
+*/
+
+#contain > footer {
+    @include span-columns(24 omega);
+
+    background: rgba(50, 50, 50, 0.5);
+    bottom: 0;
+    display: none;
+    font-size: 16px;
+    position: absolute;
+    text-transform: uppercase;
+    text-align: center;
+
+    .inner {
+        padding: 1em;
+    }
+
+    a {
+        color: white;
+        cursor: pointer !important;
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
     }
 }

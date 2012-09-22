@@ -17,7 +17,7 @@ Clock.controllers :sessions do
   end
 
   get :destroy do
-    session["clock"] ||= 0
+    session["clock"] = 0
 
     flash[:notice] = "Bye bye!"
     redirect url(:sessions, :new)
