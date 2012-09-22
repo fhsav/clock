@@ -183,6 +183,7 @@ body {
 
 #clock {
     @include span-columns(12 omega);
+    @include text-shadow(1px 1px 1px rgba(50, 50, 50, 0.8));
 
     @media (max-width: 850px) {
         @include span-columns(23);
@@ -190,7 +191,6 @@ body {
 
     color: #fff;
     text-align: center;
-    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.8);
 
     #date {
         font-size: 1.05em;
