@@ -21,7 +21,57 @@ $colour: rgb(81, 135, 135);
 	I. Media Queries
 */
 
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */ }
+@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
+	p.submit {
+		input.primary {
+			width: 100% !important;
+		}
+	}
+
+	form {
+		&.schedules {
+			margin-bottom: 1.5em;
+		}
+
+		input {
+			width: 94.5% !important;
+			max-width: 94.5% !important;
+
+			&[type="text"] {
+				//width: 94.5% !important;
+			}
+		}
+
+		textarea {
+			max-width: 97% !important;
+		}
+	}
+	
+	#contain > header {
+		nav, aside {
+			@include span-columns(23);
+
+			max-width: 100% !important;
+		}
+
+		ul {
+			margin-top: 0.25em;
+
+			li {
+				& + li {
+					margin-left: 0.5em !important;
+				}
+			}	
+		}
+		
+	}
+
+	#main {
+		.inner {
+			padding: 2em 1em !important;
+		}
+	}
+}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */ }
 
@@ -320,6 +370,7 @@ table {
 		background: none;
 		border: none;
 		color: #fafafa;
+		margin: 0;
 		padding: 0;
 		text-shadow: none;
 
@@ -333,12 +384,10 @@ table {
 		padding: 1em 0;
 
 		&.top {
-			//background: #518787;
 			background: $colour;
 		}
 
 		&.bottom {
-			//background: #74B5B5;
 			background: lighten($colour, 10%);
 		}
 
@@ -348,10 +397,22 @@ table {
 
 		nav.left, aside {
 			@include span-columns(6);
+
+			@media (max-width: 767px) {
+        		@include span-columns(23);
+    		}
 		}
 
 		nav.right {
 			@include span-columns(6 omega);
+
+			@media (max-width: 767px) {
+        		@include span-columns(23);
+
+        		ul {
+        			float: left !important;
+        		}
+    		}
 
 			ul {
 				float: right;
@@ -470,6 +531,7 @@ body > footer {
 	background: #efefef;
 	color: #aaa;
 	height: 5em;
+	padding-bottom: 1em;
 	padding-top: 2em;
 	text-align: center;
 

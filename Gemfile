@@ -1,5 +1,7 @@
 source :rubygems
 
+ruby '1.9.3'
+
 gem 'padrino', '0.10.7'
 
 gem 'thin'
@@ -9,9 +11,10 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'bson_ext', :require => "mongo"
 gem 'mongo_mapper'
-
 gem 'rack-gridfs', :require => "rack/gridfs"
 gem 'joint'
+
+gem 'tzinfo'
 
 gem 'ohm'
 
@@ -27,16 +30,9 @@ gem 'susy'
 
 gem 'barista'
 
-gem 'tzinfo'
-
 group :development do
   gem 'foreman'
-
   gem 'therubyracer'
-end
-
-group :production do
-  gem 'cijoe', :git => "https://github.com/nvloff/cijoe.git"
 end
 
 group :test do
@@ -44,4 +40,8 @@ group :test do
   gem 'spork'
   gem 'rspec'
   gem 'factory_girl'
+end
+
+group :production do
+  gem 'cijoe', :git => "https://github.com/nvloff/cijoe.git"
 end
