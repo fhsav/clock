@@ -6,8 +6,9 @@ describe "Core" do
       get "/"
     end
 
-    it "should be ok" do
-      response.should be_ok
+    it "should redirect without a session" do
+      response.should be_redirect
+      response.location.should == "#{site}/clock"
     end
   end
 end
