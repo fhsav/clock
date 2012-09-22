@@ -252,7 +252,6 @@ form {
 	input, textarea {
 		@include border-radius(3px);
 		@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
-		@include transition(border linear 0.2s, box-shadow linear 0.2s);
 
 		background-color: white;
 		border: 1px solid #cccccc;

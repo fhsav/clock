@@ -1,15 +1,21 @@
 Clock.controllers :settings do
-  before :except => :setup do
-    redirect!
-
-    @settings = {
-      "password" => Redis.get("password")
-    }
+  before do
+    if password?
+      redirect!
+    end
   end
 
-  get :setup, :map => "/setup" do
-    Redis.set("password", encrypt("shrugav"))
+  get :new, :map => "/setup" do
+    render 'settings/new'
+  end
 
-    redirect url(:sessions, :new)
+  post :create do
+    if Redis.set("password", encrypt(params[:password]))
+      flash[:notice] = "Set up complete."
+      redirect url(:sessions, :new)
+    else
+      flash[:error] = "Something went wrong..."
+      redirect url(:settings, :new)
+    end
   end
 end

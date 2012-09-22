@@ -2,7 +2,7 @@ Clock.helpers do
 
   # Check if authenticated or not.
   def authenticated?
-    unless PADRINO_ENV == "test"
+    unless PADRINO_ENV == "test" or !password?
       session_key == session["clock"]
     end
   end
@@ -12,7 +12,7 @@ Clock.helpers do
     unless PADRINO_ENV == "test"
       if !password?
         flash[:warning] = "Please set a password before continuing."
-        redirect url(:settings, :setup)
+        redirect url(:settings, :new)
       end
 
       unless authenticated?

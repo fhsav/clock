@@ -1,6 +1,10 @@
 Clock.controllers :sessions do
   get :new do
-    render 'sessions/new'
+    if password?
+      render 'sessions/new'
+    else
+      redirect url(:settings, :new)
+    end
   end
 
   post :create do
