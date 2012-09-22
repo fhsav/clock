@@ -190,6 +190,10 @@ form {
 				cursor: pointer;
 				color: #999;
 			}
+
+			&:active {
+				@include box-shadow(none);
+			}
 		}
 	}
 
@@ -385,6 +389,10 @@ table {
 		padding: 0;
 		text-shadow: none;
 
+		&:active {
+			@include box-shadow(none);
+		}
+		
 		&:hover {
 			color: #efefef;
 			cursor: pointer;

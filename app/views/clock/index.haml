@@ -41,10 +41,6 @@
                   %time.start{:datetime => seconds(p.start)}= "#{time(p.start, 12)}"
                   &ndash;
                   %time.finish{:datetime => seconds(p.finish)}= "#{time(p.finish, 12)}"
-      
-      %footer
-        .inner
-          %a{:href => url(:sessions, :new)} Login
 
     %script{:src => "/jsc/lib/jquery.js"}
     %script{:src => "/faye/client.js"}
