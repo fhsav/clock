@@ -13,7 +13,7 @@ end
 if ENV["REDISTOGO_URL"]
   redis = URI.parse(ENV["REDISTOGO_URL"])
 
-  Ohm.connect(:host => uri.host, :port => uri.port, :password => uri.password)
+  Ohm.connect(:host => redis.host, :port => redis.port, :password => redis.password)
 else
   Ohm.connect
 end
