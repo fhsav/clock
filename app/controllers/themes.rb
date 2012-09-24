@@ -1,5 +1,5 @@
 Clock.controllers :themes do
-  before do
+  before :except => [:wallpaper] do
     redirect!
   end
   
@@ -54,7 +54,9 @@ Clock.controllers :themes do
     end
   end
 
-  get :wallpaper, :map => "/schedules/:id/wallpaper" do
-    redirect "/gridfs/#{Theme.find(params[:id]).wallpaper.id}"
+  get :wallpaper, :map => "/themes/:id/wallpaper" do
+    file = Theme.find(params[:id]).wallpaper
+
+    [200, {'Content-Type' => file.content_type}, [file.read]]
   end
 end

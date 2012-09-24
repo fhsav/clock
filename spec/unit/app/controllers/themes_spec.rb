@@ -40,6 +40,20 @@ describe "Themes" do
     end
   end
 
+  describe "GET /themes/:id/wallpaper" do
+    before do
+      get "/themes/#{@t.id}/wallpaper"
+    end
+
+    it "should be ok" do
+      response.should be_ok
+    end
+
+    it "should have the correct content type" do
+      response.headers["Content-Type"].should == "image/jpeg"
+    end
+  end
+
   describe "POST /themes/activate" do
     before do
       @t2 = Theme.create(:name => "Activated", :wallpaper => file, :active => true)

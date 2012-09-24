@@ -132,10 +132,6 @@ GEM
       mongo (~> 1.5)
     polyglot (0.3.3)
     rack (1.4.1)
-    rack-gridfs (0.4.1)
-      mime-types
-      mongo (~> 1.2)
-      rack
     rack-protection (1.2.0)
       rack
     rack-test (0.6.1)
@@ -214,7 +210,6 @@ DEPENDENCIES
   mongo_mapper
   ohm
   padrino (= 0.10.7)
-  rack-gridfs
   rack-test
   rake
   rspec

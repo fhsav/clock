@@ -11,7 +11,6 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'bson_ext', :require => "mongo"
 gem 'mongo_mapper'
-gem 'rack-gridfs', :require => "rack/gridfs"
 gem 'joint'
 
 gem 'tzinfo'
