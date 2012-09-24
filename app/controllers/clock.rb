@@ -6,6 +6,7 @@ Clock.controllers :clock do
     @theme = @theme.present? ? "/gridfs/#{@theme.wallpaper.id}" : "/img/default.jpg"
 
     @marquees = Marquee.all
+    @notices = Notice.all
   end
 
   get :index do
