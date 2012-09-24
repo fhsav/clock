@@ -1,9 +1,13 @@
 Clock.controllers :sessions do
   get :new do
-    if password?
-      render 'sessions/new'
+    if authenticated?
+      redirect url(:index)
     else
-      redirect url(:settings, :new)
+      if password?
+        render 'sessions/new'
+      else
+        redirect url(:settings, :new)
+      end
     end
   end
 
