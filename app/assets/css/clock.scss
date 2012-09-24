@@ -58,7 +58,7 @@ html {
 
 body {
 	color: #333;
-	font: bold 38px/1.25em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font: 600 38px/1.25em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 #contain {
@@ -131,7 +131,8 @@ body {
 		@include span-columns(23);
 	}
 
-	font-size: 0.85em;
+	color: #222;
+	font-weight: 700;
 
 	ol {
 		height: 100%;
@@ -149,7 +150,7 @@ body {
 			border-bottom: 1px solid #000;
 			border-top: 1px solid #fff;
 			display: block;
-			padding: 0.3em 0.5em 0.25em 0.5em;
+			padding: 0.2em 0.5em 0.2em 0.5em;
 
 			&:first-child {
 				border-radius: 2px 2px 0 0;
