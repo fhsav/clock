@@ -1,0 +1,35 @@
+%nav.breadcrumbs
+  %ol
+    %li
+      %a{:href => url(:index)} Home
+    %li
+      %span Notices
+      
+= partial 'layouts/flash', :locals => { :flash => flash }
+
+%header
+  %h2 Notices
+
+
+- if !@notices.blank?
+  %table.notices
+    %thead
+      %th Text
+      %th Actions
+    %tbody
+      - @notices.each do |n|
+        %tr
+          %td.text= n.text
+          %td
+            %a{:href => url(:notices, :edit, :id => n.id)} Edit
+            &mdash;
+            = form_tag url(:notices, :destroy), :class => "inline", :method => "delete" do
+              = hidden_field_tag :id, :value => n.id
+              %button{:type => "submit"} Delete
+- else
+  %p No notices yet! Why don't you make one?
+                    
+%footer
+  %form.notices{:action => url(:notices, :create), :method => "post"}
+    %p= text_area_tag "notice[text]", :autofocus => true, :placeholder => "What do you need to notify the school of?"
+    %p.submit= button_tag "Save", :class => "primary", :type => "submit"

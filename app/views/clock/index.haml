@@ -36,6 +36,12 @@
           %p#date Tuesday, August 2nd, 2012
           %p#time 10:22
 
+          - unless @notices.empty?
+            %footer#notices
+              %ul
+                - @notices.each do |n|
+                  %li= n.text
+
         - if @schedule and @schedule.periods
           %section#periods
             %ol
