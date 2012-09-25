@@ -205,3 +205,17 @@ body {
 		margin-top: 0.35em;
 	}
 }
+
+
+/*
+	VII. Notices
+*/
+
+footer#notices {
+	@include border-radius(3px);
+
+	background: rgba(red, 0.5);
+	font-size: 1.25em;
+	margin-top: 1em;
+	padding: 1em;
+}
