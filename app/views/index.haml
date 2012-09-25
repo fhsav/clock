@@ -7,7 +7,8 @@
 
 = partial 'layouts/flash', :locals => { :flash => flash }
 
-%p= "Welcome to the new and improved Clock. In this release (<code>#{CLOCK_VERSION}</code>), the objective was a more maintainable codebase and better usability and performance."
+%p= "Welcome to the new and improved Clock (version <code>#{CLOCK_VERSION}</code>)!"
 %ul
   %li For documentation, visit <a href="http://github.com/eturk/clock/wiki/_pages">the wiki on GitHub</a>.
   %li To report bugs or get support, <a href="mailto:ethan.turkeltaub@gmail.com">email me</a> or <a href="http://github.com/eturk/clock/issues">make an issue on GitHub</a>.
+  %li= "Go to <a href='#{request.host}:4567'>CIJoe</a>."

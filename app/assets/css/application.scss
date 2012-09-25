@@ -560,10 +560,24 @@ body > footer {
 			font: 0.85em "Droid Sans Mono";
 			margin-top: 1em;
 		}
+
+		ul {
+			padding-bottom: 1em;
+			margin-top: 1em;
+
+			li {
+				display: inline;
+
+				& + li {
+					margin-left: 0.5em;
+					padding-left: 0.5em;
+				}
+			}
+		}
 	}
 }
 
 .footer-push {
-	height: 6em;
-	padding-bottom: 6em;
+	height: 8em;
+	padding-bottom: 8em;
 }
