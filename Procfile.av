@@ -1,3 +1,0 @@
-web: bundle exec thin start -p $PORT
-mongo: sudo mongod
-redis: redis-server

@@ -10,7 +10,7 @@ Clock.controllers :themes do
   end
   
   post :create do
-    t = Theme.new(:name => params[:theme][:name], :wallpaper => params[:theme][:wallpaper][:tempfile])
+    t = Theme.new(:name => params[:theme][:name], :wallpaper => params[:theme][:wallpaper][:tempfile], :wallpaper_name => params[:theme][:wallpaper][:filename])
     
     if t.save
       flash[:notice] = "Your theme has been saved."
