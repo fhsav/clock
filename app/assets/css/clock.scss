@@ -198,7 +198,7 @@ body {
 
 #clock {
 	@include span-columns(11 omega);
-	@include text-shadow(1px 1px 1px rgba(50, 50, 50, 0.8));
+	@include text-shadow(2px 2px 2px rgba(50, 50, 50, 0.8));
 
 	@media (max-width: 850px) {
 		@include span-columns(23);
