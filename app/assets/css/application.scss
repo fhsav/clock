@@ -205,6 +205,12 @@ form {
 		}
 	}
 
+	&.notices {
+		input[type="text"] {
+			width: 98.25%;
+		}
+	}
+
 	&.periods {
 		input {
 			&[name="period[number]"] {

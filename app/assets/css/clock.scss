@@ -121,6 +121,14 @@ body {
 
 		#clock {
 			@include span-columns(24 omega);
+
+			#date {
+				font-size: 1.15em;
+			}
+
+			#time {
+				font-size: 4em;
+			}
 		}
 	}
 }
@@ -221,7 +229,6 @@ footer#notices {
 	@include border-radius(3px);
 
 	background: rgba(yellow, 0.5);
-	font-size: 1.25em;
 	margin-top: 1em;
 	padding: 1em;
 }
