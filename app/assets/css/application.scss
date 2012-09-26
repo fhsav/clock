@@ -333,6 +333,7 @@ table {
 	@include text-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
 	
 	border-radius: 4px;
+	cursor: pointer;
 	margin: 1em 0 2em;
 	padding: 8px 35px 8px 14px;
 
@@ -548,7 +549,7 @@ table {
 body > footer {
 	background: #efefef;
 	color: #aaa;
-	height: 5em;
+	height: 6em;
 	padding-bottom: 1em;
 	padding-top: 2em;
 	text-align: center;
@@ -578,6 +579,6 @@ body > footer {
 }
 
 .footer-push {
-	height: 8em;
-	padding-bottom: 8em;
+	height: 10em;
+	padding-bottom: 10em;
 }

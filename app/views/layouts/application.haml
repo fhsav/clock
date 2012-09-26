@@ -57,7 +57,14 @@
 
     %footer
       %section
-        %p= "Ethan Turkeltaub and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}."
+        %p= "<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}."
+        %ul
+          %li
+            %a{:href => "http://github.com/eturk/clock"} GitHub
+          %li
+            %a{:href => "http://github.com/eturk/clock/issues"} Issues
+          %li
+            %a{:href => "http://192.168.1.101:4567"} CIJoe
         %p.version= "#{CLOCK_VERSION}"
 
     %script{:src => "http://code.jquery.com/jquery.min.js"}
