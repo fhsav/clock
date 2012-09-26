@@ -28,6 +28,6 @@ Clock.helpers do
 
   # Converts a time to local time.
   def convert(time, zone = "Eastern Time (US & Canada)")
-    ENV["HEROKU"] ? time : time.in_time_zone(zone)
+    heroku? ? time : time.in_time_zone(zone)
   end
 end

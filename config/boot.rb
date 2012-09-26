@@ -7,4 +7,8 @@ require 'bundler/setup'
 
 Bundler.require(:default, PADRINO_ENV)
 
+def heroku?
+  ENV["HEROKU"]
+end
+
 Padrino.load!

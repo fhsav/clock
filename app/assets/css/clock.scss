@@ -32,6 +32,10 @@ $grid-padding: $gutter-width;
 
 	aside#clock {
 		margin: 0 auto 1em auto;
+
+		#date {
+			font-size: 1em;
+		}
 	}
 
 	#contain > footer {
@@ -40,6 +44,8 @@ $grid-padding: $gutter-width;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */ }
+
+
 
 
 /*
