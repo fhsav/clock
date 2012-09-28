@@ -54,7 +54,7 @@ $grid-padding: $gutter-width;
 
 * {
 	cursor: none;
-	overflow: hide;
+	overflow: hidden;
 }
 
 html {
@@ -65,7 +65,7 @@ html {
 body {
 	color: #333;
 	font: 600 38px/1.25em "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
-	overflow: hide;
+	overflow: hidden;
 }
 
 #contain {
