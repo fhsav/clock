@@ -1,7 +1,7 @@
 require "yaml"
 
 if heroku?
-  m = URI.parse(ENV['MONGOHQ_URL'])
+  m = URI.parse(ENV['MONGOLAB_URI'])
 
   MongoMapper.connection = Mongo::Connection.new(m.host, m.port, :logger => nil)
   MongoMapper.database = m.path.gsub(/^\//, '')
