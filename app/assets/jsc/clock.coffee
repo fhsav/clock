@@ -24,13 +24,9 @@
     hour = (if (hour is 0) then 12 else hour)
 
     date = "#{date}"
-
-    ordinal = (d) ->
-      d = String(d)
-      (if d.substr(-(Math.min(d.length, 2))) > 3 and d.substr(-(Math.min(d.length, 2))) < 21 then "th" else [ "th", "st", "nd", "rd", "th" ][Math.min(Number(d) % 10, 4)])
     
     # Append date and time to clock.
-    $("p#date").html "#{days[day]}, #{months[month]} #{date}#{ordinal(date)}, #{year}"
+    $("p#date").html "#{days[day]}, #{months[month]} #{date}, #{year}"
     $("p#time").html "#{hour}:#{minute}:#{second}"
     
     $(document).ready ->

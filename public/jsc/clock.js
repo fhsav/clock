@@ -3,7 +3,7 @@
 
   (clock = function() {
     return setTimeout((function() {
-      var d, date, day, days, hour, minute, month, months, ordinal, second, time, year;
+      var d, date, day, days, hour, minute, month, months, second, time, year;
       d = new Date();
       day = d.getDay();
       month = d.getMonth();
@@ -24,15 +24,7 @@
       hour = (hour > 12 ? hour - 12 : hour);
       hour = (hour === 0 ? 12 : hour);
       date = "" + date;
-      ordinal = function(d) {
-        d = String(d);
-        if (d.substr(-(Math.min(d.length, 2))) > 3 && d.substr(-(Math.min(d.length, 2))) < 21) {
-          return "th";
-        } else {
-          return ["th", "st", "nd", "rd", "th"][Math.min(Number(d) % 10, 4)];
-        }
-      };
-      $("p#date").html("" + days[day] + ", " + months[month] + " " + date + (ordinal(date)) + ", " + year);
+      $("p#date").html("" + days[day] + ", " + months[month] + " " + date + ", " + year);
       $("p#time").html("" + hour + ":" + minute + ":" + second);
       return $(document).ready(function() {
         var final;
