@@ -124,11 +124,12 @@ body {
 			@include span-columns(24 omega);
 
 			#date {
-				font-size: 1.15em;
+				font-size: 1.5em;
 			}
 
 			#time {
 				font-size: 4em;
+				margin-top: 0.15em;
 			}
 		}
 	}
