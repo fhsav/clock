@@ -10,4 +10,7 @@ Clock.controllers do
   get :admin do
   	redirect url(:sessions, :new)
   end
+
+  get :data, :provides => [:json] do
+  end
 end
