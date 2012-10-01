@@ -143,7 +143,7 @@ body {
 	@include span-columns(12);
 
 	@media (max-width: 850px) {
-		@include span-columns(23);
+		@include span-columns(24);
 	}
 
 	color: #222;
