@@ -12,7 +12,7 @@ if heroku?
 
   Ohm.connect(:host => r.host, :port => r.port, :password => r.password)
 else
-  MongoMapper.setup(YAML::load(File.open(File.join(PADRINO_ROOT, ".mongo.yml"))), PADRINO_ENV, :logger => nil)
+  MongoMapper.setup(YAML::load(File.open(File.join(PADRINO_ROOT, ".mongo.yml"))), PADRINO_ENV, :logger => nil, :slave_ok => true)
   
   Ohm.connect
 end
