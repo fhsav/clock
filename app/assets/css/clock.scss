@@ -55,9 +55,9 @@ $grid-padding: $gutter-width;
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
 	#marquee {
-		font-size: 0.75em;
-		padding-bottom: 0.25em;
-		padding-top: 0.25em;
+		font-size: 0.75em !important;
+		padding-bottom: 0.25em !important;
+		padding-top: 0.25em !important;
 	}
 }
 
