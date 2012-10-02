@@ -1,10 +1,14 @@
 (function() {
   var clock;
 
+  $.get("/api/time.json", function(data) {
+    return this.initial = data["time"];
+  });
+
   (clock = function() {
     return setTimeout((function() {
       var d, date, day, days, hour, minute, month, months, second, time, year;
-      d = new Date();
+      d = new Date(this.initial);
       day = d.getDay();
       month = d.getMonth();
       date = d.getDate();

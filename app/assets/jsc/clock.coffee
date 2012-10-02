@@ -1,9 +1,12 @@
 # Clock
 #   file: clock.coffee
 
+$.get "/api/time.json", (data) ->
+  @initial = data["time"]
+
 (clock = ->
   setTimeout (->
-    d = new Date()
+    d = new Date(@initial)
     day = d.getDay()
     month = d.getMonth()
     date = d.getDate()
