@@ -2,7 +2,9 @@
   var clock;
 
   $.get("/api/time.json", function(data) {
-    return this.initial = data["time"];
+    this.initial = data["time"];
+    this.initial = "" + this.initial;
+    return console.log(this.initial);
   });
 
   (clock = function() {

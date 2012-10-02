@@ -3,6 +3,8 @@
 
 $.get "/api/time.json", (data) ->
   @initial = data["time"]
+  @initial = "#{@initial}"
+  console.log @initial
 
 (clock = ->
   setTimeout (->
