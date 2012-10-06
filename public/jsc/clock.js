@@ -1,23 +1,24 @@
 (function() {
-  var clock;
+  var clock, root;
+
+  root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
   $.get("/api/time.json", function(data) {
-    this.initial = data["time"];
-    this.initial = "" + this.initial;
-    return console.log(this.initial);
+    root.initial = data["time"];
+    return root.initial = "" + root.initial;
   });
 
   (clock = function() {
     return setTimeout((function() {
-      var d, date, day, days, hour, minute, month, months, second, time, year;
-      d = new Date(this.initial);
-      day = d.getDay();
-      month = d.getMonth();
-      date = d.getDate();
-      year = d.getFullYear();
-      hour = d.getHours();
-      minute = d.getMinutes();
-      second = d.getSeconds();
+      var date, day, days, hour, minute, month, months, second, time, year;
+      root.d = new Date(root.initial);
+      day = root.d.getDay();
+      month = root.d.getMonth();
+      date = root.d.getDate();
+      year = root.d.getFullYear();
+      hour = root.d.getHours();
+      minute = root.d.getMinutes();
+      second = root.d.getSeconds();
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       time = (hour * 3600) + (minute * 60) + second;
@@ -32,7 +33,7 @@
       date = "" + date;
       $("p#date").html("" + days[day] + ", " + months[month] + " " + date + ", " + year);
       $("p#time").html("" + hour + ":" + minute + ":" + second);
-      return $(document).ready(function() {
+      $(document).ready(function() {
         var final;
         $("#periods ol li").each(function(index) {
           var e, finish, start;
@@ -57,13 +58,15 @@
         });
         final = $("#periods ol li:last-child").find("time.finish").attr("datetime");
         if (time > final || $("#main").hasClass("true")) {
-          $("#main").addClass("after");
+          return $("#main").addClass("after");
         } else {
-          $("#main").removeClass("after");
+          return $("#main").removeClass("after");
         }
-        return clock();
       });
-    }), 0);
+      root.d = root.d.setSeconds(root.d.getSeconds + 1);
+      console.log(root.d.getSeconds);
+      return clock();
+    }), 1000);
   })();
 
   $(document).ready(function() {

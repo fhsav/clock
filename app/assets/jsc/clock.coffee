@@ -1,21 +1,22 @@
 # Clock
 #   file: clock.coffee
 
-$.get "/api/time.json", (data) ->
-  @initial = data["time"]
-  @initial = "#{@initial}"
-  console.log @initial
+root = exports ? this
+
+$.get "/api/time.json", (data) -> #VARIABLE SCOPE ISSUE
+  root.initial = data["time"]
+  root.initial = "#{root.initial}"
 
 (clock = ->
   setTimeout (->
-    d = new Date(@initial)
-    day = d.getDay()
-    month = d.getMonth()
-    date = d.getDate()
-    year = d.getFullYear()
-    hour = d.getHours()
-    minute = d.getMinutes()
-    second = d.getSeconds()
+    root.d = new Date(root.initial)
+    day = root.d.getDay()
+    month = root.d.getMonth()
+    date = root.d.getDate()
+    year = root.d.getFullYear()
+    hour = root.d.getHours()
+    minute = root.d.getMinutes()
+    second = root.d.getSeconds()
     
     days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -66,8 +67,12 @@ $.get "/api/time.json", (data) ->
       else
         $("#main").removeClass "after"
 
-      clock()
-  ), 0
+    root.d = root.d.setSeconds(root.d.getSeconds + 1)
+
+    console.log root.d.getSeconds
+
+    clock()
+  ), 1000
 )()
 
 $(document).ready ->
