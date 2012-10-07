@@ -1,81 +1,82 @@
 # Clock
-#   file: clock.coffee
+#   file: clock.v2.coffee
 
 root = exports ? this
 
+# Get the server time and difference between that and client time
 $.get "/api/time.json", (data) ->
-  root.serverTime = data["ms"]
+  serverTime = data["ms"]
+  localTime = +Date.now()
 
-root.localTime = +Date.now()
-root.timeDiff = root.serverTime - root.localTime
+  root.timeDiff = serverTime - localTime
 
-(clock = ->
-  setTimeout (->
-    root.d = new Date(root.initial)
-    day = root.d.getDay()
-    month = root.d.getMonth()
-    date = root.d.getDate()
-    year = root.d.getFullYear()
-    hour = root.d.getHours()
-    minute = root.d.getMinutes()
-    second = root.d.getSeconds()
-    
-    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    
-    time = (hour * 3600) + (minute * 60) + second
 
-    minute = "0" + minute if minute < 10
-    second = "0" + second if second < 10
-    
-    hour = (if (hour > 12) then hour - 12 else hour)
-    hour = (if (hour is 0) then 12 else hour)
+# Run this all every 1000 milliseconds
+setInterval (->
 
-    date = "#{date}"
-    
-    # Append date and time to clock.
-    $("p#date").html "#{days[day]}, #{months[month]} #{date}, #{year}"
-    $("p#time").html "#{hour}:#{minute}:#{second}"
-    
-    $(document).ready ->
+  # Date variables, etc.
+  d = new Date(+Date.now() - root.timeDiff)
+  day = d.getDay()
+  month = d.getMonth()
+  date = d.getDate()
+  year = d.getFullYear()
+  hour = d.getHours()
+  minute = d.getMinutes()
+  second = d.getSeconds()
 
-      # Check what period it is and respond appropriately.
-      $("#periods ol li").each (index) ->
-        e = $(@)
+  days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-        start = e.find("time.start").attr("datetime")
-        finish = e.find("time.finish").attr("datetime")
+  time = (hour * 3600) + (minute * 60) + second
 
-        if time >= start and time <= finish
-          e.addClass "active"
-        else
-          e.removeClass "active"
+  minute = "0" + minute if minute < 10
+  second = "0" + second if second < 10
 
-        if time > finish and time < e.next().find("time.start").attr("datetime")
-          e.css "border-bottom", "10px solid rgba(0, 0, 0, 0.5)"
-        else
-          e.css "border-bottom", "1px solid rgba(0, 0, 0, 0.5)"
+  hour = (if (hour > 12) then hour - 12 else hour)
+  hour = (if (hour is 0) then 12 else hour)
 
-        if time >= finish and $("#periods ol li").size() > 10
-          e.slideUp 'slow', ->
-            e.hide()
 
-      # Check if it's after school and respond appropriately.
-      final = $("#periods ol li:last-child").find("time.finish").attr("datetime")
+  # Append date and time to clock.
+  $("p#date").html "#{days[day]}, #{months[month]} #{date}, #{year}"
+  $("p#time").html "#{hour}:#{minute}:#{second}"
 
-      # Check if schedule exists.
-      if time > final or $("#main").hasClass "true"
-        $("#main").addClass "after"
-      else
-        $("#main").removeClass "after"
 
-    # Add 1 second to current time
-    #console.log(+Date.now() + root.timeDiff)
+  # Check what period it is and respond appropriately.
+  $("#periods ol li").each (index) ->
+    e = $(@)
 
-    clock()
-  ), 1000
-)()
+    start = e.find("time.start").attr("datetime")
+    finish = e.find("time.finish").attr("datetime")
 
+    if time >= start and time <= finish
+      e.addClass "active"
+    else
+      e.removeClass "active"
+
+    if time > finish and time < e.next().find("time.start").attr("datetime")
+      e.css "border-bottom", "10px solid rgba(0, 0, 0, 0.5)"
+    else
+      e.css "border-bottom", "1px solid rgba(0, 0, 0, 0.5)"
+
+    if time >= finish and $("#periods ol li").size() > 10
+      e.slideUp 'slow', ->
+        e.hide()
+
+
+  # Check if it's after school and respond appropriately.
+  final = $("#periods ol li:last-child").find("time.finish").attr("datetime")
+
+
+  # Check if schedule exists.
+  if time > final or $("#main").hasClass "true"
+    $("#main").addClass "after"
+  else
+    $("#main").removeClass "after"
+
+), 1000
+
+
+# Stuff used once per load.
 $(document).ready ->
 
   # Marquee

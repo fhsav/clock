@@ -33,8 +33,8 @@
 
       #main{:class => @schedule.blank?, :role => "main"}
         %aside#clock
-          %p#date Tuesday, August 2nd, 2012
-          %p#time 10:22
+          %p#date 
+          %p#time 00:00:00
 
           - unless @notices.empty?
             %footer#notices
@@ -55,8 +55,7 @@
     %script{:src => "/jsc/lib/jquery.js"}
     %script{:src => "/faye/client.js"}
     %script{:src => "/jsc/lib/jquery.marquee.js"}
-    /%script{:src => "/jsc/clock.js"}
-    %script{:src => "/jsc/clock.v2.js"}
+    %script{:src => "/jsc/clock.js"}
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-35167781-1']);
