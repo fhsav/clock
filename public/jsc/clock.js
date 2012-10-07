@@ -4,9 +4,12 @@
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
   $.get("/api/time.json", function(data) {
-    root.initial = data["time"];
-    return root.initial = "" + root.initial;
+    return root.serverTime = data["ms"];
   });
+
+  root.localTime = +Date.now();
+
+  root.timeDiff = root.serverTime - root.localTime;
 
   (clock = function() {
     return setTimeout((function() {
@@ -63,8 +66,6 @@
           return $("#main").removeClass("after");
         }
       });
-      root.d = root.d.setSeconds(root.d.getSeconds + 1);
-      console.log(root.d.getSeconds);
       return clock();
     }), 1000);
   })();

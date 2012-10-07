@@ -3,9 +3,11 @@
 
 root = exports ? this
 
-$.get "/api/time.json", (data) -> #VARIABLE SCOPE ISSUE
-  root.initial = data["time"]
-  root.initial = "#{root.initial}"
+$.get "/api/time.json", (data) ->
+  root.serverTime = data["ms"]
+
+root.localTime = +Date.now()
+root.timeDiff = root.serverTime - root.localTime
 
 (clock = ->
   setTimeout (->
@@ -67,9 +69,8 @@ $.get "/api/time.json", (data) -> #VARIABLE SCOPE ISSUE
       else
         $("#main").removeClass "after"
 
-    root.d = root.d.setSeconds(root.d.getSeconds + 1)
-
-    console.log root.d.getSeconds
+    # Add 1 second to current time
+    #console.log(+Date.now() + root.timeDiff)
 
     clock()
   ), 1000
