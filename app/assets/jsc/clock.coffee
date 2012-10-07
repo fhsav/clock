@@ -1,5 +1,5 @@
 # Clock
-#   file: clock.v2.coffee
+#   file: clock.coffee
 
 root = exports ? this
 
