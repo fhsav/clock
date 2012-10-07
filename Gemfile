@@ -13,6 +13,8 @@ gem 'bson_ext', :require => "mongo"
 gem 'mongo_mapper'
 gem 'joint'
 
+gem 'rack-protection', :require => "rack/protection"
+
 gem 'tzinfo'
 
 gem 'ohm'

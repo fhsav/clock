@@ -1,4 +1,5 @@
 class Clock < Padrino::Application
+  register ProtectionInitializer
   register Padrino::Helpers
   register Padrino::Rendering
   register BaristaInitializer
