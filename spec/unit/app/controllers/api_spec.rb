@@ -10,8 +10,8 @@ describe "API" do
       response.should be_ok
     end
 
-    it "should return a time" do
-    	response.body.should == "{\"ms\":#{((Time.now.to_f * 1000.0).to_i) - 1}}"
+    it "should be JSON" do
+      response.header["Content-Type"].should == "application/json;charset=utf-8"
     end
   end
 end
