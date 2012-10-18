@@ -67,7 +67,7 @@
     $("#marquee ul").marquee({
       pauseOnHover: false
     });
-    faye = new Faye.Client("http://localhost:5000/faye");
+    faye = new Faye.Client("/faye");
     return refreshes = faye.subscribe("/refreshes", function(message) {
       return location.reload(false);
     });

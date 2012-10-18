@@ -83,7 +83,7 @@ $(document).ready ->
   $("#marquee ul").marquee pauseOnHover: false
 
   # Faye (Refreshing)
-  faye = new Faye.Client("http://localhost:5000/faye")
+  faye = new Faye.Client("/faye")
   refreshes = faye.subscribe("/refreshes", (message) ->
     location.reload false
   )
