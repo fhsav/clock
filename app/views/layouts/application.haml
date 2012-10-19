@@ -64,7 +64,7 @@
           %li
             %a{:href => "http://github.com/eturk/clock/issues"} Issues
           %li
-            %a{:href => "http://192.168.1.101:4567"} CIJoe
+            %a{:href => "#{request.host}:4567"} CIJoe
         %p.version= "#{CLOCK_VERSION}"
 
     %script{:src => "http://code.jquery.com/jquery.min.js"}
