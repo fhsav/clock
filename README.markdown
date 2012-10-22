@@ -1,6 +1,6 @@
 # Clock
 
-[![Travis-CI](https://secure.travis-ci.org/eturk/clock.png)](http://travis-ci.org/#!/eturk/clock) [![Gemnasium](https://gemnasium.com/eturk/clock.png)](https://gemnasium.com/eturk/clock)
+[![Travis-CI](https://secure.travis-ci.org/eturk/clock.png)](http://travis-ci.org/#!/eturk/clock)
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
