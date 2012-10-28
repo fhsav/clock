@@ -5,13 +5,13 @@ Clock.controllers :api do
     result.to_json
   end
 
-  get :ping, :provides => [:json] do
+  get :status, :provides => [:json] do
     result = Hash.new
 
-    if !Schedule.all.blank? && !Redis.get("password").blank?
-      result[:code] = "200"
+    if !MongoMapper.connection.database_info.blank? && !Redis.get("password").blank?
+      result[:code] = "200 OK"
     else
-      result[:code] = "503"
+      result[:code] = "503 UNAVAILABLE"
     end
 
     result.to_json
