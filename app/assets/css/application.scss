@@ -83,7 +83,7 @@ html, body {
 body {
 	background: #fafafa;
 	color: #333;
-	font: 14px/1.5em "Istok Web", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font: 14px/1.5em $sans-serif;
 }
 
 a {
@@ -96,7 +96,7 @@ a {
 }
 
 button, input, textarea {
-	font: 14px/1.5em "Istok Web", Helvetica Neue, Helvetica, Arial, sans-serif;
+	font: 14px/1.5em $sans-serif;
 }
 
 button, input[type="submit"] {
@@ -149,7 +149,7 @@ button, input[type="submit"] {
 }
 
 code, pre {
-	font-family: "Droid Sans Mono";
+	font-family: $mono;
 }
 
 h1 {
