@@ -17,7 +17,7 @@
   = hidden_field_tag :id, :value => @schedule.id
 
   %p
-    = text_field_tag :"schedule[name]", :value => @schedule.name
+    = text_field_tag :"schedule[name]", :required => true, :value => @schedule.name
     = text_field_tag :"schedule[description]", :value => @schedule.description
   %p.submit
     = button_tag "Save", :class => "primary", :type => "submit"
@@ -48,7 +48,7 @@
   %form.periods{:action => url(:periods, :create, :schedule_id => @schedule.id), :method => "post"}
     %p
       = text_field_tag :"period[number]", :class => "tiny", :placeholder => "#"
-      = text_field_tag :"period[text]", :autofocus => true, :class => "medium", :placeholder => "Text"
-      = text_field_tag :"period[start]", :class => "small", :placeholder => "Start Time"
-      = text_field_tag :"period[finish]", :class => "small", :placeholder => "Finish Time"
+      = text_field_tag :"period[text]", :autofocus => true, :class => "medium", :placeholder => "Text", :required => true
+      = text_field_tag :"period[start]", :class => "small", :placeholder => "Start Time", :required => true
+      = text_field_tag :"period[finish]", :class => "small", :placeholder => "Finish Time", :required => true
     %p.submit= button_tag "Save", :class => "primary", :type => "submit"

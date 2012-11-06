@@ -18,7 +18,7 @@
 - form_tag url(:notices, :modify), :method => "put" do
   = hidden_field_tag :id, :value => @notice.id
 
-  %p= text_area_tag "notice[text]", :class => "huge", :value => @notice.text
+  %p= text_area_tag "notice[text]", :class => "huge", :required => true, :value => @notice.text
   %p.submit
     %button
       %a{:href => url(:notices, :index)} Cancel

@@ -31,5 +31,5 @@
                     
 %footer
   %form.marquees{:action => url(:marquees, :create), :method => "post"}
-    %p= text_area_tag "marquee[text]", :autofocus => true, :placeholder => "What do you want to say?"
+    %p= text_area_tag "marquee[text]", :autofocus => true, :placeholder => "What do you want to say?", :required => true
     %p.submit= button_tag "Save", :class => "primary", :type => "submit"

@@ -18,7 +18,7 @@
 - form_tag url(:marquees, :modify), :method => "put" do
   = hidden_field_tag :id, :value => @marquee.id
 
-  %p= text_area_tag "marquee[text]", :class => "huge", :value => @marquee.text
+  %p= text_area_tag "marquee[text]", :class => "huge", :required => true, :value => @marquee.text
   %p.submit
     %button
       %a{:href => url(:marquees, :index)} Cancel

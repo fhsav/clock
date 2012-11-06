@@ -38,6 +38,6 @@
 %footer
   = form_tag url(:themes, :create), :enctype => "multipart/form-data", :class => "themes", :method => "post" do
     %p
-      = text_field_tag :"theme[name]", :autofocus => true, :placeholder => "Name"
-      = file_field_tag :"theme[wallpaper]"
+      = text_field_tag :"theme[name]", :autofocus => true, :placeholder => "Name", :required => true
+      = file_field_tag :"theme[wallpaper]", :required => true
     %p.submit= button_tag "Save", :class => "primary", :type => "submit"

@@ -40,6 +40,6 @@
 %footer
   = form_tag url(:schedules, :create), :class => "schedules", :method => "post" do
     %p
-      = text_field_tag :"schedule[name]", :autofocus => true, :placeholder => "Name"
+      = text_field_tag :"schedule[name]", :autofocus => true, :placeholder => "Name", :required => true
       = text_field_tag :"schedule[description]", :placeholder => "Description"
     %p.submit= button_tag "Save", :class => "primary", :type => "submit"

@@ -31,5 +31,5 @@
                     
 %footer
   %form.notices{:action => url(:notices, :create), :method => "post"}
-    %p= text_field_tag "notice[text]", :autofocus => true, :placeholder => "What do you need to notify the school of?"
+    %p= text_field_tag "notice[text]", :autofocus => true, :placeholder => "What do you need to notify the school of?", :required => true
     %p.submit= button_tag "Save", :class => "primary", :type => "submit"
