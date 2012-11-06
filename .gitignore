@@ -7,4 +7,5 @@ vendor/ruby/
 .sass-cache/
 .DS_Store
 .tmproj
+.s3.yml
 dump.rdb

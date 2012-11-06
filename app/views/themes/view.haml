@@ -14,4 +14,4 @@
 = partial 'layouts/flash', :locals => { :flash => flash }
 
 %p
-  %img{:src => url(:themes, :wallpaper, :id => @theme.id)}/
+  %img{:src => @theme.wallpaper[:url]}/

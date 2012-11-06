@@ -16,3 +16,23 @@ else
   
   Ohm.connect
 end
+
+s3 = YAML::load(File.open(File.join(PADRINO_ROOT, ".s3.yml")))
+
+#AWS = S3::Service.new(:access_key_id => s3["id"], :secret_access_key => s3["secret"])
+#AWS = AWS.buckets.find("fhsclock")
+
+AWS::S3::Base.establish_connection!(
+  :access_key_id     => s3["id"],
+  :secret_access_key => s3["secret"]
+)
+
+=begin
+AWS::S3::S3Object.store(
+  "filename.jpg", # name in S3
+  fileobj, # actual file
+  "fhsclock", # bucket,
+  :content_type => "image/jpeg", # content_type, get from sinatra
+  :access => :public_read # make it so people can see it
+)
+=end
