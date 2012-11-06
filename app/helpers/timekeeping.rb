@@ -15,7 +15,7 @@ Clock.helpers do
     when 24
       time.strftime("%H:%M")
     when 12
-      time.strftime("%l:%M")
+      time.strftime("%l:%M").strip
     else
       time
     end
