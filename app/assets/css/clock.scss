@@ -10,6 +10,7 @@ $column-width: 2em;
 $gutter-width: 0.5em;
 $grid-padding: $gutter-width;
 
+
 /*
 	= Appendix
 		I. Media Queries
@@ -25,19 +26,9 @@ $grid-padding: $gutter-width;
 	I. Media Queries
 */
 
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
+@media handheld, only screen and (max-width: 767px) {
 	body {
 		font-size: 24px !important;
-	}
-
-	#marquee {
-		font-size: 0.75em !important;
-	}
-
-	#main {
-		&.after {
-			font-size: 0.75em;
-		}
 	}
 
 	aside#clock {
@@ -51,9 +42,19 @@ $grid-padding: $gutter-width;
 	#contain > footer {
 		display: block !important;
 	}
+
+	#main {
+		&.after {
+			font-size: 0.75em;
+		}
+	}
+
+	#marquee {
+		font-size: 0.75em !important;
+	}
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
 	#marquee {
 		font-size: 0.75em !important;
 		padding-bottom: 0.25em !important;
@@ -169,13 +170,7 @@ body {
 		width: 100%;
 
 		li {
-			@include background(
-				linear-gradient(
-					top,
-					rgb(240, 240, 240),
-					rgb(210, 210, 210)
-				)
-			);
+			@include background(linear-gradient(top, rgb(240, 240, 240), rgb(210, 210, 210)));
 
 			border-bottom: 1px solid #000;
 			border-top: 1px solid #fff;
@@ -192,13 +187,7 @@ body {
 			}
 
 			&.active {
-				@include background(
-					linear-gradient(
-						top,
-						rgb(68, 68, 68),
-						rgb(34, 34, 34)
-					)
-				);
+				@include background(linear-gradient(top, rgb(68, 68, 68), rgb(34, 34, 34)));
 
 				border-bottom: 1px solid #333;
 				color: #fafafa;

@@ -3,3 +3,4 @@
 
 $(".alert").click ->
   $(".alert").hide "slide"
+  

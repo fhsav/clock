@@ -5,7 +5,9 @@
 
 @import "lib/base";
 
-$colour: rgb(81, 135, 135);
+$base: rgb(81, 135, 135);
+$text: rgb(51, 51, 51);
+
 
 /*
 	= Appendix
@@ -21,13 +23,7 @@ $colour: rgb(81, 135, 135);
 	I. Media Queries
 */
 
-@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
-	p.submit {
-		input.primary {
-			width: 100% !important;
-		}
-	}
-
+@media handheld, only screen and (max-width: 767px) {
 	form {
 		&.schedules {
 			margin-bottom: 1.5em;
@@ -38,13 +34,19 @@ $colour: rgb(81, 135, 135);
 			max-width: 94.5% !important;
 		}
 
+		p.submit {
+			input.primary {
+				width: 100% !important;
+			}
+		}
+
 		textarea {
 			max-width: 97% !important;
 		}
 	}
 	
 	#contain > header {
-		nav, aside {
+		aside, nav {
 			@include span-columns(23);
 
 			max-width: 100% !important;
@@ -69,20 +71,17 @@ $colour: rgb(81, 135, 135);
 	}
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */ }
-
 
 /*
 	II. Universal
 */
 
-html, body {
+html {
 	height: 100%;
 }
 
 body {
-	background: #fafafa;
-	color: #333;
+	color: $text;
 	font: 14px/1.5em $sans-serif;
 }
 
@@ -100,26 +99,12 @@ button, input, textarea {
 }
 
 button, input[type="submit"] {
-	@include background(
-        linear-gradient(
-            top,
-            white,
-            #E6E6E6
-        )
-    );
+	@include background(linear-gradient(top, white, #E6E6E6));
 	@include border-radius(4px);
 	@include text-shadow(0 1px 1px rgba(255, 255, 255, .75));
 
 	border: 1px solid #ccc;
 	padding: 4px 10px 4px;
-
-	&:hover {
-		cursor: pointer;
-
-		a {
-			color: #666;
-		}
-	}
 
 	&:active {
 		@include box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05));
@@ -129,14 +114,16 @@ button, input[type="submit"] {
 		outline: 0;
 	}
 
+	&:hover {
+		cursor: pointer;
+
+		a {
+			color: #666;
+		}
+	}
+
 	&.primary {
-		@include background(
-	        linear-gradient(
-        		top,
-        		#0088cc,
-        		#0055cc
-	        )
-	    );
+		@include background(linear-gradient(top, #0088cc, #0055cc));
 		@include text-shadow(0 1px 1px rgba(0, 0, 0, .75));
 
 		border-color: #0055cc #0055cc #003580;
@@ -152,16 +139,18 @@ code, pre {
 	font-family: $mono;
 }
 
+h1, h2, h3 {
+	font-weight: bold;
+}
+
 h1 {
 	font-size: 1.25em;
-	font-weight: bold;
 	margin-top: 0.125em;
 	text-transform: uppercase;
 }
 
 h2 {
 	font-size: 1.5em;
-	font-weight: bold;
 	margin-bottom: 0.5em;
 }
 
@@ -197,11 +186,9 @@ form {
 		}
 	}
 
-	&.schedules {
-		margin-bottom: 1em;
-
-		input[type="text"] {
-			width: 48.15%;
+	&.login {
+		input[type="password"] {
+			width: 98%;
 		}
 	}
 
@@ -227,9 +214,11 @@ form {
 		}
 	}
 
-	&.themes {
+	&.schedules {
+		margin-bottom: 1em;
+
 		input[type="text"] {
-			width: 63%;
+			width: 48.15%;
 		}
 	}
 
@@ -249,9 +238,9 @@ form {
 		}
 	}
 
-	&.login {
-		input[type="password"] {
-			width: 98%;
+	&.themes {
+		input[type="text"] {
+			width: 63%;
 		}
 	}
 
@@ -274,11 +263,13 @@ form {
 		padding: 0.5em 0.25em 0.5em 0.5em;
 	}
 
-	p.submit {
-		@include clearfix;
+	p {
+		&.submit {
+			@include clearfix;
 
-		float: right;
-		margin-top: 0.25em;
+			float: right;
+			margin-top: 0.25em;
+		}
 	}
 
 	textarea {
@@ -320,7 +311,6 @@ table {
 	}
 
 	tr {
-
 		& + tr {
 			border-top: 1px solid #e0e0e0;
 		}
@@ -343,16 +333,16 @@ table {
 	margin: 1em 0 2em;
 	padding: 8px 35px 8px 14px;
 
-	&.notice {
-		background-color: #dff0d8;
-		border: 1px solid #d6e9c6;
-		color: #468847;
-	}
-
 	&.error {
 		background-color: #f2dede;
 		border: 1px solid #eed3d7;
 		color: #b94a48;
+	}
+
+	&.notice {
+		background-color: #dff0d8;
+		border: 1px solid #d6e9c6;
+		color: #468847;
 	}
 
 	&.warning {
@@ -413,23 +403,27 @@ table {
 		padding: 1em 0;
 
 		&.top {
-			background: $colour;
+			background: $base;
 		}
 
 		&.bottom {
-			background: lighten($colour, 10%);
+			background: lighten($base, 10%);
 		}
 
-		section {
-			@include container;
-		}
-
-		nav.left, aside {
+		aside, nav.left {
 			@include span-columns(6);
 
 			@media (max-width: 767px) {
         		@include span-columns(23);
     		}
+		}
+
+		li {
+			display: inline-block;
+
+			& + li {
+				margin-left: 1.5em;
+			}
 		}
 
 		nav.right {
@@ -448,12 +442,8 @@ table {
 			}
 		}
 
-		li {
-			display: inline-block;
-
-			& + li {
-				margin-left: 1.5em;
-			}
+		section {
+			@include container;
 		}
 	}
 }
@@ -466,48 +456,10 @@ table {
 #main {
 	@include container;
 
-	#login {
-		@include span-columns(10);
-		@include prefix(1);
-		@include suffix(1);
-
-		background: #efefef;
-		margin: 2em 0;
-
-		.inner {
-			padding: 4em 4em 6em;
-		}
-
-		header {
-			border-bottom: 1px solid #fff;
-		}
-	}
-
-	nav.breadcrumbs {
-		color: #aaa;
-		margin-bottom: 2.25em;
-
-		a {
-			color: #ccc;
-
-			&:hover {
-				color: #aaa;
-			}
-		}
-
-		ol {
-			margin-left: 0;
-
-			li {
-				display: inline-block;
-
-				& + li {
-					&:before {
-						content: "\203A ";
-					}
-				}
-			}
-		}
+	footer {
+		border-top: 1px solid #f0f0f0;
+		padding-top: 2em;
+		margin-top: 2em;
 	}
 
 	header {
@@ -536,18 +488,58 @@ table {
 		}
 	}
 
+	nav {
+		&.breadcrumbs {
+			color: #aaa;
+			margin-bottom: 2.25em;
+
+			a {
+				color: #ccc;
+
+				&:hover {
+					color: #aaa;
+				}
+			}
+
+			ol {
+				margin-left: 0;
+
+				li {
+					display: inline-block;
+
+					& + li {
+						&:before {
+							content: "\203A ";
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#login {
+		@include span-columns(10);
+		@include prefix(1);
+		@include suffix(1);
+
+		background: #efefef;
+		margin: 2em 0;
+
+		header {
+			border-bottom: 1px solid #fff;
+		}
+
+		.inner {
+			padding: 4em 4em 6em;
+		}
+	}
+
 	ol, ul {
 		margin: 1em 0 1em 3em;
 	}
 
 	ul li {
 		list-style-type: disc;
-	}
-
-	footer {
-		border-top: 1px solid #f0f0f0;
-		padding-top: 2em;
-		margin-top: 2em;
 	}
 }
 
@@ -559,7 +551,7 @@ table {
 body > footer {
 	background: #efefef;
 	color: #aaa;
-	height: 6em;
+	height: 10em;
 	padding-bottom: 1em;
 	padding-top: 2em;
 	text-align: center;
@@ -589,6 +581,6 @@ body > footer {
 }
 
 .footer-push {
-	height: 10em;
-	padding-bottom: 10em;
+	height: 8em;
+	padding-bottom: 8em;
 }
