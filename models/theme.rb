@@ -10,6 +10,8 @@ class Theme
   after_destroy :delete!
 
   def wallpaper=(w)
+    w[:filename] = w[:filename].gsub(/ /,"+")
+
     AWS::S3::S3Object.store(
       w[:filename],
       w[:tempfile],
