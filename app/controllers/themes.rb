@@ -10,17 +10,8 @@ Clock.controllers :themes do
   end
   
   post :create do
-    w = params[:theme][:wallpaper]
-
-    AWS::S3::S3Object.store(
-      w[:filename], # name in S3
-      w[:tempfile], # actual file
-      "fhsclock", # bucket,
-      :content_type => w[:content_type], # content_type, get from sinatra
-      :access => :public_read # make it so people can see it
-    )
-
-    t = Theme.new(:name => params[:theme][:name], :wallpaper => { :name => w[:filename], :url => "http://s3.amazonaws.com/fhsclock/#{w[:filename]}" })
+    t = Theme.new(params[:theme])
+    t.wallpaper = params[:wallpaper]
     
     if t.save
       flash[:notice] = "Your theme has been saved."
@@ -56,8 +47,6 @@ Clock.controllers :themes do
     t = Theme.find(params[:id])
     
     if t.destroy
-      AWS::S3::S3Object.delete t.wallpaper[:name], "fhsclock"
-
       flash[:notice] = "The theme has been destroyed."
       redirect url(:themes, :index)
     else

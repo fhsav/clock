@@ -2,13 +2,11 @@ require "yaml"
 
 if heroku?
   m = URI.parse(ENV['MONGOLAB_URI'])
+  r = URI.parse(ENV["REDISTOGO_URL"])
 
   MongoMapper.connection = Mongo::Connection.new(m.host, m.port, :logger => logger)
   MongoMapper.database = m.path.gsub(/^\//, '')
   MongoMapper.database.authenticate(m.user, m.password)
-
-
-  r = URI.parse(ENV["REDISTOGO_URL"])
 
   Ohm.connect(:host => r.host, :port => r.port, :password => r.password)
 else
@@ -17,22 +15,18 @@ else
   Ohm.connect
 end
 
-s3 = YAML::load(File.open(File.join(PADRINO_ROOT, ".s3.yml")))
+S3 = File.join(PADRINO_ROOT, ".s3.yml")
 
-#AWS = S3::Service.new(:access_key_id => s3["id"], :secret_access_key => s3["secret"])
-#AWS = AWS.buckets.find("fhsclock")
+if File.exist?(S3)
+  S3 = YAML::load(File.open(S3))
 
-AWS::S3::Base.establish_connection!(
-  :access_key_id     => s3["id"],
-  :secret_access_key => s3["secret"]
-)
-
-=begin
-AWS::S3::S3Object.store(
-  "filename.jpg", # name in S3
-  fileobj, # actual file
-  "fhsclock", # bucket,
-  :content_type => "image/jpeg", # content_type, get from sinatra
-  :access => :public_read # make it so people can see it
-)
-=end
+  AWS::S3::Base.establish_connection!(
+    :access_key_id     => S3["id"],
+    :secret_access_key => S3["secret"]
+  )
+else
+  AWS::S3::Base.establish_connection!(
+    :access_key_id => ENV['S3_ID'],
+    :secret_access_key => ENV['S3_SECRET']
+  )
+end
