@@ -14,6 +14,8 @@ gem 'mongo_mapper'
 
 gem 'fog'
 
+gem 'girl_friday'
+
 gem 'tzinfo'
 
 gem 'ohm'

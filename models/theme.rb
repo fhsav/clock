@@ -12,20 +12,15 @@ class Theme
   def wallpaper=(w)
     w[:filename] = w[:filename].gsub(/ /,"+")
 
-    file = S3.files.create(
-      :key => w[:filename],
-      :body => w[:tempfile],
-      :content_type => w[:type],
-      :public => true
-    )
+    S3_UPLOAD << w
 
     wallpaper[:name] = w[:filename]
-    wallpaper[:url] = file.public_url
+    wallpaper[:url] = "http://s3.fhsclock.com/#{w[:filename]}"
   end
 
   private
 
   def delete!
-    S3.files.get(wallpaper[:name]).destroy
+    S3_DELETE << { :name => wallpaper[:name] }
   end
 end
