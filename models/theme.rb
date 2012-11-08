@@ -15,7 +15,7 @@ class Theme
     file = S3.files.create(
       :key => w[:filename],
       :body => w[:tempfile],
-      :content_type => w[:content_type],
+      :content_type => w[:type],
       :public => true
     )
 
