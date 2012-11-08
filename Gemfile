@@ -12,7 +12,7 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 gem 'bson_ext', :require => "mongo"
 gem 'mongo_mapper'
 
-gem 'aws-s3', :require => "aws/s3"
+gem 'fog'
 
 gem 'tzinfo'
 
