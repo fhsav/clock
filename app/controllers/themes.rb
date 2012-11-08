@@ -54,10 +54,4 @@ Clock.controllers :themes do
       redirect url(:themes, :index)
     end
   end
-
-  get :wallpaper, :map => "/themes/:id/wallpaper" do
-    file = Theme.find(params[:id]).wallpaper
-
-    [200, {'Content-Type' => file.content_type}, [file.read]]
-  end
 end

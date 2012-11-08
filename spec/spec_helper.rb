@@ -11,6 +11,10 @@ Spork.prefork do
     conf.include Rack::Test::Methods
     conf.include FactoryGirl::Syntax::Methods
 
+    conf.before do
+      
+    end
+
     conf.after do
       MongoMapper.database.collections.each do |c|
         c.remove
@@ -23,7 +27,10 @@ Spork.prefork do
   end
 
   def file
-    Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg'), 'image/jpeg')
+    {
+      :filename => "paris.jpg",
+      :tempfile => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg'), 'image/jpeg')
+    }
   end
 
   def response

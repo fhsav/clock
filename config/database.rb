@@ -17,10 +17,14 @@ end
 
 S3 = YAML::load(File.open(File.join(PADRINO_ROOT, ".s3.yml")))
 
+if PADRINO_ENV == "test"
+  Fog.mock!
+end
+
 S3 = Fog::Storage.new({
   :provider => "AWS",
   :aws_access_key_id => S3["id"],
   :aws_secret_access_key => S3["secret"]
 })
 
-S3 = S3.directories.new(:key => "fhsclock", :public => true)
+S3 = S3.directories.create(:key => "fhsclock", :public => true)
