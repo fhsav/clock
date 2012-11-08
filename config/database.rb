@@ -15,18 +15,3 @@ else
   Ohm.connect
 end
 
-S3 = File.join(PADRINO_ROOT, ".s3.yml")
-
-if File.exist?(S3)
-  S3 = YAML::load(File.open(S3))
-
-  AWS::S3::Base.establish_connection!(
-    :access_key_id     => S3["id"],
-    :secret_access_key => S3["secret"]
-  )
-else
-  AWS::S3::Base.establish_connection!(
-    :access_key_id => ENV['S3_ID'],
-    :secret_access_key => ENV['S3_SECRET']
-  )
-end
