@@ -21,7 +21,7 @@ describe "Themes" do
     end
 
     it "should create a Theme" do
-      Theme.find_by_name("France").should_not be_nil
+      Theme.find_by_name("Paris").should_not be_nil
     end
 
     it "should redirect" do
