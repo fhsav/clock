@@ -14,7 +14,7 @@ Clock.controllers :themes do
     t.wallpaper = params[:wallpaper]
     
     if t.save
-      flash[:notice] = "Your theme has been saved."
+      flash[:notice] = "Your theme has been saved. #{params[:wallpaper].class} :: #{params[:wallpaper].inspect} :: #{params[:wallpaper][:tempfile].class}"
       redirect url(:themes, :index)
     else
       flash[:error] = "Something went wrong, and your theme has not been saved."

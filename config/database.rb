@@ -21,10 +21,13 @@ if PADRINO_ENV == "test"
   Fog.mock!
 end
 
+id = ENV["S3_ID"]
+secret = ENV["S3_SECRET"]
+
 S3 = Fog::Storage.new({
   :provider => "AWS",
-  :aws_access_key_id => S3["id"],
-  :aws_secret_access_key => S3["secret"]
+  :aws_access_key_id => ENV["S3_ID"],
+  :aws_secret_access_key => ENV["S3_SECRET"]
 })
 
 S3 = S3.directories.create(:key => "fhsclock", :public => true)

@@ -3,6 +3,9 @@ require 'spork'
 Spork.prefork do
   PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
 
+  ENV["S3_ID"] = "id"
+  ENV["S3_SECRET"] = "secret"
+
   require File.expand_path(File.dirname(__FILE__) + "/../config/boot.rb")
 
   FactoryGirl.find_definitions
@@ -29,7 +32,7 @@ Spork.prefork do
   def file
     {
       :filename => "paris.jpg",
-      :tempfile => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg'), 'image/jpeg'),
+      :tempfile => Tempfile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg')),
       :type => "image/jpeg"
     }
   end

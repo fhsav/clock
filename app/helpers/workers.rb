@@ -9,6 +9,8 @@ Clock.helpers do
   end
 
   S3_DELETE = GirlFriday::WorkQueue.new(:s3_delete, :side => 5) do |w|
-    S3.files.get(:object_name => w[:name]).destroy
+    f = S3.files.get(:object_name => w[:name])
+
+    f ? f.destroy : "#{w[:name]} doesn't exist."
   end
 end
