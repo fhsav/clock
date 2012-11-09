@@ -29,7 +29,8 @@ Spork.prefork do
   def file
     {
       :filename => "paris.jpg",
-      :tempfile => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg'), 'image/jpeg')
+      :tempfile => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg'), 'image/jpeg'),
+      :type => "image/jpeg"
     }
   end
 

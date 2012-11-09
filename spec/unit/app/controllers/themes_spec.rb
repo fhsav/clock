@@ -3,7 +3,6 @@ require "spec_helper"
 describe "Themes" do
   before(:each) do
     @t = Theme.create(:name => "Paris")
-    @t.wallpaper = file
   end
 
   describe "GET /themes" do
@@ -18,7 +17,7 @@ describe "Themes" do
 
   describe "POST /themes/create" do
     before do
-      post "/themes/create", :theme => { :name => "France" }, :wallpaper => file
+      post "/themes/create", :theme => { :name => "Paris" }, :wallpaper => file
     end
 
     it "should create a Theme" do
@@ -33,6 +32,8 @@ describe "Themes" do
 
   describe "GET /themes/:id" do
     before do
+      @t.wallpaper = file
+
       get "/themes/#{@t.id}"
     end
 

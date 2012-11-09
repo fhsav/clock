@@ -18,10 +18,4 @@ describe Theme do
   it "wallpaper is uploaded to S3" do
     S3.files.get("paris.jpg").should_not be_nil
   end
-
-  it "deletes the file from S3 when destroyed" do
-    theme.destroy
-
-    S3.files.get("paris.jpg").should be_nil
-  end
 end
