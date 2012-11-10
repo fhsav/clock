@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "Refreshes" do
-  describe "POST /refreshes" do # This is shite.
+  describe "POST /refreshes" do
     before do
       get "/clock"
 

@@ -31,11 +31,12 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.3.3)
+    coffee-script-source (1.4.0)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
+    connection_pool (0.9.2)
     cookiejar (0.3.0)
     daemons (1.1.9)
     diff-lcs (1.1.3)
@@ -48,6 +49,7 @@ GEM
     em-socksify (0.2.1)
       eventmachine (>= 1.0.0.beta.4)
     eventmachine (1.0.0)
+    excon (0.13.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
@@ -55,7 +57,7 @@ GEM
     fakefs (0.4.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
-    faraday_middleware (0.8.8)
+    faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
     faye (0.8.6)
       cookiejar (>= 0.3.0)
@@ -66,9 +68,22 @@ GEM
       yajl-ruby (>= 1.0.0)
     faye-websocket (0.4.6)
       eventmachine (>= 0.12.0)
+    fog (1.3.1)
+      builder
+      excon (~> 0.13.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
     foreman (0.60.2)
       thor (>= 0.13.6)
+    formatador (0.2.3)
     fssm (0.2.9)
+    girl_friday (0.10.0)
+      connection_pool (~> 0.9.0)
     haml (3.1.7)
     hashie (1.2.0)
     http_parser.rb (0.5.3)
@@ -76,10 +91,6 @@ GEM
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
     i18n (0.6.1)
-    joint (0.6.2)
-      mime-types
-      mongo_mapper (~> 0.9)
-      wand (~> 0.4)
     json (1.7.5)
     libv8 (3.3.10.4)
     mail (2.3.3)
@@ -93,10 +104,14 @@ GEM
       activemodel (~> 3.0)
       activesupport (~> 3.0)
       plucky (~> 0.5.2)
-    multi_json (1.3.6)
+    multi_json (1.3.7)
     multipart-post (1.1.5)
     nest (1.1.2)
       redis
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.5.2)
+    nokogiri (1.5.5)
     ohm (1.2.0)
       nest (~> 1.0)
       redis
@@ -146,8 +161,8 @@ GEM
     rspec-expectations (2.11.3)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.11.3)
-    safe_shell (1.0.2)
-    sass (3.2.1)
+    ruby-hmac (0.4.0)
+    sass (3.2.2)
     scrivener (0.0.3)
     simple_oauth (0.1.9)
     sinatra (1.3.3)
@@ -157,7 +172,7 @@ GEM
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
     spork (0.9.2)
-    susy (1.0.1)
+    susy (1.0.4)
       compass (>= 0.12.2)
       sass (>= 3.2.0)
     therubyracer (0.10.2)
@@ -178,22 +193,19 @@ GEM
       multi_json (~> 1.0)
       multipart-post (~> 1.1)
       twitter-stream (~> 0.1)
-    treetop (1.4.11)
+    treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
     twitter-stream (0.1.16)
       eventmachine (>= 0.12.8)
       http_parser.rb (~> 0.5.1)
       simple_oauth (~> 0.1.4)
-    tzinfo (0.3.33)
+    tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     url_mount (0.2.1)
       rack
-    wand (0.4)
-      mime-types
-      safe_shell (~> 1.0.0)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -207,9 +219,10 @@ DEPENDENCIES
   compass
   factory_girl
   faye
+  fog
   foreman
+  girl_friday
   haml
-  joint
   mongo_mapper
   ohm
   padrino (= 0.10.7)

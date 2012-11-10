@@ -1,7 +1,13 @@
 require 'spork'
+require 'fog'
 
 Spork.prefork do
   PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
+  
+  ENV["S3_ID"] = "id"
+  ENV["S3_SECRET"] = "secret"
+
+  Fog.mock!
 
   require File.expand_path(File.dirname(__FILE__) + "/../config/boot.rb")
 
@@ -10,6 +16,10 @@ Spork.prefork do
   RSpec.configure do |conf|
     conf.include Rack::Test::Methods
     conf.include FactoryGirl::Syntax::Methods
+
+    conf.before do
+      
+    end
 
     conf.after do
       MongoMapper.database.collections.each do |c|
@@ -23,7 +33,11 @@ Spork.prefork do
   end
 
   def file
-    Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg'), 'image/jpeg')
+    {
+      :filename => "paris.jpg",
+      :tempfile => Tempfile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg')),
+      :type => "image/jpeg"
+    }
   end
 
   def response
