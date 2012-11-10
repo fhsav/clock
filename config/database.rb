@@ -23,7 +23,7 @@ if File.exists?(S3)
   id = S3["id"]
   secret = S3["secret"]
 else
-  id = Env["S3_ID"]
+  id = ENV["S3_ID"]
   secret = ENV["S3_SECRET"]
 end
 
