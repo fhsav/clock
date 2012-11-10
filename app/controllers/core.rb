@@ -3,7 +3,7 @@ Clock.controllers do
     @schedule = Schedule.first(:active => true)
 
     @theme = Theme.first(:active => true)
-    @theme = @theme.present? ? url(:themes, :wallpaper, :id => @theme.id) : "/img/default.jpg"
+    @theme = @theme.present? ? @theme.wallpaper[:url] : "/img/default.jpg"
 
     @marquees = Marquee.all
     @notices = Notice.all

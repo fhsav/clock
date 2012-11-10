@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "Themes" do
   before(:each) do
-    @t = Theme.create(:name => "Paris", :wallpaper => file)
+    @t = Theme.create(:name => "Paris")
   end
 
   describe "GET /themes" do
@@ -17,11 +17,11 @@ describe "Themes" do
 
   describe "POST /themes/create" do
     before do
-      post "/themes/create", :theme => { :name => "France", :wallpaper => file }
+      post "/themes/create", :theme => { :name => "Paris" }, :wallpaper => file
     end
 
     it "should create a Theme" do
-      Theme.find_by_name("France").should_not be_nil
+      Theme.find_by_name("Paris").should_not be_nil
     end
 
     it "should redirect" do
@@ -32,6 +32,8 @@ describe "Themes" do
 
   describe "GET /themes/:id" do
     before do
+      @t.wallpaper = file
+
       get "/themes/#{@t.id}"
     end
 
@@ -40,23 +42,9 @@ describe "Themes" do
     end
   end
 
-  describe "GET /themes/:id/wallpaper" do
-    before do
-      get "/themes/#{@t.id}/wallpaper"
-    end
-
-    it "should be ok" do
-      response.should be_ok
-    end
-
-    it "should have the correct content type" do
-      response.headers["Content-Type"].should == "image/jpeg"
-    end
-  end
-
   describe "POST /themes/activate" do
     before do
-      @t2 = Theme.create(:name => "Activated", :wallpaper => file, :active => true)
+      @t2 = Theme.create(:name => "Activated", :active => true)
 
       post "/themes/activate", :id => @t.id
 

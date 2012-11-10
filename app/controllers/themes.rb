@@ -10,7 +10,8 @@ Clock.controllers :themes do
   end
   
   post :create do
-    t = Theme.new(:name => params[:theme][:name], :wallpaper => params[:theme][:wallpaper][:tempfile], :wallpaper_name => params[:theme][:wallpaper][:filename])
+    t = Theme.new(params[:theme])
+    t.wallpaper = params[:wallpaper]
     
     if t.save
       flash[:notice] = "Your theme has been saved."
@@ -52,11 +53,5 @@ Clock.controllers :themes do
       flash[:error] = "Something went wrong, and the theme has not been destroyed."
       redirect url(:themes, :index)
     end
-  end
-
-  get :wallpaper, :map => "/themes/:id/wallpaper" do
-    file = Theme.find(params[:id]).wallpaper
-
-    [200, {'Content-Type' => file.content_type}, [file.read]]
   end
 end
