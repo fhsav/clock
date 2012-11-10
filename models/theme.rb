@@ -33,7 +33,7 @@ S3_UPLOAD = GirlFriday::WorkQueue.new(:s3_upload, :size => 5) do |w|
 end
 
 S3_DELETE = GirlFriday::WorkQueue.new(:s3_delete, :side => 5) do |w|
-  f = S3.files.get(w[:name])
+  f = S3.files.get(w[:name].to_s)
 
   if f
     f.destroy
