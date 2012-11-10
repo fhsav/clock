@@ -15,9 +15,9 @@ else
   Ohm.connect
 end
 
-S3 = File.open(File.join(PADRINO_ROOT, ".s3.yml"))
+S3 = File.join(PADRINO_ROOT, ".s3.yml")
 if File.exists?(S3)
-  S3 = YAML::load(S3)
+  S3 = YAML::load(File.open(S3))
 end
 
 if PADRINO_ENV == "test"
