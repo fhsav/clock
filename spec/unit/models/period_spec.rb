@@ -10,6 +10,7 @@ describe Period do
 
   it "can be added to a Schedule" do
     schedule.periods << period
+    schedule.save
 
     schedule.periods.should_not be_blank
     period.schedule_id.should == schedule.id
