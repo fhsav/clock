@@ -2,8 +2,10 @@ Clock.controllers do
   before do
     @schedule = Schedule.activated
 
-    @theme = Theme.activated
-    @theme = @theme.present? ? @theme.wallpaper[:url] : "/img/default.jpg"
+    theme = Theme.activated
+    @theme = Hash.new
+    @theme[:url] = theme.present? ? theme.wallpaper[:url] : "/img/default.jpg"
+    @theme[:type] = theme.wallpaper[:type]
 
     @marquees = Marquee.all
     @notices = Notice.all

@@ -27,6 +27,7 @@ class Theme
 
     wallpaper[:name] = w[:filename]
     wallpaper[:url] = "http://fhsclock.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
+    wallpaper[:type] = w[:type]
   end
 
   private
