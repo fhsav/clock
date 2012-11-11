@@ -10,6 +10,10 @@ class Schedule
   many :periods
   
   validates_presence_of :name
+
+  def self.activated
+    first(:active => true)
+  end
 end
 
 class Period
@@ -21,4 +25,6 @@ class Period
   key :finish, Time
 
   belongs_to :schedule
+
+  validates_presence_of :number, :name, :start, :finish
 end

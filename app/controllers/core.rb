@@ -1,8 +1,8 @@
 Clock.controllers do
   before do
-    @schedule = Schedule.first(:active => true)
+    @schedule = Schedule.activated
 
-    @theme = Theme.first(:active => true)
+    @theme = Theme.activated
     @theme = @theme.present? ? @theme.wallpaper[:url] : "/img/default.jpg"
 
     @marquees = Marquee.all

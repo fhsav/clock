@@ -9,6 +9,10 @@ class Theme
 
   after_destroy :delete!
 
+  def self.activated
+    first(:active => true)
+  end
+
   def wallpaper=(w)
     upload = GirlFriday::WorkQueue.new(:s3_upload, :size => 5) do |w|
       S3.files.create(
