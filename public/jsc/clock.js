@@ -3,16 +3,9 @@
 
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
-  $.get("/api/time.json", function(data) {
-    var localTime, serverTime;
-    serverTime = data["ms"];
-    localTime = +Date.now();
-    return root.timeDiff = serverTime - localTime;
-  });
-
   setInterval((function() {
     var d, date, day, days, final, hour, minute, month, months, second, time, year;
-    d = new Date(+Date.now() - root.timeDiff);
+    d = new Date();
     day = d.getDay();
     month = d.getMonth();
     date = d.getDate();

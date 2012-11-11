@@ -31,7 +31,6 @@ gem 'compass'
 gem 'susy'
 
 gem 'barista'
-gem 'uglifier'
 
 group :development do
   gem 'foreman'

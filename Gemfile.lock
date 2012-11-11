@@ -201,9 +201,6 @@ GEM
       http_parser.rb (~> 0.5.1)
       simple_oauth (~> 0.1.4)
     tzinfo (0.3.35)
-    uglifier (1.3.0)
-      execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
     url_mount (0.2.1)
       rack
     yajl-ruby (1.1.0)
@@ -236,4 +233,3 @@ DEPENDENCIES
   therubyracer
   thin
   tzinfo
-  uglifier

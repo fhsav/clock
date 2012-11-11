@@ -3,19 +3,11 @@
 
 root = exports ? this
 
-# Get the server time and difference between that and client time
-$.get "/api/time.json", (data) ->
-  serverTime = data["ms"]
-  localTime = +Date.now()
-
-  root.timeDiff = serverTime - localTime
-
-
 # Run this all every 1000 milliseconds
 setInterval (->
 
   # Date variables, etc.
-  d = new Date(+Date.now() - root.timeDiff)
+  d = new Date()
   day = d.getDay()
   month = d.getMonth()
   date = d.getDate()
