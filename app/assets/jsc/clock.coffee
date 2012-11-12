@@ -59,6 +59,11 @@ setInterval (->
   final = $("#periods ol li:last-child").find("time.finish").attr("datetime")
 
 
+  # Check if period list is empty.
+  if $("#periods ol li").length == 0
+    $("#main").addClass "true"
+
+
   # Check if schedule exists.
   if time > final or $("#main").hasClass "true"
     $("#main").addClass "after"

@@ -48,6 +48,9 @@
       }
     });
     final = $("#periods ol li:last-child").find("time.finish").attr("datetime");
+    if ($("#periods ol li").length === 0) {
+      $("#main").addClass("true");
+    }
     if (time > final || $("#main").hasClass("true")) {
       return $("#main").addClass("after");
     } else {
