@@ -10,7 +10,23 @@ class Theme
   after_destroy :delete!
 
   def self.activated
-    first(:active => true)
+    t = self.first(:active => true)
+
+    if t.nil?
+      { :url => "/img/default.jpg", :type => "image/jpeg" }
+    else
+      { :url => t.wallpaper[:url], :type => t.wallpaper[:type] }
+    end
+  end
+
+  def video?
+    r = false
+
+    if wallpaper[:type] == "video/mp4"
+      r = true
+    end
+
+    r
   end
 
   def wallpaper=(w)

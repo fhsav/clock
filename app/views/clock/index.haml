@@ -25,7 +25,7 @@
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
     %link{:href => "/css/clock.css", :rel => "stylesheet"}
 
-    - if @theme[:type] == "video/mp4"
+    - if @theme[:type] = "video/mp4"
       :css
         body { background: #000 }
     - else

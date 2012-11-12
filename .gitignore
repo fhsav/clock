@@ -1,6 +1,7 @@
 db/*
 log/
 public/videos
+spec/fixtures/paris.jpg2*
 tmp/
 vendor/ruby/
 .bundle/

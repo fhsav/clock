@@ -14,7 +14,7 @@
 = partial 'layouts/flash', :locals => { :flash => flash }
 
 %p
-  - if @theme.wallpaper[:type] == "video/mp4"
+  - if @theme.video?
     %video{:autoplay => true, :controls => true, :loop => true, :muted => true}
       %source{:src => @theme.wallpaper[:url], :type => "video/mp4"}
   - else
