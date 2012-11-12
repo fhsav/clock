@@ -25,14 +25,22 @@
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
     %link{:href => "/css/clock.css", :rel => "stylesheet"}
 
-    :css
-      body { background: url(#{@theme}) no-repeat }
+    - if @theme[:type] = "video/mp4"
+      :css
+        body { background: #000 }
+    - else
+      :css
+        body { background: url(#{@theme}) no-repeat }
 
     %script{:src => "//use.typekit.net/zkf1hyd.js", :type => "text/javascript"}
     :javascript
       try{Typekit.load();}catch(e){}
 
   %body
+    - if @theme[:type] = "video/mp4"
+      %video{:autoplay => true, :loop => true, :muted => true}
+        %source{:src => @theme[:url], :type => "video/mp4"}
+
     #contain
 
       - unless @marquees.empty?

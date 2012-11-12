@@ -1,9 +1,9 @@
 require "spec_helper"
 
 describe Theme do
-  let(:theme) { Theme.new(:name => "Paris") }
+  let(:theme) { Theme.create(:name => "Paris", :active => true) }
 
-  before do
+  before(:all) do
     theme.wallpaper = file
   end
 
