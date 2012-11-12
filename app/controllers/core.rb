@@ -3,7 +3,6 @@ Clock.controllers do
     @schedule = Schedule.activated
 
     @theme = Theme.activated
-    @theme = @theme.present? ? @theme.wallpaper[:url] : "/img/default.jpg"
 
     @marquees = Marquee.all
     @notices = Notice.all
