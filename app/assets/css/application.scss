@@ -467,8 +467,12 @@ table {
 		margin-bottom: 1.5em;
 		padding-bottom: 0.25em;
 
-		section, aside {
+		aside, section {
 			display: inline-block;
+		}
+
+		aside {
+			float: right;
 		}
 
 		section {
@@ -481,10 +485,6 @@ table {
 			h3 {
 				margin-bottom: 1em;
 			}
-		}
-
-		aside {
-			float: right;
 		}
 	}
 
@@ -517,6 +517,14 @@ table {
 		}
 	}
 
+	ol, ul {
+		margin: 1em 0 1em 3em;
+	}
+
+	ul li {
+		list-style-type: disc;
+	}
+
 	#login {
 		@include span-columns(10);
 		@include prefix(1);
@@ -532,14 +540,6 @@ table {
 		.inner {
 			padding: 4em 4em 6em;
 		}
-	}
-
-	ol, ul {
-		margin: 1em 0 1em 3em;
-	}
-
-	ul li {
-		list-style-type: disc;
 	}
 }
 

@@ -169,6 +169,8 @@ video {
 
 	@media (max-width: 850px) {
 		@include span-columns(24);
+
+		margin-top: 1em;
 	}
 
 	color: #222;
