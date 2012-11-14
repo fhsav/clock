@@ -22,9 +22,11 @@ if File.exists?(S3)
 
   id = S3["id"]
   secret = S3["secret"]
+  bucket = S3["bucket"]
 else
   id = ENV["S3_ID"]
   secret = ENV["S3_SECRET"]
+  bucket = ENV["S3_BUCKET"]
 end
 
 if PADRINO_ENV == "test"
@@ -37,4 +39,4 @@ S3 = Fog::Storage.new({
   :aws_secret_access_key => secret
 })
 
-S3 = S3.directories.create(:key => "fhsclock", :public => true)
+S3 = S3.directories.create(:key => bucket, :public => true)
