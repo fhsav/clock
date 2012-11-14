@@ -1,3 +1,5 @@
+require "yaml"
+
 class Theme
   include MongoMapper::Document
 
@@ -30,6 +32,8 @@ class Theme
   end
 
   def wallpaper=(w)
+    yaml = YAML::load(File.open(File.join(PADRINO_ROOT, ".s3.yml")))
+
     upload = GirlFriday::WorkQueue.new(:s3_upload, :size => 5) do |w|
       S3.files.create(
         :key => w[:filename],
@@ -42,7 +46,7 @@ class Theme
     upload << w
 
     wallpaper[:name] = w[:filename]
-    wallpaper[:url] = "http://fhsclock.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
+    wallpaper[:url] = "http://#{yaml["bucket"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
     wallpaper[:type] = w[:type]
   end
 
