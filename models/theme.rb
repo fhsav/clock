@@ -54,7 +54,7 @@ class Theme
     end
 
     wallpaper[:name] = w[:filename]
-    wallpaper[:url] = "http://#{yaml["bucket"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
+    wallpaper[:url] = url
     wallpaper[:type] = w[:type]
   end
 
