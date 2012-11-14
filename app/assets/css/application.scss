@@ -548,10 +548,10 @@ table {
 	V. Footer
 */
 
-body > footer {
-	background: #efefef;
-	color: #aaa;
-	height: 10em;
+#contain > footer {
+	border-top: 1px solid #ccc;
+	color: #ccc;
+	margin-top: 8em;
 	padding-bottom: 1em;
 	padding-top: 2em;
 	text-align: center;
@@ -578,9 +578,4 @@ body > footer {
 			}
 		}
 	}
-}
-
-.footer-push {
-	height: 9em;
-	padding-bottom: 8em;
 }
