@@ -32,7 +32,9 @@ class Theme
   end
 
   def wallpaper=(w)
-    yaml = YAML::load(File.open(File.join(PADRINO_ROOT, ".s3.yml")))
+    unless heroku?
+      yaml = YAML::load(File.open(File.join(PADRINO_ROOT, ".s3.yml")))
+    end
 
     upload = GirlFriday::WorkQueue.new(:s3_upload, :size => 5) do |w|
       S3.files.create(
@@ -44,6 +46,12 @@ class Theme
     end
 
     upload << w
+
+    if heroku?
+      url = "http://#{ENV["S3_BUCKET"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
+    else
+      url = "http://#{yaml["bucket"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
+    end
 
     wallpaper[:name] = w[:filename]
     wallpaper[:url] = "http://#{yaml["bucket"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
