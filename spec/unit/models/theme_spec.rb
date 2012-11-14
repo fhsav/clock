@@ -14,8 +14,4 @@ describe Theme do
   it "wallpaper can be added" do
     theme.wallpaper.should_not be_blank
   end
-
-  it "wallpaper is uploaded to S3" do
-    S3.files.get("paris.jpg").should_not be_nil
-  end
 end
