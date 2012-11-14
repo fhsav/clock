@@ -68,6 +68,8 @@
             %li
               %a{:href => "http://#{request.host}:4567"} CIJoe
           %p.version= "#{CLOCK_VERSION}"
+          %p
+            %a{:href => "http://github.com/eturk/clock/commit/#{COMMIT}"}= COMMIT
 
     %script{:src => "http://code.jquery.com/jquery.min.js"}
     %script{:src => "/jsc/application.js"}
