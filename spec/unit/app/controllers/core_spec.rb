@@ -6,8 +6,8 @@ describe "Core" do
       get "/"
     end
 
-    it "should redirect without a session" do
-      response.should_not be_nil
+    it "should be ok" do
+      response.should be_ok
     end
   end
 end
