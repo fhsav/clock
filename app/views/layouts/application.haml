@@ -35,9 +35,9 @@
                       = hidden_field_tag :"redirect", :value => request.path
                       %button{:type => "submit"} Refresh
                   %li
-                    %a{:href => url(:preview)} Preview
+                    %a{:href => url(:clock, :preview)} Preview
                 %li
-                  %a{:href => url(:clock)} View Clock &rarr;
+                  %a{:href => url(:clock, :index)} View Clock &rarr;
         - if authenticated?
           %hgroup.bottom
             %section
@@ -59,19 +59,19 @@
       #main{:role => "main"}
         = yield
 
-      .footer-push
-
-    %footer
-      %section
-        %p= "<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}."
-        %ul
-          %li
-            %a{:href => "http://github.com/eturk/clock"} GitHub
-          %li
-            %a{:href => "http://github.com/eturk/clock/issues"} Issues
-          %li
-            %a{:href => "http://#{request.host}:4567"} CIJoe
-        %p.version= "#{CLOCK_VERSION}"
+      %footer
+        %section
+          %p= "<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}."
+          %ul
+            %li
+              %a{:href => "http://github.com/eturk/clock"} GitHub
+            %li
+              %a{:href => "http://github.com/eturk/clock/issues"} Issues
+            %li
+              %a{:href => "http://#{request.host}:4567"} CIJoe
+          %p.version= "#{CLOCK_VERSION}"
+          %p
+            %a{:href => "http://github.com/eturk/clock/commit/#{COMMIT}"}= COMMIT
 
     %script{:src => "http://code.jquery.com/jquery.min.js"}
     %script{:src => "/jsc/application.js"}
