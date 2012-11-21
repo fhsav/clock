@@ -14,6 +14,7 @@
   %table.themes
     %thead
       %th Name
+      %th 
       %th Activate
       %th Actions
     %tbody
@@ -21,6 +22,8 @@
         %tr{:class => t.active}
           %td
             %a{:href => url(:themes, :view, :id => t.id)}= t.name
+          %td
+            %a.preview{:"data-preview" => url(:themes, :preview, :id => t.id), :href => "#"} Preview
           %td
             = form_tag url(:themes, :activate), :class => "inline", :method => "post" do
               = hidden_field_tag :id, :value => t.id

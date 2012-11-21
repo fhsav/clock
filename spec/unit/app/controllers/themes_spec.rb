@@ -42,6 +42,18 @@ describe "Themes" do
     end
   end
 
+  describe "GET /themes/:id/preview" do
+    before do
+      @t.wallpaper = file
+
+      get "/themes/#{@t.id}"
+    end
+
+    it "should be ok" do
+      response.should be_ok
+    end
+  end
+
   describe "POST /themes/activate" do
     before do
       @t2 = Theme.create(:name => "Activated", :active => true)
