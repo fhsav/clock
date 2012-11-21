@@ -34,8 +34,6 @@
                     = form_tag url(:refreshes, :create), :method => "post" do
                       = hidden_field_tag :"redirect", :value => request.path
                       %button{:type => "submit"} Refresh
-                  %li
-                    %a{:href => url(:preview)} Preview
                 %li
                   %a{:href => url(:clock)} View Clock &rarr;
         - if authenticated?
@@ -55,9 +53,9 @@
                 %ul
                   %li
                     %a{:href => url(:sessions, :destroy)} Sign Out &rarr;
-      
-      #main{:role => "main"}
-        = yield
+
+      %section#iframe
+        %iframe{:src => url(:clock), :seamless => true, :width => "1024px", :height => "768px"}
 
       .footer-push
 

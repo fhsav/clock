@@ -158,6 +158,18 @@ h3 {
 	font-size: 1.15em;
 }
 
+#iframe {
+	
+	padding-bottom: 4em;
+	padding-top: 2em;
+
+	iframe {
+		@include clearfix;
+		margin: 0 auto;
+		display: block;
+	}
+}
+
 img, video {
 	max-width: 100%;
 }
@@ -414,8 +426,8 @@ table {
 			@include span-columns(6);
 
 			@media (max-width: 767px) {
-        		@include span-columns(23);
-    		}
+				@include span-columns(23);
+			}
 		}
 
 		li {
@@ -430,12 +442,12 @@ table {
 			@include span-columns(6 omega);
 
 			@media (max-width: 767px) {
-        		@include span-columns(23);
+				@include span-columns(23);
 
-        		ul {
-        			float: left !important;
-        		}
-    		}
+				ul {
+					float: left !important;
+				}
+			}
 
 			ul {
 				float: right;

@@ -20,6 +20,10 @@ Clock.controllers do
     render 'clock/index', :layout => false
   end
 
+  get :preview, :map => "/clock/preview" do
+    render 'clock/preview', :layout => false
+  end 
+
   get :admin do
   	redirect url(:sessions, :new)
   end
