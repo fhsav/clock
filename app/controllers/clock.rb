@@ -11,8 +11,4 @@ Clock.controllers :clock do
   get :index do
     render 'clock/index', :layout => false
   end
-
-  get :preview do
-    render 'clock/preview', :layout => false
-  end
 end
