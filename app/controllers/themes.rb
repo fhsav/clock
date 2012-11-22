@@ -42,6 +42,17 @@ Clock.controllers :themes do
 
     render 'themes/view'
   end
+
+  get :preview, :map => "/themes/:id/preview" do
+    @schedule = Schedule.activated
+
+    @theme = Theme.find(params[:id]).wallpaper
+
+    @marquees = Marquee.all
+    @notices = Notice.all
+
+    render 'clock/index', :layout => false
+  end
   
   delete :destroy do
     t = Theme.find(params[:id])

@@ -16,10 +16,6 @@ Clock.controllers do
     end
   end
 
-  get :clock do
-    render 'clock/index', :layout => false
-  end
-
   get :admin do
   	redirect url(:sessions, :new)
   end
