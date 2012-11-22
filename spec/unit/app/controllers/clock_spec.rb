@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe "Core" do
-  describe "GET /" do
+describe "Clock" do
+  describe "GET /clock" do
     before do
-      get "/"
+      get "/clock"
     end
 
     it "should be ok" do
