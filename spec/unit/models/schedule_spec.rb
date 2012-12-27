@@ -1,9 +1,18 @@
 require "spec_helper"
 
 describe Schedule do
-  let(:schedule) { Schedule.new(:name => "Foobar") }
+  let(:schedule) { create(:schedule) }
 
-  it "can be instantiated" do
-    schedule.should_not be_nil
+  it { validate_presence_of(:name) }
+
+  it { schedule.should be_valid }
+
+  describe ".activated" do
+    before do
+      schedule.active = true
+      schedule.save
+    end
+
+    it { Schedule.activated.should eql(schedule) }
   end
 end

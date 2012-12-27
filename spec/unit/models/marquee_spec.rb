@@ -1,9 +1,13 @@
 require "spec_helper"
 
 describe Marquee do
-  let(:marquee) { Marquee.new(:text => "Foo to the bar.") }
+  let(:marquee) { create(:marquee) }
 
-  it "can be instantiated" do
-    marquee.should_not be_nil
+  it { validate_presence_of(:text) }
+
+  it { marquee.should be_valid }
+
+  describe "#format!" do
+    it { marquee.text.should eql("We are the legacy of 15 billion years of cosmic evolution.")}
   end
 end

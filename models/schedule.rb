@@ -25,4 +25,6 @@ class Period
   key :finish, Time
 
   belongs_to :schedule
+
+  validates_presence_of :number, :name, :start, :finish
 end
