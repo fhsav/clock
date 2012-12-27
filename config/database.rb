@@ -15,19 +15,9 @@ else
   Ohm.connect
 end
 
-S3 = File.join(PADRINO_ROOT, ".s3.yml")
-
-if File.exists?(S3)
-  S3 = YAML::load(File.open(S3))
-
-  id = S3["id"]
-  secret = S3["secret"]
-  bucket = S3["bucket"]
-else
-  id = ENV["S3_ID"]
-  secret = ENV["S3_SECRET"]
-  bucket = ENV["S3_BUCKET"]
-end
+id = ENV["S3_ID"]
+secret = ENV["S3_SECRET"]
+bucket = ENV["S3_BUCKET"]
 
 if PADRINO_ENV == "test"
   Fog.mock!
