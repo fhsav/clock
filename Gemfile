@@ -12,11 +12,7 @@ gem 'sinatra-flash', require: 'sinatra/flash'
 gem 'bson_ext', require: 'mongo'
 gem 'mongo_mapper'
 
-gem 'girl_friday'
-
 gem 'tzinfo'
-
-gem 'ohm'
 
 gem 'faye'
 
