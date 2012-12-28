@@ -17,7 +17,7 @@ Clock.controllers :themes do
       flash[:notice] = "Your theme has been saved."
       redirect url(:themes, :index)
     else
-      flash[:error] = "Something went wrong, and your theme has not been saved."
+      flash[:error] = "Something has gone awry."
       redirect url(:themes, :index)
     end
   end
@@ -29,10 +29,10 @@ Clock.controllers :themes do
     t.active = true
 
     if t.save
-      flash[:notice] = 'The theme "' + t.name + '" has been activated.'
+      flash[:notice] = "The theme \"#{t.name}\" has been activated"
       redirect url(:themes, :index)
     else
-      flash[:error] = "Something went wrong, and your theme has not been activated."
+      flash[:error] = "Something has gone awry."
       redirect url(:themes, :index)
     end
   end
@@ -61,7 +61,7 @@ Clock.controllers :themes do
       flash[:notice] = "The theme has been destroyed."
       redirect url(:themes, :index)
     else
-      flash[:error] = "Something went wrong, and the theme has not been destroyed."
+      flash[:error] = "Something has gone awry."
       redirect url(:themes, :index)
     end
   end

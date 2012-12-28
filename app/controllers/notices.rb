@@ -16,7 +16,7 @@ Clock.controllers :notices do
       flash[:notice] = "The notice has been created."
       redirect url(:notices, :index)
     else
-      flash[:error] = "Something went wrong and the notice was not created."
+      flash[:error] = "Something has gone awry."
       redirect url(:notices, :index)
     end
   end
@@ -31,10 +31,10 @@ Clock.controllers :notices do
     n = Notice.find(params[:id])
     
     if n.update_attributes(params[:notice])
-      flash[:notice] = "The notice has been modified."
+      flash[:notice] = "The notice has been updated."
       redirect url(:notices, :index)
     else
-      flash[:error] = "Something went wrong and the notice was not modified."
+      flash[:error] = "Something has gone awry."
       redirect url(:notices, :edit, :id => notice.id)
     end
   end
@@ -46,7 +46,7 @@ Clock.controllers :notices do
       flash[:notice] = "The notice has been destroyed."
       redirect url(:notices, :index)
     else
-      flash[:error] = "Something went wrong and the notice was not destroyed."
+      flash[:error] = "Something has gone awry."
       redirect url(:notices, :index)
     end
   end
