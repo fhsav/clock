@@ -30,7 +30,7 @@ Clock.controllers :periods, :parent => :schedules do
     render 'periods/edit'
   end
 
-  put :modify do
+  patch :update do
     p = Period.find(params[:id])
     
     if p.update_attributes(params[:period])

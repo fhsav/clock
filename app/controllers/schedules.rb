@@ -42,7 +42,7 @@ Clock.controllers :schedules do
     render 'schedules/edit'
   end
 
-  put :modify do
+  patch :update do
     s = Schedule.find(params[:id])
     
     if s.update_attributes(params[:schedule])

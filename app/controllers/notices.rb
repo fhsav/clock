@@ -27,7 +27,7 @@ Clock.controllers :notices do
     render 'notices/edit'
   end
   
-  put :modify do
+  patch :update do
     n = Notice.find(params[:id])
     
     if n.update_attributes(params[:notice])

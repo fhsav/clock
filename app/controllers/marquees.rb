@@ -27,7 +27,7 @@ Clock.controllers :marquees do
     render 'marquees/edit'
   end
   
-  put :modify do
+  patch :update do
     m = Marquee.find(params[:id])
     
     if m.update_attributes(params[:marquee])
