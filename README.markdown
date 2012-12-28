@@ -1,10 +1,6 @@
-# Clock
-
-[![Travis-CI](https://secure.travis-ci.org/eturk/clock.png)](http://travis-ci.org/#!/eturk/clock)
+# Clock [![Travis-CI](https://secure.travis-ci.org/eturk/clock.png)](http://travis-ci.org/#!/eturk/clock)
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
-
-**Thanks:** Nick Silverman, Farmington High School Audio-Visual Department
 
 **Licence:** [The ☺ Licence](http://licence.visualidiot.com/)
 
