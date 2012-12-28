@@ -1,4 +1,6 @@
 Clock.helpers do
+
+  # A better interface for Redis.
   class Redis
     class << self
       def get(key)

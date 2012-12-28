@@ -1,7 +1,7 @@
 require 'digest/sha1'
 
 Clock.helpers do
-  
+
   # Encrypts the string with SHA1.
   def encrypt(str)
     Digest::SHA1.hexdigest(str)

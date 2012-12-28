@@ -4,7 +4,7 @@ Clock.controllers do
   end
 
   get :index do
-  	if authenticated?
+    if authenticated?
       render :index
     else
       render 'clock/index', :layout => false
@@ -16,6 +16,6 @@ Clock.controllers do
   end
 
   get :admin do
-  	redirect url(:sessions, :new)
+    redirect url(:sessions, :new)
   end
 end
