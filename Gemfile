@@ -12,8 +12,6 @@ gem 'sinatra-flash', require: 'sinatra/flash'
 gem 'bson_ext', require: 'mongo'
 gem 'mongo_mapper'
 
-gem 'fog'
-
 gem 'girl_friday'
 
 gem 'tzinfo'
@@ -50,4 +48,6 @@ group :test do
 
   gem 'autotest'
   gem 'fuubar'
+
+  gem 'cane'
 end
