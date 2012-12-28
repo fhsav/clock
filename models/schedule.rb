@@ -17,14 +17,14 @@ class Schedule
 end
 
 class Period
-  include MongoMapper::Document
+  include MongoMapper::EmbeddedDocument
   
   key :number, Integer
   key :name, String
   key :start, Time
   key :finish, Time
 
-  belongs_to :schedule
+  embedded_in :schedule
 
   validates_presence_of :number, :name, :start, :finish
 end
