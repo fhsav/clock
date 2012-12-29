@@ -11,12 +11,12 @@ gem 'sinatra-flash', require: 'sinatra/flash'
 
 gem 'bson_ext', require: 'mongo'
 gem 'mongo_mapper'
+gem 'joint'
 
+gem 'bcrypt-ruby'
 gem 'tzinfo'
 
 gem 'faye'
-
-gem 'bcrypt-ruby'
 
 gem 'haml'
 
