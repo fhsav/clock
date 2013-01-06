@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Marquee do
-  let(:marquee) { create :marquee }
+  let(:marquee) { create(:marquee) }
 
-  it { validate_presence_of :text }
+  it { validate_presence_of(:text) }
 
   it { marquee.should be_valid }
 

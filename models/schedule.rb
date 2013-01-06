@@ -14,6 +14,15 @@ class Schedule
   def self.activated
     first(:active => true)
   end
+
+  def activate!
+    self.class.all.each do |s|
+      s.active = false
+      s.save
+    end
+
+    self.active = true
+  end
 end
 
 class Period
@@ -27,4 +36,14 @@ class Period
   embedded_in :schedule
 
   validates_presence_of :number, :name, :start, :finish
+
+  before_save :number!
+
+  private
+
+  def number!
+    if self.number.blank?
+      self.number = self.schedule.periods.count
+    end
+  end
 end
