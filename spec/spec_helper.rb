@@ -6,6 +6,7 @@ Spork.prefork do
   
   ENV["S3_ID"] = "id"
   ENV["S3_SECRET"] = "secret"
+  ENV["S3_BUCKET"] = "foobar"
 
   Fog.mock!
 

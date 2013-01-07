@@ -9,6 +9,8 @@ gem 'thin'
 gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
 
+gem 'dotenv'
+
 gem 'bson_ext', :require => "mongo"
 gem 'mongo_mapper'
 
