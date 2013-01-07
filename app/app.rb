@@ -5,7 +5,5 @@ class Clock < Padrino::Application
   register BaristaInitializer
   register CompassInitializer
 
-  use Faye::RackAdapter, :mount => "/faye", :timeout => 25
-
   enable :sessions
 end
