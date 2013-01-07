@@ -9,6 +9,8 @@ gem 'thin'
 gem 'rake'
 gem 'sinatra-flash', require: 'sinatra/flash'
 
+gem 'dotenv'
+
 gem 'bson_ext', require: 'mongo'
 gem 'mongo_mapper'
 gem 'joint'
@@ -16,7 +18,9 @@ gem 'joint'
 gem 'bcrypt-ruby'
 gem 'tzinfo'
 
-gem 'faye'
+gem 'ohm'
+
+gem 'pusher'
 
 gem 'haml'
 

@@ -5,7 +5,9 @@ class Clock < Padrino::Application
   register BaristaInitializer
   register CompassInitializer
 
-  use Faye::RackAdapter, :mount => "/faye", :timeout => 25
-
   enable :sessions
+
+  Pusher.app_id = ENV["PUSHER_ID"]
+  Pusher.key = ENV["PUSHER_KEY"]
+  Pusher.secret = ENV["PUSHER_SECRET"]
 end
