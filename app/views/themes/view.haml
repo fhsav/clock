@@ -16,6 +16,6 @@
 %p
   - if @theme.video?
     %video{:autoplay => true, :controls => true, :loop => true, :muted => true}
-      %source{:src => @theme.wallpaper[:url], :type => "video/mp4"}
+      %source{:src => url(:themes, :wallpaper, :id => @theme.id), :type => "video/mp4"}
   - else
-    %img{:src => @theme.wallpaper[:url]}/
+    %img{:src => url(:themes, :wallpaper, :id => @theme.id)}/
