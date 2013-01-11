@@ -33,6 +33,8 @@ gem 'barista'
 group :development do
   gem 'foreman'
   gem 'therubyracer', '0.10.0'
+  gem 'better_errors', '0.3.0'
+  gem 'binding_of_caller'
 end
 
 group :test do
