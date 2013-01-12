@@ -54,7 +54,7 @@
           %p#date= Time.now.strftime("%A, %B %e, %Y")
           %p#time= Time.now.strftime("%l:%M:%S")
 
-          - unless @notices.empty?
+          - unless @notices.empty? or request.fullpath != "/clock"
             %footer#notices
               %ul
                 - @notices.each do |n|
