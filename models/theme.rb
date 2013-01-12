@@ -1,5 +1,3 @@
-require "yaml"
-
 class Theme
   include MongoMapper::Document
 
@@ -32,10 +30,6 @@ class Theme
   end
 
   def wallpaper=(w)
-    unless heroku?
-      yaml = YAML::load(File.open(File.join(PADRINO_ROOT, ".s3.yml")))
-    end
-
     upload = GirlFriday::WorkQueue.new(:s3_upload, :size => 5) do |w|
       S3.files.create(
         :key => w[:filename],
@@ -47,11 +41,7 @@ class Theme
 
     upload << w
 
-    if heroku?
-      url = "http://#{ENV["S3_BUCKET"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
-    else
-      url = "http://#{yaml["bucket"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
-    end
+    url = "http://#{ENV["S3_BUCKET"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
 
     wallpaper[:name] = w[:filename]
     wallpaper[:url] = url
