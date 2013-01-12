@@ -13,14 +13,10 @@ class Theme
 
   before_save :url!
 
-  def self.activated
-  	t = self.first(:active => true)
+  #scope :activated, first(:active => true)
 
-    if t.nil?
-      { :url => "/img/default.jpg", :type => "image/jpeg" }
-    else
-      { :url => self.url, :type => t.wallpaper.type }
-    end
+  def self.activated
+    first(:active => true)
   end
 
   def video?

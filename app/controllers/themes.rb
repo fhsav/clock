@@ -46,7 +46,7 @@ Clock.controllers :themes do
   get :preview, :map => "/themes/:id/preview" do
     @schedule = Schedule.activated
 
-    @theme = Theme.find(params[:id]).wallpaper
+    @theme = Theme.find(params[:id])
 
     @marquees = Marquee.all
     @notices = Notice.all
