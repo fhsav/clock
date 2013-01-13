@@ -12,14 +12,19 @@ Clock.controllers :periods, :parent => :schedules do
       number = @s.periods.count + 1
     end
 
-    p = Period.create(params[:period])
-    p.number = number
+    unless time?(params[:period][:start]) == nil and time?(params[:period][:finish]) == nil
+      p = Period.create(params[:period])
+      p.number = number
 
-    if @s.periods << p
-      flash[:notice] = "The period has been created."
-      redirect url(:schedules, :edit, :id => @s.id)
+      if @s.periods << p
+        flash[:notice] = "The period has been created."
+        redirect url(:schedules, :edit, :id => @s.id)
+      else
+        flash[:error] = "Something went wrong and the period has not been created."
+        redirect url(:schedules, :edit, :id => @s.id)
+      end
     else
-      flash[:error] = "Something went wrong and the period has not been created."
+      flash[:error] = "That's not a time!"
       redirect url(:schedules, :edit, :id => @s.id)
     end
   end
