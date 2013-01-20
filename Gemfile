@@ -48,8 +48,8 @@ group :test do
 
   gem 'spork'
 
-  gem 'autotest'
-  gem 'fuubar'
+  #gem 'autotest'
+  #gem 'fuubar'
 
   gem 'cane'
 end
