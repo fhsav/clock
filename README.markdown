@@ -1,6 +1,6 @@
 # Clock
 
-[![Travis-CI](https://secure.travis-ci.org/eturk/clock.png)](http://travis-ci.org/#!/eturk/clock)
+[![Travis-CI](https://secure.travis-ci.org/fhsclock/clock.png)](http://travis-ci.org/#!/fhsclock/clock)
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 

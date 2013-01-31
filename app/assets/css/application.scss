@@ -576,7 +576,7 @@ table {
 		@include container;
 
 		p + p {
-			font: 0.85em "Droid Sans Mono";
+			font: 0.85em "Droid Sans Mono", Monaco, Courier, monospace;
 			margin-top: 1em;
 		}
 
