@@ -22,6 +22,7 @@ class Schedule
     end
 
     self.active = true
+    self.save
   end
 end
 
