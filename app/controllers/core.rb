@@ -1,11 +1,6 @@
 Clock.controllers do
   before do
-    @schedule = Schedule.activated
-
-    @theme = Theme.activated
-
-    @marquees = Marquee.all
-    @notices = Notice.all
+    clock_data
   end
 
   get :index do
