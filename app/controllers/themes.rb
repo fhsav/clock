@@ -4,7 +4,7 @@ Clock.controllers :themes do
   end
   
   get :index do
-    @themes = Theme.all
+    @themes = Theme.sort(:name)
     
     render 'themes/index'
   end

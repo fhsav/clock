@@ -4,7 +4,7 @@ Clock.controllers :notices do
   end
   
   get :index do
-    @notices = Notice.all
+    @notices = Notice.sort(:updated_at)
     
     render 'notices/index'
   end

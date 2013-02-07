@@ -4,6 +4,8 @@ class Theme
   key :name, String
   key :active, Boolean, :default => false
   key :wallpaper, Hash
+
+  timestamps!
   
   validates_presence_of :name
 
