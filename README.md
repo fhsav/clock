@@ -1,4 +1,4 @@
-# Clock [![Travis-CI](https://secure.travis-ci.org/eturk/clock.png)](http://travis-ci.org/#!/eturk/clock)
+# Clock [![Travis-CI](https://secure.travis-ci.org/fhsclock/clock.png)](http://travis-ci.org/#!/fhsclock/clock)
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
@@ -10,4 +10,3 @@ The Farmington High School Clock is displayed on a television in each classroom.
 
 It runs on the Ruby programming language, with the Padrino web framework, MongoDB database system, and the CoffeeScript and Sass pre-compilers.
 
-It uses CIJoe for CI on the actual server and Travis for building.

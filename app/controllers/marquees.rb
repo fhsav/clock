@@ -4,7 +4,7 @@ Clock.controllers :marquees do
   end
 
   get :index do
-    @marquees = Marquee.all
+    @marquees = Marquee.sort(:updated_at)
 
     render 'marquees/index'
   end

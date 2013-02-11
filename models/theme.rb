@@ -8,7 +8,7 @@ class Theme
   key :url, String
 
   attachment :wallpaper
-  
+
   validates_presence_of :name
 
   before_save :url!

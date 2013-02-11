@@ -4,7 +4,7 @@ Clock.controllers :schedules do
   end
 
   get :index do
-    @schedules = Schedule.all
+    @schedules = Schedule.sort(:name)
 
     render 'schedules/index'
   end
