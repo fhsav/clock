@@ -16,7 +16,7 @@
 
 = partial 'layouts/flash', :locals => { :flash => flash }
 
-= form_tag url(:periods, :modify, :schedule_id => @s.id), :class => "periods", :method => "put" do
+= form_tag url(:periods, :update, :schedule_id => @s.id), :class => "periods", :method => "patch" do
   = hidden_field_tag :id, :value => @period.id
   %p
     = text_field_tag :"period[number]", :class => "tiny", :placeholder => "#", :value => @period.number, :required => true
