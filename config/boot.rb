@@ -14,6 +14,11 @@ unless PADRINO_ENV == :test
   Dotenv.load
 end
 
+LogBuddy.init({
+  :logger => logger,
+  :disabled => ENV["HEROKU"] || PADRINO_ENV == :production
+})
+
 def heroku?
   ENV["HEROKU"]
 end

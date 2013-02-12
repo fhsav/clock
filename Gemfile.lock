@@ -63,6 +63,7 @@ GEM
       mongo_mapper (~> 0.9)
       wand (~> 0.4)
     libv8 (3.3.10.4)
+    log_buddy (0.7.0)
     mail (2.3.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -189,6 +190,7 @@ DEPENDENCIES
   fuubar
   haml
   joint
+  log_buddy
   mongo_mapper
   ohm
   padrino (= 0.10.7)

@@ -30,7 +30,7 @@
       %th Times
       %th Actions
     %tbody
-      - @schedule.periods.order(:number.asc).each do |p|
+      - @schedule.periods.each do |p|
         %tr
           %td= p.number
           %td= p.text
