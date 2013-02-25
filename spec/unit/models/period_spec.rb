@@ -1,18 +1,16 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Period do
-  let(:schedule) { Schedule.new(:name => "Foobar") }
-  let(:period)   { Period.new(:text => "Barfoo", :start => "07:32", :finish => "08:14") }
+  let(:schedule) { create(:schedule) }
 
-  it "can be instantiated" do
-    period.should_not be_nil
-  end
+  it { validate_presence_of(:number) }
+  it { validate_presence_of(:text) }
+  it { validate_presence_of(:start) }
+  it { validate_presence_of(:finish) }
 
-  it "can be added to a Schedule" do
-    schedule.periods << period
-    schedule.save
+  it { schedule.periods.first.should be_valid }
 
-    schedule.periods.should_not be_blank
-    period.schedule_id.should == schedule.id
+  describe "#number!" do
+    it { schedule.periods.first.number.should eql(1) }
   end
 end

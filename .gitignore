@@ -1,13 +1,7 @@
-db/*
 log/
-public/videos
-spec/fixtures/paris.jpg2*
 tmp/
-vendor/
+vendor/*
 .bundle/
 .sass-cache/
 .DS_Store
 .env
-.s3.yml
-.tmproj
-dump.rdb

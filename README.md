@@ -2,8 +2,6 @@
 
 **Author:** [Ethan Turkeltaub](http://github.com/eturk)
 
-**Thanks:** Nick Silverman, Farmington High School Audio-Visual Department
-
 **Licence:** [The ☺ Licence](http://licence.visualidiot.com/)
 
 ## What is it?

@@ -35,7 +35,7 @@
                       = hidden_field_tag :"redirect", :value => request.path
                       %button{:type => "submit"} Refresh
                 %li
-                  %a{:href => url(:clock, :index)} View Clock &rarr;
+                  %a{:href => url(:clock)} View Clock &rarr;
         - if authenticated?
           %hgroup.bottom
             %section

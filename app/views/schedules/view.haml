@@ -13,7 +13,7 @@
 
 = partial 'layouts/flash', :locals => { :flash => flash }
 
-= form_tag url(:schedules, :modify), :class => "schedules", :method => "put" do
+= form_tag url(:schedules, :update), :class => "schedules", :method => "patch" do
   = hidden_field_tag :id, :value => @schedule.id
 
   %p
@@ -30,7 +30,7 @@
       %th Times
       %th Actions
     %tbody
-      - @schedule.periods.order(:number.asc).each do |p|
+      - @schedule.periods.each do |p|
         %tr
           %td= p.number
           %td= p.text
@@ -43,7 +43,7 @@
               %button{:type => "submit"} Delete
   - else
     %p No periods yet!
-                    
+
 %footer
   %form.periods{:action => url(:periods, :create, :schedule_id => @schedule.id), :method => "post"}
     %p

@@ -3,15 +3,13 @@ class Notice
 
   key :text, String
   
-  timestamps!
-  
   validates_presence_of :text
 
-  before_save :format
+  before_save :format!
 
   private
 
-  def format
+  def format!
     self.text = self.text.squish
   end
 end

@@ -1,66 +1,37 @@
 class Theme
   include MongoMapper::Document
 
+  plugin Joint
+
   key :name, String
   key :active, Boolean, :default => false
-  key :wallpaper, Hash
+  key :url, String
 
-  timestamps!
-  
+  attachment :wallpaper
+
   validates_presence_of :name
 
-  after_destroy :delete!
+  before_save :url!
+
+  #scope :activated, first(:active => true)
 
   def self.activated
-    t = self.first(:active => true)
-
-    if t.nil?
-      { :url => "/img/default.jpg", :type => "image/jpeg" }
-    else
-      { :url => t.wallpaper[:url], :type => t.wallpaper[:type] }
-    end
+    first(:active => true)
   end
 
   def video?
-    r = false
+    result = false
 
-    if wallpaper[:type] == "video/mp4"
-      r = true
+    if self.wallpaper.type == "video/mp4"
+      result = true
     end
 
-    r
-  end
-
-  def wallpaper=(w)
-    upload = GirlFriday::WorkQueue.new(:s3_upload, :size => 5) do |w|
-      S3.files.create(
-        :key => w[:filename],
-        :body => w[:tempfile],
-        :content_type => w[:type],
-        :public => true
-      )
-    end
-
-    upload << w
-
-    url = "http://#{ENV["S3_BUCKET"]}.s3.amazonaws.com/#{w[:filename].gsub(/ /,'+')}"
-
-    wallpaper[:name] = w[:filename]
-    wallpaper[:url] = url
-    wallpaper[:type] = w[:type]
+    result
   end
 
   private
 
-  def delete!
-    delete = GirlFriday::WorkQueue.new(:s3_delete, :side => 5) do |w|
-      f = S3.files.get(w[:name].to_s)
-
-      if f
-        f.destroy
-      end
-    end
-
-    delete << { :name => wallpaper[:name] }
+  def url!
+    self.url = Clock.url(:themes, :wallpaper, :id => self.id)
   end
 end
