@@ -2,7 +2,7 @@ source :rubygems
 
 ruby '1.9.3'
 
-%w{admin cache core gen helpers}.each do |p|
+%w{cache core gen helpers}.each do |p|
   gem "padrino-#{p}", '0.10.7'
 end
 

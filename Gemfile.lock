@@ -94,9 +94,6 @@ GEM
       nest (~> 1.0)
       redis
       scrivener (~> 0.0.3)
-    padrino-admin (0.10.7)
-      padrino-core (= 0.10.7)
-      padrino-helpers (= 0.10.7)
     padrino-cache (0.10.7)
       padrino-core (= 0.10.7)
     padrino-core (0.10.7)
@@ -193,7 +190,6 @@ DEPENDENCIES
   haml
   mongo_mapper
   ohm
-  padrino-admin (= 0.10.7)
   padrino-cache (= 0.10.7)
   padrino-core (= 0.10.7)
   padrino-gen (= 0.10.7)
