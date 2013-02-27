@@ -2,7 +2,9 @@ source :rubygems
 
 ruby '1.9.3'
 
-gem 'padrino', '0.10.7'
+%w{admin cache core gen helpers}.each do |p|
+  gem "padrino-#{p}", '0.10.7'
+end
 
 gem 'thin'
 
