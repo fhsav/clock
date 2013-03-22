@@ -1,7 +1,7 @@
-source :rubygems
+source 'https://rubygems.org'
 
-%w{cache core gen helpers}.each do |p|
-  gem "padrino-#{p}", '0.10.7'
+%w(core gen helpers cache).each do |g|
+  gem 'padrino-' + g, '0.11.0'
 end
 
 gem 'thin'
