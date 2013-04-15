@@ -1,4 +1,4 @@
-Clock.helpers do
+Clock::Web.helpers do
 
 	# Get the current clock data.
 	def clock_data

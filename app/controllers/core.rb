@@ -1,4 +1,4 @@
-Clock.controllers do
+Clock::Web.controllers do
   before do
     clock_data
   end

@@ -1,4 +1,4 @@
-Clock.controllers :settings do
+Clock::Web.controllers :settings do
   before do
     if password?
       redirect!

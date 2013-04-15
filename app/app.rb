@@ -1,5 +1,5 @@
 module Clock
-  class App < Padrino::Application
+  class Web < Padrino::Application
     register Padrino::Helpers
     register Padrino::Rendering
 

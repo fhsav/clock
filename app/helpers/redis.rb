@@ -1,4 +1,4 @@
-Clock.helpers do
+Clock::Web.helpers do
   class Redis
     class << self
       def get(key)

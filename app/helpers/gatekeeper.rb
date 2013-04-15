@@ -1,4 +1,4 @@
-Clock.helpers do
+Clock::Web.helpers do
 
   # Check if authenticated or not.
   def authenticated?
