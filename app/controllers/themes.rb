@@ -1,18 +1,18 @@
-Clock.controllers :themes do
+Clock::Web.controllers :themes do
   before :except => [:wallpaper] do
     redirect!
   end
-  
+
   get :index do
     @themes = Theme.sort(:name)
-    
+
     render 'themes/index'
   end
-  
+
   post :create do
     t = Theme.new(params[:theme])
     t.wallpaper = params[:wallpaper]
-    
+
     if t.save
       flash[:notice] = "Your theme has been saved."
       redirect url(:themes, :index)
@@ -21,7 +21,7 @@ Clock.controllers :themes do
       redirect url(:themes, :index)
     end
   end
-  
+
   post :activate do
     Theme.set({:active => true}, :active => false)
 
@@ -53,10 +53,10 @@ Clock.controllers :themes do
 
     render 'clock/index', :layout => false
   end
-  
+
   delete :destroy do
     t = Theme.find(params[:id])
-    
+
     if t.destroy
       flash[:notice] = "The theme has been destroyed."
       redirect url(:themes, :index)

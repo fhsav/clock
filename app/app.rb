@@ -1,13 +1,15 @@
-class Clock < Padrino::Application
-  register Padrino::Helpers
-  register Padrino::Rendering
+module Clock
+  class Web < Padrino::Application
+    register Padrino::Helpers
+    register Padrino::Rendering
 
-  register BaristaInitializer
-  register CompassInitializer
+    register BaristaInitializer
+    register CompassInitializer
 
-  enable :sessions
+    enable :sessions
 
-  Pusher.app_id = ENV["PUSHER_ID"]
-  Pusher.key = ENV["PUSHER_KEY"]
-  Pusher.secret = ENV["PUSHER_SECRET"]
+    Pusher.app_id = ENV["PUSHER_ID"]
+    Pusher.key = ENV["PUSHER_KEY"]
+    Pusher.secret = ENV["PUSHER_SECRET"]
+  end
 end

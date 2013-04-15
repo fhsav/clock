@@ -1,4 +1,4 @@
-Clock.controllers :sessions do
+Clock::Web.controllers :sessions do
   get :new do
     if authenticated?
       redirect url(:index)

@@ -1,9 +1,9 @@
-Clock.helpers do
+Clock::Web.helpers do
 
   # Converts Time object to seconds.
   def seconds(time)
     time = convert(time)
-    
+
     ((time.hour * 3600) + (time.min * 60)).to_i
   end
 
