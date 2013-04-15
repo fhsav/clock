@@ -1,4 +1,4 @@
-Clock.controllers :refreshes do
+Clock::Web.controllers :refreshes do
   before do
     redirect!
   end

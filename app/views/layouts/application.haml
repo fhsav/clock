@@ -59,7 +59,7 @@
 
       %footer
         %section
-          %p= "<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}."
+          %p= safe("<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}.")
           %ul
             %li
               %a{:href => "http://github.com/fhsclock/clock"} GitHub

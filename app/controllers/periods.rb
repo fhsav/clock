@@ -1,10 +1,10 @@
-Clock.controllers :periods, :parent => :schedules do
+Clock::Web.controllers :periods, :parent => :schedules do
   before do
     redirect!
 
     @s = Schedule.find(params[:schedule_id])
   end
-  
+
   post :create do
     if !params[:period][:number].blank?
       number = params[:period][:number]
@@ -28,16 +28,16 @@ Clock.controllers :periods, :parent => :schedules do
       redirect url(:schedules, :edit, :id => @s.id)
     end
   end
-  
+
   get :edit, :map => "/schedules/:schedule_id/periods/:id/edit" do
     @period = Period.find(params[:id])
-    
+
     render 'periods/edit'
   end
 
   put :modify do
     p = Period.find(params[:id])
-    
+
     if p.update_attributes(params[:period])
       flash[:notice] = "The period has been modified."
       redirect url(:schedules, :edit, :id => @s.id)
@@ -46,7 +46,7 @@ Clock.controllers :periods, :parent => :schedules do
       redirect url(:schedules, :edit, :id => @s.id)
     end
   end
-  
+
   delete :destroy do
     p = Period.find(params[:id])
 

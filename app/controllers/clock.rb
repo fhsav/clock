@@ -1,4 +1,4 @@
-Clock.controllers :clock do
+Clock::Web.controllers :clock do
   before do
     clock_data
   end

@@ -1,7 +1,7 @@
 require 'digest/sha1'
 
-Clock.helpers do
-  
+Clock::Web.helpers do
+
   # Encrypts the string with SHA1.
   def encrypt(str)
     Digest::SHA1.hexdigest(str)
@@ -10,5 +10,10 @@ Clock.helpers do
   # Returns a BCrypt::Password object (for passwords).
   def bcrypt(str)
     BCrypt::Password.create(str)
+  end
+
+  # Make a string HTML safe.
+  def safe(str)
+    str.html_safe
   end
 end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-%w{cache core gen helpers}.each do |p|
-  gem "padrino-#{p}", '0.10.7'
+%w(core gen helpers cache).each do |g|
+  gem 'padrino-' + g, '0.11.1'
 end
 
 gem 'thin'
@@ -11,7 +11,7 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'dotenv'
 
-gem 'bson_ext', :require => "mongo"
+gem 'bson_ext'
 gem 'mongo_mapper'
 
 gem 'fog'
