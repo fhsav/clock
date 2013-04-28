@@ -13,6 +13,8 @@ Clock::Web.controllers :marquees do
     m = Marquee.new(params[:marquee])
 
     if m.save
+      expire!('active_marquees')
+
       flash[:notice] = "The marquee has been created."
       redirect url(:marquees, :index)
     else
@@ -31,6 +33,8 @@ Clock::Web.controllers :marquees do
     m = Marquee.find(params[:id])
 
     if m.update_attributes(params[:marquee])
+      expire!('active_marquees')
+
       flash[:notice] = "The marquee has been modified."
       redirect url(:marquees, :index)
     else
@@ -43,6 +47,8 @@ Clock::Web.controllers :marquees do
     m = Marquee.find(params[:id])
 
     if m.destroy
+      expire!('active_marquees')
+
       flash[:notice] = "The marquee has been destroyed."
       redirect url(:marquees, :index)
     else
