@@ -15,15 +15,15 @@ Clock::Web.controllers :marquees do
     if m.save
       expire!('active_marquees')
 
-      flash[:notice] = "The marquee has been created."
+      flash[:notice] = 'The marquee has been created.'
       redirect url(:marquees, :index)
     else
-      flash[:error] = "Something went wrong and the marquee was not created."
+      flash[:error] = 'Something went wrong and the marquee was not created.'
       redirect url(:marquees, :index)
     end
   end
 
-  get :edit, :map => "/marquees/:id/edit" do
+  get :edit, :map => '/marquees/:id/edit' do
     @marquee = Marquee.find(params[:id])
 
     render 'marquees/edit'
@@ -35,10 +35,10 @@ Clock::Web.controllers :marquees do
     if m.update_attributes(params[:marquee])
       expire!('active_marquees')
 
-      flash[:notice] = "The marquee has been modified."
+      flash[:notice] = 'The marquee has been modified.'
       redirect url(:marquees, :index)
     else
-      flash[:error] = "Something went wrong and the marquee was not modified."
+      flash[:error] = 'Something went wrong and the marquee was not modified.'
       redirect url(:marquees, :edit, :id => marquee.id)
     end
   end
@@ -49,10 +49,10 @@ Clock::Web.controllers :marquees do
     if m.destroy
       expire!('active_marquees')
 
-      flash[:notice] = "The marquee has been destroyed."
+      flash[:notice] = 'The marquee has been destroyed.'
       redirect url(:marquees, :index)
     else
-      flash[:error] = "Something went wrong and the marquee was not destroyed."
+      flash[:error] = 'Something went wrong and the marquee was not destroyed.'
       redirect url(:marquees, :index)
     end
   end

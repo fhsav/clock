@@ -12,15 +12,15 @@ Clock::Web.controllers :periods, :parent => :schedules do
       number = @s.periods.count + 1
     end
 
-    unless time?(params[:period][:start]) == nil and time?(params[:period][:finish]) == nil
+    if time?(params[:period][:start]) && time?(params[:period][:finish])
       p = Period.create(params[:period])
       p.number = number
 
       if @s.periods << p
-        flash[:notice] = "The period has been created."
+        flash[:notice] = 'The period has been created.'
         redirect url(:schedules, :edit, :id => @s.id)
       else
-        flash[:error] = "Something went wrong and the period has not been created."
+        flash[:error] = 'Something went wrong and the period has not been created.'
         redirect url(:schedules, :edit, :id => @s.id)
       end
     else
@@ -29,7 +29,7 @@ Clock::Web.controllers :periods, :parent => :schedules do
     end
   end
 
-  get :edit, :map => "/schedules/:schedule_id/periods/:id/edit" do
+  get :edit, :map => '/schedules/:schedule_id/periods/:id/edit' do
     @period = Period.find(params[:id])
 
     render 'periods/edit'
@@ -39,10 +39,10 @@ Clock::Web.controllers :periods, :parent => :schedules do
     p = Period.find(params[:id])
 
     if p.update_attributes(params[:period])
-      flash[:notice] = "The period has been modified."
+      flash[:notice] = 'The period has been modified.'
       redirect url(:schedules, :edit, :id => @s.id)
     else
-      flash[:error] = "Somethng went wrong and the period has not been modified."
+      flash[:error] = 'Somethng went wrong and the period has not been modified.'
       redirect url(:schedules, :edit, :id => @s.id)
     end
   end
@@ -51,10 +51,10 @@ Clock::Web.controllers :periods, :parent => :schedules do
     p = Period.find(params[:id])
 
     if p.destroy
-      flash[:notice] = "The period has been destroyed."
+      flash[:notice] = 'The period has been destroyed.'
       redirect url(:schedules, :edit, :id => @s.id)
     else
-      flash[:error] = "Something went wrong and the period has not been destroyed."
+      flash[:error] = 'Something went wrong and the period has not been destroyed.'
       redirect url(:schedules, :edit, :id => @s.id)
     end
   end

@@ -3,14 +3,14 @@ require 'fog'
 
 Spork.prefork do
   PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
-  
-  ENV["S3_ID"] = "id"
-  ENV["S3_SECRET"] = "secret"
-  ENV["S3_BUCKET"] = "foobar"
+
+  ENV['S3_ID'] = 'id'
+  ENV['S3_SECRET'] = 'secret'
+  ENV['S3_BUCKET'] = 'foobar'
 
   Fog.mock!
 
-  require File.expand_path(File.dirname(__FILE__) + "/../config/boot.rb")
+  require File.expand_path(File.dirname(__FILE__) + '/../config/boot.rb')
 
   FactoryGirl.find_definitions
 
@@ -19,7 +19,7 @@ Spork.prefork do
     conf.include FactoryGirl::Syntax::Methods
 
     conf.before do
-      
+
     end
 
     conf.after do
@@ -35,9 +35,9 @@ Spork.prefork do
 
   def file
     {
-      :filename => "paris.jpg",
+      :filename => 'paris.jpg',
       :tempfile => Tempfile.new(File.join(File.dirname(__FILE__), 'fixtures', 'paris.jpg')),
-      :type => "image/jpeg"
+      :type => 'image/jpeg'
     }
   end
 
@@ -50,7 +50,7 @@ Spork.prefork do
   end
 
   def site
-    "http://example.org"
+    'http://example.org'
   end
 end
 

@@ -14,10 +14,10 @@ Clock::Web.controllers :themes do
     t.wallpaper = params[:wallpaper]
 
     if t.save
-      flash[:notice] = "Your theme has been saved."
+      flash[:notice] = 'Your theme has been saved.'
       redirect url(:themes, :index)
     else
-      flash[:error] = "Something went wrong, and your theme has not been saved."
+      flash[:error] = 'Something went wrong, and your theme has not been saved.'
       redirect url(:themes, :index)
     end
   end
@@ -29,21 +29,21 @@ Clock::Web.controllers :themes do
     t.active = true
 
     if t.save
-      flash[:notice] = 'The theme "' + t.name + '" has been activated.'
+      flash[:notice] = "The theme #{t.name} has been activated."
       redirect url(:themes, :index)
     else
-      flash[:error] = "Something went wrong, and your theme has not been activated."
+      flash[:error] = 'Something went wrong, and your theme has not been activated.'
       redirect url(:themes, :index)
     end
   end
 
-  get :view, :map => "/themes/:id" do
+  get :view, :map => '/themes/:id' do
     @theme = Theme.find(params[:id])
 
     render 'themes/view'
   end
 
-  get :preview, :map => "/themes/:id/preview" do
+  get :preview, :map => '/themes/:id/preview' do
     @schedule = Schedule.activated
 
     @theme = Theme.find(params[:id]).wallpaper
@@ -58,10 +58,10 @@ Clock::Web.controllers :themes do
     t = Theme.find(params[:id])
 
     if t.destroy
-      flash[:notice] = "The theme has been destroyed."
+      flash[:notice] = 'The theme has been destroyed.'
       redirect url(:themes, :index)
     else
-      flash[:error] = "Something went wrong, and the theme has not been destroyed."
+      flash[:error] = 'Something went wrong, and the theme has not been destroyed.'
       redirect url(:themes, :index)
     end
   end

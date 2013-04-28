@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory(:theme) do
-    name "Paris"
+    name 'Paris'
     wallpaper file
   end
 end
