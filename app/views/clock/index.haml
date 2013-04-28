@@ -43,32 +43,9 @@
 
     #contain
 
-      - unless @marquees.empty?
-        %header#marquee
-          %ul
-            - @marquees.each do |m|
-              %li= m.text
+      = @marquees
 
-      #main{:class => @schedule.blank?, :role => "main"}
-        %aside#clock
-          %p#date= Time.now.strftime("%A, %B %e, %Y")
-          %p#time= Time.now.strftime("%l:%M:%S")
-
-          - unless @notices.empty? or request.fullpath != "/clock"
-            %footer#notices
-              %ul
-                - @notices.each do |n|
-                  %li= n.text
-
-        - if @schedule and @schedule.periods
-          %section#periods
-            %ol
-              - @schedule.periods.each do |p|
-                %li
-                  ="#{p.text}: "
-                  %time.start{:datetime => seconds(p.start)}= "#{time(p.start, 12)}"
-                  &ndash;
-                  %time.finish{:datetime => seconds(p.finish)}= "#{time(p.finish, 12)}"
+      = @main
 
     %script{:src => "/jsc/lib/jquery.js"}
     %script{:src => "http://js.pusher.com/1.12/pusher.min.js"}

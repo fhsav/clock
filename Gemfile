@@ -16,6 +16,8 @@ gem 'mongo_mapper'
 
 gem 'fog'
 
+gem 'memcached'
+
 gem 'girl_friday'
 
 gem 'tzinfo'
@@ -37,6 +39,9 @@ gem 'barista'
 group :development do
   gem 'foreman'
   gem 'therubyracer'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
