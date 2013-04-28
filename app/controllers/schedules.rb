@@ -16,6 +16,8 @@ Clock::Web.controllers :schedules do
     s.active = true
 
     if s.save
+      expire!('active_main')
+
       flash[:notice] = "The schedule #{s.name} has been activated."
       redirect url(:schedules, :index)
     else
