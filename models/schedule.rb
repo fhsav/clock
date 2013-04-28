@@ -11,18 +11,10 @@ class Schedule
 
   validates_presence_of :name
 
-  def self.activated
-    first(:active => true)
+  scope(:activated) { where(:active => true) }
+
+  def activate!
+    self.class.set({:active => true}, :active => false)
+    self.active = true
   end
-end
-
-class Period
-  include MongoMapper::Document
-
-  key :number, Integer
-  key :name, String
-  key :start, Time
-  key :finish, Time
-
-  belongs_to :schedule
 end

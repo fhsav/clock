@@ -18,14 +18,17 @@ Spork.prefork do
     conf.include Rack::Test::Methods
     conf.include FactoryGirl::Syntax::Methods
 
-    conf.before do
+    conf.before :suite do
+      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.clean_with(:truncation)
+    end
 
+    conf.before do
+      DatabaseCleaner.start
     end
 
     conf.after do
-      MongoMapper.database.collections.each do |c|
-        c.remove
-      end
+      DatabaseCleaner.clean
     end
   end
 

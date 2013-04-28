@@ -3,7 +3,7 @@ Clock::Web.helpers do
 	# Get the current clock data.
 	def clock_data
 		@main = cache('active_main', :expires_in => 86400) do
-      @s = Schedule.activated
+      @s = Schedule.activated.first
       @n = Notice.sort(:updated_at)
 
       partial 'clock/main'

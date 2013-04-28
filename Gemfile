@@ -49,12 +49,16 @@ group :development do
 end
 
 group :test do
-  gem 'rack-test', :require => "rack/test"
-  gem 'spork'
+  gem 'rack-test', :require => 'rack/test'
+
   gem 'rspec'
+  gem 'shoulda-matchers'
+
+  gem 'spork'
   gem 'factory_girl'
+  gem 'database_cleaner'
 end
 
 group :production do
-  gem 'cijoe', :git => "https://github.com/nvloff/cijoe.git"
+  gem 'cijoe', :git => 'https://github.com/nvloff/cijoe.git'
 end
