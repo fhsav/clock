@@ -11,10 +11,4 @@ require 'bundler/setup'
 
 Bundler.require(:default, PADRINO_ENV)
 
-Dotenv.load unless PADRINO_ENV == :test
-
-def heroku?
-  ENV['HEROKU']
-end
-
 Padrino.load!
