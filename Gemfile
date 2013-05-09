@@ -18,6 +18,8 @@ gem 'fog'
 
 gem 'memcached'
 
+gem 'mutations'
+
 gem 'girl_friday'
 
 gem 'tzinfo'

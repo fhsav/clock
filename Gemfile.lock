@@ -95,6 +95,8 @@ GEM
       plucky (~> 0.5.2)
     multi_json (1.7.2)
     multipart-post (1.2.0)
+    mutations (0.5.12)
+      activesupport
     nest (1.1.2)
       redis
     net-scp (1.1.0)
@@ -216,6 +218,7 @@ DEPENDENCIES
   haml
   memcached
   mongo_mapper
+  mutations
   ohm
   padrino-cache (= 0.11.1)
   padrino-core (= 0.11.1)

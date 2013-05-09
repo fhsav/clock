@@ -23,4 +23,6 @@ module Clock
     Pusher.key = ENV['PUSHER_KEY']
     Pusher.secret = ENV['PUSHER_SECRET']
   end
+
+  Dir[Padrino.root('app/mutations/**/*.rb')].each { |f| require f }
 end
