@@ -4,7 +4,9 @@ Clock::Web.controllers :refreshes do
   end
 
   post :create do
-    if Pusher['refreshes'].trigger!('refresh', { :timestamp => Time.now })
+    client = Faye::Client.new('http://localhost:5000/faye')
+
+    if client.publish('/refreshes', 'timestamp' => Time.now)
       flash[:notice] = 'Refreshed!'
       redirect params[:redirect]
     else

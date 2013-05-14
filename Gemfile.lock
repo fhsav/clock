@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/eturk/padrino-sprockets.git
+  revision: 83f7307776657877e4b824bdeb7bc9f91fb40b2b
+  specs:
+    padrino-sprockets (0.0.2)
+      sprockets
+
+GIT
   remote: https://github.com/nvloff/cijoe.git
   revision: d412e7f28784425ddc9b42c07e8d9a32e41882f6
   specs:
@@ -11,14 +18,17 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
     activemodel (3.2.12)
       activesupport (= 3.2.12)
       builder (~> 3.0.0)
     activesupport (3.2.12)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    barista (1.3.0)
-      coffee-script (~> 2.2)
+    addressable (2.3.4)
     bcrypt-ruby (3.0.1)
     better_errors (0.8.0)
       coderay (>= 1.0.0)
@@ -41,14 +51,23 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     connection_pool (1.0.0)
+    cookiejar (0.3.0)
     daemons (1.1.9)
-    database_cleaner (0.9.1)
+    database_cleaner (1.0.1)
     debug_inspector (0.0.2)
-    diff-lcs (1.2.3)
-    dotenv (0.6.0)
+    diff-lcs (1.2.4)
+    dotenv (0.7.0)
+    em-http-request (1.0.3)
+      addressable (>= 2.2.3)
+      cookiejar
+      em-socksify
+      eventmachine (>= 1.0.0.beta.4)
+      http_parser.rb (>= 0.5.3)
+    em-socksify (0.2.1)
+      eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    excon (0.20.1)
+    excon (0.21.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.2.0)
@@ -57,17 +76,28 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
-    fog (1.10.1)
+    faye (0.8.9)
+      cookiejar (>= 0.3.0)
+      em-http-request (>= 0.3.0)
+      eventmachine (>= 0.12.0)
+      faye-websocket (>= 0.4.0)
+      rack (>= 1.0.0)
+      yajl-ruby (>= 1.0.0)
+    faye-websocket (0.6.1)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.2.0)
+    fog (1.11.1)
       builder
       excon (~> 0.20)
       formatador (~> 0.2.0)
+      json (~> 1.7)
       mime-types
-      multi_json (~> 1.0)
       net-scp (~> 1.1)
       net-ssh (>= 2.1.3)
       nokogiri (~> 1.5.0)
       ruby-hmac
-    foreman (0.62.0)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
       thor (>= 0.13.6)
     formatador (0.2.4)
     fssm (0.2.10)
@@ -77,6 +107,7 @@ GEM
     haml (4.0.2)
       tilt
     hashie (1.2.0)
+    hike (1.2.2)
     http_parser.rb (0.5.3)
     http_router (0.11.0)
       rack (>= 1.0.0)
@@ -86,27 +117,28 @@ GEM
     libv8 (3.11.8.17)
     memcached (1.5.0)
     method_source (0.8.1)
-    mime-types (1.22)
+    mime-types (1.23)
     mongo (1.8.5)
       bson (~> 1.8.5)
     mongo_mapper (0.12.0)
       activemodel (~> 3.0)
       activesupport (~> 3.0)
       plucky (~> 0.5.2)
-    multi_json (1.7.2)
+    multi_json (1.7.3)
     multipart-post (1.2.0)
     mutations (0.5.12)
       activesupport
     nest (1.1.2)
       redis
-    net-scp (1.1.0)
+    net-scp (1.1.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.7)
     nokogiri (1.5.9)
-    ohm (1.3.1)
+    ohm (1.3.2)
       nest (~> 1.0)
       redis
       scrivener (~> 0.0.3)
+    open4 (1.3.0)
     padrino-cache (0.11.1)
       padrino-core (= 0.11.1)
       padrino-helpers (= 0.11.1)
@@ -125,20 +157,18 @@ GEM
       padrino-core (= 0.11.1)
     plucky (0.5.2)
       mongo (~> 1.5)
-    pry (0.9.12.1)
+    pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pusher (0.11.3)
-      multi_json (~> 1.0)
-      signature (~> 0.1.6)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rainbow (1.1.4)
     rake (10.0.4)
-    redis (3.0.3)
+    redis (3.0.4)
     ref (1.0.4)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
@@ -151,14 +181,13 @@ GEM
     rubinius-actor (0.0.2)
       rubinius-core-api
     rubinius-core-api (0.0.1)
-    rubocop (0.5.0)
-      term-ansicolor
+    rubocop (0.7.2)
+      rainbow (>= 1.1.4)
     ruby-hmac (0.4.0)
-    sass (3.2.7)
+    sass (3.2.9)
     scrivener (0.0.3)
-    shoulda-matchers (2.0.0)
+    shoulda-matchers (2.1.0)
       activesupport (>= 3.0.0)
-    signature (0.1.6)
     simple_oauth (0.1.9)
     sinatra (1.4.2)
       rack (~> 1.5, >= 1.5.2)
@@ -168,10 +197,17 @@ GEM
       sinatra (>= 1.0.0)
     slop (3.4.4)
     spork (0.9.2)
+    sprockets (2.9.3)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    sprockets-sass (1.0.1)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
     susy (1.0.8)
       compass (>= 0.12.2)
       sass (>= 3.2.0)
-    term-ansicolor (1.1.5)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -195,23 +231,31 @@ GEM
       http_parser.rb (~> 0.5.1)
       simple_oauth (~> 0.1.4)
     tzinfo (0.3.37)
+    uglifier (2.1.0)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
     url_mount (0.2.1)
       rack
+    websocket-driver (0.2.0)
+    yajl-ruby (1.1.0)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  barista
   bcrypt-ruby
   better_errors
   binding_of_caller
   bson_ext
   cijoe!
+  coffee-script
   compass
   database_cleaner
   dotenv
   factory_girl
+  faye
   fog
   foreman
   girl_friday
@@ -224,17 +268,20 @@ DEPENDENCIES
   padrino-core (= 0.11.1)
   padrino-gen (= 0.11.1)
   padrino-helpers (= 0.11.1)
+  padrino-sprockets!
   pry
-  pusher
   rack-test
   rake
   rspec
   rubocop
-  sass
   shoulda-matchers
   sinatra-flash
   spork
+  sprockets-sass
   susy
   therubyracer
   thin
+  tilt (~> 1.3.7)
   tzinfo
+  uglifier
+  yui-compressor

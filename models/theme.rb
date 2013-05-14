@@ -15,7 +15,7 @@ class Theme
     t = self.first(:active => true)
 
     if t.nil?
-      { :url => '/img/default.jpg', :type => 'image/jpeg' }
+      { :url => '/_/default.jpg', :type => 'image/jpeg' }
     else
       { :url => t.wallpaper[:url], :type => t.wallpaper[:type] }
     end

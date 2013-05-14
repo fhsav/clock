@@ -6,7 +6,15 @@
   Developer, Designer: Ethan Turkeltaub
   Site: http://ethnt.me
   Twitter: ethnt
+  GitHub: eturk
   Location: Farmington, CT (USA)
+
+  Developer: Brandon Chang
+  GitHub: gluxon
+
+  Developer: Eric Sims
+  GitHub: Eric Sims
+
 
 /* THANKS */
   Nick Silverman

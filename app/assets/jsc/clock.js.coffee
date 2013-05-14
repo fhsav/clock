@@ -1,7 +1,11 @@
 # Clock
 #   file: clock.coffee
 
-root = exports ? this
+#= require lib/vendor/jquery
+#= require lib/vendor/jquery.marquee
+#= require lib/vendor/faye
+
+#= require lib/analytics
 
 # Run this all every 1000 milliseconds
 setInterval (->
@@ -80,7 +84,7 @@ $(document).ready ->
   $("#marquee ul").marquee pauseOnHover: false
 
   # Faye (Refreshing)
-  pusher = new Pusher("4f803f0cec789e485391")
-  channel = pusher.subscribe("refreshes")
-  channel.bind "refresh", (data) ->
+  faye = new Faye.Client("/faye")
+  refreshes = faye.subscribe("/refreshes", (message) ->
     location.reload false
+  )
