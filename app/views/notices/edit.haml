@@ -8,12 +8,12 @@
       %a{:href => url(:notices, :edit, :id => @notice.id)}= @notice.id
     %li
       %span Edit
-      
+
 = partial 'layouts/flash', :locals => { :flash => flash }
 
 %header
   %h2 Notices
-  %h3= "Editing notice item <code>#{@notice.id}</code>"
+  %h3= safe("Editing notice item <code>#{@notice.id}</code>")
 
 - form_tag url(:notices, :modify), :method => "put" do
   = hidden_field_tag :id, :value => @notice.id
