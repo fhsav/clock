@@ -1,13 +1,10 @@
 Clock::Web.helpers do
-
-  # Check if authenticated or not.
   def authenticated?
     unless PADRINO_ENV == "test" or !password?
       session_key == session["clock"]
     end
   end
 
-  # Redirect the user appropriately.
   def redirect!
     unless PADRINO_ENV == "test"
       if !password?
@@ -22,12 +19,10 @@ Clock::Web.helpers do
     end
   end
 
-  # Check if there has been a password set (is this the initial run?).
   def password?
     !Redis.get("password").blank?
   end
 
-  # Generate the session key for a particular password.
   def session_key
     encrypt(Redis.get("password") + encrypt(settings.session_secret))
   end

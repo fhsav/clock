@@ -23,7 +23,7 @@ Clock::Web.controllers :themes do
   end
 
   post :activate do
-    Theme.set({:active => true}, :active => false)
+    Theme.set({ :active => true }, :active => false)
 
     t = Theme.find(params[:id])
     t.active = true
