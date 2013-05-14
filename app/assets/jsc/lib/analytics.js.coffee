@@ -27,7 +27,7 @@ analytics.load = (e) ->
   n.parentNode.insertBefore t, n
   r = (e) ->
     ->
-      analytics.push [e].concat(Array::slice.call(arguments_, 0))
+      analytics.push [e].concat(Array::slice.call(arguments, 0))
 
   i = ["identify", "track", "trackLink", "trackForm", "trackClick", "trackSubmit", "pageview", "ab", "alias", "ready"]
   s = 0

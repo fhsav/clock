@@ -16,10 +16,3 @@ S3 = Fog::Storage.new({
 })
 
 S3 = S3.directories.create(:key => s3['bucket'], :public => true)
-
-# Pusher
-pusher = YAML.load_file(Padrino.root('.pusher.yml'))
-
-Pusher.app_id = pusher['app_id']
-Pusher.key = pusher['key']
-Pusher.secret = pusher['secret']
