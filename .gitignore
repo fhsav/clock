@@ -9,5 +9,6 @@ vendor/
 .DS_Store
 .env
 .s3.yml
+.pusher.yml
 .tmproj
 dump.rdb
