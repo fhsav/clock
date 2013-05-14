@@ -3,9 +3,16 @@ module Clock
     register Padrino::Cache
     register Padrino::Helpers
     register Padrino::Rendering
+    register Padrino::Sprockets
 
-    register BaristaInitializer
-    register CompassInitializer
+    asset_paths = [
+      'assets/css',
+      'assets/jsc',
+      'assets/img',
+      'assets/webfonts'
+    ]
+
+    sprockets :url => '_', :minify => (Padrino.env == :production), :paths => asset_paths
 
     enable :sessions
 

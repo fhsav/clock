@@ -28,13 +28,20 @@ gem 'pusher'
 
 gem 'bcrypt-ruby'
 
+gem 'tilt', '~> 1.3.7'
+
 gem 'haml'
 
-gem 'sass'
+gem 'padrino-sprockets', git: 'https://github.com/eturk/padrino-sprockets.git', require: 'padrino/sprockets'
+
+gem 'sprockets-sass'
 gem 'compass'
 gem 'susy'
 
-gem 'barista'
+gem 'coffee-script'
+
+gem 'uglifier'
+gem 'yui-compressor'
 
 group :development do
   gem 'foreman'
