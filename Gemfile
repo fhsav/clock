@@ -24,7 +24,7 @@ gem 'tzinfo'
 
 gem 'ohm'
 
-gem 'pusher'
+gem 'faye'
 
 gem 'bcrypt-ruby'
 

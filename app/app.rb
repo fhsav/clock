@@ -5,6 +5,10 @@ module Clock
     register Padrino::Rendering
     register Padrino::Sprockets
 
+    Faye::WebSocket.load_adapter('thin')
+
+    use Faye::RackAdapter, :mount => '/faye', :timeout => 25
+
     asset_paths = [
       'assets/css',
       'assets/jsc',
