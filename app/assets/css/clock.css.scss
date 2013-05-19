@@ -20,7 +20,7 @@ $grid-padding: $gutter-width;
 		V. Periods
 		VI. Clock
 */
-	
+
 
 /*
 	I. Media Queries
@@ -247,4 +247,20 @@ footer#notices {
 	background: rgba(yellow, 0.5);
 	margin-top: 1em;
 	padding: 1em;
+}
+
+
+/*
+	VIII. Error
+*/
+
+.error {
+	background: red;
+	bottom: 10px;
+	display: none;
+	font-size: 0.5em;
+	height: 1rem;
+	position: fixed;
+	right: 10px;
+	width: 1rem;
 }

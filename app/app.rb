@@ -22,6 +22,8 @@ module Clock
 
     enable :caching
 
+    disable :protection
+
     set :cache, Padrino::Cache::Store::Memcache.new(::Memcached.new('127.0.0.1:11211', :exception_retry_limit => 1))
 
     configure :development do
