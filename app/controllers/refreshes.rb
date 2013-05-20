@@ -6,7 +6,7 @@ Clock::Web.controllers :refreshes do
   post :create do
     client = Faye::Client.new('http://localhost:5000/faye')
 
-    if client.publish('/refreshes', 'timestamp' => Time.now)
+    if client.publish('/refreshes', 'data' => clock_hash)
       flash[:notice] = 'Refreshed!'
       redirect params[:redirect]
     else

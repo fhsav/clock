@@ -79,10 +79,9 @@ setInterval (->
 setInterval (->
   $.get("/api/health/ping.json", ->
     $('.error').hide()
-    console.log 'fine'
   ).error ->
     $('.error').show()
-    console.log 'nope'
+    console.log 'Server must be down.'
 ), 60000
 
 # Stuff used once per load.
@@ -94,5 +93,7 @@ $(document).ready ->
   # Faye (Refreshing)
   faye = new Faye.Client("/faye")
   refreshes = faye.subscribe("/refreshes", (message) ->
-    location.reload false
+    $("#marquee ul").empty()
+    for marquee in message.marquees
+      $("#marquee ul").append("<li>#{marquee}</li>")
   )
