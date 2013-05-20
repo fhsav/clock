@@ -34,7 +34,7 @@
         %tr
           %td= p.number
           %td= p.text
-          %td= "#{time(p.start, 24)} &ndash; #{time(p.finish, 24)}"
+          %td= safe("#{time(p.start, 24)} &ndash; #{time(p.finish, 24)}")
           %td
             %a{:href => url(:periods, :edit, :schedule_id => @schedule.id, :id => p.id)} Edit
             &mdash;
@@ -43,7 +43,7 @@
               %button{:type => "submit"} Delete
   - else
     %p No periods yet!
-                    
+
 %footer
   %form.periods{:action => url(:periods, :create, :schedule_id => @schedule.id), :method => "post"}
     %p
