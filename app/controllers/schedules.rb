@@ -4,7 +4,7 @@ Clock::Web.controllers :schedules do
   end
 
   get :index do
-    @schedules = Schedule.sort(:name)
+    @schedules = Schedule.all.to_a
 
     render 'schedules/index'
   end
