@@ -65,4 +65,14 @@ Clock::Web.controllers :themes do
       redirect url(:themes, :index)
     end
   end
+
+  get :wallpaper, :with => :id do
+    theme = Theme.find(params[:id])
+
+    content = theme.wallpaper.read
+
+    content_type theme.wallpaper.file.content_type
+
+    return content
+  end
 end

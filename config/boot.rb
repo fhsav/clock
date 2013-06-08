@@ -11,4 +11,8 @@ require 'bundler/setup'
 
 Bundler.require(:default, PADRINO_ENV)
 
+Padrino.before_load do
+  Padrino.require_dependencies(Padrino.root('app/uploaders/*.rb'))
+end
+
 Padrino.load!
