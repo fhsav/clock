@@ -11,4 +11,15 @@ require 'bundler/setup'
 
 Bundler.require(:default, PADRINO_ENV)
 
+if defined?(LogBuddy)
+  LogBuddy.init({
+    :logger   => logger,
+    :disabled => PADRINO_ENV == :production
+  })
+end
+
+Padrino.before_load do
+  Padrino.require_dependencies(Padrino.root('app/uploaders/*.rb'))
+end
+
 Padrino.load!

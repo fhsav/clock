@@ -1,14 +1,7 @@
 require 'spork'
-require 'fog'
 
 Spork.prefork do
   PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
-
-  ENV['S3_ID'] = 'id'
-  ENV['S3_SECRET'] = 'secret'
-  ENV['S3_BUCKET'] = 'foobar'
-
-  Fog.mock!
 
   require File.expand_path(File.dirname(__FILE__) + '/../config/boot.rb')
 
