@@ -1,10 +1,10 @@
 class Period
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :number, Integer
-  key :name, String
-  key :start, Time
-  key :finish, Time
+  field :number, :type => Integer
+  field :name, :type => String
+  field :start, :type => Time
+  field :finish, :type => Time
 
   belongs_to :schedule
 end

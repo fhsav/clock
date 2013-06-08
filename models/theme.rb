@@ -1,18 +1,17 @@
 class Theme
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :name, String
-  key :active, Boolean, :default => false
-  key :wallpaper, Hash
-
-  timestamps!
+  field :name, :type => String
+  field :active, :type => Boolean, :default => false
+  field :wallpaper, :type => Hash
 
   validates_presence_of :name
 
   after_destroy :delete!
 
   def self.activated
-    t = self.first(:active => true)
+    t = self.where(:active => true).first
 
     if t.nil?
       { :url => '/_/default.jpg', :type => 'image/jpeg' }
@@ -29,36 +28,5 @@ class Theme
     end
 
     r
-  end
-
-  def wallpaper=(file)
-    upload = GirlFriday::WorkQueue.new(:s3_upload, :size => 5) do |file|
-      S3.files.create(
-        :key => file[:filename],
-        :body => file[:tempfile],
-        :content_type => file[:type],
-        :public => true
-      )
-    end
-
-    upload << file
-
-    url = "http://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{w[:filename].gsub(/ /, '+')}"
-
-    wallpaper[:name] = file[:filename]
-    wallpaper[:url] = url
-    wallpaper[:type] = file[:type]
-  end
-
-  private
-
-  def delete!
-    delete = GirlFriday::WorkQueue.new(:s3_delete, :side => 5) do |w|
-      file = S3.files.get(w[:name].to_s)
-
-      file.destroy if file
-    end
-
-    delete << { :name => wallpaper[:name] }
   end
 end

@@ -1,7 +1,7 @@
 require 'yaml'
 
 # MongoDB
-MongoMapper.setup(YAML.load_file(Padrino.root('.mongo.yml')), PADRINO_ENV, :logger => nil)
+Mongoid.load!(Padrino.root('.mongoid.yml'))
 
 # Redis
 Ohm.connect

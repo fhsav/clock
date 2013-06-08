@@ -11,8 +11,7 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 
 gem 'dotenv'
 
-gem 'bson_ext'
-gem 'mongo_mapper'
+gem 'mongoid'
 
 gem 'fog'
 
