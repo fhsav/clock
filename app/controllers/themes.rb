@@ -10,8 +10,9 @@ Clock::Web.controllers :themes do
   end
 
   post :create do
-    t = Theme.new(params[:theme])
-    t.wallpaper = params[:wallpaper]
+    t = Theme.new
+    t.name = params[:theme][:name]
+    t.wallpaper = params[:theme][:wallpaper]
 
     if t.save
       flash[:notice] = 'Your theme has been saved.'
@@ -23,12 +24,9 @@ Clock::Web.controllers :themes do
   end
 
   post :activate do
-    Theme.set({ :active => true }, :active => false)
-
     t = Theme.find(params[:id])
-    t.active = true
 
-    if t.save
+    if t.activate!
       flash[:notice] = "The theme #{t.name} has been activated."
       redirect url(:themes, :index)
     else
@@ -64,5 +62,15 @@ Clock::Web.controllers :themes do
       flash[:error] = 'Something went wrong, and the theme has not been destroyed.'
       redirect url(:themes, :index)
     end
+  end
+
+  get :wallpaper, :with => :id do
+    theme = Theme.find(params[:id])
+
+    content = theme.wallpaper.read
+
+    content_type theme.wallpaper.file.content_type
+
+    return content
   end
 end

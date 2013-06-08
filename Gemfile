@@ -12,12 +12,12 @@ gem 'sinatra-flash', :require => "sinatra/flash"
 gem 'dotenv'
 
 gem 'mongoid'
+gem 'mongoid-grid_fs'
 
-gem 'fog'
+gem 'carrierwave', :require => 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 gem 'memcached'
-
-gem 'girl_friday'
 
 gem 'tzinfo'
 
@@ -31,7 +31,7 @@ gem 'tilt', '~> 1.3.7'
 
 gem 'haml'
 
-gem 'padrino-sprockets', git: 'https://github.com/eturk/padrino-sprockets.git', require: 'padrino/sprockets'
+gem 'padrino-sprockets', :git => 'https://github.com/eturk/padrino-sprockets.git', require: 'padrino/sprockets'
 
 gem 'sprockets-sass'
 gem 'compass'
@@ -48,6 +48,8 @@ group :development do
 
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'log_buddy'
 
   gem 'pry'
 

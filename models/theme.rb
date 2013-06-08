@@ -2,31 +2,26 @@ class Theme
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  attr_accessible :wallpaper, :wallpaper_cache
+
   field :name, :type => String
   field :active, :type => Boolean, :default => false
-  field :wallpaper, :type => Hash
 
   validates_presence_of :name
 
-  after_destroy :delete!
+  mount_uploader :wallpaper, WallpaperUploader
 
   def self.activated
-    t = self.where(:active => true).first
+    where(:active => true).first
+  end
 
-    if t.nil?
-      { :url => '/_/default.jpg', :type => 'image/jpeg' }
-    else
-      { :url => t.wallpaper[:url], :type => t.wallpaper[:type] }
-    end
+  def activate!
+    self.class.all.set(:active, false)
+    self.active = true
+    self.save
   end
 
   def video?
-    r = false
-
-    if wallpaper[:type] == 'video/mp4'
-      r = true
-    end
-
-    r
+    self.wallpaper.file.content_type == 'application/mp4'
   end
 end
