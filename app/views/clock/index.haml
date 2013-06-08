@@ -25,21 +25,21 @@
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
     %link{:href => "/_/clock.css", :rel => "stylesheet"}
 
-    - if @theme[:type] == "video/mp4"
+    - if @theme.video?
       :css
         body { background: #000 }
     - else
       :css
-        body { background: url(#{@theme[:url]}) no-repeat }
+        body { background: url(#{url(:themes, :wallpaper, :id => @theme.id)}) no-repeat }
 
     %script{:src => "//use.typekit.net/zkf1hyd.js", :type => "text/javascript"}
     :javascript
       try{Typekit.load();}catch(e){}
 
   %body
-    - if @theme[:type] == "video/mp4"
+    - if @theme.video?
       %video{:autoplay => true, :loop => true, :muted => true}
-        %source{:src => @theme[:url], :type => "video/mp4"}
+        %source{:src => url(:themes, :wallpaper, :id => @theme.id), :type => "video/mp4"}
 
     #contain
 

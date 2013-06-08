@@ -10,8 +10,9 @@ Clock::Web.controllers :themes do
   end
 
   post :create do
-    t = Theme.new(params[:theme])
-    t.wallpaper = params[:wallpaper]
+    t = Theme.new
+    t.name = params[:theme][:name]
+    t.wallpaper = params[:theme][:wallpaper]
 
     if t.save
       flash[:notice] = 'Your theme has been saved.'
@@ -23,12 +24,9 @@ Clock::Web.controllers :themes do
   end
 
   post :activate do
-    Theme.set({ :active => true }, :active => false)
-
     t = Theme.find(params[:id])
-    t.active = true
 
-    if t.save
+    if t.activate!
       flash[:notice] = "The theme #{t.name} has been activated."
       redirect url(:themes, :index)
     else

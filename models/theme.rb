@@ -11,7 +11,17 @@ class Theme
 
   mount_uploader :wallpaper, WallpaperUploader
 
+  def self.activated
+    where(:active => true).first
+  end
+
+  def activate!
+    self.class.all.set(:active, false)
+    self.active = true
+    self.save
+  end
+
   def video?
-    self.wallpaper.file.content_type == 'video/mp4'
+    self.wallpaper.file.content_type == 'application/mp4'
   end
 end

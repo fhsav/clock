@@ -10,7 +10,9 @@ class Schedule
 
   validates_presence_of :name
 
-  scope :activated, where(:active => true)
+  def self.activated
+    where(:active => true).first
+  end
 
   def activate!
     self.class.set({:active => true}, :active => false)
