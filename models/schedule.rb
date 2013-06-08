@@ -1,17 +1,16 @@
 class Schedule
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :name, String
-  key :description, String
-  key :active, Boolean, :default => false
+  field :name, :type => String
+  field :description, :type => String
+  field :active, :type => Boolean, :default => false
 
-  timestamps!
-
-  many :periods
+  has_many :periods
 
   validates_presence_of :name
 
-  scope(:activated) { where(:active => true) }
+  scope :activated, where(:active => true)
 
   def activate!
     self.class.set({:active => true}, :active => false)

@@ -4,7 +4,7 @@ Clock::Web.helpers do
 	def clock_data
 		@main = cache('active_main', :expires_in => 86400) do
       @s = Schedule.activated.first
-      @n = Notice.sort(:updated_at)
+      @n = Notice.all.to_a
 
       partial 'clock/main'
     end
@@ -12,7 +12,7 @@ Clock::Web.helpers do
     @theme = Theme.activated
 
     @marquees = cache('active_marquees', :expires_in => 86400) do
-      @m = Marquee.sort(:updated_at)
+      @m = Marquee.all.to_a
 
       partial 'clock/marquees'
     end
