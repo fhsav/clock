@@ -1,10 +1,6 @@
 # Clock
 #   file: application.coffee
 
-#= require lib/vendor/jquery
-
-#= require lib/analytics
-
 $(".alert").click ->
   $(".alert").hide "slide"
 
