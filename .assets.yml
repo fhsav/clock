@@ -1,0 +1,22 @@
+package_assets: on
+package_path: assets
+compress_assets: true
+javascript_compressor: closure
+gzip_assets: true
+
+javascripts:
+  clock:
+    - public/jsc/lib/vendor/*.js
+    - public/jsc/lib/*.js
+    - public/jsc/clock.js
+
+  admin:
+    - public/jsc/lib/vendor/*.js
+    - public/jsc/application.js
+
+stylesheets:
+  clock:
+    - public/css/clock.css
+
+  admin:
+    - public/css/application.css
