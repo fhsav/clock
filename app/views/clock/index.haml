@@ -37,10 +37,6 @@
       :css
         body { background: url("/img/default.jpg") no-repeat }
 
-    %script{:src => "//use.typekit.net/zkf1hyd.js", :type => "text/javascript"}
-    :javascript
-      try{Typekit.load();}catch(e){}
-
   %body
     - if @theme && @theme.video?
       %video{:autoplay => true, :loop => true, :muted => true}

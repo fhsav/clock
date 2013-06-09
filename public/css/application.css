@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900|Anonymous+Pro);
 /*
 	Clock
 		file: application.scss
@@ -130,7 +131,7 @@ html {
 /* line 83, ../../app/assets/css/application.scss */
 body {
   color: #333333;
-  font: 14px/1.5em "franklin-gothic-urw", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font: 14px/1.5em "Roboto", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 /* line 88, ../../app/assets/css/application.scss */
@@ -145,7 +146,7 @@ a:hover {
 
 /* line 97, ../../app/assets/css/application.scss */
 button, input, textarea {
-  font: 14px/1.5em "franklin-gothic-urw", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font: 14px/1.5em "Roboto", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 /* line 101, ../../app/assets/css/application.scss */
@@ -199,7 +200,7 @@ button a, input[type="submit"] a {
 
 /* line 138, ../../app/assets/css/application.scss */
 code, pre {
-  font-family: "anonymous-pro", Courier New, Courier, monospace;
+  font-family: "Anonymous Pro", Courier New, Courier, monospace;
 }
 
 /* line 142, ../../app/assets/css/application.scss */
