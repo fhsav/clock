@@ -1,13 +1,6 @@
 # Clock
 #   file: clock.coffee
 
-#= require lib/vendor/jquery
-#= require lib/vendor/jquery.marquee
-#= require lib/vendor/faye
-
-#= require lib/analytics
-
-# Run this all every 1000 milliseconds
 setInterval (->
 
   # Date variables, etc.

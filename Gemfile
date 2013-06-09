@@ -31,16 +31,16 @@ gem 'tilt', '~> 1.3.7'
 
 gem 'haml'
 
-gem 'padrino-sprockets', :git => 'https://github.com/eturk/padrino-sprockets.git', require: 'padrino/sprockets'
+gem 'jammit-sinatra'
 
-gem 'sprockets-sass'
 gem 'compass'
 gem 'susy'
 
-gem 'coffee-script'
+gem 'barista'
 
 gem 'uglifier'
 gem 'yui-compressor'
+gem 'closure'
 
 group :development do
   gem 'foreman'

@@ -22,4 +22,9 @@ Padrino.before_load do
   Padrino.require_dependencies(Padrino.root('app/uploaders/*.rb'))
 end
 
+Padrino.after_load do
+  ::RAILS_ENV = PADRINO_ENV unless defined?(::RAILS_ENV)
+  Jammit.load_configuration(Padrino.root('.assets.yml'))
+end
+
 Padrino.load!
