@@ -21,6 +21,9 @@ production:
   options:
     identity_map_enabled: true
     preload_models:
-      - User
-      - Note
+      - Marquee
+      - Notice
+      - Period
+      - Schedule
+      - Theme
     use_activesupport_time_zone: true
