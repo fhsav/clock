@@ -11,10 +11,11 @@
     %title Clock &mdash; Administration
 
     %link{:href => "/favicon.ico", :rel => "icon"}
-    %link{:href => "/_/apple-touch-icon.png", :rel => "apple-touch-icon-precomposed"}
+    %link{:href => "/img/apple-touch-icon.png", :rel => "apple-touch-icon-precomposed"}
 
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
-    %link{:href => "/_/application.css", :rel => "stylesheet"}
+
+    = include_stylesheets :admin
 
     %script{:src => "//use.typekit.net/zkf1hyd.js", :type => "text/javascript"}
     :javascript
@@ -71,7 +72,7 @@
           %p
             %a{:href => "http://github.com/fhsclock/clock/commit/#{COMMIT}"}= COMMIT
 
-    %script{:src => "/_/application.js"}
+    = include_javascripts :admin
 
 /
   version:     #{CLOCK_VERSION}

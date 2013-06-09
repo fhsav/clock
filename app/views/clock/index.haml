@@ -14,30 +14,35 @@
     %title Clock
 
     %link{:href => "/favicon.ico", :rel => "icon"}
-    %link{:href => "/_/apple-touch-icon.png", :rel => "apple-touch-icon-precomposed"}
+    %link{:href => "/img/apple-touch-icon.png", :rel => "apple-touch-icon-precomposed"}
 
-    %link{:href => "/_/apple-touch-startup-image-iphone.png", :rel => "apple-touch-startup-image"}/
-    %link{:href => "/_/apple-touch-startup-image-ipad-portrait.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)", :rel => "apple-touch-startup-image"}/
-    %link{:href => "/_/apple-touch-startup-image-ipad-landscape.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)", :rel => "apple-touch-startup-image"}/
-    %link{:href => "/_/apple-touch-startup-image-ipad-portrait@2x.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
-    %link{:href => "/_/apple-touch-startup-image-ipad-landscape@2x.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
+    %link{:href => "/img/apple-touch-startup-image-iphone.png", :rel => "apple-touch-startup-image"}/
+    %link{:href => "/img/apple-touch-startup-image-ipad-portrait.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)", :rel => "apple-touch-startup-image"}/
+    %link{:href => "/img/apple-touch-startup-image-ipad-landscape.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)", :rel => "apple-touch-startup-image"}/
+    %link{:href => "/img/apple-touch-startup-image-ipad-portrait@2x.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
+    %link{:href => "/img/apple-touch-startup-image-ipad-landscape@2x.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
 
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
-    %link{:href => "/_/clock.css", :rel => "stylesheet"}
 
-    - if @theme.video?
-      :css
-        body { background: #000 }
+    = include_stylesheets :clock
+
+    - if @theme
+      - if @theme.video?
+        :css
+          body { background: #000 }
+      - else
+        :css
+          body { background: url(#{url(:themes, :wallpaper, :id => @theme.id)}) no-repeat }
     - else
       :css
-        body { background: url(#{url(:themes, :wallpaper, :id => @theme.id)}) no-repeat }
+        body { background: url("/img/default.jpg") no-repeat }
 
     %script{:src => "//use.typekit.net/zkf1hyd.js", :type => "text/javascript"}
     :javascript
       try{Typekit.load();}catch(e){}
 
   %body
-    - if @theme.video?
+    - if @theme && @theme.video?
       %video{:autoplay => true, :loop => true, :muted => true}
         %source{:src => url(:themes, :wallpaper, :id => @theme.id), :type => "video/mp4"}
 
@@ -50,6 +55,5 @@
     .error
       !
 
-    %script{:src => "http://js.pusher.com/1.12/pusher.min.js"}
-    %script{:src => "/_/clock.js"}
+    = include_javascripts :clock
 
