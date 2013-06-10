@@ -12,9 +12,8 @@ Clock::Web.controllers :sessions do
   end
 
   post :create do
-    if encrypt(params[:password]) == Redis.get('password')
-      session['clock'] ||= 0
-      session['clock'] = session_key
+    if valid_password?(params[:password])
+      authenticate!
 
       flash[:notice] = 'Welcome back!'
       redirect url(:index)

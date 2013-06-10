@@ -25,8 +25,6 @@ gem 'ohm'
 
 gem 'faye'
 
-gem 'bcrypt-ruby'
-
 gem 'tilt', '~> 1.3.7'
 
 gem 'haml'
