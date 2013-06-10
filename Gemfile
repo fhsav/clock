@@ -42,14 +42,16 @@ gem 'uglifier'
 gem 'yui-compressor'
 gem 'closure'
 
+group :development, :test do
+  gem 'log_buddy'
+end
+
 group :development do
   gem 'foreman'
   gem 'therubyracer'
 
   gem 'better_errors'
   gem 'binding_of_caller'
-
-  gem 'log_buddy'
 
   gem 'pry'
 

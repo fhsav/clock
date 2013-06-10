@@ -15,7 +15,8 @@ class Schedule
   end
 
   def activate!
-    self.class.set({:active => true}, :active => false)
+    self.class.all.set(:active, false)
     self.active = true
+    self.save
   end
 end

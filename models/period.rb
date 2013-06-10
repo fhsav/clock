@@ -7,4 +7,6 @@ class Period
   field :finish, :type => Time
 
   belongs_to :schedule
+
+  validates_presence_of :number, :name, :start, :finish
 end
