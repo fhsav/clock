@@ -58,11 +58,10 @@
 
   setInterval((function() {
     return $.get("/api/health/ping.json", function() {
-      $('.error').hide();
-      return console.log('fine');
+      return $('.error').hide();
     }).error(function() {
       $('.error').show();
-      return console.log('nope');
+      return console.log('Cannot connect to server');
     });
   }), 60000);
 

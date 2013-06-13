@@ -72,10 +72,9 @@ setInterval (->
 setInterval (->
   $.get("/api/health/ping.json", ->
     $('.error').hide()
-    console.log 'fine'
   ).error ->
     $('.error').show()
-    console.log 'nope'
+    console.log 'Cannot connect to server'
 ), 60000
 
 # Stuff used once per load.
