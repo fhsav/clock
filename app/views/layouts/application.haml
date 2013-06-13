@@ -57,7 +57,7 @@
 
       %footer
         %section
-          %p= safe("<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}.")
+          %p= safe("<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 2010&ndash;#{Time.now.year}.")
           %ul
             %li
               %a{:href => "http://github.com/fhsclock/clock"} GitHub
@@ -66,8 +66,6 @@
             %li
               %a{:href => "http://#{request.host}:4567"} CIJoe
           %p.version= "#{CLOCK_VERSION}"
-          %p
-            %a{:href => "http://github.com/fhsclock/clock/commit/#{COMMIT}"}= COMMIT
 
     = include_javascripts :admin
 

@@ -42,12 +42,20 @@ Clock::Web.controllers :themes do
   end
 
   get :preview, :map => '/themes/:id/preview' do
-    @schedule = Schedule.activated
+    @main = cache('preview_main', :expires_in => 15) do
+      @s = Schedule.activated
+      @n = Notice.all.to_a
 
-    @theme = Theme.find(params[:id]).wallpaper
+      partial 'clock/main'
+    end
 
-    @marquees = Marquee.all
-    @notices = Notice.all
+    @theme = Theme.where(:id => params[:id]).first
+
+    @marquees = cache('preview_marquees', :expires_in => 15) do
+      @m = Marquee.all.to_a
+
+      partial 'clock/marquees'
+    end
 
     render 'clock/index', :layout => false
   end

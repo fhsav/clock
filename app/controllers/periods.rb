@@ -13,7 +13,7 @@ Clock::Web.controllers :periods, :parent => :schedules do
     end
 
     if time?(params[:period][:start]) && time?(params[:period][:finish])
-      p = Period.create(params[:period])
+      p = Period.new(params[:period])
       p.number = number
 
       if @s.periods << p
