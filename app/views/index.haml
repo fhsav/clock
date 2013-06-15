@@ -7,6 +7,9 @@
 
 = partial 'layouts/flash', :locals => { :flash => flash }
 
+.alert.warning
+  %p Refresh capabilities are currently broken. In the meantime, please refresh manually.
+
 %p= safe("Welcome to the Farmington High School Clock (version <code>#{CLOCK_VERSION}</code>)")
 %ul
   %li= safe('For documentation, visit <a href="http://github.com/fhsclock/clock/wiki/_pages">the wiki on GitHub</a>.')
