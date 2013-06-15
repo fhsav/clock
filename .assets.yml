@@ -1,8 +1,8 @@
 package_assets: on
 package_path: assets
-compress_assets: true
+compress_assets: on
 javascript_compressor: closure
-gzip_assets: true
+gzip_assets: on
 
 javascripts:
   clock:
