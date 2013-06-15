@@ -5,3 +5,4 @@ Padrino.configure_apps do
 end
 
 Padrino.mount('Clock::Web', :app_file => Padrino.root('app/app.rb')).to('/')
+Padrino.mount('Clock::API', :app_file => Padrino.root('api/app.rb')).to('/api')

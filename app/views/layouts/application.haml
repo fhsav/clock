@@ -14,11 +14,9 @@
     %link{:href => "/img/apple-touch-icon.png", :rel => "apple-touch-icon-precomposed"}
 
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
-    %link{:href => "/css/application.css", :rel => "stylesheet"}
 
-    %script{:src => "//use.typekit.net/zkf1hyd.js", :type => "text/javascript"}
-    :javascript
-      try{Typekit.load();}catch(e){}
+    = include_stylesheets :admin
+
   %body
     #contain
       %header
@@ -59,7 +57,7 @@
 
       %footer
         %section
-          %p= safe("<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 1997&ndash;#{Time.now.year}.")
+          %p= safe("<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 2010&ndash;#{Time.now.year}.")
           %ul
             %li
               %a{:href => "http://github.com/fhsclock/clock"} GitHub
@@ -68,24 +66,11 @@
             %li
               %a{:href => "http://#{request.host}:4567"} CIJoe
           %p.version= "#{CLOCK_VERSION}"
-          %p
-            %a{:href => "http://github.com/fhsclock/clock/commit/#{COMMIT}"}= COMMIT
 
-    %script{:src => "http://code.jquery.com/jquery.min.js"}
-    %script{:src => "/jsc/application.js"}
-    :javascript
-      // Google Analytics
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-35167781-1']);
-      _gaq.push(['_trackPageview']);
+    = include_javascripts :admin
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-      // Segment.io
-      var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
-
-      analytics.load("w8pcwot");
+/
+  version:     #{CLOCK_VERSION}
+  commit:      #{COMMIT}
+  branch:      #{BRANCH}
+  environment: #{PADRINO_ENV}

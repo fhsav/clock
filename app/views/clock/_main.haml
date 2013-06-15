@@ -1,0 +1,20 @@
+#main{:class => @s.blank?, :role => "main"}
+  %aside#clock
+    %p#date= Time.now.strftime("%A, %B %e, %Y")
+    %p#time= Time.now.strftime("%l:%M:%S")
+
+    - unless @n.empty? or request.fullpath != "/clock"
+      %footer#notices
+        %ul
+          - @n.each do |n|
+            %li= n.text
+
+  - if @s and @s.periods
+    %section#periods
+      %ol
+        - @s.periods.each do |p|
+          %li
+            ="#{p.text}: "
+            %time.start{:datetime => seconds(p.start)}= "#{time(p.start, 12)}"
+            &ndash;
+            %time.finish{:datetime => seconds(p.finish)}= "#{time(p.finish, 12)}"

@@ -23,71 +23,33 @@
     %link{:href => "/img/apple-touch-startup-image-ipad-landscape@2x.png", :media => "screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
 
     %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
-    %link{:href => "/css/clock.css", :rel => "stylesheet"}
 
-    - if @theme[:type] == "video/mp4"
-      :css
-        body { background: #000 }
+    = include_stylesheets :clock
+
+    - if @theme
+      - if @theme.video?
+        :css
+          body { background: #000 }
+      - else
+        :css
+          body { background: url(#{url(:themes, :wallpaper, :id => @theme.id)}) no-repeat }
     - else
       :css
-        body { background: url(#{@theme[:url]}) no-repeat }
-
-    %script{:src => "//use.typekit.net/zkf1hyd.js", :type => "text/javascript"}
-    :javascript
-      try{Typekit.load();}catch(e){}
+        body { background: url("/img/default.jpg") no-repeat }
 
   %body
-    - if @theme[:type] == "video/mp4"
+    - if @theme && @theme.video?
       %video{:autoplay => true, :loop => true, :muted => true}
-        %source{:src => @theme[:url], :type => "video/mp4"}
+        %source{:src => url(:themes, :wallpaper, :id => @theme.id), :type => "video/mp4"}
 
     #contain
 
-      - unless @marquees.empty?
-        %header#marquee
-          %ul
-            - @marquees.each do |m|
-              %li= m.text
+      = @marquees
 
-      #main{:class => @schedule.blank?, :role => "main"}
-        %aside#clock
-          %p#date= Time.now.strftime("%A, %B %e, %Y")
-          %p#time= Time.now.strftime("%l:%M:%S")
+      = @main
 
-          - unless @notices.empty? or request.fullpath != "/clock"
-            %footer#notices
-              %ul
-                - @notices.each do |n|
-                  %li= n.text
+    .error
+      !
 
-        - if @schedule and @schedule.periods
-          %section#periods
-            %ol
-              - @schedule.periods.each do |p|
-                %li
-                  ="#{p.text}: "
-                  %time.start{:datetime => seconds(p.start)}= "#{time(p.start, 12)}"
-                  &ndash;
-                  %time.finish{:datetime => seconds(p.finish)}= "#{time(p.finish, 12)}"
-
-    %script{:src => "/jsc/lib/jquery.js"}
-    %script{:src => "http://js.pusher.com/1.12/pusher.min.js"}
-    %script{:src => "/jsc/lib/jquery.marquee.js"}
-    %script{:src => "/jsc/clock.js"}
-    :javascript
-      // Google Analytics
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-35167781-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-      // Segment.io
-      var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
-
-      analytics.load("w8pcwot");
+    = include_javascripts :clock
 

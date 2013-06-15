@@ -1,9 +1,15 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Marquee do
-  let(:marquee) { Marquee.new(:text => "Foo to the bar.") }
+  let(:marquee) { create(:marquee) }
 
-  it "can be instantiated" do
-    marquee.should_not be_nil
+  it { should validate_presence_of :text }
+
+  it { marquee.should be_valid }
+
+  describe '#format' do
+    it 'removes whitespace' do
+      marquee.text.should_not include "/n"
+    end
   end
 end

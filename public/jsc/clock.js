@@ -1,10 +1,7 @@
 (function() {
-  var root;
-
-  root = typeof exports !== "undefined" && exports !== null ? exports : this;
-
   setInterval((function() {
     var d, date, day, days, final, hour, minute, month, months, second, time, year;
+
     d = new Date();
     day = d.getDay();
     month = d.getMonth();
@@ -28,6 +25,7 @@
     $("p#time").html("" + hour + ":" + minute + ":" + second);
     $("#periods ol li").each(function(index) {
       var e, finish, start;
+
       e = $(this);
       start = e.find("time.start").attr("datetime");
       finish = e.find("time.finish").attr("datetime");
@@ -58,14 +56,23 @@
     }
   }), 1000);
 
+  setInterval((function() {
+    return $.get("/api/health/ping.json", function() {
+      return $('.error').hide();
+    }).error(function() {
+      $('.error').show();
+      return console.log('Cannot connect to server');
+    });
+  }), 60000);
+
   $(document).ready(function() {
-    var channel, pusher;
+    var faye, refreshes;
+
     $("#marquee ul").marquee({
       pauseOnHover: false
     });
-    pusher = new Pusher("4f803f0cec789e485391");
-    channel = pusher.subscribe("refreshes");
-    return channel.bind("refresh", function(data) {
+    faye = new Faye.Client("/faye");
+    return refreshes = faye.subscribe("/refreshes", function(message) {
       return location.reload(false);
     });
   });

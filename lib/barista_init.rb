@@ -1,8 +1,8 @@
 module BaristaInitializer
   def self.registered(app)
     Barista.configure do |c|
-      c.root = File.join(Padrino.root, "app", "assets", "jsc")
-      c.output_root = File.join(Padrino.root, "public", "jsc")
+      c.root = Padrino.root('app/assets/jsc')
+      c.output_root = Padrino.root('public/jsc')
     end
 
     app.register Barista::Integration::Sinatra

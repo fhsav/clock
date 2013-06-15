@@ -1,27 +1,14 @@
-require "yaml"
-require "dotenv"
+require 'yaml'
 
-Dotenv.load
+# MongoDB
+Mongoid.load!(Padrino.root('.mongoid.yml'))
 
-if heroku?
-  m = URI.parse(ENV['MONGOLAB_URI'])
-  r = URI.parse(ENV["REDISTOGO_URL"])
+# Redis
+Ohm.connect
 
-  MongoMapper.connection = Mongo::Connection.new(m.host, m.port, :logger => logger)
-  MongoMapper.database = m.path.gsub(/^\//, '')
-  MongoMapper.database.authenticate(m.user, m.password)
-
-  Ohm.connect(:host => r.host, :port => r.port, :password => r.password)
-else
-  MongoMapper.setup(YAML::load(File.open(File.join(PADRINO_ROOT, ".mongo.yml"))), PADRINO_ENV, :logger => nil, :slave_ok => true)
-  
-  Ohm.connect
+# GridFS
+CarrierWave.configure do |config|
+  config.storage = :grid_fs
+  config.root = Padrino.root('tmp')
+  config.cache_dir = 'uploads'
 end
-
-S3 = Fog::Storage.new({
-  :provider => "AWS",
-  :aws_access_key_id => ENV["S3_ID"],
-  :aws_secret_access_key => ENV["S3_SECRET"]
-})
-
-S3 = S3.directories.create(:key => ENV["S3_BUCKET"], :public => true)

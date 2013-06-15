@@ -1,1 +1,3 @@
--fs --drb --color
+--drb
+--format documentation
+--color

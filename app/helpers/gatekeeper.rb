@@ -1,34 +1,42 @@
 Clock::Web.helpers do
 
-  # Check if authenticated or not.
+  # Check to see if the user is logged in.
   def authenticated?
-    unless PADRINO_ENV == "test" or !password?
-      session_key == session["clock"]
-    end
+    Ohm.redis.get('password') == session['clock']
   end
 
-  # Redirect the user appropriately.
+  # Authenticate the user.
+  def authenticate!
+    session['clock'] = Ohm.redis.get('password')
+  end
+
+  # Deauthenticate the user.
+  def deauthenticate!
+    session['clock'] = 0
+  end
+
+  # Check to see if the user put in the right password.
+  def valid_password?(password)
+    Ohm.redis.get('password') == encrypt(password)
+  end
+
+  # Redirect to new password page if there isn't a password set.
+  #   If there is a password set and the user isn't authenticated,
+  #   redirect to the login page.
   def redirect!
-    unless PADRINO_ENV == "test"
-      if !password?
-        flash[:warning] = "Please set a password before continuing."
-        redirect url(:settings, :new)
-      end
+    if !password?
+      flash[:warning] = 'Please set a password before continuing.'
+      redirect url(:settings, :new)
+    end
 
-      unless authenticated?
-        flash[:warning] = "Y'all need to give me your password first."
-        redirect url(:sessions, :new)
-      end
+    unless authenticated?
+      flash[:warning] = "Y'all need to give me your password first."
+      redirect url(:sessions, :new)
     end
   end
 
-  # Check if there has been a password set (is this the initial run?).
+  # See if a password is set.
   def password?
-    !Redis.get("password").blank?
-  end
-
-  # Generate the session key for a particular password.
-  def session_key
-    encrypt(Redis.get("password") + encrypt(settings.session_secret))
+    !Ohm.redis.get('password').blank?
   end
 end

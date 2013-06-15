@@ -44,7 +44,7 @@ $text: rgb(51, 51, 51);
 			max-width: 97% !important;
 		}
 	}
-	
+
 	#contain > header {
 		aside, nav {
 			@include span-columns(23);
@@ -59,9 +59,9 @@ $text: rgb(51, 51, 51);
 				& + li {
 					margin-left: 0.5em !important;
 				}
-			}	
+			}
 		}
-		
+
 	}
 
 	#main {
@@ -82,7 +82,7 @@ html {
 
 body {
 	color: $text;
-	font: 14px/1.5em $sans-serif;
+	font: 300 14px/1.5em $sans-serif;
 }
 
 a {
@@ -95,7 +95,7 @@ a {
 }
 
 button, input, textarea {
-	font: 14px/1.5em $sans-serif;
+	font: 400 14px/1.5em $sans-serif;
 }
 
 button, input[type="submit"] {
@@ -108,7 +108,7 @@ button, input[type="submit"] {
 
 	&:active {
 		@include box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05));
-		
+
 		background-color: #d9d9d9;
 		background-image: none;
 		outline: 0;
@@ -132,7 +132,7 @@ button, input[type="submit"] {
 
 	a {
 		display: block;
-	}	
+	}
 }
 
 code, pre {
@@ -159,7 +159,7 @@ h3 {
 }
 
 #iframe {
-	
+
 	padding-bottom: 4em;
 	padding-top: 2em;
 
@@ -339,7 +339,7 @@ table {
 
 .alert {
 	@include text-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
-	
+
 	border-radius: 4px;
 	cursor: pointer;
 	margin: 1em 0 2em;
@@ -400,7 +400,7 @@ table {
 		&:active {
 			@include box-shadow(none);
 		}
-		
+
 		&:hover {
 			color: #efefef;
 			cursor: pointer;

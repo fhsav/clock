@@ -1,9 +1,6 @@
 # Clock
 #   file: clock.coffee
 
-root = exports ? this
-
-# Run this all every 1000 milliseconds
 setInterval (->
 
   # Date variables, etc.
@@ -72,6 +69,13 @@ setInterval (->
 
 ), 1000
 
+setInterval (->
+  $.get("/api/health/ping.json", ->
+    $('.error').hide()
+  ).error ->
+    $('.error').show()
+    console.log 'Cannot connect to server'
+), 60000
 
 # Stuff used once per load.
 $(document).ready ->
@@ -80,7 +84,7 @@ $(document).ready ->
   $("#marquee ul").marquee pauseOnHover: false
 
   # Faye (Refreshing)
-  pusher = new Pusher("4f803f0cec789e485391")
-  channel = pusher.subscribe("refreshes")
-  channel.bind "refresh", (data) ->
+  faye = new Faye.Client("/faye")
+  refreshes = faye.subscribe("/refreshes", (message) ->
     location.reload false
+  )

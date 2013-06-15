@@ -1,10 +1,9 @@
 class Notice
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :text, String
-  
-  timestamps!
-  
+  field :text, :type => String
+
   validates_presence_of :text
 
   before_save :format

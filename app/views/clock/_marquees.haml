@@ -1,0 +1,5 @@
+- unless @m.empty?
+  %header#marquee
+    %ul
+      - @m.each do |m|
+        %li= m.text

@@ -1,17 +1,43 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Theme do
-  let(:theme) { Theme.create(:name => "Paris", :active => true) }
+  let(:theme) { create(:theme) }
 
-  before(:all) do
-    theme.wallpaper = file
+  it { should validate_presence_of(:name) }
+
+  it { theme.should be_valid }
+
+  describe '.activated' do
+    before do
+      theme.active = true
+      theme.save
+    end
+
+    it { Theme.activated.should eql theme }
   end
 
-  it "can be instantiated" do
-    theme.should_not be_nil
+  describe '#activate!' do
+    let(:theme2) { create(:theme) }
+
+    before do
+      theme2.active = true
+      theme2.save
+
+      theme.activate!
+
+      theme2.reload
+    end
+
+    it { theme.active.should be_true }
+    it { theme2.active.should be_false }
   end
 
-  it "wallpaper can be added" do
-    theme.wallpaper.should_not be_blank
+  describe '#wallpaper' do
+    before do
+      theme.wallpaper = File.open(Padrino.root('spec/fixtures/paris.jpg'), 'r')
+    end
+
+    it { theme.wallpaper.should_not be_nil }
+    it { theme.wallpaper.should be_an_instance_of WallpaperUploader }
   end
 end

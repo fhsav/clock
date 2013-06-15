@@ -4,18 +4,20 @@ Clock::Web.controllers :schedules do
   end
 
   get :index do
-    @schedules = Schedule.sort(:name)
+    @schedules = Schedule.all.to_a
 
     render 'schedules/index'
   end
 
   post :activate do
-    Schedule.set({:active => true}, :active => false)
+    Schedule.all.set({ :active => true }, :active => false)
 
     s = Schedule.find(params[:id])
     s.active = true
 
     if s.save
+      expire!('active_main')
+
       flash[:notice] = "The schedule #{s.name} has been activated."
       redirect url(:schedules, :index)
     else
