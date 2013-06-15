@@ -11,3 +11,4 @@ tmp/
 .pusher.yml
 .tmproj
 dump.rdb
+.env

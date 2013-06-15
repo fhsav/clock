@@ -66,13 +66,14 @@
   }), 60000);
 
   $(document).ready(function() {
-    var faye, refreshes;
+    var channel, pusher;
 
     $("#marquee ul").marquee({
       pauseOnHover: false
     });
-    faye = new Faye.Client("/faye");
-    return refreshes = faye.subscribe("/refreshes", function(message) {
+    pusher = new Pusher("4f803f0cec789e485391");
+    channel = pusher.subscribe("refreshes");
+    return channel.bind("refresh", function(data) {
       return location.reload(false);
     });
   });
