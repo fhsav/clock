@@ -5,10 +5,6 @@ module Clock
     register Padrino::Rendering
     register Jammit
 
-    Faye::WebSocket.load_adapter('thin')
-
-    use Faye::RackAdapter, :mount => '/faye', :timeout => 25
-
     enable :sessions
     disable :protection
 
@@ -26,5 +22,9 @@ module Clock
     configure :production do
       enable :caching
     end
+
+    Pusher.app_id = ENV["PUSHER_ID"]
+    Pusher.key =    ENV["PUSHER_KEY"]
+    Pusher.secret = ENV["PUSHER_SECRET"]
   end
 end

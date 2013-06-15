@@ -23,7 +23,7 @@ gem 'tzinfo'
 
 gem 'ohm'
 
-gem 'faye', :github => 'faye/faye'
+gem 'pusher'
 
 gem 'tilt', '~> 1.3.7'
 
