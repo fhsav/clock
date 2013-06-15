@@ -66,7 +66,3 @@ group :test do
   gem 'factory_girl'
   gem 'database_cleaner'
 end
-
-group :production do
-  gem 'cijoe', :git => 'https://github.com/nvloff/cijoe.git'
-end
