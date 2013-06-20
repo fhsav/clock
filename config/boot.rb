@@ -18,7 +18,9 @@ if defined?(LogBuddy)
   })
 end
 
-Dotenv.load!
+if defined?(Dotenv)
+  Dotenv.load!
+end
 
 Padrino.before_load do
   Padrino.require_dependencies(Padrino.root('app/uploaders/*.rb'))

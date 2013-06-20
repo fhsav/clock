@@ -11,7 +11,6 @@ gem 'thin'
 gem 'rake'
 gem 'sinatra-flash', :require => "sinatra/flash"
 
-gem 'dotenv'
 
 gem 'mongoid'
 gem 'mongoid-grid_fs'
@@ -45,6 +44,7 @@ gem 'closure'
 
 group :development, :test do
   gem 'log_buddy'
+  gem 'dotenv'
 end
 
 group :development do
