@@ -15,9 +15,7 @@ test:
 production:
   sessions:
     default:
-      database: clock_production
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGOHQ_URL'] %>
   options:
     identity_map_enabled: true
     preload_models:
