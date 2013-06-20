@@ -4,7 +4,11 @@ require 'yaml'
 Mongoid.load!(Padrino.root('.mongoid.yml'))
 
 # Redis
-Ohm.connect
+if Padrino.env == :production
+  Ohm.connect
+else
+  Ohm.connect :url => ENV['REDISTOGO_URL']
+end
 
 # GridFS
 CarrierWave.configure do |config|
