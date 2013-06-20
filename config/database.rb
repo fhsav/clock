@@ -5,9 +5,9 @@ Mongoid.load!(Padrino.root('.mongoid.yml'))
 
 # Redis
 if Padrino.env == :production
-  Ohm.connect
-else
   Ohm.connect :url => ENV['REDISTOGO_URL']
+else
+  Ohm.connect
 end
 
 # GridFS
