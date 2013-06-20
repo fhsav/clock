@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 %w(core gen helpers cache).each do |g|
   gem 'padrino-' + g, '0.11.1'
 end
