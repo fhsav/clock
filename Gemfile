@@ -17,7 +17,8 @@ gem 'mongoid-grid_fs'
 gem 'carrierwave', :require => 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
-gem 'memcached'
+gem 'memcachier'
+gem 'dalli'
 
 gem 'tzinfo'
 
