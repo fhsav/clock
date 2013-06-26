@@ -82,9 +82,3 @@ $(document).ready ->
 
   # Marquee
   $("#marquee ul").marquee pauseOnHover: false
-
-  # Pusher (Refreshing)
-  pusher = new Pusher("4f803f0cec789e485391")
-  channel = pusher.subscribe("refreshes")
-  channel.bind "refresh", (data) ->
-    location.reload false

@@ -52,4 +52,8 @@
       !
 
     = include_javascripts :clock
-
+    :coffeescript
+      pusher = new Pusher("4f803f0cec789e485391")
+      channel = pusher.subscribe("refreshes")
+      channel.bind "refresh", (data) ->
+        location.reload false

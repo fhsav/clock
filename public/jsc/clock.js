@@ -66,15 +66,8 @@
   }), 60000);
 
   $(document).ready(function() {
-    var channel, pusher;
-
-    $("#marquee ul").marquee({
+    return $("#marquee ul").marquee({
       pauseOnHover: false
-    });
-    pusher = new Pusher("4f803f0cec789e485391");
-    channel = pusher.subscribe("refreshes");
-    return channel.bind("refresh", function(data) {
-      return location.reload(false);
     });
   });
 
