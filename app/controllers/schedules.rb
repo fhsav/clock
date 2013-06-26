@@ -13,9 +13,8 @@ Clock::Web.controllers :schedules do
     Schedule.all.set({ :active => true }, :active => false)
 
     s = Schedule.find(params[:id])
-    s.active = true
 
-    if s.save
+    if s.activate!
       expire!('active_main')
 
       flash[:notice] = "The schedule #{s.name} has been activated."
