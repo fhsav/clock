@@ -8,7 +8,7 @@ javascripts:
   clock:
     - public/jsc/lib/vendor/*.js
     - public/jsc/lib/*.js
-    - public/jsc/clock.js
+    - public/jsc/clock.v2.js
 
   admin:
     - public/jsc/lib/vendor/*.js
