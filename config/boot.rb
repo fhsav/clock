@@ -22,6 +22,10 @@ if defined?(Dotenv)
   Dotenv.load!
 end
 
+def heroku?
+  ENV['HEROKU']
+end
+
 Padrino.before_load do
   Padrino.require_dependencies(Padrino.root('app/uploaders/*.rb'))
 end
