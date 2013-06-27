@@ -42,9 +42,8 @@ gem 'uglifier'
 gem 'yui-compressor'
 gem 'closure'
 
-group :development, :test do
-  gem 'log_buddy'
-  gem 'dotenv'
+group :production do
+  gem 'newrelic_rpm'
 end
 
 group :development do
@@ -57,6 +56,11 @@ group :development do
   gem 'pry'
 
   gem 'rubocop'
+end
+
+group :development, :test do
+  gem 'log_buddy'
+  gem 'dotenv'
 end
 
 group :test do

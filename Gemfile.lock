@@ -85,6 +85,7 @@ GEM
     multi_json (1.7.7)
     nest (1.1.2)
       redis
+    newrelic_rpm (3.6.4.122)
     ohm (1.3.2)
       nest (~> 1.0)
       redis
@@ -193,6 +194,7 @@ DEPENDENCIES
   memcachier
   mongoid
   mongoid-grid_fs
+  newrelic_rpm
   ohm
   padrino-cache (= 0.11.1)
   padrino-core (= 0.11.1)
