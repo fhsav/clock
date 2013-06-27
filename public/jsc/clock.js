@@ -66,9 +66,10 @@
   }), 60000);
 
   $(document).ready(function() {
-    return $("#marquee ul").marquee({
+    $("#marquee ul").marquee({
       pauseOnHover: false
     });
+    return console.log("Hello there web traveler! What are you doing here? Check out the code for the Clock on GitHub at https://github.com/fhsav/clock.");
   });
 
 }).call(this);

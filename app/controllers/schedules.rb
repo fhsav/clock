@@ -10,8 +10,6 @@ Clock::Web.controllers :schedules do
   end
 
   post :activate do
-    Schedule.all.set({ :active => true }, :active => false)
-
     s = Schedule.find(params[:id])
 
     if s.activate!

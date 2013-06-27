@@ -13,15 +13,15 @@
   GitHub: gluxon
 
   Developer: Eric Sims
-  GitHub: Eric Sims
+  GitHub: ericsims
 
 
 /* THANKS */
+  Evan Foreman
   Nick Silverman
-  Joshua Warchol: http://fanzter.com/about/joshua-warchol
 
 /* SITE */
   Standards: HTML5, CSS3
   Components: jQuery
-  Application: Padrino, MongoDB (via MongoMapper)
-  Software: gEdit
+  Application: Padrino, MongoDB (via Mongoid)
+  Software: Sublime Text 2

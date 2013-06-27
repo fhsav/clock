@@ -34,7 +34,7 @@
               = hidden_field_tag :id, :value => t.id
               %button{:type => "submit"} Delete
 - else
-  %p No themes yet!
+  %p No themes yet! Why don't you make one?
 
 %footer
   = form_tag url(:themes, :create), :enctype => "multipart/form-data", :class => "themes", :method => "post" do

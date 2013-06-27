@@ -6,7 +6,7 @@
     %meta{:content => "initial-scale=1", :name => "viewport"}
 
     %meta{:content => "The Farmington High School clock.", :name => "description"}
-    %meta{:content => "Ethan Turkeltaub", :name => "author"}
+    %meta{:content => "Ethan Turkeltaub, Brandon Cheng, Eric Sims, and Farmington High School Audio-Visual Support", :name => "author"}
 
     %title Clock &mdash; Administration
 
@@ -57,17 +57,18 @@
 
       %footer
         %section
-          %p= safe("<a href=\"http://ethnt.me\">Ethan Turkeltaub</a> and FHS Audio-Visual fecit 2010&ndash;#{Time.now.year}.")
+          %p= safe("&copy; 2010&ndash;#{Time.now.year} by <a href='http://ethnt.me'>Ethan Turkeltaub</a>, <a href='https://github.com/gluxon'>Brandon Cheng</a>, <a href='https://github.com/ericsims'>Eric Sims</a>, and FHS Audio-Visual Support.")
           %ul
             %li
-              %a{:href => "http://github.com/fhsclock/clock"} GitHub
+              %a{:href => "http://github.com/fhsav/clock"} GitHub
             %li
-              %a{:href => "http://github.com/fhsclock/clock/issues"} Issues
+              %a{:href => "http://github.com/fhsav/clock/issues"} Issues
             %li
-              %a{:href => "http://#{request.host}:4567"} CIJoe
+              %a{:href => "/humans.txt"} Humans.txt
           %p.version= "#{CLOCK_VERSION}"
 
     = include_javascripts :admin
 
 /
   version:     #{CLOCK_VERSION}
+  Hello there, web traveler. What are you doing here?
