@@ -16,7 +16,7 @@ module Clock
     configure :production do
       set :cache, Padrino::Cache::Store::Memcache.new(::Dalli::Client.new)
 
-      require 'newrelic_rpm'
+      use Raven::Rack
     end
 
     configure :development do

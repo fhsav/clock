@@ -1,7 +1,7 @@
 require 'yaml'
 
 # MongoDB
-Mongoid.load!(Padrino.root('config/mongoid.yml'))
+Mongoid.load!(Padrino.root('.mongoid.yml'))
 
 # Redis
 if Padrino.env == :production
