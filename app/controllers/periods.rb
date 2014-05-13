@@ -30,13 +30,15 @@ Clock::Web.controllers :periods, :parent => :schedules do
   end
 
   get :edit, :map => '/schedules/:schedule_id/periods/:id/edit' do
-    @period = Period.find(params[:id])
+    s = Schedule.find(params[:schedule_id])
+    @period = s.periods.find(params[:id])
 
     render 'periods/edit'
   end
 
   put :modify do
-    p = Period.find(params[:id])
+    s = Schedule.find(params[:schedule_id])
+    p = s.periods.find(params[:id])
 
     if p.update_attributes(params[:period])
       flash[:notice] = 'The period has been modified.'
@@ -48,7 +50,8 @@ Clock::Web.controllers :periods, :parent => :schedules do
   end
 
   delete :destroy do
-    p = Period.find(params[:id])
+    s = Schedule.find(params[:schedule_id])
+    p = s.periods.find(params[:id])
 
     if p.destroy
       flash[:notice] = 'The period has been destroyed.'

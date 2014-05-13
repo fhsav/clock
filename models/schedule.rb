@@ -6,7 +6,7 @@ class Schedule
   field :description, :type => String
   field :active, :type => Boolean, :default => false
 
-  has_many :periods
+  embeds_many :periods, validate: false
 
   validates_presence_of :name
 
@@ -19,4 +19,17 @@ class Schedule
     self.active = true
     self.save
   end
+end
+
+class Period
+  include Mongoid::Document
+
+  field :number, :type => Integer
+  field :text, :type => String
+  field :start, :type => Time
+  field :finish, :type => Time
+
+  embedded_in :schedule
+
+  validates_presence_of :number, :text, :start, :finish
 end
