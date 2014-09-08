@@ -2,12 +2,12 @@ Clock::Web.helpers do
 
   # Check to see if the user is logged in.
   def authenticated?
-    Ohm.redis.get('password') == session['clock']
+    Ohm.redis.call('GET', 'password') == session['clock'];
   end
 
   # Authenticate the user.
   def authenticate!
-    session['clock'] = Ohm.redis.get('password')
+    session['clock'] = Ohm.redis.call('GET', 'password')
   end
 
   # Deauthenticate the user.
@@ -17,7 +17,7 @@ Clock::Web.helpers do
 
   # Check to see if the user put in the right password.
   def valid_password?(password)
-    Ohm.redis.get('password') == encrypt(password)
+    Ohm.redis.call('GET', 'password') == encrypt(password)
   end
 
   # Redirect to new password page if there isn't a password set.
@@ -37,6 +37,6 @@ Clock::Web.helpers do
 
   # See if a password is set.
   def password?
-    !Ohm.redis.get('password').blank?
+    !Ohm.redis.call('GET', 'password').blank?
   end
 end
