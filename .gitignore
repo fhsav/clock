@@ -12,3 +12,4 @@ tmp/
 .tmproj
 dump.rdb
 .env
+/public/css/*.css
