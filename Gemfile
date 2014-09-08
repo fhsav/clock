@@ -33,7 +33,7 @@ gem 'haml'
 
 gem 'jammit-sinatra'
 
-gem 'compass'
+gem 'compass', '~> 0.12.7'
 gem 'susy'
 
 gem 'barista'
