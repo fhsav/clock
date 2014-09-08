@@ -1,6 +1,7 @@
 class Theme
   include Mongoid::Document
   include Mongoid::Timestamps
+  include ActiveModel::MassAssignmentSecurity
 
   attr_accessible :wallpaper, :wallpaper_cache
 

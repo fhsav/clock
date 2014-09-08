@@ -42,6 +42,8 @@ gem 'uglifier'
 gem 'yui-compressor'
 gem 'closure'
 
+gem 'protected_attributes'
+
 group :production do
   gem 'sentry-raven'
 end
