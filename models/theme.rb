@@ -17,7 +17,7 @@ class Theme
   end
 
   def activate!
-    self.class.all.set(:active, false)
+    self.class.all.set(:active => false)
     self.active = true
     self.save
   end
