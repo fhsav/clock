@@ -3,10 +3,10 @@ require 'spec_helper'
 describe Period do
   let(:period) { create(:period) }
 
-  it { should validate_presence_of :number }
-  it { should validate_presence_of :text }
-  it { should validate_presence_of :start }
-  it { should validate_presence_of :finish }
+  it { is_expected.to validate_presence_of :number }
+  it { is_expected.to validate_presence_of :text }
+  it { is_expected.to validate_presence_of :start }
+  it { is_expected.to validate_presence_of :finish }
 
-  it { period.should be_valid }
+  it { expect(period).to be_valid }
 end

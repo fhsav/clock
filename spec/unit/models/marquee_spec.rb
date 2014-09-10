@@ -3,13 +3,13 @@ require 'spec_helper'
 describe Marquee do
   let(:marquee) { create(:marquee) }
 
-  it { should validate_presence_of :text }
+  it { is_expected.to validate_presence_of :text }
 
-  it { marquee.should be_valid }
+  it { expect(marquee).to be_valid }
 
   describe '#format' do
     it 'removes whitespace' do
-      marquee.text.should_not include "/n"
+      expect(marquee.text).not_to include "/n"
     end
   end
 end

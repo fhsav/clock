@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Theme do
   let(:theme) { create(:theme) }
 
-  it { should validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of :name }
 
-  it { theme.should be_valid }
+  it { expect(theme).to be_valid }
 
   describe '.activated' do
     before do
@@ -13,7 +13,7 @@ describe Theme do
       theme.save
     end
 
-    it { Theme.activated.should eql theme }
+    it { expect(Theme.activated).to eql theme }
   end
 
   describe '#activate!' do
@@ -28,8 +28,8 @@ describe Theme do
       theme2.reload
     end
 
-    it { theme.active.should be_true }
-    it { theme2.active.should be_false }
+    it { expect(theme.active).to be true }
+    it { expect(theme2.active).to be false }
   end
 
   describe '#wallpaper' do
@@ -37,7 +37,7 @@ describe Theme do
       theme.wallpaper = File.open(Padrino.root('spec/fixtures/paris.jpg'), 'r')
     end
 
-    it { theme.wallpaper.should_not be_nil }
-    it { theme.wallpaper.should be_an_instance_of WallpaperUploader }
+    it { expect(theme.wallpaper).not_to be_nil }
+    it { expect(theme.wallpaper).to be_an_instance_of WallpaperUploader }
   end
 end

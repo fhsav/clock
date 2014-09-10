@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Schedule do
   let(:schedule) { create(:schedule) }
 
-  it { should validate_presence_of :name }
+  it { is_expected.to validate_presence_of :name }
 
-  it { schedule.should be_valid }
+  it { expect(schedule).to be_valid }
 
   describe '.activated' do
     before do
@@ -13,7 +13,7 @@ describe Schedule do
       schedule.save
     end
 
-    it { Schedule.activated.should eql schedule }
+    it { expect(Schedule.activated).to eql schedule }
   end
 
   describe '#activate!' do
@@ -28,7 +28,7 @@ describe Schedule do
       schedule2.reload
     end
 
-    it { schedule.active.should be_true }
-    it { schedule2.active.should be_false }
+    it { expect(schedule.active).to be true }
+    it { expect(schedule2.active).to be false }
   end
 end

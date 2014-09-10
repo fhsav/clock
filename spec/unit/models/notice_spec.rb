@@ -3,13 +3,13 @@ require 'spec_helper'
 describe Notice do
   let(:notice) { create(:notice) }
 
-  it { should validate_presence_of :text }
+  it { is_expected.to validate_presence_of :text }
 
-  it { notice.should be_valid }
+  it { expect(notice).to be_valid }
 
   describe '#format' do
     it 'removes whitespace' do
-      notice.text.should_not include "/n"
+      expect(notice.text).not_to include "/n"
     end
   end
 end
