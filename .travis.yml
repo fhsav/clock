@@ -4,8 +4,6 @@ branches:
 services:
   - mongodb
   - redis-server
-rvm:
-  - 2.1.3
 before_script: touch .env
 script: bundle exec rspec spec
 notifications:
