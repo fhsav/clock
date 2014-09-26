@@ -12,9 +12,6 @@
   Developer: Brandon Chang
   GitHub: gluxon
 
-  Developer: Eric Sims
-  GitHub: ericsims
-
 
 /* THANKS */
   Evan Foreman

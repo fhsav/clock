@@ -1,6 +1,6 @@
 # Clock [![Travis-CI](https://secure.travis-ci.org/fhsav/clock.png)](http://travis-ci.org/#!/fhsav/clock)
 
-**Author:** [Ethan Turkeltaub](http://github.com/eturk)
+**Authors:** [Ethan Turkeltaub](https://github.com/eturk), [Brandon Cheng](https://github.com/gluxon)
 
 **Thanks:** Nick Silverman, Farmington High School Audio-Visual Department
 
