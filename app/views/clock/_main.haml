@@ -3,7 +3,7 @@
     %p#date= Time.now.strftime("%A, %B %e, %Y")
     %p#time= Time.now.strftime("%l:%M:%S")
 
-    - unless @n.empty? or request.fullpath != "/clock"
+    - unless @n.empty?
       %footer#notices
         %ul
           - @n.each do |n|
