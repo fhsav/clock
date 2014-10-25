@@ -51,7 +51,8 @@
           %p#date= Time.now.strftime("%A, %B %e, %Y")
           %p#time= Time.now.strftime("%l:%M:%S")
 
-          = @notices
+          - if request.fullpath == "/display"
+            = @notices
 
         = @schedule
 
