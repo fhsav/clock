@@ -46,7 +46,14 @@
 
       = @marquees
 
-      = @main
+      #main{:role => "main"}
+        %aside#clock
+          %p#date= Time.now.strftime("%A, %B %e, %Y")
+          %p#time= Time.now.strftime("%l:%M:%S")
+
+          = @notices
+
+        = @schedule
 
     .error
       !

@@ -13,6 +13,8 @@ Clock::Web.controllers :notices do
     n = Notice.new(params[:notice])
 
     if n.save
+      expire!('active_notices')
+
       flash[:notice] = 'The notice has been created.'
       redirect url(:notices, :index)
     else
@@ -31,6 +33,8 @@ Clock::Web.controllers :notices do
     n = Notice.find(params[:id])
 
     if n.update_attributes(params[:notice])
+      expire!('active_notices')
+
       flash[:notice] = 'The notice has been modified.'
       redirect url(:notices, :index)
     else
@@ -43,6 +47,8 @@ Clock::Web.controllers :notices do
     n = Notice.find(params[:id])
 
     if n.destroy
+      expire!('active_notices')
+
       flash[:notice] = 'The notice has been destroyed.'
       redirect url(:notices, :index)
     else

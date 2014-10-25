@@ -17,6 +17,10 @@ Clock::Web.controllers :periods, :parent => :schedules do
       p.number = number
 
       if @s.periods << p
+        if @s.active
+          expire!('active_schedule')
+        end
+
         flash[:notice] = 'The period has been created.'
         redirect url(:schedules, :edit, :id => @s.id)
       else
@@ -41,6 +45,10 @@ Clock::Web.controllers :periods, :parent => :schedules do
     p = s.periods.find(params[:id])
 
     if p.update_attributes(params[:period])
+      if s.active
+        expire!('active_schedule')
+      end
+
       flash[:notice] = 'The period has been modified.'
       redirect url(:schedules, :edit, :id => @s.id)
     else
@@ -54,6 +62,10 @@ Clock::Web.controllers :periods, :parent => :schedules do
     p = s.periods.find(params[:id])
 
     if p.destroy
+      if s.active
+        expire!('active_schedule')
+      end
+
       flash[:notice] = 'The period has been destroyed.'
       redirect url(:schedules, :edit, :id => @s.id)
     else

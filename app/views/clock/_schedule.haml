@@ -1,0 +1,9 @@
+- if @s and @s.periods
+  %section#periods
+    %ol
+      - @s.periods.each do |p|
+        %li
+          ="#{p.text}: "
+          %time.start{:datetime => seconds(p.start)}= "#{time(p.start, 12)}"
+          &ndash;
+          %time.finish{:datetime => seconds(p.finish)}= "#{time(p.finish, 12)}"

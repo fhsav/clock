@@ -1,0 +1,5 @@
+- unless @n.empty?
+  %footer#notices
+    %ul
+      - @n.each do |n|
+        %li= n.text

@@ -1,7 +1,6 @@
 (function() {
   setInterval((function() {
     var d, date, day, days, final, hour, minute, month, months, second, time, year;
-
     d = new Date();
     day = d.getDay();
     month = d.getMonth();
@@ -25,7 +24,6 @@
     $("p#time").html("" + hour + ":" + minute + ":" + second);
     $("#periods ol li").each(function(index) {
       var e, finish, start;
-
       e = $(this);
       start = e.find("time.start").attr("datetime");
       finish = e.find("time.finish").attr("datetime");
@@ -49,7 +47,7 @@
     if ($("#periods ol li").length === 0) {
       $("#main").addClass("true");
     }
-    if (time > final || $("#main").hasClass("true")) {
+    if (time > final || !$("#periods").length) {
       return $("#main").addClass("after");
     } else {
       return $("#main").removeClass("after");

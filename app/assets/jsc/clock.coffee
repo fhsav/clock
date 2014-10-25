@@ -62,7 +62,7 @@ setInterval (->
 
 
   # Check if schedule exists.
-  if time > final or $("#main").hasClass "true"
+  if time > final or !$("#periods").length
     $("#main").addClass "after"
   else
     $("#main").removeClass "after"
