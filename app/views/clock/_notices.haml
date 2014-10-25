@@ -1,4 +1,4 @@
-- unless @n.empty?
+- if @n.any? and request.fullpath == "/display"
   %footer#notices
     %ul
       - @n.each do |n|

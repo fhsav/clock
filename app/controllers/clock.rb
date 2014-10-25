@@ -6,4 +6,8 @@ Clock::Web.controllers :clock do
   get :index do
     render 'clock/index', :layout => false
   end
+
+  get :display, :map => '/display' do
+    render 'clock/index', :layout => false
+  end
 end
