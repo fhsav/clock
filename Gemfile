@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+# Get Ruby version from .ruby-version
+ruby File.read(".ruby-version").strip
 
 %w(core gen helpers cache).each do |g|
   gem 'padrino-' + g, '0.11.1'
