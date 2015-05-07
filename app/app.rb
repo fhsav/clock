@@ -10,11 +10,11 @@ module Clock
 
 
     configure :development, :test do
-      set :cache, Padrino::Cache::Store::Memcache.new(::Dalli::Client.new('127.0.0.1:11211', :exception_retry_limit => 1))
+      set :cache, Padrino::Cache.new(:Memcached, :backend => ::Dalli::Client.new('127.0.0.1:11211'), :exception_retry_limit => 1)
     end
 
     configure :production do
-      set :cache, Padrino::Cache::Store::Memcache.new(::Dalli::Client.new)
+      set :cache, Padrino::Cache.new(:Memcached, :backend => ::Dalli::Client.new);
 
       use Raven::Rack
     end

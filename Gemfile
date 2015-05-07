@@ -3,9 +3,10 @@ source 'https://rubygems.org'
 # Get Ruby version from .ruby-version
 ruby File.read(".ruby-version").strip
 
-%w(core gen helpers cache).each do |g|
-  gem 'padrino-' + g, '0.11.1'
-end
+gem 'padrino-core'
+gem 'padrino-gen'
+gem 'padrino-helpers'
+gem 'padrino-cache'
 
 gem 'thin'
 
@@ -28,13 +29,13 @@ gem 'ohm'
 
 gem 'pusher'
 
-gem 'tilt', '~> 1.3.7'
+gem 'tilt'
 
 gem 'haml'
 
 gem 'jammit-sinatra'
 
-gem 'compass', '~> 0.12.7'
+gem 'compass'
 gem 'susy'
 
 gem 'barista'
