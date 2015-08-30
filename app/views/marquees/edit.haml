@@ -15,7 +15,7 @@
   %h2 Marquee Items
   %h3= safe("Editing marquee item <code>#{@marquee.id}</code>")
 
-- form_tag url(:marquees, :modify), :method => "put" do
+= form_tag url(:marquees, :modify), :method => "put" do
   = hidden_field_tag :id, :value => @marquee.id
 
   %p= text_area_tag "marquee[text]", :class => "huge", :required => true, :value => @marquee.text
