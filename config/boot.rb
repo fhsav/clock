@@ -1,4 +1,4 @@
-RACK_ENV     = ENV['RACK_ENV'] ||= 'development' unless defined?(RACK_ENV)
+RACK_ENV     = ENV['RACK_ENV'] ||= :production unless defined?(RACK_ENV)
 PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 
 CLOCK_VERSION = '0.4.12'
@@ -7,6 +7,8 @@ require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 
 Bundler.require(:default, RACK_ENV)
+
+Time.zone = ActiveSupport::TimeZone.new "Eastern Time (US & Canada)"
 
 if defined?(LogBuddy)
   LogBuddy.init({
