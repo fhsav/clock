@@ -46,6 +46,8 @@ gem 'closure'
 
 gem 'protected_attributes'
 
+gem 'dotenv'
+
 group :production do
   gem 'sentry-raven'
 end
@@ -64,7 +66,6 @@ end
 
 group :development, :test do
   gem 'log_buddy'
-  gem 'dotenv'
 end
 
 group :test do

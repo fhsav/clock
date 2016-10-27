@@ -15,7 +15,9 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOHQ_URL'] %>
+      database: clock_production
+      hosts:
+        - localhost:27017
   options:
     preload_models:
       - Marquee
