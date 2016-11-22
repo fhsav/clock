@@ -16,6 +16,10 @@ module Clock
     configure :production do
       set :cache, Padrino::Cache.new(:Memcached, :backend => ::Dalli::Client.new);
 
+      Pusher.app_id = ENV["PUSHER_ID"]
+      Pusher.key =    ENV["PUSHER_KEY"]
+      Pusher.secret = ENV["PUSHER_SECRET"]
+
       use Raven::Rack
     end
 
