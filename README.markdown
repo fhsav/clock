@@ -4,7 +4,7 @@
 
 **Thanks:** Nick Silverman, Farmington High School Audio-Visual Department
 
-**Licence:** [The ☺ Licence](http://licence.visualidiot.com/)
+**Licence:** [The ☺ Licence](https://github.com/fhsav/clock/blob/master/license.md) _(Created by [VisualIdiot](http://visualidiot.com))_
 
 ## What is it?
 
