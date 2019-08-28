@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+
+  web:
+    build: ./
+    ports:
+      - 80:80
+    environment:
+      MONGODB_HOST: database
+      MEMCACHED_HOST: memcached
+      REDIS_URL: redis://redis:6379
+    volumes:
+      - "./log:/home/app/clock/log"
+
+  database:
+    image: mongo:3
+    volumes:
+      - "./docker/mongo/data:/data/db"
+
+  memcached:
+    image: memcached:1.5-alpine
+
+  redis:
+    image: redis:5-alpine
+    volumes:
+      - "./docker/redis/data:/data"

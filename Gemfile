@@ -24,6 +24,7 @@ gem 'memcachier'
 gem 'dalli'
 
 gem 'tzinfo'
+gem 'tzinfo-data'
 
 gem 'ohm'
 
