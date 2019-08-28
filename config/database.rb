@@ -4,7 +4,7 @@ require 'yaml'
 Mongoid.load!(Padrino.root('.mongoid.yml'))
 
 # Redis
-Ohm.redis = Redic.new("redis://127.0.0.1:6379")
+Ohm.redis = Redic.new(ENV['REDIS_URL'])
 
 # GridFS
 CarrierWave.configure do |config|

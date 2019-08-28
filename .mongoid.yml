@@ -18,6 +18,7 @@ production:
       database: clock_production
       hosts:
         - localhost:27017
+        - <%= ENV["MONGODB_HOST"] %>
   options:
     preload_models:
       - Marquee

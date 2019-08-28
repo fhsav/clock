@@ -14,7 +14,7 @@ module Clock
     end
 
     configure :production do
-      set :cache, Padrino::Cache.new(:Memcached, :backend => ::Dalli::Client.new);
+      set :cache, Padrino::Cache.new(:Memcached, :backend => ::Dalli::Client.new(ENV["MEMCACHED_HOST"]));
 
       Pusher.app_id = ENV["PUSHER_ID"]
       Pusher.key =    ENV["PUSHER_KEY"]
