@@ -6,6 +6,7 @@ services:
     build: ./
     ports:
       - 80:80
+    restart: always
     environment:
       MONGODB_HOST: database
       MEMCACHED_HOST: memcached
@@ -15,13 +16,16 @@ services:
 
   database:
     image: mongo:3
+    restart: always
     volumes:
       - "./docker/mongo/data:/data/db"
 
   memcached:
     image: memcached:1.5-alpine
+    restart: always
 
   redis:
     image: redis:5-alpine
+    restart: always
     volumes:
       - "./docker/redis/data:/data"
