@@ -149,7 +149,7 @@ GEM
       httpclient (~> 2.5)
       multi_json (~> 1.0)
       signature (~> 0.1.8)
-    rack (1.5.3)
+    rack (1.5.5)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -212,6 +212,8 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2019.3)
+      tzinfo (>= 1.0.0)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -262,5 +264,6 @@ DEPENDENCIES
   thin
   tilt
   tzinfo
+  tzinfo-data
   uglifier
   yui-compressor
