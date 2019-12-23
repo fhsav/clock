@@ -151,7 +151,7 @@ GEM
       multi_json (~> 1.0)
       signature (~> 0.1.8)
     rack (1.5.5)
-    rack-protection (1.5.3)
+    rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
